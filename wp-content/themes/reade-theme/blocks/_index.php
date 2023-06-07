@@ -23,21 +23,38 @@ function theme_register_blocks()
 		return;
 	}
 	
-	foreach([ //TODO autogenerate field group for new blocks
-		'call-to-action',
-		'page-hero',
-	] as $label) {
-		acf_register_block([ //TODO
-			'name'			=> $label,
-			'title'			=> implode(' ', array_map(function($w) {return ucfirst($w);}, explode('-', $label))),
-			'render_template'	=> "blocks/$label.php",
-			'category'		=> 'theme-blocks',
-			'icon'			=> 'button',
-			'mode'			=> 'edit',
-			'keywords'		=> [$label, TEXTDOMAIN],
-			'supports' => ['align' => false],
-		]);
-	}
+	/** Keep Alphabetic */ //TODO
+	//TODO - https://stackoverflow.com/questions/65886937/show-preview-image-for-custom-gutenberg-blocks
+	$img_root = "./assets/img/blocks";
+	$mode = 'edit';
+	/** 
+	 * Call To Action
+	 * */
+	acf_register_block([
+		'name'			=> 'call-to-action',
+		'title'			=> 'Call To Action',
+		'render_template'	=> "blocks/call-to-action.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/call-to-action.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+	/** 
+	 * Page Hero 
+	 * */
+	acf_register_block([
+		'name'			=> 'page-hero',
+		'title'			=> 'Hero',
+		'render_template'	=> "blocks/page-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/page-hero.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
 }
 
 
