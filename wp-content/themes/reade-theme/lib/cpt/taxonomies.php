@@ -47,7 +47,7 @@ function generateTaxonomy($slug, $post_type_slugs, $singular_name, $plural_name)
 			'back_to_items'              => __( "&larr; Back to ".$plural_name, TEXTDOMAIN ),
 		],
 		'show_in_rest'          => true,
-		'rest_base'             => 'press_source',
+		'rest_base'             => $slug, //STARTER
 		'rest_controller_class' => 'WP_REST_Terms_Controller',
 	] );
 

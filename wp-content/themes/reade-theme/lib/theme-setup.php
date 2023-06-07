@@ -416,7 +416,7 @@ require get_template_directory() . '/lib/theme-enqueue-scripts.php';
 // require get_template_directory() . '/lib/theme-rest.php';
 
 //CPT
-// require get_template_directory() . '/lib/cpt/<cpt>.php';
+require get_template_directory() . '/lib/cpt/_index.php';
 
 if(IS_LOCAL) {
 	if(file_exists(get_template_directory() . '/scripts/theme-develop.php')) {

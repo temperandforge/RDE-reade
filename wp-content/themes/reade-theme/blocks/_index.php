@@ -22,8 +22,8 @@ function theme_register_blocks()
 	if (!function_exists('acf_register_block')) {
 		return;
 	}
-	
-	/** Keep Alphabetic */ //TODO
+
+	/** Keep Alphabetic */ //TODO //STARTER
 	//TODO - https://stackoverflow.com/questions/65886937/show-preview-image-for-custom-gutenberg-blocks
 	$img_root = "./assets/img/blocks";
 	$mode = 'edit';
