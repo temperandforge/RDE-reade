@@ -1,4 +1,11 @@
-// SETUP
+# READE ( WPEngine )
+
+fds
+
+
+
+
+
 ## DEVELOPER SETUP
 ### Copying existing site / setting ip local copy
 #### Using Local
@@ -38,8 +45,9 @@ Run `npm start`
 
 
 #### New Site/Theme Setup
-
-
+- wpengine_ed
+- feat-twnd branch
+- update package.json, actions, gitignores, style.css - starter
 
 
 
@@ -60,12 +68,13 @@ Run `npm start`
 - update theme-develop - menus, pages, posts, cpts
 
 
-## CHANGELOG
+## **CHANGELOG**
 
 
 
 
-## TODO CHANGES
+## **TODO**
+- LAUNCH deploy branch- prd, stg, dev
 - update workflows - txt
 - xpostinstall
 - litespeed cache htaccess was removed - https://github.com/jgansl/wpe-tf-starter/commit/09485420591a3f54671a78d1a6395c2a228e1884
