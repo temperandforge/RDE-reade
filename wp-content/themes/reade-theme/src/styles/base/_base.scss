@@ -1,0 +1,78 @@
+// // @import './_reset';
+@import './_mixins';
+@import './_variables';
+@import './_typography';
+@import './_components';
+@import './_utilities';
+
+
+//SETUP
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+	/* Works on Firefox */
+	scrollbar-width: thin;
+	scrollbar-color: #fff var(--footer-blue);
+	/* Works on Chrome, Edge, and Safari */
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-track {
+		background: var(--footer-blue);
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #fff;
+		border-radius: 20px;
+		border: 2px solid var(--footer-blue);
+	}
+}
+
+html,
+body {
+   width: 100%;
+	background-color: $html-bg-color;
+	overflow-x: hidden;
+}
+
+/* IE 11 fix */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	html {
+		overflow-x: visible !important;
+	}
+}
+
+body {
+	@apply flex flex-col grow relative; 
+	// background-color: $body-bg-color;
+	// color: $body-color;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
+	text-rendering: optimizeLegibility;
+
+	&.using-mouse {
+		a,
+		button,
+		input,
+		select,
+		textarea {
+			outline: 0 !important;
+		}
+	}
+}
+
+ul {
+   list-style-type: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+@import '_footer';
+@import '_header';
+@import '_menu';
+
+@import './_default-blocks';

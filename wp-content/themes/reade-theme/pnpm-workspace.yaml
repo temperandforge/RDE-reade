@@ -1,0 +1,7 @@
+packages:
+  # all packages in direct subdirs of blocks/
+  - 'blocks/*'
+  # all packages in subdirs of blocks/
+  - 'blocks/**'
+  # exclude packages that are inside test directories
+  # - '!**/test/**'

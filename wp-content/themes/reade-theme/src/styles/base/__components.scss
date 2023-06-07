@@ -1,0 +1,23 @@
+@layer components {
+   .btn {
+      @apply border-1 rounded-1 font-semibold inline-block text-primary500;
+      @apply py-3 px-16; //TODO em
+      @media screen and (hover:hover) and (pointer: fine) {
+         transition: 0.2s;
+         &:hover {
+            @apply bg-primary500 text-white;
+         }
+      }
+   }
+   
+   .btn-accent {
+      @apply bg-green border-green text-footer-primary;
+      @media screen and (hover:hover) and (pointer: fine) {
+         &:hover {
+            @apply bg-green border-green text-footer-primary;
+            filter: brightness(80%);
+         }
+      }
+   }
+
+}

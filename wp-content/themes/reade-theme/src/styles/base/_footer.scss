@@ -1,0 +1,111 @@
+@layer base {
+}
+
+.site-footer {
+   @apply bg-footer-primary text-white;
+}
+
+.footer-row-1,
+.footer-row-2,
+.footer-row-3 {
+   @apply flex justify-between;
+}
+
+.footer-row-1,
+.footer-row-2 {
+}
+
+//.footer-info,
+.footer-row-1 {
+   @apply hidden py-16 relative z-10;
+}
+.footer-links {
+   ul:not(.sub-menu) {
+      @apply flex gap-x-8;
+      li {
+         a {
+            @apply inline-block;
+         }
+      }
+      > li {
+         > a {
+            @apply inline-block mb-4;
+         }
+      }
+   }
+
+   .sub-menu {
+      @apply flex flex-col gap-y-3;
+      li {
+         @apply m-0 p-0;
+      }
+   }
+}
+a.footer-logo-link {
+   @apply h-auto inline-block relative w-32;
+   img {
+      @include fillall;
+      // object-fit: contain;
+   }
+
+   svg {
+      max-width: 145px;
+      height: auto;
+   }
+}
+
+.footer-row-2 {
+   @apply flex items-end py-20 relative z-20;
+}
+.footer-social {
+   @apply flex gap-x-3;// mb-10;
+
+   g, path { pointer-events: none; }
+}
+// .social-icon {}
+// .footer-contact {
+//    @apply flex flex-col gap-y-9;
+
+//    address {
+//       font-style: normal;
+//    }
+// }
+.footer-contact-phone,
+.footer-contact-email {
+   @apply mb-0;
+}
+.footer-subscribe {}
+.footer-form-msg { @apply text-center max-w-md;// md:max-w-none; 
+}
+.wpcf7-spinner { @apply hidden; }
+#wpcf7-f16-o1, .footer-row-2 .wpcf7 { //TODO
+   form {
+      @apply flex gap-x-2 items-center mx-auto mb-0;
+   }
+   input { //TODO focus
+      @apply bg-white h-full px-4 py-3;// rounded-1;
+   }
+   p:first-of-type { //:has(input:not([type=submit]))
+      @apply grow;
+   }
+   input:not([type=submit]) {
+      @apply w-full; 
+   }
+   input[type=submit] {
+      //@apply bg-marigold;
+      @apply text-white hover:text-white;// hover:bg-purple;
+      transition: 0.3s;
+   }
+}
+
+.footer-row-3 {
+   @apply flex-col-reverse items-center py-6 sm:flex-row;
+   @apply bg-primary100 text-footer-primary;
+   @include psuedo-cover;
+   background-color: $footer-row-3-bg;
+   color: $footer-row-3-text;
+}
+// .footer-copyright {}
+.footer-legal, #menu-footer-legal {
+   @apply flex gap-x-5 mb-2 pl-0 underline sm:mb-0;
+}

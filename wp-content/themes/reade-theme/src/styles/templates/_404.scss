@@ -1,0 +1,23 @@
+svg > * {
+   pointer-events: none;
+}
+.error404 {
+   .main-content-wrap {
+      @apply bg-primary50 flex flex-col items-center justify-center relative;
+      min-height: calc(100vh - var(--navbar-height));
+      > svg {
+         @apply absolute right-0;
+         top: 25%;
+      }
+      h1 {
+         @apply mb-0 text-primary500;
+         @include font404;
+      }
+      p:last-of-type {
+         @apply mb-0;
+      }
+      .btns-wrap {
+         @apply mt-7;
+      }
+   }
+}

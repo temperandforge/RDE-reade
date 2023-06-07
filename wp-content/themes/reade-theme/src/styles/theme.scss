@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './base/_base';
+@import './blocks/_index';
+@import './templates/_index';
+@import './_styles';
+
+// body.home {
+//    z-index: 1;
+//    &:before {
+//       content:"";
+//       @include cover;
+//       background-image: url('../home_desktop.jpg');
+//       background-size: 1440px auto;
+//       background-position: center 0px;
+//    }
+// }
+
+
+.logged-in {}
+.creator-link {
+   position: absolute;
+   bottom: 0.5rem;
+   text-align: center;
+   width: 100%;
+}
+
+/** Page Specific - DANGER
+ *
+ */

@@ -1,0 +1,44 @@
+{
+  "title" : "READE",
+  "pages": {
+    "Home": {
+      "title": "Front Page",
+      "slug":"",
+      "status":"",
+      "order": -90,
+      "content": "",
+      "template" : null
+    },
+    "Services": {},
+    "Global Sourcing": {},
+    "Toll Processing": {},
+    "Toll Packaging": {},
+    "Products": {},
+    "Itemized RFQ Form": {},
+    "Privacy Policy": {},
+    "Terms of Service": {},
+    "Terms & Conditions of Sale": {},
+    "About Us": {},
+    "Our History": {},
+    "Leadership": {},
+    "Quality": {},
+    "Industries Served": {},
+    "SDVOSB": {},
+    "Contact": {},
+    "Careers": {},
+    "Partners With Us": {},
+    "FAQs": {}
+  },
+  "cpts": [
+    "news",
+    "tools",
+    "careers",
+    "products"
+  ],
+  "menus": {
+    "primary-navigation": {},
+    "footer-legal": {},
+    "footer-navigation": {},
+    "mobile-navigation": {}
+  }
+}

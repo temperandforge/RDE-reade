@@ -1,0 +1,152 @@
+//TODO browser support
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$font-open-sans: 'Open Sans', sans-serif; 
+$font-september: 'September', sans-serif;
+
+$font-stack: $font-open-sans;
+//$font-heading: sans-serif;
+//$font-color: purple;
+
+@mixin font404() {
+   font-family: $font-september;
+   font-size: 193px;
+   font-weight: 500;
+   line-height: 1.072538860103627; // 207/193
+   letter-spacing: -0.02em;
+   text-align: left;
+}
+
+@mixin headerlink() {
+   //font-family: Open Sans;
+   font-size: 15px;
+   font-weight: 600;
+   line-height: 1.6; // 24/15
+   letter-spacing: 0em;
+   text-align: center;
+}
+
+@mixin hdl1() {
+   //font-family: Open Sans;
+   font-size: 55px;
+   font-weight: 700;
+   line-height: 1.2727272727272727; // 70/55
+   letter-spacing: -0.04em;
+   //text-align: left;
+}
+
+@mixin year() {
+   font-family: Open Sans;
+   font-size: 130px;
+   font-weight: 700;
+   line-height: 185px;
+   letter-spacing: -0.02em;
+   text-align: left;
+}
+@mixin historydescripton() {
+   //font-family: Open Sans;
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 27px;
+   letter-spacing: 0em;
+   //text-align: center;
+}
+@mixin history() {
+   //font-family: Open Sans;
+   font-size: 50px;
+   font-weight: 700;
+   line-height: 1.16; // 58/50
+   letter-spacing: -0.03em;
+   //text-align: center;
+}
+
+//styleName: Heading/H2/Bold/Desktop;
+@mixin hdl2() {
+   //font-family: Open Sans;
+   font-size: 36px;
+   font-weight: 700;
+   line-height: 1.2222222222222223; // 44/36
+   letter-spacing: -0.04em;
+   //text-align: center;
+}
+
+//styleName: Heading/H4/Bold/Desktop;
+@mixin hdl4() {
+   //font-family: Open Sans;
+   font-size: 28px;
+   font-weight: 700;
+   line-height: 36px;
+   letter-spacing: -0.02em;
+   text-align: left;
+
+}
+
+
+//styleName: Heading/H5/Extrabold/Desktop;
+@mixin hdl5() {
+   //font-family: Open Sans;
+   font-size: 24px;
+   font-weight: 800;
+   line-height: 32px;
+   letter-spacing: -0.02em;
+   //text-align: left;
+}
+
+//styleName: Heading/H6/Bold/Desktop;
+@mixin hdl6() {
+   //font-family: Open Sans;
+   font-size: 20px;
+   font-weight: 700;
+   line-height: 1.4; // 28/20
+   letter-spacing: -0.02em;
+   //text-align: left;
+}
+
+@mixin hdl-team-single() {
+   //font-family: Open Sans;
+   font-size: 32px;
+   font-weight: 700;
+   line-height: 41px;
+   letter-spacing: -0.02em;
+   text-align: left;
+
+}
+
+@mixin hdl-faqs {
+   //font-family: Open Sans;
+   font-size: 50px;
+   font-weight: 700;
+   line-height: 58px;
+   letter-spacing: -0.03em;
+   //text-align: center;
+}
+
+@mixin body-lg() {
+   font-family: Open Sans;
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 1.3333333333333333; // 24/18
+   letter-spacing: -0.02em;
+//text-align: left;
+}
+@mixin body-sm() {
+   //styleName: Paragraph/Small/Medium;
+   //font-family: Open Sans;
+   font-size: 14px;
+   //font-weight: 400;
+   line-height: 1.6428571428571428; // 23/14
+   //letter-spacing: 0em;
+   // text-align: left;
+}
+
+//styleName: Paragraph/Medium/Medium;
+@mixin body() {
+   @apply text-primary900;
+   font-family: $font-stack; //Open Sans;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 1.5; // 24/16
+   letter-spacing: 0em;
+   text-align: left;
+}
+body { @include body; }

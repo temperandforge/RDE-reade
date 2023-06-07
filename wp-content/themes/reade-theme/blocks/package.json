@@ -1,0 +1,14 @@
+{
+  "name": "blocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@wordpress/create-block":"*"
+  },
+  "scripts": {
+    "block:help":"npx @wordpress/create-block --help",
+    "block:create":"$TMP=$1; npx @wordpress/create-block $TMP && rm-rf $TMP/node_modules",
+    "block:docs":"echo https://developer.wordpress.org/block-editor/getting-started/create-block/"
+  }
+}

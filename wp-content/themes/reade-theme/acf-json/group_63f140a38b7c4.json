@@ -1,0 +1,65 @@
+{
+    "key": "group_63f140a38b7c4",
+    "title": "Additional User Details",
+    "fields": [
+        {
+            "key": "field_63f140ad583c4",
+            "label": "Author Bio\/Description",
+            "name": "author_biodescr",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "administrator"
+            }
+        ],
+        [
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "editor"
+            }
+        ],
+        [
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "author"
+            }
+        ],
+        [
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "contributor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1676755217
+}
