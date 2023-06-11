@@ -85,7 +85,8 @@ function cpt_init(
    $rest_base,
    $menu_icon,
    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-   $taxonomies = []
+   $taxonomies = [],
+	$has_archive = true
 ) {
    register_post_type(
       $slug,
@@ -122,10 +123,10 @@ function cpt_init(
 			'show_ui'               => true,
 			'show_in_nav_menus'     => true,
 			'supports'              => $supports,
-			'has_archive'           => true,
+			'has_archive'           => $has_archive,
 			'rewrite'               => true,
 			'query_var'             => true,
-			'menu_position'         => null,
+			'menu_position'         => null, //TODO
 			'menu_icon'             => $menu_icon,
 			'show_in_rest'          => true,
 			'rest_base'             => $rest_base,
@@ -160,12 +161,34 @@ function setup_custom_post_types() {
    //    $plural_name,
    //    $rest_base,
    //    $menu_icon,
-   //    $support = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+   //    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
    //    $taxonomies = [
    //       [$tax_slug, [ $post_type_slugs ], $tax_singular_name, $tax_plural_name],
    //       [$tax_slug, [ $post_type_slugs ], $tax_singular_name, $tax_plural_name],
    //    ]
    // );
+   
+	
+	/** 
+    * Products
+    */
+   cpt_init( //TODO woocommerce
+      'products', //$slug,
+      'Products', //$name,
+      'Product',  //$singular_name,
+      'Products', //$plural_name,
+      'products', //$rest_base,
+      'dashicons-products', //$menu_icon,
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+      $taxonomies = [
+         [
+            'product_categories', // $tax_slug
+            [ 'products' ],       // $post_type_slugs,
+            'Products Category',  // $tax_singular_name, 
+            'Products Categories' // $tax_plural_name
+         ],
+      ]
+   );
 
 
    /** 
@@ -186,15 +209,16 @@ function setup_custom_post_types() {
             'Service Category',  // $tax_singular_name, 
             'Service Categories' // $tax_plural_name
          ],
-      ]
+      ],
+		true //$has_archive
    );
 
    /** 
     * Tools 
     */
    cpt_init(
-      'tools',
-      'Tools',
+      'tools', //$slug,
+      'Tools', //$name,
       'Tool',
       'Tools',
       'tools',
@@ -207,12 +231,35 @@ function setup_custom_post_types() {
             "Tool Category",
             "Tool Categories"
          ]
-      ]
+		],
+		true //$has_archive
    );
 
    //TODO
    /*** Copy and Update for each Taxonomy */
-   function press_source_updated_messages( $messages ) {
+	add_filter( 'term_updated_messages', 'product_category_updated_messages' );
+   function product_category_updated_messages( $messages ) {
+
+      $slug          = "product_category"; 
+      $singular_name = "Product Category";
+      $plural_name   = "Product Categories";
+      
+      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+      return $messages;
+   }
+	add_filter( 'term_updated_messages', 'service_category_updated_messages' );
+   function service_category_updated_messages( $messages ) {
+
+      $slug          = "service_category"; 
+      $singular_name = "Service Category";
+      $plural_name   = "Service Categories";
+      
+      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+      return $messages;
+   }
+	
+	add_filter( 'term_updated_messages', 'tools_category_updated_messages' );
+   function tools_category_updated_messages( $messages ) {
 
       $slug          = "tools_category"; 
       $singular_name = "Tool Category";
@@ -222,6 +269,5 @@ function setup_custom_post_types() {
       return $messages;
    }
    
-   add_filter( 'term_updated_messages', 'press_source_updated_messages' );
 }
 add_action( 'init', 'setup_custom_post_types' );
