@@ -134,7 +134,7 @@ $grid-breakpoints: ( //STARTER
   width: 100%;
 }
 .inner-wrap { @include inner-wrap(); }
-//.inner-wrap-wide { @include inner-wrap(); }
+.inner-wrap-wide { @include inner-wrap(); }
 
 @mixin section-full {
   margin-left: calc(-100vw / 2 + 100% / 2);

@@ -1,4 +1,6 @@
 <?php 
+define ('WPLANG', 'fr_FR');
+
 $fields = get_fields(); 
 
 get_header(); ?>
@@ -7,7 +9,7 @@ get_header(); ?>
    <div class="main">
       <div class="inner-wrap">
          <article class="page-default-content">
-            <?php the_content(); ?>
+            <?php _e(get_the_content(), TEXTDOMAIN); ?>
          </article>
       </div>
    </div>
