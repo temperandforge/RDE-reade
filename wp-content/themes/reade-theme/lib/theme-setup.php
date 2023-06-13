@@ -295,7 +295,14 @@ if( function_exists('acf_add_options_page') ) {
 
 //set theme locations for wp_nav_menu
 function register_my_menus() {
-	global $menus_arr;
+	//global $menus_arr;
+   $menus_arr = array( //STARTER
+      'primary-navigation' => __( 'Primary Navigation', TEXTDOMAIN ),
+      'mobile-navigation' 	=> __( 'Mobile Navigation' , TEXTDOMAIN ),
+      'mobile-nav-bottom' 	=> __( 'Mobile Nav Bottom' , TEXTDOMAIN ),
+      'footer-navigation' 	=> __( 'Footer Navigation' , TEXTDOMAIN ),
+      'footer-nav-bottom' 	=> __( 'Footer Nav Bottom' , TEXTDOMAIN ), 
+   );
   	register_nav_menus($menus_arr);
 }
 add_action( 'init', 'register_my_menus' );

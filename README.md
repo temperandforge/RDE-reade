@@ -6,7 +6,9 @@ fds
 
 
 
-## DEVELOPER SETUP
+## DEVELOPMENT
+
+
 ### Copying existing site / setting ip local copy
 #### Using Local
 Create a new site

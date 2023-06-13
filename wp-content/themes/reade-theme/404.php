@@ -1,6 +1,5 @@
 <?php 
-//TODO
-define ('WPLANG', 'fr_FR');
+//TODO define ('WPLANG', 'fr_FR');
 
 $option_fields = get_fields('options') ?: [];
 get_header(); 

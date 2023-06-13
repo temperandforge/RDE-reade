@@ -1,5 +1,4 @@
 <?php 
-define ('WPLANG', 'fr_FR');
 
 $fields = get_fields(); 
 

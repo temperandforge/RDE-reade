@@ -1,11 +1,12 @@
 {
    "search.exclude": {
-      "**/node_modules": true,
-      "**/bower_components": true,
       "**/*.code-search": true,
-      "**/acf-json/group_*": true,
+      "**/acf-json/*.json": true,
+      "**/bower_components": true,
+      "**/node_modules": true,
       "wp-admin": true,
       "wp-content/plugins": true,
+      "wp-content/uploads": true,
       "wp-includes": true
    }
 }
