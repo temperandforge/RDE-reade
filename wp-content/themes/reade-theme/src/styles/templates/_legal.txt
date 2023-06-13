@@ -1,0 +1,65 @@
+//REFACTOR
+.legal-sidebar {
+   .in-page-nav {
+      @apply bg-primary50 text-primary500 px-10 py-6;
+      border-radius: 16px; //TODO
+   }
+   li {
+      @apply py-4;
+      border-bottom: 1px dashed var(--primary300); //TODO twnd config
+      &.active {
+         @apply relative text-primary900;
+         &:before {
+            @apply inline-block mr-4;
+            content: url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0556 4.55566L17.5 10.0001M17.5 10.0001L12.0556 15.4446M17.5 10.0001L3.5 10.0001' stroke='%23004455' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+         }
+      }
+   }
+}
+.legal-sidebar-active {
+
+}
+
+.legal--last-updated {
+   @apply text-primary500;
+}
+
+.page-legal-content {
+
+}
+
+.page-template-legal {
+   //styleName: Heading/H1/Bold/Desktop;
+   h1 {
+      @apply mb-6;
+      font-family: $font-stack;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2; // 48/40
+      letter-spacing: -0.02em;
+      // text-align: left;
+   }
+   h2 {
+      //styleName: Heading/H5/Bold/Desktop;
+      font-family: $font-stack;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3333333333333333; // 32/24
+      letter-spacing: -0.02em;
+      // text-align: left;
+   }
+}
+
+
+@include respond-above(sm) {
+   .page-template-legal {
+      h1 {
+         @apply mb-24;
+         font-size: 55px;
+         font-weight: 700;
+         line-height: 1.1818181818181819; // 65/55
+         letter-spacing: -0.04em;
+         //text-align: left;
+      }
+   }
+}

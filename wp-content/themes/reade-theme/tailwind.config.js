@@ -10,7 +10,10 @@ module.exports = {
 		// fontFamily: {},
 		extend: {
 			borderRadius: {
-				1: "5px"
+				1: "5px",
+				1: "10px",
+				3: "16px",
+				4: "20px",
 			},
 			colors: {
 				// Primary
@@ -20,6 +23,7 @@ module.exports = {
 				'primary300':     '#8BD4DF',
 				'primary400':     '#61C5DD',
 				'primary500':     '#009FC6',
+				'primary':        '#009FC6',
 				'primary600':     '#0794B7',
 				'primary700':     '#007B99',
 				'primary800':     '#006078',

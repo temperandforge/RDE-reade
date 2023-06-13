@@ -1,0 +1,54 @@
+/** Legal (Theme) //STARTER
+ *
+ * //TODO integrate - rrm coloring
+ */
+/** Colors **/
+.page-template-legal aside a,
+.last__updated {
+   @apply text-primary;
+}
+
+// .page-template-legal aside a.active,
+// .page-template-legal h1,
+// .page-template-legal h2,
+.page-template-legal {
+   @apply text-primary900;
+}
+
+.psuedo-select-active {
+   @apply bg-primary100;
+}
+
+.in-page-nav {
+   // border: 1px solid $primary;
+   nav {
+      // box-shadow: 0 0 40px rgba(0,0,0,0.15);
+   }
+   a {
+      &.active {
+         path {
+            @apply fill-primary900;
+         }
+      }
+   }
+}
+
+.page-template-legal {
+   h1 {
+      @include hdl2(500);
+   }
+}
+
+@include respond-below(xl) {
+   .in-page-nav {
+      nav {
+
+      }
+   }
+}
+@include respond-above(xl) {
+   .in-page-nav {
+      @apply border-none bg-primary50 rounded-3;
+      width: 338px; //TODO
+   }
+}
