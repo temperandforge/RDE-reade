@@ -9,11 +9,11 @@ if( IS_LOCAL ) {
 
 require_once( get_stylesheet_directory() . '/lib/theme-setup.php' );
 require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
-require_once( get_stylesheet_directory() . '/blocks/_index.php' );
+//require_once( get_stylesheet_directory() . '/template-parts/blocks/_index.php' );
 
-function reade_load_theme_textdomain() {
-  load_theme_textdomain( 'reade-theme', get_template_directory() . '/languages' );
-}
+// function reade_load_theme_textdomain() {
+//   load_theme_textdomain( 'reade-theme', get_template_directory() . '/languages' );
+// }
 // add_action( 'after_setup_theme', 'reade_load_theme_textdomain' );
 
 

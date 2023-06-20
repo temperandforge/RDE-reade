@@ -488,10 +488,10 @@ function cc_mime_types( $mimes ){
 
  /** Auto-Generate Single Post Template Content */
 //TODO add_filter( 'default_content', 'set_default_content', 10, 2 );
-function set_default_content( $content, $post ) {
+function set_default_content( $content, $post ) { //TODO - block
 	/** print_r */
 	if($post->post_status == "auto-draft" && !$post->post_content) {
-		if('page' == $post->post_type) {
+		if('post' == $post->post_type) {
 			// $content = "
 			// <!-- wp:acf/faqs {\"id\":\"block_63599568dd90a\",\"name\":\"acf/faqs\",\"data\":{\"faqs_heading\":\"FAQs\",\"_faqs_heading\":\"field_63599b41caf20\",\"faqs\":\"\",\"_faqs\":\"field_63599664e109b\"},\"align\":\"\",\"mode\":\"edit\"} /-->
 			// ";

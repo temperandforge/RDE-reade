@@ -1,7 +1,12 @@
 <?php 
-if($fields = get_fields()): ?>
+//echo '<script>console.log('.json_encode('hero', JSON_PRETTY_PRINT).');</script>';//debug
+echo '<script>console.log('.json_encode($block, JSON_PRETTY_PRINT).');</script>';//debug
+//$block
+if($fields = get_fields()): 
+   echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
+?>
 
-<div class="hero">
+<div class="hero<?php echo ' '.$block['className'];?>">
    <div class="hero-content">
       <h1 class="title is-1"><?php echo $fields['heading']?:get_the_title();?></h1>
       <p><?php echo $fields['content']; ?></p>

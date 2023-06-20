@@ -8,7 +8,8 @@ get_header(); ?>
    <div class="main">
       <div class="inner-wrap">
          <article class="page-default-content">
-            <?php _e(get_the_content(), TEXTDOMAIN); ?>
+            <?php //_e(get_the_content(), TEXTDOMAIN); ?>
+            <?php the_content(); ?>
          </article>
       </div>
    </div>

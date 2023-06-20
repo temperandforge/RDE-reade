@@ -17,7 +17,7 @@ foreach([
    'new-block'
 ]
 as $idx => $label) {
-   require_once get_stylesheet_directory() . "/blocks/$label/$label.php";
+   require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
 }
 
 add_action('acf/init', 'theme_register_blocks');
@@ -37,7 +37,7 @@ function theme_register_blocks()
 	acf_register_block([
 		'name'			=> 'call-to-action',
 		'title'			=> 'Call To Action',
-		'render_template'	=> "blocks/call-to-action.php",
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/call-to-action.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
 		'image'        => $img_root . '/call-to-action.webp',
@@ -45,19 +45,22 @@ function theme_register_blocks()
 		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
+
 	/** 
 	 * Page Hero 
 	 * */
 	acf_register_block([
-		'name'			=> 'page-hero',
-		'title'			=> 'Hero',
-		'render_template'	=> "blocks/page-hero.php",
-		'category'		=> 'theme-blocks',
-		'icon'			=> 'button',
-		'image'        => $img_root . '/page-hero.webp',
-		'mode'			=> $mode,
-		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
-		'supports'     => ['align' => false],
+		'name'			 => 'page-hero',
+		'title'			 => 'Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/page-hero.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',,
 	]);
 }
 
@@ -88,6 +91,7 @@ function theme_register_blocks_style()
 		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-7','label'=> __('Size 6 test', TEXTDOMAIN)));
 		register_block_style( 'core/group', array( 'name' =>'bg-themed', 'label'=> __(' Themed Background', TEXTDOMAIN), ) );
 		register_block_style( 'core/cover', array( 'name' =>'wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
+		register_block_style( 'acf/page-hero', array( 'name' =>'hero-wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
 		
 		// register_block_style( 
       //    'core/group', 

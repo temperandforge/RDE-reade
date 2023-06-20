@@ -83,7 +83,7 @@
                </a>
                <?php 
                if($social_links){
-                  include( locate_template('patterns/social-links.php'));
+                  include( locate_template('template-parts/social-links.php'));
                } ?>
             </div>
             <!--TODO -->
