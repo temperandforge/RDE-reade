@@ -4,7 +4,9 @@
   "description": "",
   "author": "Temper & Forge",
   "private":true,
-  "workspaces": [ "blocks/*" ],
+  "workspaces": [ 
+    "blocks/*" 
+  ],
   "scripts": {
     "start": "run-p dev style:watch",
     "build": "run-p rollup-build style:build",

@@ -13,8 +13,12 @@ add_filter('block_categories_all', function ($categories, $post) {
 	);
 }, 10, 2);
 
-// require_once get_stylesheet_directory() . '/blocks/blue-section/blue-section.php';
-// require_once get_stylesheet_directory() . '/blocks/gutenpride-es5/gutenpride-es5.php';
+foreach([
+   'new-block'
+]
+as $idx => $label) {
+   require_once get_stylesheet_directory() . "/blocks/$label/$label.php";
+}
 
 add_action('acf/init', 'theme_register_blocks');
 function theme_register_blocks()

@@ -9,6 +9,7 @@
   "scripts": {
     "block:help":"npx @wordpress/create-block --help",
     "block:create":"$TMP=$1; npx @wordpress/create-block $TMP && rm-rf $TMP/node_modules",
-    "block:docs":"echo https://developer.wordpress.org/block-editor/getting-started/create-block/"
+    "block:docs":"echo https://developer.wordpress.org/block-editor/getting-started/create-block/",
+    "block:starter": "npx @wordpress/create-block new-block --template @wordpress/create-block-tutorial-template"
   }
 }
