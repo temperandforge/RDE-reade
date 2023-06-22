@@ -88,7 +88,8 @@ function cpt_init(
    $menu_icon,
    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
    $taxonomies = [],
-	$has_archive = true
+	$has_archive = true,
+	$publicly_queryable = true,
 ) {
    register_post_type(
       $slug,
@@ -126,6 +127,7 @@ function cpt_init(
 			'show_in_nav_menus'     => true,
 			'supports'              => $supports,
 			'has_archive'           => $has_archive,
+			'publicly_queryable'    => $publicly_queryable,
 			'rewrite'               => true,
 			'query_var'             => true,
 			'menu_position'         => null, //TODO
@@ -188,7 +190,9 @@ function setup_custom_post_types() {
             'FAQ Category',   // $tax_singular_name, 
             'FAQ Categories'  // $tax_plural_name
          ],
-      ]
+      ],
+		false, //$has_archive
+		false //$publicly_queryable
    );
    
 	
@@ -232,8 +236,30 @@ function setup_custom_post_types() {
             'Service Category',  // $tax_singular_name, 
             'Service Categories' // $tax_plural_name
          ],
-      ],
-		true //$has_archive
+      ]
+   );
+
+   /** 
+    * Tools 
+    */
+   cpt_init(
+      'team', //$slug,
+      'Team', //$name,
+      'Team Member', //$singular_name,
+      'Team', //$plural_name,
+      'team',        //$rest_base,
+      'dashicons-admin-tools', //TODO //$menu_icon, 
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+      $taxonomies = [
+         [
+            'team_categories', 
+            [ 'team' ], 
+            "Team Category",
+            "Team Categories"
+         ]
+		],
+		false, //$has_archive
+		false //$publicly_queryable
    );
 
    /** 
