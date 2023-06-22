@@ -35,6 +35,13 @@ function dump_tables_callback( $request ) {
        $response[ $table_name ] = $results;
    }
 
+   // Dump the structure of each table
+   foreach ( $filtered_tables as $table ) {
+        $table_name = $table[0];
+        $table_structure = $wpdb->get_results( "DESCRIBE {$table_name}", ARRAY_A );
+        $response[ $table_name ]['structure'] = $table_structure;
+    }
+
    return rest_ensure_response( $response );
 }
 
@@ -68,10 +75,38 @@ function tfdbsync_callback()
          );
         if ($remotedb = @wp_remote_get(TF_DB_SYNC_URL)) {
             if (!is_wp_error($remotedb)) {
-                if ($remotedb = @json_decode($remotedb)) {
+                if ($remotedb = @json_decode($remotedb['body'])) {
+
+                    
                     echo '<pre>';
                     print_r($remotedb);
                     echo '</pre>';
+
+                    // drop all tables locally except for users
+
+
+                    // create tables from the response body
+                    $create_table_query = "CREATE TABLE IF NOT EXISTS {$table_name} (";
+                    $columns = array();
+
+                    foreach ( $remotedb as $k => $data ) {
+
+                         if ($k = 'structure') {
+                            echo '<pre>'; print_r($data); echo '</pre>';
+                            $column_name = $data['Field'];
+                            $column_type = $data['Type'];
+                            $column_key = $data['Key'];
+                            $column_extra = $data['Extra'];
+
+                            $columns[] = "$column_name $column_type $column_key $column_extra";
+                        }
+                    }
+
+                    $create_table_query .= implode( ', ', $columns );
+                    $create_table_query .= ')';
+
+                    echo $create_table_query;
+
                 } else {
                     echo '<p>Could not json_decode() remote contents.  Try again later.</p>';
                 }
