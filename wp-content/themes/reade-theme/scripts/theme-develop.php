@@ -3,7 +3,7 @@
 /** 
  * Enable YAML file processing
  * */
-require_once __DIR__ . '/../vendor/autoload.php';
+// require_once __DIR__ . '/../vendor/autoload.php';
 //use Symfony\Component\Yaml\Yaml;
 // $yaml = Yaml::parse(file_get_contents(get_stylesheet_directory() . '/scripts/site.yml'));
 // $yamlString = Yaml::dump($yaml);

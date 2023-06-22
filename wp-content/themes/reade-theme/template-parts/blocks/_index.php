@@ -14,7 +14,7 @@ add_filter('block_categories_all', function ($categories, $post) {
 }, 10, 2);
 
 foreach([
-   'new-block'
+   'new-block',
 ]
 as $idx => $label) {
    require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
@@ -43,6 +43,21 @@ function theme_register_blocks()
 		'image'        => $img_root . '/call-to-action.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * FAQS Accordions
+	 * */
+	acf_register_block([
+		'name'			=> 'faqs-accordions',
+		'title'			=> 'FAQS Accordions',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-accordions.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/call-to-action.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 
