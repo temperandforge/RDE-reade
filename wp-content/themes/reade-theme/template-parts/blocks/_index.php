@@ -13,12 +13,12 @@ add_filter('block_categories_all', function ($categories, $post) {
 	);
 }, 10, 2);
 
-foreach([
-   'new-block'
-]
-as $idx => $label) {
-   require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
-}
+// foreach([
+//    'new-block'
+// ]
+// as $idx => $label) {
+//    require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
+// }
 
 add_action('acf/init', 'theme_register_blocks');
 function theme_register_blocks()
