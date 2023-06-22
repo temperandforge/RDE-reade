@@ -19,4 +19,6 @@ require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
 
 //TODO setup placeholder structure for new /post
 
-require_once (get_stylesheet_directory() . '/lib/tf-db-sync.php');
+if( IS_LOCAL ) {
+   require_once (get_stylesheet_directory() . '/lib/tf-db-sync.php');
+}

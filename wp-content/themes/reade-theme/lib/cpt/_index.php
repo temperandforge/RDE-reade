@@ -1,5 +1,7 @@
 <?php //STARTER
 
+
+
 /**
  * Sets the post updated messages for the `slug` taxonomy.
  *
@@ -168,6 +170,27 @@ function setup_custom_post_types() {
    //    ]
    // );
    
+   // /** 
+   //  * PLACEHOLDER
+   //  */
+   cpt_init(
+      'faqs',
+      'FAQs',
+      'FAQ',
+      'FAQs',
+      'faqs',
+      'dashicons-products', //$menu_icon,
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+      $taxonomies = [
+         [
+            'faq_categories', // $tax_slug
+            [ 'faqs' ],       // $post_type_slugs,
+            'FAQ Category',   // $tax_singular_name, 
+            'FAQ Categories'  // $tax_plural_name
+         ],
+      ]
+   );
+   
 	
 	/** 
     * Products
@@ -237,7 +260,18 @@ function setup_custom_post_types() {
 
    //TODO
    /*** Copy and Update for each Taxonomy */
-	add_filter( 'term_updated_messages', 'product_category_updated_messages' );
+	add_filter( 'term_updated_messages', 'faq_category_updated_messages' );
+   function faq_category_updated_messages( $messages ) {
+
+      $slug          = "faq_category"; 
+      $singular_name = "FAQ Category";
+      $plural_name   = "FAQ Categories";
+      
+      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+      return $messages;
+   }
+	
+   add_filter( 'term_updated_messages', 'product_category_updated_messages' );
    function product_category_updated_messages( $messages ) {
 
       $slug          = "product_category"; 
@@ -247,6 +281,7 @@ function setup_custom_post_types() {
       cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
       return $messages;
    }
+
 	add_filter( 'term_updated_messages', 'service_category_updated_messages' );
    function service_category_updated_messages( $messages ) {
 
