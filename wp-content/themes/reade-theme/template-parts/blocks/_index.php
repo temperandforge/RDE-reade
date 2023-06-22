@@ -60,7 +60,7 @@ function theme_register_blocks()
 		'keywords'		 => ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
       //TODO
-		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',,
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
 	]);
 }
 

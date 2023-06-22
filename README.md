@@ -3,9 +3,6 @@
 fds
 
 
-
-
-
 ## DEVELOPMENT
 
 
@@ -80,3 +77,14 @@ Run `npm start`
 - update workflows - txt
 - xpostinstall
 - litespeed cache htaccess was removed - https://github.com/jgansl/wpe-tf-starter/commit/09485420591a3f54671a78d1a6395c2a228e1884
+
+
+
+## TAGS
+- //TODO
+- //STARTER
+- //REFACTOR
+- //PRE_LAUNCH
+
+
+
