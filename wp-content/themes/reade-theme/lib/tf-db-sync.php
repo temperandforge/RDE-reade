@@ -1,9 +1,11 @@
 <?php
 
+
+
 define('TF_DB_SYNC_SECURITY_STRING', 'W6pdOt4z3j91');
 define('TF_DB_SYNC_URL', 'https://reade.wpengine.com/wp-json/tf-db-sync/v1/dump-tables?auth=' . TF_DB_SYNC_SECURITY_STRING);
 
-
+require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 function dump_tables_endpoint() {
    register_rest_route( 'tf-db-sync/v1', '/dump-tables', array(
        'methods'  => 'GET',
@@ -67,45 +69,111 @@ function tfdbsync_callback()
     <?php
 
     if (!empty($_POST['action']) && ($_POST['action'] == 'doTFDBSync')) {
-        $arrContextOptions=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-         );
+
+        set_time_limit(0);
+        ignore_user_abort(true);
+
         if ($remotedb = @wp_remote_get(TF_DB_SYNC_URL)) {
             if (!is_wp_error($remotedb)) {
                 if ($remotedb = @json_decode($remotedb['body'])) {
 
-                    
-                    echo '<pre>';
-                    print_r($remotedb);
-                    echo '</pre>';
+                    $currentURL = get_site_url();
 
-                    // drop all tables locally except for users
+    ##### DROP ALL TABLES #####
+                    // Drop all tables except 'wp_users'
+                    global $wpdb;
+                    $excluded_table = 'wp_users';
+                    $tables = $wpdb->get_results( "SHOW TABLES", ARRAY_N );
 
+                    foreach ( $tables as $table ) {
+                        $table_name = $table[0];
 
-                    // create tables from the response body
-                    $create_table_query = "CREATE TABLE IF NOT EXISTS {$table_name} (";
-                    $columns = array();
-
-                    foreach ( $remotedb as $k => $data ) {
-
-                         if ($k = 'structure') {
-                            echo '<pre>'; print_r($data); echo '</pre>';
-                            $column_name = $data['Field'];
-                            $column_type = $data['Type'];
-                            $column_key = $data['Key'];
-                            $column_extra = $data['Extra'];
-
-                            $columns[] = "$column_name $column_type $column_key $column_extra";
+                        if ( $table_name !== $excluded_table ) {
+                            //echo "TRUNCATE `{$table_name}`;";
+                            $wpdb->query("TRUNCATE `{$table_name}`;" ) or die('could not truncate table ' . $table_name);
                         }
                     }
 
-                    $create_table_query .= implode( ', ', $columns );
-                    $create_table_query .= ')';
+                    echo 'All tables except wp_users truncated.';
+                   
+//                     $allQueries = array();
+//                     foreach ( $remotedb as $t => $d ) {
+//                         foreach ($d as $type => $d) {
+//                             if ($type == 'structure') {
+//                                 $create_table_query = "CREATE TABLE {$t} (";
+//                                 $columns = array();
+//                                 $pk = false;
+//                                 foreach ($d AS $tf) {
+//                                     $column_name = $tf->Field;
+//                                     $column_type = $tf->Type;
+//                                     $column_default = isset( $tf->Default ) ? "DEFAULT '{$tf->Default}'" : '';
+//                                     $column_nullable = $tf->Null === 'YES' ? 'NULL' : 'NOT NULL';
+//                                     $column_extra = isset( $tf->Extra ) ? $tf->Extra : '';
+//                                     if (!$pk) {
+//                                         $column_key = $tf->Key == 'PRI' ? "primary key" : '';
+//                                         $pk = true;
+//                                     } else {
+//                                         $column_key = '';
+//                                     }
+//                                     $create_table_query .= "{$column_name} {$column_type} {$column_default} {$column_nullable} {$column_extra} {$column_key}, ";
+                                    
+//                                 }
+//                                 $create_table_query = rtrim( $create_table_query, ', ' );
+//                                     $create_table_query .= ');';
+//                                     $allQueries[] = $create_table_query;
+//                             }
+//                         }
+//                     }
 
-                    echo $create_table_query;
+//     ##### INSERT ALL TABLES
+//                     // CREATE ALL TABLES
+//                     echo '<BR>CREATE ALL TABLES<BR>';
+//                     $allQueries = implode(' ', $allQueries);
+//                    //dbDelta($allQueries) or die('could not create tables');
+// //                    if (dbDelta($allQueries)) {
+//                         //
+//   //                  } else {
+//     //                    echo 'could not create all tables';
+//       //              }
+
+//                     echo '<br />All tables created.';
+//                     echo $allQueries;
+
+
+    ##### INSERT ALL DATA
+                    // Insert data into the table
+                     //echo '<pre>'; print_r($remotedb); echo '</pre>';
+                     $insertQueries = array();
+                     foreach ($remotedb AS $table => $data) {
+                        foreach ( $data as $k => $row ) {
+                            if ($k != 'structure') {
+                                $row = (array) $row;
+                                $columns = implode( ', ', array_keys( $row ) );
+                                $values = implode( "', '", array_map('addslashes', array_values( $row ) ));
+                                 $insert_query = "INSERT INTO {$table} ({$columns}) VALUES ('{$values}');";
+                                 $wpdb->query($insert_query);
+                                 //$wpdb->query( $insert_query ) or die('db error: ' . $wpdb->last_error);
+                            }
+                         }
+                     }
+
+                     //echo implode(' ', $insertQueries);
+
+                     //$wpdb->query($insertQueries) or die($wpdb->show_errors());
+
+                     echo '<br />All data inserted.';
+
+
+                     // update to current url
+                     $wpdb->query("UPDATE `wp_options` SET `option_value` = '$currentURL' WHERE `option_name` = 'siteurl'");
+                     $wpdb->query("UPDATE `wp_options` SET `option_value` = '$currentURL' WHERE `option_name` = 'home';");
+
+                     echo '<br />Local values for siteurl and home option fields restored';
+
+                     flush_rewrite_rules();
+
+                     echo '<br />Permalinks flushed.';
+                    
 
                 } else {
                     echo '<p>Could not json_decode() remote contents.  Try again later.</p>';
