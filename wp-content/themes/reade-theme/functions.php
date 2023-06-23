@@ -1,7 +1,7 @@
 <?php
 define('TEXTDOMAIN', 'acl-theme');
 define("IS_LOCAL", wp_get_environment_type() == "local");
-define("REMOTE_URL", "http://reade.wpengine.com");
+// define("REMOTE_URL", "https://reade.wpengine.com");
 
 //PRE_LAUNCH if( IS_LOCAL ) { //rm theme-develop
 ini_set("error_log", get_stylesheet_directory() . "/debug.txt");

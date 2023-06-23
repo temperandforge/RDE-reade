@@ -1,0 +1,252 @@
+.simple-cta--section {
+	&.dark-blue {
+		/* padding: 80px 0; */
+
+		.simple-cta-content--wrap {
+			/* @apply flex flex-col items-center text-center; */
+		}
+	}
+}
+
+.simple-cta--section {
+	&.with-image {
+		@apply relative;
+
+		&:after {
+			@include respond-above(sm) {
+				@apply absolute section-full left-0;
+				bottom: 25%;
+				width: 100vw;
+				content: '';
+				height: 35%;
+				background-image: url('../img/geo_pattern.png');
+			}
+		}
+
+		&:before {
+			@include respond-above(sm) {
+				@apply absolute section-full bottom-0 left-0 bg-footer-primary;
+				width: 100vw;
+				content: '';
+				height: 40%;
+			}
+		}
+
+		.simple-cta--wrap {
+			@apply relative z-20;
+			background-color: $white;
+			background-size: cover;
+			padding: max(1rem, min(5vw, 75px)) max(1.5rem, min(7vw, 100px))
+				max(1.5rem, min(7vw, 108px));
+
+			@include respond-above(sm) {
+				border-radius: 0px 35px;
+				border: 5px solid $white;
+			}
+
+			@include respond-below(sm) {
+				@apply section-full;
+			}
+		}
+
+		.simple-cta-content--wrap {
+			@apply inner-wrap flex flex-col relative z-10;
+			background-color: $white;
+			border-radius: 10px;
+			padding: max(1.5rem, min(7vw, 75px)) max(1rem, min(5vw, 75px));
+			gap: 30px;
+
+			@include respond-above(lg) {
+				@apply flex-row items-end;
+				@include inner-wrap(1280px);
+				gap: unset;
+				padding: unset;
+				border-radius: unset;
+				background-color: unset;
+			}
+		}
+
+		.simple-cta--content {
+			background-color: $white;
+			border-radius: 10px;
+
+			@include respond-above(lg) {
+				@apply main;
+				padding: max(1.5rem, min(6vw, 80px));
+				padding-right: calc(3 * max(1.5rem, min(6vw, 80px)));
+			}
+
+			.cta-heading {
+				font-size: clamp(36px, calc(2.25rem + 0.85vw), 48px);
+				+ p {
+					margin-top: 15px;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.simple-cta-btn {
+			position: relative;
+
+			@include respond-above(lg) {
+				margin-left: -10%;
+				margin-bottom: 5%;
+			}
+		}
+	}
+}
+
+.simple-cta--section {
+	&.light-blue {
+		@apply relative;
+
+		&:after {
+			@apply section-full w-screen h-full absolute top-0 left-0;
+			background-color: var(--primary50);
+			content: '';
+		}
+
+		.simple-cta--wrap {
+			@apply relative z-10;
+		}
+	}
+
+	&.dark-blue,
+	&.light-blue,
+	&.white {
+		.simple-cta-content--wrap {
+			padding-top: clamp(75px, 7.5vw, 104px);
+			padding-bottom: clamp(87px, 7.5vw, 104px);
+			@include inner-wrap(1024px);
+			display: flex;
+			flex-direction: column;
+
+			&:not(.centered) {
+				@include respond-above(lg) {
+					max-width: clamp(45ch, 50%, 75ch);
+					margin: unset;
+				}
+			}
+
+			&.centered {
+				text-align: center;
+				@include respond-above(sm) {
+					align-items: center;
+				}
+			}
+		}
+
+		.simple-cta-btn {
+			@apply btn-blue-dark-blue;
+		}
+	}
+
+	&.dark-blue {
+		.simple-cta-btn {
+			@apply btn-dark-blue-blue;
+		}
+	}
+
+	&.with-image {
+		.simple-cta-btn {
+			@apply btn-accent;
+			path {
+				fill: var(--footer-primary);
+			}
+		}
+	}
+
+	&.dark-blue,
+	&.light-blue,
+	&.white,
+	&.with-image {
+		.cta-heading {
+			+ .simple-cta-btn {
+				margin-top: 32px;
+
+				@include respond-above(sm) {
+					margin-top: 45px;
+				}
+			}
+		}
+
+		.simple-cta-btn {
+			@apply text-center;
+			border-radius: 6px;
+			white-space: nowrap;
+
+			@include respond-above(sm) {
+				width: fit-content;
+			}
+
+			&.btn-arrow {
+				@apply flex items-center justify-center;
+				gap: 8px;
+
+				svg {
+					transition: all 0.2s ease-out;
+				}
+
+				@media screen and (hover: hover) and (pointer: fine) {
+					&:hover {
+						svg {
+							transform: translateX(4px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.simple-cta-content--wrap {
+	p {
+		margin-bottom: clamp(50px, 5vw, 65px);
+		font-size: 18px;
+		line-height: 28px;
+	}
+}
+
+.cta-heading {
+	color: var(--primary-900);
+	font-size: clamp(36px, 1.5rem + 2vw, 50px);
+	font-family: Open Sans;
+	font-weight: 700;
+	line-height: 57.6px;
+	letter-spacing: -1.68px;
+	&.solo-heading {
+		font-size: clamp(40px, 1.5rem + 2vw, 48px);
+	}
+
+	+ p {
+		margin-top: clamp(30px, 3.5vw, 50px);
+		margin-bottom: clamp(45px, 3.5vw, 50px);
+		color: var(--primary-900);
+		font-family: Open Sans;
+		font-size: 14px;
+		line-height: 23px;
+
+		@include respond-above(sm) {
+			font-size: 18px;
+			line-height: 28px;
+		}
+	}
+}
+
+.white {
+	.cta-heading {
+		&.solo-heading {
+			font-size: 16px;
+			line-height: 24px;
+			font-weight: 600;
+
+			+ .simple-cta-btn {
+				margin-top: 30px;
+
+				@include respond-above(sm) {
+					min-width: 388px;
+				}
+			}
+		}
+	}
+}
