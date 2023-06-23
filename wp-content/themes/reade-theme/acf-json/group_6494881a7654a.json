@@ -3,26 +3,6 @@
     "title": "FAQs Post Details",
     "fields": [
         {
-            "key": "field_6494886600efc",
-            "label": "Answer",
-            "name": "answer",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
             "key": "field_6494887d00efd",
             "label": "Link",
             "name": "link",
@@ -57,5 +37,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687455988
+    "modified": 1687465246
 }

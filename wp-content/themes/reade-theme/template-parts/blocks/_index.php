@@ -13,12 +13,12 @@ add_filter('block_categories_all', function ($categories, $post) {
 	);
 }, 10, 2);
 
-foreach([
-   'new-block',
-]
-as $idx => $label) {
-   require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
-}
+// foreach([
+//    'new-block'
+// ]
+// as $idx => $label) {
+//    require_once get_stylesheet_directory() . "/template-parts/blocks/$label/$label.php";
+// }
 
 add_action('acf/init', 'theme_register_blocks');
 function theme_register_blocks()
@@ -40,7 +40,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/call-to-action.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
-		'image'        => $img_root . '/call-to-action.webp',
+		'image'        => $img_root . '/faq-accordion.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
@@ -75,7 +75,7 @@ function theme_register_blocks()
 		'keywords'		 => ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
       //TODO
-		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',,
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
 	]);
 }
 
