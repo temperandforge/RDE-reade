@@ -40,9 +40,24 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/call-to-action.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
-		'image'        => $img_root . '/call-to-action.webp',
+		'image'        => $img_root . '/faq-accordion.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * FAQS Accordions
+	 * */
+	acf_register_block([
+		'name'			=> 'faqs-accordions',
+		'title'			=> 'FAQS Accordions',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-accordions.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/call-to-action.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 

@@ -1,0 +1,61 @@
+.faqs-accordion--section {
+ @include inner-wrap(1024px);
+}
+
+.faq-accordion {
+	@apply flex flex-col border-b	border-solid	;
+	border-color: var(--primary900);
+	transition: all 0.2s ease-in-out;
+
+	&:not(:first-child) {
+		.accordion-btn {
+			@apply mt-10;
+		}
+	}
+}
+
+.accordion-btn {
+	@apply text-left pb-5 pr-12 relative text-xl;
+
+	&:after {
+		@apply absolute top-0 right-0;
+		content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.4453 11.5556L10.0009 17M10.0009 17L4.55642 11.5556M10.0009 17L10.0009 3' stroke='%23009FC6' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+		transition: all 0.2s ease-in-out;
+  height: 20px;
+  width: 20px;
+	}
+}
+
+.accordion-answer {
+	@apply opacity-0 overflow-hidden	max-h-0;
+	transition: all 0.2s ease-in-out;
+
+	p {
+		&:last-child {
+			@apply pb-5;
+		}
+	}
+}
+
+.faq-btn {
+	@apply mt-7 mb-5 btn-blue-dark-blue;
+ border-radius: 5px;
+}
+
+// FAQ opened (answer showing)
+
+.faq-accordion {
+	&.open {
+		.accordion-btn {
+			&:after {
+				transform: rotate(-180deg);
+				content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.6583 16.6583C16.2027 17.1139 15.464 17.1139 15.0084 16.6583L10 11.6499L4.99162 16.6583C4.53601 17.1139 3.79732 17.1139 3.34171 16.6583C2.8861 16.2027 2.8861 15.464 3.34171 15.0084L8.35008 10L3.34171 4.99163C2.8861 4.53601 2.8861 3.79732 3.34171 3.34171C3.79732 2.8861 4.53601 2.8861 4.99162 3.34171L10 8.35009L15.0084 3.34171C15.464 2.8861 16.2027 2.8861 16.6583 3.34171C17.1139 3.79732 17.1139 4.53601 16.6583 4.99162L11.6499 10L16.6583 15.0084C17.1139 15.464 17.1139 16.2027 16.6583 16.6583Z' fill='%23009FC6'/%3E%3C/svg%3E%0A");
+			}
+		}
+
+		.accordion-answer {
+			@apply opacity-100;
+			max-height: 750px;
+		}
+	}
+}
