@@ -9,7 +9,7 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
 
 <div class="simple-cta--section <?php 
 echo $fields['style'] == 'light-blue' ? 'light-blue' : null ;
-echo $fields['style'] == 'dark-blue' ? 'dark-blue' : null ;
+echo $fields['style'] == 'blue' ? 'blue' : null ;
 echo $fields['style'] == 'white' ? 'white' : null ;
 echo $fields['style'] == 'with-image' ? 'with-image' : null ;?>">
 
@@ -19,7 +19,7 @@ echo $fields['style'] == 'with-image' ? 'with-image' : null ;?>">
     style="background-image: url('<?php echo $fields['background_image']['url']; ?>')"
    <?php endif ;?>>
 
-   <div class="simple-cta-content--wrap<?php echo ($fields['style'] == 'dark-blue') || ($fields['style'] == 'white') || ((isset($fields['text_align'])) && (!$fields['text_align'])) ? ' centered' : null ;?>">
+   <div class="simple-cta-content--wrap<?php echo ($fields['style'] == 'blue') || ($fields['style'] == 'white') || ((isset($fields['text_align'])) && (!$fields['text_align'])) ? ' centered' : null ;?>">
 
    <?php // for with image only;
    if($fields['style'] == 'with-image') :?>

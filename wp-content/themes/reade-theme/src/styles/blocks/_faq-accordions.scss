@@ -1,10 +1,10 @@
 .faqs-accordion--section {
- @include inner-wrap(1024px);
- margin-bottom: 100px;
+	@include inner-wrap(1024px);
+	margin-bottom: 100px;
 }
 
 .faq-accordion {
-	@apply flex flex-col border-b	border-solid	;
+	@apply flex flex-col border-b	border-solid;
 	border-color: var(--primary900);
 	transition: all 0.2s ease-in-out;
 
@@ -22,14 +22,18 @@
 		@apply absolute top-0 right-0;
 		content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.4453 11.5556L10.0009 17M10.0009 17L4.55642 11.5556M10.0009 17L10.0009 3' stroke='%23009FC6' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 		transition: all 0.2s ease-in-out;
-  height: 20px;
-  width: 20px;
+		height: 20px;
+		width: 20px;
 	}
 }
 
 .accordion-answer {
-	@apply opacity-0 overflow-hidden	max-h-0;
+	@apply opacity-0 overflow-hidden	max-h-0 flex flex-col;
 	transition: all 0.2s ease-in-out;
+
+	@include respond-above(sm) {
+		@apply block;
+	}
 
 	p {
 		&:last-child {
@@ -39,8 +43,8 @@
 }
 
 .faq-btn {
-	@apply mt-7 mb-5 btn-blue-dark-blue;
- border-radius: 5px;
+	@apply mt-7 mb-5 btn-blue-dark-blue text-center;
+	border-radius: 5px;
 }
 
 // FAQ opened (answer showing)
@@ -56,7 +60,7 @@
 
 		.accordion-answer {
 			@apply opacity-100;
-			max-height: 750px;
+			max-height: 1500px;
 		}
 	}
 }

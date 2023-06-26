@@ -4,5 +4,6 @@
     ],
     "env": {
         "browser": true
-    }
+    },
+    "ignorePatterns": ["package.json", "**/vendor/*.js"],
 }
