@@ -66,7 +66,7 @@ function theme_register_blocks()
 	 * */
 	acf_register_block([
 		'name'			=> 'faqs-accordions',
-		'title'			=> 'FAQS Accordions',
+		'title'			=> 'FAQs Accordions',
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-accordions.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
@@ -79,7 +79,7 @@ function theme_register_blocks()
 	 * News Hero
 	 * */
 
-	acf_register_block([
+	 acf_register_block([
 		'name'			=> 'news-hero',
 		'title'			=> 'News Hero',
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/news-hero.php",
@@ -88,6 +88,37 @@ function theme_register_blocks()
 		'image'        => $img_root . '/news-hero.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['news hero', 'news', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/**
+	 * News Featured
+	 * */
+
+	 acf_register_block([
+		'name'			=> 'news-featured',
+		'title'			=> 'News Featured',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/news-featured.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button', //TODO
+		'image'        => $img_root . '/news-featured.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['news featured', 'news', 'featured', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * FAQS Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'faqs-hero',
+		'title'			=> 'FAQs Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/call-to-action.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 

@@ -1,17 +1,11 @@
 <?php
 
 $fields = get_fields();
-if(IS_LOCAL) {
-echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
-}
 
 ?>
 
 <div class="simple-cta--section <?php 
-echo $fields['style'] == 'light-blue' ? 'light-blue' : null ;
-echo $fields['style'] == 'blue' ? 'blue' : null ;
-echo $fields['style'] == 'white' ? 'white' : null ;
-echo $fields['style'] == 'with-image' ? 'with-image' : null ;?>">
+echo $fields['style'] ;?>">
 
  <div class="simple-cta--wrap"
    <?php // for with image only;

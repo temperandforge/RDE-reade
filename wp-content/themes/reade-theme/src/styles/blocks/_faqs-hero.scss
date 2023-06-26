@@ -1,0 +1,132 @@
+.faqs-hero {
+	@apply relative;
+
+	&.white {
+		padding: 85px 0 70px;
+
+		@include respond-above(sm) {
+			padding: 114px 0 148px;
+		}
+	}
+
+	&.blue,
+	&.light-blue {
+		padding: 108px 0;
+	}
+
+	&.blue {
+		@apply bg-blue;
+		.faqs-hero-content--wrap {
+			color: $white;
+		}
+	}
+
+	&.light-blue {
+		@apply bg-light-blue;
+	}
+
+	&.white {
+		@apply bg-grid;
+		
+  .faqs-hero-content--wrap {
+   @include inner-wrap(1056px);
+		}
+	}
+}
+
+.faqs-hero-content--wrap {
+	@apply relative z-20 text-center;
+	@include inner-wrap(768px);
+
+	h1 {
+		font-size: 36px;
+		font-weight: 700;
+		letter-spacing: -1.44px;
+		line-height: 44px;
+
+		@include respond-above(md) {
+			font-size: 48px;
+			line-height: 55px;
+		}
+
+		@include respond-above(xl) {
+			font-size: 50px;
+			line-height: 58px;
+			letter-spacing: -1.5px;
+		}
+	}
+
+	p {
+		margin-top: 30px;
+		font-size: 16px;
+		line-height: 24px;
+
+		@include respond-above(md) {
+			font-size: 18px;
+			line-height: 27px;
+		}
+	}
+}
+
+.faqs-hero--decor {
+	@apply absolute z-10 right-0;
+	bottom: -50px;
+
+	.box-svg {
+		height: 171px;
+		width: 118px;
+	}
+
+	.magnify-svg {
+		height: 103px;
+		width: 79px;
+
+		&.reversed {
+			transform: scaleX(-1);
+		}
+	}
+
+	@include respond-above(md) {
+		.box-svg {
+			height: 200px;
+			width: 155px;
+		}
+
+		.magnify-svg {
+			height: 126px;
+			width: 85px;
+		}
+	}
+
+	@include respond-above(xl) {
+		bottom: -25px;
+
+		.box-svg {
+			height: 221px;
+			width: 167px;
+		}
+
+		.magnify-svg {
+			height: 152px;
+			width: 117px;
+		}
+	}
+}
+
+.white {
+	.faqs-hero--decor {
+		bottom: 0;
+		right: -3rem;
+
+		@include respond-above(md) {
+			bottom: 50px;
+			right: -5rem;
+		}
+
+		@include respond-above(xl) {
+			bottom: unset;
+			top: 45%;
+			right: -110px;
+		}
+	}
+}

@@ -1,6 +1,6 @@
 .faqs-accordion--section {
 	@include inner-wrap(1024px);
-	margin-bottom: 100px;
+	margin: 100px auto;
 }
 
 .faq-accordion {
