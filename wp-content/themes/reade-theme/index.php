@@ -3,8 +3,8 @@
 $fields = get_fields(); 
 
 get_header(); ?>
-<main id="main_content" class="main-content-wrap">
-   <div class="main">
+<main id="main-content" class="main-content-wrap">
+   <div class="theme-main">
       <div class="inner-wrap">
          <article class="page-default-content">
          </article>

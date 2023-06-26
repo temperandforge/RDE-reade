@@ -50,7 +50,7 @@
 		}
 
 		.simple-cta-content--wrap {
-			@apply inner-wrap flex flex-col relative z-10;
+			@apply theme-inner-wrap flex flex-col relative z-10;
 			background-color: $white;
 			border-radius: 10px;
 			padding: max(1.5rem, min(7vw, 75px)) max(1rem, min(5vw, 75px));
@@ -71,7 +71,7 @@
 			border-radius: 10px;
 
 			@include respond-above(lg) {
-				@apply main;
+				@apply theme-main;
 				padding: max(1.5rem, min(6vw, 80px));
 				padding-right: calc(3 * max(1.5rem, min(6vw, 80px)));
 			}

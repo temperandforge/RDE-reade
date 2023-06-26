@@ -5,7 +5,7 @@ $option_fields = get_fields('options') ?: [];
 get_header(); 
 ?>
 <main id="main-content" class="main-content-wrap">
-   <div class="main">
+   <div class="theme-main">
       <div class="inner-wrap">
          <article class="error-404-content grid place-items-center">
 

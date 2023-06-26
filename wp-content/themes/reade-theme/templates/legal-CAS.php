@@ -2,7 +2,7 @@
 get_header(); ?>
 
 <main id="main-content" class="main-content-wrap">
-   <div class="main">
+   <div class="theme-main">
       <div class="inner-wrap">
 
 <h1><?php echo $post->post_title; ?></h1>

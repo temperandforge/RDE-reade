@@ -8,7 +8,7 @@
    }
 ?>
 <footer id="site-footer" class="site-footer">
-   <div class="main">
+   <div class="theme-main">
       <div class="inner-wrap-wide">
          <div class="footer-info footer-row-1">
             <div class="footer-links">

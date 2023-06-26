@@ -123,18 +123,19 @@ $grid-breakpoints: ( //STARTER
   width: 100%;
   margin: 0 auto;
   position: relative;
-  @include padding-main();
+  //@include padding-main();
 }
-.main {
+.theme-main {
   @include main;
 }
+
 @mixin inner-wrap($max-width: 1920px) {
   max-width: $max-width;
   margin: 0 auto;
   width: 100%;
 }
-.inner-wrap { @include inner-wrap(); }
-.inner-wrap-wide { @include inner-wrap(); }
+.theme-inner-wrap { @include inner-wrap(); }
+.theme-inner-wrap-wide { @include inner-wrap(); }
 
 @mixin section-full {
   margin-left: calc(-100vw / 2 + 100% / 2);

@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [ '**/*.php', './src/**/*.{html,js,scss,svelte}' ],
-	corePlugins: { //for disabling
-	},
+	// corePlugins: { //for disabling
+	// },
 	theme: {
 		// border: {
 		// 	1: "2px solid #009FC6",
