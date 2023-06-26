@@ -40,38 +40,38 @@ ul.footer-links-list {
    }
 
    // home
-   > li:first-child:nth-child(1),
+   > li:nth-child(1),
    .menu-item-104 {
       grid-area: a;
       order: 1;
    }
    // about
-   > li:first-child:nth-child(2),
+   > li:nth-child(2),
    .menu-item-106 {
       grid-area: b;
       order: 2;
    }
    // services
-   > li:first-child:nth-child(3),
+   > li:nth-child(3),
    .menu-item-114 {
       grid-area: c;
       order: 3;
    }
    // products
-   > li:first-child:nth-child(4),
+   > li:nth-child(4),
    .menu-item-119 {
       grid-area: d;
       order: 4;
    }
    // tools
-   > li:first-child:nth-child(5),
+   > li:nth-child(5),
    .menu-item-120 {
       grid-area: e;
       order: 5;
    }
    // news
-   > li:first-child:nth-child(6),
-   .menu-item-121 {
+   > li:nth-child(6), //TODO had to re-update once
+   .menu-item-16 {
       grid-area: f;
       order: 6;
    }
