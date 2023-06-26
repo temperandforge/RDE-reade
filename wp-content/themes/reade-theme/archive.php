@@ -21,7 +21,7 @@ $remaining = get_posts([
 get_header(); ?>
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
-      <div class="inner-wrap">
+      <div class="theme-inner-wrap">
          <article class="archive-default-content">
             <h2 class="title is-3"><?php echo get_queried_object()->name; ?></h2>
             <!-- dropdown -->

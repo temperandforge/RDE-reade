@@ -8,7 +8,7 @@ get_header(); ?>
 
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
-      <div class="inner-wrap">
+      <div class="theme-inner-wrap">
          <article class="single-content">
             <div class="single-hero">
                <div class="single-hero-img">

@@ -9,6 +9,7 @@ ini_set("error_log", get_stylesheet_directory() . "/debug.txt");
 require_once( get_stylesheet_directory() . '/lib/theme-setup.php' );
 require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
 require_once( get_stylesheet_directory() . '/template-parts/blocks/_index.php' );
+require_once( get_stylesheet_directory() . '/scripts/tf_dropdown.php' );
 
 
 //PRE_LAUNCH

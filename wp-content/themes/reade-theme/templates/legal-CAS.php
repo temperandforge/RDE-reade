@@ -3,7 +3,7 @@ get_header(); ?>
 
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
-      <div class="inner-wrap">
+      <div class="theme-inner-wrap">
 
 <h1><?php echo $post->post_title; ?></h1>
 <p class="last__updated">Last Updated: <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p>

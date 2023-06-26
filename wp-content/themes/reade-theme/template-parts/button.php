@@ -1,16 +1,28 @@
 <?php
 //SETUP
 function button(
-   $add_classes = []
+   $link = null,
+   $add_classes = [],
+   $rel = "noreferrer",
+   $download = false,
+   $text = null,
+   $href = null,
+   $target = "_self",
 ) { 
+   if($link) {
+      $title = $link['title'];
+      $href = $link['url'];
+      $target = $link['target'] ?: '_self';
+   }
 ?>
    <a 
       class="btn<?php echo $add_classes ? " ".implode(' ',$add_classes):"";?>" 
-      href=""
-      rel="noreferrer"
-      target="_self">
+      href="<?php echo $href ?: '#' ;?>"
+      rel="<?php echo $rel ?: '' ;?>"
+      target="<?php echo $target ?: '_self';?>"
+      >
       <!-- icon -->
-      <span>Button</span>
+      <span><?php echo __($title, TEXTDOMAIN); ?></span>
       <!-- icon -->
    </a>
 <?php 

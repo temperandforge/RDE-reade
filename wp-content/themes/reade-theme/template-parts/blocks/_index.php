@@ -45,6 +45,21 @@ function theme_register_blocks()
 		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
+	
+   /** 
+	 * Calculator
+	 * */
+	acf_register_block([
+		'name'			=> 'calculator',
+		'title'			=> 'Calculator',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/calculator.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
 
 	/** 
 	 * FAQS Accordions

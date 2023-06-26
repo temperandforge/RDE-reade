@@ -6,7 +6,7 @@ get_header();
 ?>
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
-      <div class="inner-wrap">
+      <div class="theme-inner-wrap">
          <article class="error-404-content grid place-items-center">
 
             <div class="status-404 text-primary">

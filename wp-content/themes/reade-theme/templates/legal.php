@@ -3,7 +3,7 @@ get_header(); ?>
 
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
-      <div class="inner-wrap">
+      <div class="theme-inner-wrap">
 
          <div class="page-legal-hero">
             <h1><?php echo $post->post_title; ?></h1>
