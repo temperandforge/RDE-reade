@@ -181,7 +181,7 @@ function setup_custom_post_types() {
       'FAQ',
       'FAQs',
       'faqs',
-      'dashicons-products', //$menu_icon,
+      'dashicons-info', //$menu_icon,
       $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
       $taxonomies = [
          [

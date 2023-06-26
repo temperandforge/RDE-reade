@@ -19,6 +19,10 @@ add_action( 'rest_api_init', 'dump_tables_endpoint' );
 
 
 function dump_tables_callback( $request ) {
+
+    // if (empty($_GET['auth']) || ($_GET['auth'] != TF_DB_SYNC_SECURITY_STRING)) {
+    //     die('invalid')
+    // }
    global $wpdb;
 
    // Get all database tables except 'wp_users'
@@ -75,7 +79,15 @@ function tfdbsync_callback()
 
         if ($remotedb = @wp_remote_get(TF_DB_SYNC_URL)) {
             if (!is_wp_error($remotedb)) {
+                $response_code = wp_remote_retrieve_response_code($remotedb);
+                
+                if ($response_code != '200') {
+                    die('Response code returned was not 200');
+                }
+                
                 if ($remotedb = @json_decode($remotedb['body'])) {
+
+                    
 
                     $currentURL = get_site_url();
 
