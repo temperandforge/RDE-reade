@@ -79,18 +79,7 @@ function generateTaxonomy(
 	//cpt_updated_messages( $messages, $tax_slug, $tax_singular_name, $tax_plural_name);
 }
 
-function cpt_init(
-   $slug,
-   $name,
-   $singular_name,
-   $plural_name,
-   $rest_base,
-   $menu_icon,
-   $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-   $taxonomies = [],
-	$has_archive = true,
-	$publicly_queryable = true,
-) {
+function cpt_init($slug,$name,$singular_name,$plural_name,$rest_base,$menu_icon,$supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],$taxonomies = [],$has_archive = true,$publicly_queryable = true) {
    register_post_type(
       $slug,
       [
