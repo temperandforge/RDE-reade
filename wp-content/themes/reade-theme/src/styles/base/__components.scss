@@ -10,7 +10,7 @@
 		}
 	}
 
-	.btn-accent {
+	.btn-green-dark-green {
 		@apply btn bg-green border-green text-footer-primary;
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
@@ -30,10 +30,10 @@
 	}
 
 	.btn-dark-blue-blue {
-		@apply btn bg-primary500 text-white;
+		@apply btn bg-primary900 text-white;
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
-				@apply bg-primary900 text-white;
+				@apply bg-primary500 text-white;
 			}
 		}
 	}
