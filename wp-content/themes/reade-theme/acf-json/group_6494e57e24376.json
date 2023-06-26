@@ -141,7 +141,7 @@
                 "id": ""
             },
             "choices": {
-                "dark-blue": "Dark Blue",
+                "blue": "Blue",
                 "light-blue": "Light Blue",
                 "white": "White",
                 "with-image": "With Image"
@@ -221,5 +221,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687535622
+    "modified": 1687554447
 }

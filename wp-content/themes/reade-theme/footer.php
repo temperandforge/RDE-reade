@@ -88,7 +88,7 @@
             </div>
             <!--TODO -->
             <?php if($btn = $option_fields['footer_contact']): ?>
-            <a class="btn btn-accent" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
+            <a class="btn-green-dark-green" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
                <?php echo __($btn['title'], TEXTDOMAIN); ?>
             </a>
             <?php endif; ?>
