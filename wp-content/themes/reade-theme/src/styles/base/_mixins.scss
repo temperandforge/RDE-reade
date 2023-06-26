@@ -333,7 +333,8 @@ $grid-breakpoints: (
 }
 
 .bg-light-blue,
-.bg-blue {
+.bg-blue,
+.bg-grid {
 	@include section-bg-color;
 }
 
@@ -345,6 +346,20 @@ $grid-breakpoints: (
 
 .bg-blue {
 	&:after {
-			background-color: var(--primary500);
+		background-color: var(--primary500);
+	}
+}
+
+.bg-grid {
+	&:before {
+		@apply absolute top-0 left-0 bottom-0 right-0 section-full;
+		content: '';
+		z-index: 1;
+		background-image: url("data:image/svg+xml,%3Csvg width='1440' height='475' viewBox='0 0 1440 475' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_3385_20618)'%3E%3Cpath d='M-223.383 20.6702H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 78.4961H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 136.321H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 194.147H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 251.972H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 309.798H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 367.623H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M-223.383 425.449H1675.55' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M12.4531 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M75.2344 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M138.023 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M200.805 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M263.594 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M326.375 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M389.172 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M451.953 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M514.734 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M577.523 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M640.305 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M703.102 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M765.883 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M828.672 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M891.453 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M954.234 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1017.02 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1079.81 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1142.6 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1205.38 -0.0876465V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1268.17 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1330.95 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3Cpath d='M1393.75 -0.0878906V925.12' stroke='%23DBF2F8' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3385_20618'%3E%3Crect width='1440' height='475' fill='white' transform='translate(-0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+		background-size: cover;
+
+		@include respond-above(sm) {
+			background-size: contain;
+		}
 	}
 }
