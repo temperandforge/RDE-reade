@@ -89,7 +89,7 @@ function cpt_init(
    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
    $taxonomies = [],
 	$has_archive = true,
-	$publicly_queryable = true,
+	$publicly_queryable = true
 ) {
    register_post_type(
       $slug,

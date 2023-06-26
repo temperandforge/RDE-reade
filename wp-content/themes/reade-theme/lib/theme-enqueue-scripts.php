@@ -21,7 +21,7 @@ function theme_scripts() {
 	// wp_enqueue_script('basicscroll', 'https://cdn.jsdelivr.net/npm/basicscroll@3.0.4/dist/basicScroll.min.js',  ['jquery'], null, true);
 	
 	//bootstrap accordion
-	wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js',  [], null, true);
+	//wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js',  [], null, true);
 
 	// slick
 	// wp_enqueue_style('slick-styles', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', false, $theme->version);
@@ -35,11 +35,12 @@ function theme_scripts() {
 	// wp_enqueue_script('isotope-layout', "https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js", ['jquery'], $theme->version, true);
 
 	//svelte/bundle
-	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+	// wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+	wp_enqueue_style('theme-css', $theme_uri . "/assets/build/css/bundle.css",  false, $theme->version);
 	
 	// theme js
 	//wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery', 'wp-api'], $theme->version, true);
-	wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery'], $theme->version, true);
+	wp_enqueue_script('theme-js', $theme_uri . "/assets/build/js/bundle.js", ['jquery'], $theme->version, true);
 	// wp_enqueue_script('main-js', $theme_uri . "/src/main.js", ['jquery'], $theme->version, true);
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts', 10 );
