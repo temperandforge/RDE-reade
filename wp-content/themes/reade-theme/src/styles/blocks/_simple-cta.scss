@@ -3,12 +3,6 @@
 		@apply bg-blue;
 		color: $white;
 
-		&:after {
-			@apply absolute top-0 left-0 w-screen h-full section-full;
-			content: '';
-			background-color: var(--primary500);
-		}
-
 		.simple-cta-content--wrap {
 			@apply relative z-10;
 
@@ -180,7 +174,7 @@
 			flex-direction: column;
 
 			&:not(.centered) {
-				@include respond-above(lg) {
+				@include respond-above(2xl) {
 					max-width: clamp(45ch, 50%, 75ch);
 					margin: unset;
 				}

@@ -51,13 +51,28 @@ function theme_register_blocks()
 	 * */
 	acf_register_block([
 		'name'			=> 'faqs-accordions',
-		'title'			=> 'FAQS Accordions',
+		'title'			=> 'FAQs Accordions',
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-accordions.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
 		'image'        => $img_root . '/call-to-action.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * FAQS Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'faqs-hero',
+		'title'			=> 'FAQs Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/call-to-action.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 
