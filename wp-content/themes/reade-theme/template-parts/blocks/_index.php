@@ -57,7 +57,22 @@ function theme_register_blocks()
 		'icon'			=> 'button',
 		'image'        => $img_root . '/call-to-action.webp',
 		'mode'			=> $mode,
-		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN],
+		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN]
+	]);
+
+	/**
+	 * News Hero
+	 * */
+
+	acf_register_block([
+		'name'			=> 'news-hero',
+		'title'			=> 'News Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/news-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button', //TODO
+		'image'        => $img_root . '/news-hero.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['news hero', 'news', 'hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 
@@ -102,9 +117,7 @@ function theme_register_blocks_style()
 	if (function_exists('register_block_style')) {
 		register_block_style( 
          'core/heading', 
-         array( 
-            'name' =>'heading-size-1', 
-            'label'=> __('Size 1', TEXTDOMAIN), 
+         array( 'name' =>'heading-size-1', 'label'=> __('Size 1', TEXTDOMAIN), 
             // 'is_default'   => false, // 'inline_style' => '.wp-block-group.is-style-blue-wave', 
          ) 
       );
