@@ -422,6 +422,9 @@ require get_template_directory() . '/lib/theme-enqueue-scripts.php';
 // require get_template_directory() . '/lib/theme-gutenberg.php';
 // require get_template_directory() . '/lib/theme-rest.php';
 
+// tf dropdown
+require_once get_template_directory() . '/lib/util/tf-dropdown.php';
+
 //CPT
 require get_template_directory() . '/lib/cpt/_index.php';
 
