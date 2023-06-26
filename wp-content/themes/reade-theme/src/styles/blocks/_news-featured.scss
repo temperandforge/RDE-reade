@@ -1,0 +1,126 @@
+.news-featured {
+    padding-top: 110px;
+    padding-bottom: 110px;
+
+    .news-featured-top {
+        display: flex;
+        margin-bottom: 39px;
+    }
+    .news-featured-top-left, .news-featured-top-right {
+        flex-basis: 50%;
+    }
+    .news-featured-top-right {
+        display: flex;
+        justify-content: flex-end;
+        
+        input {
+            height: 40px;
+            padding: 10px 16px;
+            padding-right: 30px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-500-main, #009FC6);
+            background: $white;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC4yNSA0Ljc1QzYuMzE3IDQuNzUgNC43NSA2LjMxNyA0Ljc1IDguMjVDNC43NSAxMC4xODMgNi4zMTcgMTEuNzUgOC4yNSAxMS43NUMxMC4xODMgMTEuNzUgMTEuNzUgMTAuMTgzIDExLjc1IDguMjVDMTEuNzUgNi4zMTcgMTAuMTgzIDQuNzUgOC4yNSA0Ljc1Wk0zIDguMjVDMyA1LjM1MDUxIDUuMzUwNTEgMyA4LjI1IDNDMTEuMTQ5NSAzIDEzLjUgNS4zNTA1MSAxMy41IDguMjVDMTMuNSA5LjM4Mzg1IDEzLjE0MDYgMTAuNDMzOCAxMi41Mjk0IDExLjI5MkwxNi43NDM3IDE1LjUwNjNDMTcuMDg1NCAxNS44NDggMTcuMDg1NCAxNi40MDIgMTYuNzQzNyAxNi43NDM3QzE2LjQwMiAxNy4wODU0IDE1Ljg0OCAxNy4wODU0IDE1LjUwNjMgMTYuNzQzN0wxMS4yOTIgMTIuNTI5NEMxMC40MzM4IDEzLjE0MDYgOS4zODM4NSAxMy41IDguMjUgMTMuNUM1LjM1MDUxIDEzLjUgMyAxMS4xNDk1IDMgOC4yNVoiIGZpbGw9IiMwMDlGQzYiLz4NCjwvc3ZnPg0K");
+            background-repeat: no-repeat;
+            background-position: 95% 9px;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: var(--primary-500-main, #009FC6);
+                font-size: 14px;
+                font-family: Open Sans;
+            }
+        }
+    }
+    .news-featured-article {
+        border-radius: 15px;
+        box-shadow: 0px 17px 50px 0px rgba(16, 24, 40, 0.12);
+        display: flex;
+    }
+    .news-featured-article-left, .news-featured-article-right {
+        flex-basis: 50%;
+        padding-left: 90px;
+    }
+
+    .news-featured-article-right {
+        img {
+            aspect-ratio: 526/420;
+            width: 100%;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+    }
+    
+    .tf-dropdown {
+        border-radius: 5px;
+        border: 1px solid var(--primary-500-main, #009FC6);
+        height: 40px;
+        box-sizing: border-box;
+
+        dt {
+            padding: unset;
+        }
+
+        dt p {
+            color: var(--primary-500-main, #009FC6);
+            font-size: 14px;
+            font-family: Open Sans;
+            font-weight: 600;
+            line-height: 20px;
+            padding-left: 11px;
+            padding-right: 11px;
+            line-height: 40px;
+            // padding-top: 8px;
+            // padding-bottom: 8px;
+        }
+        dt svg {
+            padding-right: unset;
+            margin-right: 11px;
+        }
+        
+        dd {
+            width: calc(100% + 2px);
+
+            ul {
+                li {
+                    color: var(--primary-500-main, #009FC6);
+                    font-size: 14px;
+                    font-family: Open Sans;
+                    font-weight: 600;
+                    line-height: 40px;
+                    padding-left: 16px;
+
+                    &:hover {
+                        background-color: var(--primary-50, #EFFBFF);
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .tf-dropdown-open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        dt svg path {
+            fill: $white;
+        }
+
+        dd {
+            border-radius: 5px;
+            border: 1px solid var(--primary-500-main, #009FC6);
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: none;
+        }
+        dt {
+            background-color: var(--primary-500-main, #009FC6);
+            p {
+                color: $white;
+            }
+        }
+    }
+}
