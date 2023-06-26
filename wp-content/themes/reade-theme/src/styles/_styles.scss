@@ -60,3 +60,11 @@
       width: 338px; //TODO
    }
 }
+
+
+ .news-hero {
+    @apply section-full bg-primary50;
+ }
+ .news-hero .main .inner-wrap {
+    @apply flex flex-col;
+ }

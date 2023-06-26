@@ -6,7 +6,7 @@ if(!defined('option_fields')) { //TODO
 
 <div class="navbar-wrap">
   <div class="theme-main">
-    <div class="inner-wrap-wide">
+    <div class="theme-inner-wrap-wide">
       <!-- //TODO -->
       <div class="navbar d-flex flex items-center">
         <a href="<?php echo get_site_url() ?>" class="logo-link">

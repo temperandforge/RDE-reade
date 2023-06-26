@@ -153,7 +153,7 @@ a.footer-logo-link {
 //       font-style: normal;
 //    }
 
-   .btn-accent {
+   .btn-green-dark-green {
       @apply text-center w-full;
       max-width: 28rem; //TODO
    }
@@ -331,7 +331,7 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
    .footer-row-2 {
       @apply lg:flex-row md:items-end py-20 relative z-20;
    
-      .btn-accent {
+      .btn-green-dark-green {
          width: unset;
       }
    }

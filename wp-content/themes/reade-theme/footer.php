@@ -9,7 +9,7 @@
 ?>
 <footer id="site-footer" class="site-footer">
    <div class="theme-main">
-      <div class="inner-wrap-wide">
+      <div class="theme-inner-wrap-wide">
          <div class="footer-info footer-row-1">
             <div class="footer-links">
                <?php
@@ -88,7 +88,7 @@
             </div>
             <!--TODO -->
             <?php if($btn = $option_fields['footer_contact']): ?>
-            <a class="btn btn-accent" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
+            <a class="btn-green-dark-green" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
                <?php echo __($btn['title'], TEXTDOMAIN); ?>
             </a>
             <?php endif; ?>
