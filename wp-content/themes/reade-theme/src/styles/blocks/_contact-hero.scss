@@ -1,0 +1,77 @@
+.contact-hero--section {
+	padding: 32px 0 40px;
+  
+  @include respond-above(xl) {
+		@apply relative;
+  padding: 145px 0 60px;
+	}
+}
+
+.contact-hero--wrap {
+	@apply flex flex-col items-center;
+	@include inner-wrap(700px);
+}
+
+.contact-hero--figure {
+	@include respond-above(xl) {
+		@apply absolute;
+  top: 48px;
+  right: -15%;
+	}
+
+ @include respond-above(3xl) {
+  right: -7.5%;
+	}
+
+ @include respond-above(4xl) {
+  right: 0;
+	}
+
+	img {
+		max-width: 60%;
+		margin: 0 auto;
+  aspect-ratio: 1 / 1;
+
+		@include respond-above(xl) {
+			max-width: 558px;
+			margin: unset;
+		}
+	}
+}
+
+.contact-hero--content {
+	@apply w-full relative z-20;
+
+	br {
+		@apply hidden;
+
+		@include respond-above(sm) {
+			display: unset;
+		}
+	}
+
+	h1 {
+		@apply mt-8;
+		font-size: 40px;
+		font-weight: 700;
+		line-height: 48px;
+		letter-spacing: -0.8px;
+
+		@include respond-above(md) {
+   @apply mt-0;
+			font-size: 45px;
+			line-height: 53px;
+			letter-spacing: -1.2px;
+		}
+
+		@include respond-above(xl) {
+			font-size: 50px;
+			line-height: 58px;
+			letter-spacing: -1.5px;
+		}
+	}
+
+	p {
+		@apply mt-4;
+	}
+}

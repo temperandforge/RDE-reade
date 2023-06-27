@@ -42,7 +42,36 @@ function theme_register_blocks()
 		'icon'			=> 'button',
 		'image'        => $img_root . '/faq-accordion.webp',
 		'mode'			=> $mode,
-		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'keywords'		=> ['call-to-action', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+	/** 
+	 * Call To Action
+	 * */
+	acf_register_block([
+		'name'			=> 'contact-hero',
+		'title'			=> 'Contact Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/contact-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/faq-accordion.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['contact', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * Contact Location Information
+	 * */
+	acf_register_block([
+		'name'			=> 'contact-location-information',
+		'title'			=> 'Contact Location Information',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/contact-location-information.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/faq-accordion.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['contact', 'location', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 	

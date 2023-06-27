@@ -9,8 +9,12 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
 
 <div class="faqs-hero <?php echo $fields['style'] ;?>">
  <div class="faqs-hero-content--wrap">
-  <h1><?php echo !empty($fields['heading']) ? $fields['heading'] : null ;?></h1>
-  <p><?php echo !empty($fields['content']) ? $fields['content'] : null ;?></p>
+   <?php if(!empty($fields['heading'])) :?>
+    <h1><?php echo $fields['heading'] ;?></h1>
+   <?php endif ;?> 
+   <?php if(!empty($fields['content'])) :?>
+    <p><?php echo $fields['content'] ;?></p>
+   <?php endif ;?>
  </div>
 
  <?php if($fields['icon'] != 'none') :?>
