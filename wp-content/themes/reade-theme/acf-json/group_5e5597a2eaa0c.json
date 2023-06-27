@@ -82,113 +82,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_63f92feebdfd3",
-            "label": "Locations",
-            "name": "locations",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_63f93003bdfd4",
-                    "label": "Address Line One",
-                    "name": "address_line_one",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_63f92feebdfd3"
-                },
-                {
-                    "key": "field_63f9300bbdfd5",
-                    "label": "Address Line Two",
-                    "name": "address_line_two",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_63f92feebdfd3"
-                },
-                {
-                    "key": "field_63f9300fbdfd6",
-                    "label": "Phone",
-                    "name": "phone",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_63f92feebdfd3"
-                },
-                {
-                    "key": "field_63f93014bdfd7",
-                    "label": "Email",
-                    "name": "email",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_63f92feebdfd3"
-                }
-            ]
-        },
-        {
             "key": "field_5e5597c1d93c0",
             "label": "Additional HTML",
             "name": "",
@@ -658,5 +551,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685942030
+    "modified": 1687881065
 }

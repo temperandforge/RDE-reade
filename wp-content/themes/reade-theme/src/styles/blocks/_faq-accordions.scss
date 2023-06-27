@@ -10,7 +10,11 @@
 
 	&:not(:first-child) {
 		.accordion-btn {
-			@apply mt-10;
+			@apply pt-10;
+
+			&:after {
+				@apply top-10;
+			}
 		}
 	}
 }
