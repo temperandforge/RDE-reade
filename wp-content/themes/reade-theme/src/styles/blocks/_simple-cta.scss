@@ -230,23 +230,6 @@
 			@include respond-above(sm) {
 				width: fit-content;
 			}
-
-			&.btn-arrow {
-				@apply flex items-center justify-center;
-				gap: 8px;
-
-				svg {
-					transition: all 0.2s ease-out;
-				}
-
-				@media screen and (hover: hover) and (pointer: fine) {
-					&:hover {
-						svg {
-							transform: translateX(4px);
-						}
-					}
-				}
-			}
 		}
 	}
 }

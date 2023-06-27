@@ -1,7 +1,7 @@
 <?php
 //TODO divide into parts
    $option_fields = get_fields('options') ?: [];
-   $locations = $option_fields['locations'] ?: [];
+   // $locations = $option_fields['locations'] ?: [];
    $social_links = [];
    if(array_key_exists('social_links', $option_fields)) {
       $social_links = $option_fields['social_links']; 

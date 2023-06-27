@@ -2,10 +2,27 @@
 	.btn {
 		@apply border-1 rounded-1 font-semibold inline-block text-primary500;
 		@apply py-3 px-16; //TODO em
+
+		&.btn-arrow {
+			display: flex;
+			/* align-items: center; */
+			/* justify-content: center; */
+			/* gap: 8px; */
+			@apply  items-center justify-center gap-2;
+
+			svg {
+				transition: all 0.2s ease-out;
+			}
+		}
+
 		@media screen and (hover: hover) and (pointer: fine) {
 			transition: 0.2s;
 			&:hover {
 				@apply bg-primary500 text-white;
+
+				svg {
+					transform: translateX(4px);
+				}
 			}
 		}
 	}
