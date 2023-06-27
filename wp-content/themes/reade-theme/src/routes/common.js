@@ -25,6 +25,14 @@ export default {
 			$body.removeClass( 'using-mouse' );
 		} );
 
+		if ($('.news-featured').length) {
+			if ($('.tf-dropdown').length) {
+				$('.tf-dropdown ul li').on('click', function() {
+					document.location.href = $(this).data('key');
+				})
+			}
+		}
+
 		//TODO bigpicture on img
 	},
 };
