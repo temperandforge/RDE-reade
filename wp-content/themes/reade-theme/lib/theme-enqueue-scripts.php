@@ -42,5 +42,8 @@ function theme_scripts() {
 	//wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery', 'wp-api'], $theme->version, true);
 	wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery'], $theme->version, true);
 	// wp_enqueue_script('main-js', $theme_uri . "/src/main.js", ['jquery'], $theme->version, true);
+
+	//drag scroll
+	wp_enqueue_script('theme-dragscroll', $theme_uri . '/assets/js/dragscroll.js', '', $theme->version, true);
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts', 10 );
