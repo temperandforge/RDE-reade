@@ -37,4 +37,15 @@
 			}
 		}
 	}
+
+	.btn-white-blue {
+		@apply btn bg-white text-primary500 border-primary500;
+		@media screen and (hover: hover) and (pointer: fine) {
+			&:hover {
+				@apply bg-primary500 text-white;
+			}
+		}
+	}
 }
+
+

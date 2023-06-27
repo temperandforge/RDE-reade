@@ -76,6 +76,22 @@ function theme_register_blocks()
 	]);
 
 	/**
+	 * News Category
+	 * */
+
+	 acf_register_block([
+		'name'			=> 'news-category',
+		'title'			=> 'News Category',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/news-category.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button', //TODO
+		'image'        => $img_root . '/news-category.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['news category', 'news', 'category', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/**
 	 * News Hero
 	 * */
 
