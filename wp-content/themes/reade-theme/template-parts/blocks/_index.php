@@ -103,11 +103,25 @@ function theme_register_blocks()
 		'mode'			=> $mode,
 		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN]
 	]);
+	
+   /** 
+	 * History
+	 * */
+	acf_register_block([
+		'name'			=> 'history',
+		'title'			=> 'History',
+      //callback
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/history.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/history.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['history', 'reade', 'theme', TEXTDOMAIN]
+	]);
 
 	/**
 	 * News Category
 	 * */
-
 	 acf_register_block([
 		'name'			=> 'news-category',
 		'title'			=> 'News Category',
