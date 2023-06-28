@@ -47,14 +47,6 @@
                      <p class="footer-contact-email">Email: <a href="mailto:<?php echo $email;?>" rel="noreferrer"><?php echo $email; ?></a></p>
                   <?php endif; ?>
                </div>
-               <?php if($locations && $addr_one = $locations[0]['address_line_one']): ?>
-                  <address>
-                     <?php echo $addr_one; ?><br/>
-                     <?php if($addr_two = $locations[0]['address_line_two']): ?>
-                        <?php echo $addr_two; ?><br/>
-                     <?php endif; ?>
-                  </address>
-               <?php endif; ?>
                <div class="footer-subscribe">
                   <?php 
                   if($footer_form_msg = $option_fields['footer_form_msg']): ?>
