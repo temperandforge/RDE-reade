@@ -10,6 +10,26 @@ get_header(); ?>
    <div class="theme-main">
       <div class="theme-inner-wrap">
          <article class="single-content">
+            
+            <?php
+
+            $single_cat = get_the_category();
+
+            // set up variables for blog hero partial
+            $hero_headline = get_the_title();
+            $hero_description = false;
+            $hero_search = false;
+            $hero_breadcrumbs = array(
+               '/news/' => 'All News',
+               get_permalink(get_the_ID()) => $single_cat[0]->name
+            );
+
+
+            // include blog hero partial
+            include 'template-parts/blocks/partial/blog-hero.php';
+
+            ?>
+            <!--
             <div class="single-hero">
                <div class="single-hero-img">
                   <?php echo get_the_post_thumbnail(); ?>
@@ -49,6 +69,7 @@ get_header(); ?>
                </div>
             </div>
             <?php endif; ?>
+            -->
          </article>
       </div>
    </div>

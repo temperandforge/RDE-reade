@@ -23,9 +23,15 @@
     .news-featured-top-right {
         display: flex;
         justify-content: flex-end;
-        
+        form {
+            @include respond-below(md) {
+                width: 100%;
+                display: block;
+            }
+            display: block;
+        }
         input {
-            height: 40px;
+            height: 42px;
             padding: 10px 16px;
             padding-right: 30px;
             border-radius: 5px;

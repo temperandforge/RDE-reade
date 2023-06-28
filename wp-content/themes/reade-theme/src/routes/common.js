@@ -39,17 +39,33 @@ export default {
 		/**
 		 * News/archive page, view more functionality
 		 */
+
+		let cardsPerPage;
+
+		// if you change these values, also change the window.onresize() values
+		if (window.innerWidth < 769) {
+			cardsPerPage = 3;
+		} else {
+			cardsPerPage = 6;
+		}
+
+		let $cards = $('.news-card-regular');
+		let totalCards = $cards.length;
+		let cardsToShow = Math.min(cardsPerPage, totalCards);
+		let shownCards = cardsToShow;
+
 		if ($('.view-more').length) {
-			let cardsPerPage = 6;
-			let $cards = $('.news-card-regular');
-			let totalCards = $cards.length;
-			let cardsToShow = Math.min(cardsPerPage, totalCards);
-			let shownCards = cardsToShow;
+
+			
+			
+			
 
 			$cards.slice(cardsToShow, totalCards).hide();
 
 			if (totalCards <= cardsPerPage) {
 				$('#view-more').hide();
+			} else {
+				$('#view-more').show();
 			}
 
 			$('#view-more').click(function() {
@@ -63,7 +79,50 @@ export default {
 			});
 		};
 
+
+		/**
+		 * News Search
+		 */
+		if ($('.news-search').length) {
+			$('.news-search').on('click', function() {
+
+			})
+		}
+
 		//TODO bigpicture on img
+
+
+
+		// window resize
+		window.onresize = function() {
+			
+			// change pagination of cards on news pages/grids
+			if ($('.view-more').length) {
+				if (window.innerWidth < 769) {
+					cardsPerPage = 3;
+				} else {
+					cardsPerPage = 6;
+				}
+		
+				$cards = $('.news-card-regular');
+				totalCards = $cards.length;
+				//if (cardsToShow == cardsPerPage) {
+					cardsToShow = Math.min(cardsPerPage, totalCards);
+				//} else {
+					//cardsToShow = $('.news-card-regular:visible').length;
+				//}
+				shownCards = cardsToShow;
+
+				$cards.slice(0, cardsToShow).show();
+				$cards.slice(cardsToShow, totalCards).hide();
+		
+				if (totalCards <= cardsPerPage) {
+					$('#view-more').hide();
+				} else {
+					$('#view-more').show();
+				}
+			}
+		}
 	},
 };
 
