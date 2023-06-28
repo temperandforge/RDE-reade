@@ -2,9 +2,10 @@
 //$fields = get_fields(); 
 
 $cat_ID = get_queried_object()->term_id;
+
 //TODO pagination, category
 $featured = get_posts([
-   'post_type'      => 'resource',
+   'post_type'      => 'post',
    'post_status'    => 'publish',
    'posts_per_page' => -1,
    'category'       => $cat_ID,

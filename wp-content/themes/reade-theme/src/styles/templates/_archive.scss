@@ -22,6 +22,16 @@ body.news-search {
     .blog-hero-breadcrumb {
         margin-bottom: 30px;
 
+        svg {
+            display: inline-flex;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            &:last-of-type {
+                display: none;
+            }
+        }
+
         a {
             display: inline-flex;
             padding: 7px 20px;
