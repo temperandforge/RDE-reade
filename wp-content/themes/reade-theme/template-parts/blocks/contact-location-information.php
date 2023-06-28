@@ -59,7 +59,7 @@ $fields = get_fields();
        <?php if(empty($poc['link'])) :?>
         <p><?php echo $poc['name'] ;?></p>
        <?php else :?>
-        <a href="<?php echo $poc['link']['url'] ;?>" target="<?php echo $poc['link']['target'] == "_target" ? $poc['link']['target'] : '_self' ;?>"><?php echo $poc['name'] ;?></a>
+        <a href="<?php echo $poc['link']['url'] ;?>" target="<?php echo ($poc['link']['target'] == "_blank") ? $poc['link']['target'] : '_self' ;?>"><?php echo $poc['name'] ;?></a>
        <?php endif ;?>
       <?php endforeach ;?>
      </div>
