@@ -41,6 +41,6 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
          <svg aria-hidden="true" width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8982 25.2317C17.4313 25.7648 18.2955 25.7648 18.8285 25.2317L27.0182 17.0421C27.5512 16.509 27.5512 15.6448 27.0182 15.1118L18.8285 6.92212C18.2955 6.38908 17.4313 6.38908 16.8982 6.92212C16.3652 7.45516 16.3652 8.3194 16.8982 8.85244L22.7578 14.712H6.94386C6.19003 14.712 5.57892 15.3231 5.57892 16.0769C5.57892 16.8308 6.19003 17.4419 6.94386 17.4419L22.7578 17.4419L16.8982 23.3014C16.3652 23.8344 16.3652 24.6987 16.8982 25.2317Z" fill="#009FC6"/> </svg>
       </button>
    </div>
-   <!-- Line connecting events - GPT-written -->
+   <!-- Line connecting events - dynamic connections written - orcas-generated -->
    <svg></svg>
 </div>
