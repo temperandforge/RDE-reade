@@ -32,7 +32,9 @@
 
     if (isset($hero_search) && $hero_search) {
         ?>
+        <form action="/news-search/" method="GET">
         <input class="news-search" type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+        </form>
         <?php
     }
     ?>

@@ -31,7 +31,9 @@ $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card
             ?>
         </div>
         <div class="news-featured-top-right">
-                <input type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+                <form action="/news-search/" method="get">
+                    <input type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+                </form>
             </form>
         </div>
     </div>

@@ -50,6 +50,8 @@ export default {
 
 			if (totalCards <= cardsPerPage) {
 				$('#view-more').hide();
+			} else {
+				$('#view-more').show();
 			}
 
 			$('#view-more').click(function() {
@@ -62,6 +64,16 @@ export default {
 				}
 			});
 		};
+
+
+		/**
+		 * News Search
+		 */
+		if ($('.news-search').length) {
+			$('.news-search').on('click', function() {
+
+			})
+		}
 
 		//TODO bigpicture on img
 	},
