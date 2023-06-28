@@ -1,20 +1,26 @@
-.news-card {
+/**
+* This news card is for the news sections that do not turn into a slider
+*/
+.news-card-regular {
     width: calc(33.333333% - 24px);
     margin-right: 24px;
     display: flex;
     flex-direction: column;
 
     @include respond-below(lg) {
-        min-width: 55vw;
-        width: calc(33.333333% - 15px);
-        margin-right: 15px;
-    }
-    @include respond-below(md) {
-        min-width: 75vw;
+         width: calc(50% - 15px);
+         margin-right: 15px;
     }
     @include respond-below(sm) {
-        min-width: 82%;
+        width: 100%;
+        margin-right: 0;
     }
+    // @include respond-below(md) {
+    //     min-width: 75vw;
+    // }
+    // @include respond-below(sm) {
+    //     min-width: 82%;
+    // }
 
     img {
         width: 100%;
@@ -24,7 +30,7 @@
         object-fit: cover;
 
         @include respond-below(lg) {
-            aspect-ratio: 283/184;
+            //aspect-ratio: 283/184;
         }
     }
 

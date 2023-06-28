@@ -1,4 +1,4 @@
-<div class="news-card">
+<div class="news-card-slider">
     <?php
     if ($img = get_the_post_thumbnail($npost->ID, 'medium-large')) {
         echo $img;
