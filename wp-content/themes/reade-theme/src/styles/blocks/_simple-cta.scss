@@ -174,8 +174,8 @@
 			flex-direction: column;
 
 			&:not(.centered) {
-				@include respond-above(2xl) {
-					max-width: clamp(45ch, 50%, 75ch);
+				@include respond-above(xl) {
+					/* max-width: clamp(45ch, 50%, 75ch); */
 					margin: unset;
 				}
 			}
@@ -224,7 +224,6 @@
 
 		.simple-cta-btn {
 			@apply text-center;
-			border-radius: 6px;
 			white-space: nowrap;
 
 			@include respond-above(sm) {

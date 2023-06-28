@@ -1,0 +1,17 @@
+.contact-dual-cta--section {
+ height: 250px;
+ @apply bg-light-blue;
+
+ &:after {
+  height: 100px;
+ }
+}
+
+.contact-dual-cta--wrap {
+ @apply relative z-10;
+}
+
+.contact-dual-cta--inner {
+ @apply grid grid-cols-1;
+
+}

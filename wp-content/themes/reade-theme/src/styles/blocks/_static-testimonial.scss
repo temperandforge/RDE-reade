@@ -1,0 +1,52 @@
+.static-testimonial--section {
+	@apply bg-light-blue;
+	padding: 70px 0 80px;
+
+	@include respond-above(md) {
+		padding: clamp(80px, 7vw, 100px) 0 clamp(90px, 7.75vw, 110px);
+	}
+}
+
+.static-testimonial--wrap {
+	@include inner-wrap(1024px);
+	@apply relative z-10 text-center;
+}
+
+.quote-figure {
+	color: var(--primary-500-main, #009fc6);
+
+	figcaption {
+		margin-top: 30px;
+	}
+}
+
+.quote {
+	font-size: 22px;
+	line-height: 33px;
+	letter-spacing: -0.44px;
+
+	@include respond-above(md) {
+		font-size: 36px;
+		line-height: 48px;
+		letter-spacing: -0.6px;
+	}
+
+	@include respond-above(xl) {
+		font-size: 40px;
+		line-height: 55px;
+		letter-spacing: -0.8px;
+	}
+}
+
+.quote-by {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: -0.32px;
+}
+
+.quote-by-role {
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: -0.28px;
+}

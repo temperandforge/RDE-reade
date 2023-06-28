@@ -23,9 +23,41 @@ function handleFAQAccordion() {
 	})
 }
 
+function handleContactLocationInformation() {
+	const $locations = $('.contact-information--locations button')
+	const $contentBlocks = $('.contact-information--set')
+
+	if (!$locations.length) {
+		return
+	}
+
+	$locations.each(function (index) {
+		$(this).on('click', function (e) {
+			if ($(this).attr('aria-expanded') == 'true') {
+				return
+			} else {
+				$locations.each(function () {
+					$(this).attr('aria-expanded') == 'true'
+						? $(this).attr('aria-expanded', 'false')
+						: $(this).attr('aria-expanded', 'true')
+				})
+				$contentBlocks.each(function () {
+					$(this).attr('aria-hidden') == 'true'
+						? $(this).attr('aria-hidden', 'false')
+						: $(this).attr('aria-hidden', 'true')
+					$(this).attr('aria-hidden') == 'true'
+						? $(this).removeClass('active')
+						: $(this).addClass('active')
+				})
+			}
+		})
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
+	handleContactLocationInformation()
 }
 
 export { runBlocks }
