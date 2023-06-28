@@ -1,0 +1,118 @@
+.contact-information--section {
+	@apply relative z-10;
+
+	@include respond-above(md) {
+		padding-bottom: calc(145px / 2);
+	}
+
+	@include respond-above(xl) {
+		padding-bottom: 145px;
+	}
+}
+
+.contact-information--locations {
+	@include inner-wrap(700px);
+	@apply flex flex-wrap gap-3 lg:gap-6;
+
+	h2 {
+		flex-grow: 1;
+
+		@include respond-above(lg) {
+			flex-grow: 0;
+		}
+	}
+
+	button {
+		min-width: 290px;
+		width: 100%;
+	}
+}
+
+.contact-information--content {
+	@apply relative;
+	@include inner-wrap(1024px);
+	margin-top: 55px;
+
+	@include respond-above(md) {
+		margin-top: 85px;
+	}
+
+	@include respond-above(lg) {
+		margin-top: 115px;
+	}
+}
+
+.contact-information--set {
+	@apply absolute top-0 grid grid-cols-1	md:grid-cols-2 opacity-0;
+	gap: 25px;
+	transition: all 0.2s ease-out;
+	height: 100%;
+
+	&.active {
+		@apply relative opacity-100 h-full;
+	}
+
+	figure {
+		@apply order-2 md:order-1;
+
+		@include respond-below(sm) {
+			@apply section-full;
+		}
+
+		img {
+			@apply w-full h-full object-cover;
+			aspect-ratio: 390 / 342;
+
+			@include respond-above(md) {
+				border-radius: 10px;
+				aspect-ratio: 502 / 618;
+			}
+		}
+	}
+}
+
+.contact-information--block {
+	@apply order-1 md:order-2 w-full h-full;
+
+	@include respond-above(md) {
+		border-radius: 10px;
+		background-color: $white;
+		box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.04);
+		padding: min(6vw, 85px) min(7vw, 100px);
+	}
+
+	h3 {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 48px;
+		letter-spacing: -0.48px;
+
+		&:not(:first-child) {
+			margin-top: 40px;
+		}
+
+		@include respond-above(md) {
+			&:not(:first-child) {
+				margin-top: 63px;
+			}
+
+			&:nth-last-child(2) {
+				margin-top: 48px;
+			}
+		}
+
+		+ p,
+		+ a {
+			margin-top: 6px;
+		}
+	}
+
+	p,
+	a {
+		font-weight: 600;
+	}
+
+	a {
+		text-decoration-line: underline;
+	}
+}

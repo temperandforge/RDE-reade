@@ -45,8 +45,24 @@ function theme_register_blocks()
 		'keywords'		=> ['call-to-action', 'cta', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
+
 	/** 
-	 * Call To Action
+	 * Contact Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'contact-dual-cta',
+		'title'			=> 'Contact Dual CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/contact-dual-cta.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/faq-accordion.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['contact', 'cta', 'dual', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
+	 * Contact Hero
 	 * */
 	acf_register_block([
 		'name'			=> 'contact-hero',
@@ -172,14 +188,31 @@ function theme_register_blocks()
 	 * Simple CTA
 	 * */
 	acf_register_block([
-		'name'			 => 'simple_cta',
+		'name'			 => 'simple-cta',
 		'title'			 => 'Simple CTA',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/simple_cta.php",
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/simple-cta.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button', //TODO
 		'image'         => $img_root . '/page-hero.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['simple', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/** 
+	 * Static Testimonial
+	 * */
+	acf_register_block([
+		'name'			 => 'static-testimonial',
+		'title'			 => 'Static Testimonial',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/static-testimonial.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['static', 'testimonial', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
       //TODO
 		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
