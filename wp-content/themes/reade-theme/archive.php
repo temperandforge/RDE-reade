@@ -19,6 +19,7 @@ $remaining = get_posts([
 ]);
 
 $qobj = get_queried_object();
+$view_more_button_text = get_field('view_more_button_text', 'options') ? get_field('view_more_button_text', 'options') : 'View More';
 
 get_header(); ?>
 <main id="main-content" class="main-content-wrap">
@@ -52,12 +53,16 @@ get_header(); ?>
                   include 'template-parts/blocks/partial/news-card-regular.php';
                }
 
+            } else {
+               ?>
+               <p><?php echo get_field('no_posts_found', 'options') ? get_field('no_posts_found', 'options') : 'Sorry, no posts were found.'; ?></p>
+               <?php
             }
 
             ?>
          </div>
 
-         <button id="view-more" class="btn-white-blue view-more">View More</button>
+         <button id="view-more" class="btn-white-blue view-more"><?php echo $view_more_button_text; ?></button>
 
          
 

@@ -1,6 +1,7 @@
 <?php
 
 $fields = get_fields();
+$btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card_button_text', 'options') : 'Read More';
 
 ?>
 <div class="news-featured">
@@ -60,7 +61,7 @@ $fields = get_fields();
 
                 ?>
                 <a class="btn-green-dark-green btn-arrow" href="<?php echo get_permalink($fields['featured_article'][0]->ID); ?>">
-                Read More
+                <?php echo $btn_text; ?>
                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.38128C12.848 6.03957 13.402 6.03957 13.7437 6.38128L17.2437 9.88128C17.5854 10.223 17.5854 10.777 17.2437 11.1187L13.7437 14.6187C13.402 14.9604 12.848 14.9604 12.5063 14.6187C12.1646 14.277 12.1646 13.723 12.5063 13.3813L14.5126 11.375H4.375C3.89175 11.375 3.5 10.9832 3.5 10.5C3.5 10.0168 3.89175 9.625 4.375 9.625H14.5126L12.5063 7.61872C12.1646 7.27701 12.1646 6.72299 12.5063 6.38128Z" fill="#FAFAFA"/>
                 </svg>
