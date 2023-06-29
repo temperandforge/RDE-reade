@@ -85,14 +85,14 @@ ul.header-links {
 
 		&:hover,
 		&:focus-within { //TODO
-    }
-    .sub-menu {
-      opacity: 1;
-      pointer-events: initial;
-      // margin-top: 1.85rem;
-      max-height: unset;
-      visibility: visible;
-      // margin-top: 0rem;
+      .sub-menu {
+        opacity: 1;
+        pointer-events: initial;
+        // margin-top: 1.85rem;
+        max-height: unset;
+        visibility: visible;
+        // margin-top: 0rem;
+      }
     }
 
 		> a {
