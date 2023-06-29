@@ -1,5 +1,13 @@
 .secondary-hero--section {
-	@apply bg-light-blue bg-geometric;
+	&.light-blue {
+		@apply bg-light-blue;
+	}
+
+	&.blue {
+		@apply bg-blue;
+	}
+
+	@apply relative bg-geometric;
 	padding: 30px 0;
 
 	@include respond-above(sm) {
