@@ -1,9 +1,6 @@
 <?php
 
 $fields = get_fields();
-if(IS_LOCAL) {
-echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
-}
 
 ?>
 
@@ -21,7 +18,8 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
       <p><?php echo $cta['content'] ;?></p>
      <?php endif ;?>
      <?php if(!empty($cta['link'])) :?>
-      <a href="<?php echo $cta['link']['url'] ;?>" class="dual-cta-btn"><?php echo $cta['link']['title'] ;?></a>
+      <a href="<?php echo $cta['link']['url'] ;?>" class="dual-cta-btn"
+      target="<?php echo $cta['link']['target'] ?: '_self';?>"><?php echo $cta['link']['title'] ;?></a>
      <?php endif ;?>
     </div>
    <?php endforeach ;?>

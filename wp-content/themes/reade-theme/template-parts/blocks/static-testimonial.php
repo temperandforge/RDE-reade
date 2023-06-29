@@ -19,7 +19,12 @@ $fields = get_fields();
      <?php if(!empty($fields['quote_by'])) :?>
       <span class="quote-by"><?php echo $fields['quote_by'] ;?><?php echo !empty($fields['link']) ? ',' : null ;?></span>
       <?php if(!empty($fields['link'])) :?>
-       <cite><?php echo $fields['link']['title'] ;?></cite>
+       <cite>
+        <a 
+        href="<?php echo $fields['link']['url'] ;?>"
+        target="<?php echo $fields['link']['target'] ?: '_self';?>">
+        <?php echo $fields['link']['title'] ;?></a>
+       </cite>
       <?php endif ;?>
      <?php endif ;?>
      <?php if((!empty($fields['quote_by'])) && (!empty($fields['role']))) :?>
