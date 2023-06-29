@@ -817,6 +817,26 @@
             "append": ""
         },
         {
+            "key": "field_649ddafedca3a",
+            "label": "Related Posts Text",
+            "name": "related_posts_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Related Posts:",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_649dc054e53be",
             "label": "Single",
             "name": "",
@@ -902,5 +922,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688063279
+    "modified": 1688066832
 }

@@ -86,6 +86,42 @@ body.single {
             margin-bottom: 85px;
         }
     }
+
+    .single-related-text {
+        color: var(--primary-900, #045);
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: -0.56px;
+        text-align: center;
+        margin-bottom: 45px;
+
+        @include respond-below(lg) {
+            margin-bottom: 25px;
+        }
+    }
+
+    .single-related-posts {
+        margin-bottom: 115px;
+
+        @include respond-below(lg) {
+            margin-bottom: 40px;
+        }
+    }
+    .single-related-post-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% + 24px);
+        margin-right: -24px;
+        row-gap: 30px;
+
+        @include respond-below(sm) {
+            width: 100%;
+            margin-right: 0;
+            row-gap: 20px;
+        }    
+    }
+
     .single-container {
         display: flex;
         margin-bottom: 166px;
@@ -110,6 +146,8 @@ body.single {
                 transform: unset;
             }
         }
+
+        
 
         .single-container-left {
             flex-basis: 3.24%;

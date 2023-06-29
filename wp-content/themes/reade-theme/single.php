@@ -3,6 +3,7 @@
 $fields = get_fields();
 $dec_image = get_field('single_decorative_image', 'options');
 $fallback_image = get_field('article_fallback_image', 'options');
+$related_posts_text = get_field('related_posts_text', 'options');
 
 // $feat_img = get_post_thumbanil()
 
@@ -85,6 +86,38 @@ get_header(); ?>
                   include 'template-parts/single/aside-form.php';
                   ?>
                </div>
+            </div>
+
+            <div class="single-related-posts">
+               <?php
+               $args = array(
+                  'numberposts' => 3,
+                  'category'    => $single_cat[0]->term_id,
+                  'post_status' => 'publish',
+                  'orderby'     => 'date',
+                  'order'       => 'DESC',
+                  'post__not_in' => array(get_the_ID()),
+               );
+
+               $rposts = get_posts($args);
+
+               if (count($rposts)) {
+                  ?>
+                  <div class="single-related-posts">
+                     <h4 class="single-related-text"><?php echo $related_posts_text ? $related_posts_text : 'Related Posts:'; ?></h4>
+                     <div class="single-related-post-container">
+                        <?php
+
+                        foreach ($rposts AS $npost) {
+                           include 'template-parts/blocks/partial/news-card-regular.php';
+                        }
+
+                        ?>
+                     </div>
+                  </div>
+                  <?php
+               }
+               ?>
             </div>
             
          </article>
