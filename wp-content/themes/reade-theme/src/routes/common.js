@@ -89,6 +89,19 @@ export default {
 			})
 		}
 
+
+
+		/*
+		* news single share positioning
+		*/
+		if (window.innerWidth > 1024) {
+			if ($('#single-share').length) {
+				var parentContainer = $('#single-container');
+				var childElement = $('#single-news-content');
+				$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+			}
+		}
+
 		//TODO bigpicture on img
 
 
@@ -96,7 +109,9 @@ export default {
 		// window resize
 		window.onresize = function() {
 			
-			// change pagination of cards on news pages/grids
+			/**
+			 * Change pagination of news cards/grids
+			 */
 			if ($('.view-more').length) {
 				if (window.innerWidth < 769) {
 					cardsPerPage = 3;
@@ -120,6 +135,22 @@ export default {
 					$('#view-more').hide();
 				} else {
 					$('#view-more').show();
+				}
+			}
+
+
+			/**
+			 * Share element positioning
+			 */
+			if (window.innerWidth > 1024) {
+				if ($('#single-share').length) {
+					var parentContainer = $('#single-container');
+					var childElement = $('#single-news-content');
+					$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+				}
+			} else {
+				if ($('#single-share').length) {
+					$('#single-share').css('top', '0');
 				}
 			}
 		}

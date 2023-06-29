@@ -1,8 +1,24 @@
+<?php
+
+$fallback_image = get_field('article_fallback_image', 'options');
+
+?>
+
 <div class="news-card-regular">
     <?php
     $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card_button_text', 'options') : 'Read More';
     if ($img = get_the_post_thumbnail($npost->ID, 'medium-large')) {
         echo $img;
+    } else {
+        if ($fallback_image) {
+            ?>
+            <img src="<?php echo $fallback_image['sizes']['medium_large']; ?>"
+                alt="<?php echo $fallback_image['alt']; ?>"
+                width="<?php echo $fallback_image['sizes']['medium_large-width']; ?>"
+                height="<?php echo $fallback_image['sizes']['medium_large-height']; ?>"
+            >
+            <?php
+        }
     }
 
     ?>

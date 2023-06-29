@@ -1,6 +1,8 @@
 <?php 
 
-$fields = get_fields(); 
+$fields = get_fields();
+$dec_image = get_field('single_decorative_image', 'options');
+$fallback_image = get_field('article_fallback_image', 'options');
 
 // $feat_img = get_post_thumbanil()
 
@@ -13,6 +15,8 @@ get_header(); ?>
             
             <?php
 
+            setup_postdata(the_post());
+
             $single_cat = get_the_category();
 
             // set up variables for blog hero partial
@@ -21,7 +25,7 @@ get_header(); ?>
             $hero_search = false;
             $hero_breadcrumbs = array(
                '/news/' => 'All News',
-               get_permalink(get_the_ID()) => $single_cat[0]->name
+               get_category_link($single_cat[0]->term_id) => $single_cat[0]->name
             );
 
 
@@ -29,6 +33,59 @@ get_header(); ?>
             include 'template-parts/blocks/partial/blog-hero.php';
 
             ?>
+
+            <div id="single-container" class="single-container">
+               <?php
+   
+               if (!$dec_image) {
+                  $dec_image = $fallback_image;
+               }
+
+               if ($dec_image) {
+                  ?>
+                  <img class="dec-image" src="<?php echo $dec_image['url']; ?>"
+                     alt="<?php echo $dec_image['alt']; ?>"
+                     width="<?php echo $dec_image['width']; ?>"
+                     height="<?php echo $dec_image['height']; ?>"
+                  ><?php 
+               }
+
+               ?>
+               <div class="single-container-left">
+                  <?php
+                  include 'template-parts/single/share.php';
+                  ?>
+               </div>
+               <div class="single-container-middle">
+                  <p class="post-meta">
+                     <?php echo date("M jS, Y", strtotime(get_the_date())); ?><br />
+                     <?php the_author(); ?>
+                  </p>
+
+                  <?php
+                  if (get_the_post_thumbnail_url()) {
+                     echo get_the_post_thumbnail(get_the_ID(), 'large', array('class' => 'single-featured-image'));
+                  } else {
+                     ?>
+                     <img class="single-featured-image" src="<?php echo $fallback_image['url']; ?>"
+                        alt="<?php echo $fallback_image['alt']; ?>"
+                        width="<?php echo $fallback_image['width']; ?>"
+                        height="<?php echo $fallback_image['height']; ?>"
+                     >
+                     <?php
+                  }
+
+                  ?>
+                  <div id="single-news-content">
+                     <?php the_content(); ?>
+                  </div>
+               </div>
+               <div class="single-container-right">
+                  <?php
+                  include 'template-parts/single/aside-form.php';
+                  ?>
+               </div>
+            </div>
             <!--
             <div class="single-hero">
                <div class="single-hero-img">
