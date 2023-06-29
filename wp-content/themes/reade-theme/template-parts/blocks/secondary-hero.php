@@ -14,7 +14,7 @@ if ($cat) {
 ?>
 
 
-<div class="secondary-hero--section">
+<div class="secondary-hero--section  <?php echo $fields['background_color'];?>">
  <div class="secondary-hero--wrap">
   <div class="secondary-hero--inner">
 
@@ -33,7 +33,7 @@ if ($cat) {
           <path fill-rule="evenodd" clip-rule="evenodd" d="M6.64179 11.5692C6.38143 11.8295 5.9593 11.8295 5.69895 11.5692L3.03218 8.90241C2.77182 8.64205 2.77182 8.21992 3.03218 7.95956L5.69894 5.2928C5.9593 5.03244 6.38143 5.03244 6.64179 5.2928C6.90215 5.55316 6.90215 5.97529 6.64179 6.23565L5.11314 7.7643L12.8373 7.76429C13.2055 7.76429 13.504 8.06278 13.504 8.43098C13.504 8.79919 13.2055 9.09768 12.8373 9.09768L5.11314 9.09768L6.64179 10.6263C6.90215 10.8867 6.90215 11.3088 6.64179 11.5692Z" fill="white"/>
          </svg>
         <span>
-         Back to <?php echo $cat_parent_name ;?>
+         Back to all <?php echo $cat_parent_name ;?>
         </span>
        </a>
        <?php elseif ((!$fields['back_btn']) && (!empty($fields['link']))) :?>
