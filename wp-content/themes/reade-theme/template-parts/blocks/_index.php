@@ -260,22 +260,22 @@ function theme_register_blocks_style()
             // 'is_default'   => false, // 'inline_style' => '.wp-block-group.is-style-blue-wave', 
          ) 
       );
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-2','label'=> __('Size 1', TEXTDOMAIN)));
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-2','label'=> __('Size 2', TEXTDOMAIN)));
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-3','label'=> __('Size 3', TEXTDOMAIN)));
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-4','label'=> __('Size 4', TEXTDOMAIN)));
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-5','label'=> __('Size 5', TEXTDOMAIN)));
-		register_block_style( 'core/heading', array( 'name'=>'heading-size-6','label'=> __('Size 6', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-1','label'=> __('Size 1', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-2','label'=> __('Size 2', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-3','label'=> __('Size 3', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-4','label'=> __('Size 4', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-5','label'=> __('Size 5', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-6','label'=> __('Size 6', TEXTDOMAIN)));
-		register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-7','label'=> __('Size 6 test', TEXTDOMAIN)));
-		register_block_style( 'core/group', array( 'name' =>'bg-themed', 'label'=> __(' Themed Background', TEXTDOMAIN), ) );
-		register_block_style( 'core/cover', array( 'name' =>'wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
-		register_block_style( 'acf/page-hero', array( 'name' =>'hero-wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-2','label'=> __('Size 1', TEXTDOMAIN)));
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-2','label'=> __('Size 2', TEXTDOMAIN)));
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-3','label'=> __('Size 3', TEXTDOMAIN)));
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-4','label'=> __('Size 4', TEXTDOMAIN)));
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-5','label'=> __('Size 5', TEXTDOMAIN)));
+		// register_block_style( 'core/heading', array( 'name'=>'heading-size-6','label'=> __('Size 6', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-1','label'=> __('Size 1', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-2','label'=> __('Size 2', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-3','label'=> __('Size 3', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-4','label'=> __('Size 4', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-5','label'=> __('Size 5', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-6','label'=> __('Size 6', TEXTDOMAIN)));
+		// register_block_style( 'core/paragraph', array( 'name'=>'paragraph-size-7','label'=> __('Size 6 test', TEXTDOMAIN)));
+		// register_block_style( 'core/group', array( 'name' =>'bg-themed', 'label'=> __(' Themed Background', TEXTDOMAIN), ) );
+		// register_block_style( 'core/cover', array( 'name' =>'wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
+		// register_block_style( 'acf/page-hero', array( 'name' =>'hero-wide', 'label'=> __('Wide', TEXTDOMAIN), ) );
 		
 		// register_block_style( 
       //    'core/group', 
@@ -286,4 +286,4 @@ function theme_register_blocks_style()
       // );
 	}
 }
-add_action('acf/init', 'theme_register_blocks_style');
+// add_action('acf/init', 'theme_register_blocks_style');

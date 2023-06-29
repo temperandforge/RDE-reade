@@ -285,21 +285,21 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
             color: #EFFBFF; /* Primary/50 */
          }
       }
-   }
-   .sub-menu {
-      li {
-         @apply md:mb-1;
-         a {
-            /* Paragraph/XSmall/Medium */
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 12px; //16/12
-            line-height: 1.3333333333333333;//1.6666666666666667; // 20/12 /* identical to box height, or 167% */
-            padding: 2px 0; //(20-16)/2
-
-
-            color: #FFFFFF; /* B&W/White */
+      .sub-menu {
+         li {
+            @apply md:mb-1;
+            a {
+               /* Paragraph/XSmall/Medium */
+               font-family: 'Open Sans';
+               font-style: normal;
+               font-weight: 400;
+               font-size: 12px; //16/12
+               line-height: 1.3333333333333333;//1.6666666666666667; // 20/12 /* identical to box height, or 167% */
+               padding: 2px 0; //(20-16)/2
+   
+   
+               color: #FFFFFF; /* B&W/White */
+            }
          }
       }
    }

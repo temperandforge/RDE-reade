@@ -7,7 +7,7 @@
 
 
 //SETUP
-* {
+* { //TODO ask connor
    box-sizing: border-box;
    margin: 0;
    padding: 0;
@@ -17,12 +17,14 @@
 	scrollbar-color: #fff var(--footer-blue);
 	/* Works on Chrome, Edge, and Safari */
 	&::-webkit-scrollbar {
-		width: 8px;
+		width: var(--scrollbar-width);
 	}
 	&::-webkit-scrollbar-track {
 		background: var(--footer-blue);
 	}
 	&::-webkit-scrollbar-thumb {
+		// position: absolute;
+		// left: 0;
 		background-color: #fff;
 		border-radius: 20px;
 		border: 2px solid var(--footer-blue);

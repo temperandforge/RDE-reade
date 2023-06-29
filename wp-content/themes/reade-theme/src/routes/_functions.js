@@ -25,8 +25,9 @@ function responsiveNavbar() {
 
 function mobileMenu() {
 	// assumes existence
-	const $menu = $( '#mobile-menu' );
+	const $menu = $( '.mobile-menu' );
 	$menu.hide();
+	$menu.find('.sub-menu').slideUp();
 	$menu.removeClass( 'loading' );
 	const $btn = $( '#toggle_nav' );
 
@@ -37,18 +38,23 @@ function mobileMenu() {
 	} );
 	$btn.on( 'click', function( e ) {
 		//console.log(e)
-		$body.toggleClass( 'mm-open' );
-		$menu.fadeToggle();
+		$body.addClass( 'mm-open' );
+		$menu.fadeIn();
 	} );
-	$( '#mobile-menu .menu-item' ).on( 'click', function( e ) {
+	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
 		//console.log(e)
-		$body.toggleClass( 'mm-open' );
-		$menu.fadeToggle();
+		$body.removeClass( 'mm-open' );
+		$menu.fadeOut();
 	} );
+
+	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
+		$(e.target).siblings('.sub-menu').slideToggle()
+	})
 
 	function closeOnDesktop( x ) {
 		if ( x.matches ) {
 			$menu.fadeOut();
+			$menu.find('.sub-menu').slideUp();
 		}
 	}
 
@@ -58,8 +64,8 @@ function mobileMenu() {
 }
 
 function runFunctions() {
-	responsiveNavbar();
-	// mobileMenu()
+	responsiveNavbar(); //TODO
+	mobileMenu()
 }
 
 export {
