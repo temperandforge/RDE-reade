@@ -62,6 +62,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Contact Form
+	 * */
+	acf_register_block([
+		'name'			=> 'contact-form',
+		'title'			=> 'Contact Form',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/contact-form.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/faq-accordion.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['contact', 'form', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false], //TODO
+	]);
+
+	/** 
 	 * Contact Hero
 	 * */
 	acf_register_block([
