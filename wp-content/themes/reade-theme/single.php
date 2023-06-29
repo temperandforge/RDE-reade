@@ -17,6 +17,7 @@ get_header(); ?>
                <div class="d-flex justify-content-between gap-5 align-items-end">
                   <div>
                      <h1 class="title is-2"><?php echo get_the_title(); ?></h1>
+                     <?php the_content(); ?>
                      <?php 
                      $aid = $post->post_author;
                      if($first_name = get_the_author_meta('first_name', $aid)):

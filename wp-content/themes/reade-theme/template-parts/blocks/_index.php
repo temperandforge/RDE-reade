@@ -218,6 +218,23 @@ function theme_register_blocks()
 	 * Simple CTA
 	 * */
 	acf_register_block([
+		'name'			 => 'secondary-hero',
+		'title'			 => 'Secondary Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/secondary-hero.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['secondary', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/** 
+	 * Simple CTA
+	 * */
+	acf_register_block([
 		'name'			 => 'simple-cta',
 		'title'			 => 'Simple CTA',
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/simple-cta.php",

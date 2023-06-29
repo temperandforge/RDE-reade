@@ -3,6 +3,7 @@
 		@apply border-1 bg-white rounded-md	font-semibold inline-block text-primary500;
 		@apply py-3 px-16; //TODO em
 
+		&.btn-arrow-reverse,
 		&.btn-arrow {
 			display: flex;
 			@apply items-center justify-center gap-2;
@@ -19,6 +20,16 @@
 
 				svg {
 					transform: translateX(4px);
+				}
+			}
+		}
+
+		&.btn-arrow-reverse {
+			@media screen and (hover: hover) and (pointer: fine) {
+				&:hover {
+					svg {
+						transform: translateX(-4px);
+					}
 				}
 			}
 		}
