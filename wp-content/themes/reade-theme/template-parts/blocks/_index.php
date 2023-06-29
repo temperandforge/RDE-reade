@@ -134,6 +134,36 @@ function theme_register_blocks()
 		'mode'			=> $mode,
 		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN]
 	]);
+	
+		/** 
+			* FAQS Hero
+			* */
+		acf_register_block([
+			'name'			=> 'faqs-hero',
+			'title'			=> 'FAQs Hero',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/call-to-action.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+	
+		/** 
+			* Grid Hero
+			* */
+		acf_register_block([
+			'name'			=> 'grid-hero',
+			'title'			=> 'Grid Hero',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/grid-hero.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/call-to-action.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
 
 	/**
 	 * News Hero
@@ -164,21 +194,6 @@ function theme_register_blocks()
 		'image'        => $img_root . '/news-featured.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['news featured', 'news', 'featured', 'reade', 'theme', TEXTDOMAIN],
-		'supports'     => ['align' => false], //TODO
-	]);
-
-	/** 
-	 * FAQS Hero
-	 * */
-	acf_register_block([
-		'name'			=> 'faqs-hero',
-		'title'			=> 'FAQs Hero',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
-		'category'		=> 'theme-blocks',
-		'icon'			=> 'button',
-		'image'        => $img_root . '/call-to-action.webp',
-		'mode'			=> $mode,
-		'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false], //TODO
 	]);
 
