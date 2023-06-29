@@ -1,3 +1,10 @@
+body.single {
+    .blog-hero-part {
+        .title {
+            margin-bottom: 125px;
+        }
+    }
+}
 body.news-search {
     .blog-hero-part {
         .blog-hero-description {
@@ -24,8 +31,8 @@ body.news-search {
 
         svg {
             display: inline-flex;
-            margin-left: 10px;
-            margin-right: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
 
             &:last-of-type {
                 display: none;
@@ -44,6 +51,11 @@ body.news-search {
             font-weight: 600;
             column-gap: 10px;
             align-items: center;
+
+            @include respond-below(sm) {
+                // in case breadcrumbs go on multiple lines
+                margin-bottom: 10px;
+            }
         }
     }
 

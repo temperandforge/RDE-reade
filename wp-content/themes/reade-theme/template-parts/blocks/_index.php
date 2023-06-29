@@ -134,6 +134,36 @@ function theme_register_blocks()
 		'mode'			=> $mode,
 		'keywords'		=> ['faqs', 'reade', 'theme', TEXTDOMAIN]
 	]);
+	
+		/** 
+			* FAQS Hero
+			* */
+		acf_register_block([
+			'name'			=> 'faqs-hero',
+			'title'			=> 'FAQs Hero',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/call-to-action.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+	
+		/** 
+			* Grid Hero
+			* */
+		acf_register_block([
+			'name'			=> 'grid-hero',
+			'title'			=> 'Grid Hero',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/grid-hero.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/call-to-action.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
 
 	/**
 	 * News Category
@@ -184,21 +214,6 @@ function theme_register_blocks()
 	]);
 
 	/** 
-	 * FAQS Hero
-	 * */
-	acf_register_block([
-		'name'			=> 'faqs-hero',
-		'title'			=> 'FAQs Hero',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/faqs-hero.php",
-		'category'		=> 'theme-blocks',
-		'icon'			=> 'button',
-		'image'        => $img_root . '/call-to-action.webp',
-		'mode'			=> $mode,
-		'keywords'		=> ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
-		'supports'     => ['align' => false], //TODO
-	]);
-
-	/** 
 	 * Page Hero 
 	 * */
 	acf_register_block([
@@ -210,6 +225,23 @@ function theme_register_blocks()
 		'image'         => $img_root . '/page-hero.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/** 
+	 * Simple CTA
+	 * */
+	acf_register_block([
+		'name'			 => 'secondary-hero',
+		'title'			 => 'Secondary Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/secondary-hero.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['secondary', 'hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
       //TODO
 		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',

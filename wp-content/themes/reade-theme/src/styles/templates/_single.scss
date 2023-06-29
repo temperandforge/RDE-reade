@@ -1,6 +1,245 @@
 /** Single/Default
  */
 
-h1 {
-   
+body.single .blog-hero-part .title, body.single .blog-hero-part {
+    @include respond-below(lg) {
+        margin-bottom: 25px !important;
+    }
+}
+body.single .blog-hero-part {
+    @include respond-below(lg) {
+        margin-top: 30px;
+    }
+}
+
+body.single {
+    overflow-x: visible; // allows position sticky to work
+
+    .post-meta {
+        color: var(--primary-900, #045);
+        font-size: 16px;
+        font-family: Open Sans;
+        line-height: 24px;
+        margin-bottom: 38px;
+
+        @include respond-below(lg) {
+            margin-bottom: 25px;
+        }
+    }
+
+    #single-share {
+        position: relative;
+        @include respond-below(lg) {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+    }
+
+    .single-share-icon-container {
+        @include respond-below(lg) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: 11px;
+        }
+    }
+    .single-share-icon {
+        background-color: $white;
+        border-radius: 8px;
+        margin-bottom: 11px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 8.173013687133789px 44.134273529052734px -8.173013687133789px rgba(16, 24, 40, 0.45);
+        position: relative;
+
+        @include respond-below(lg) {
+            display: inline-flex;
+            margin-bottom: 0;
+        }
+    }
+
+    .share-text {
+        color: var(--primary-900, #045);
+        font-size: 14px;
+        line-height: 23px;
+        text-align: center;
+        margin-bottom: 5px;
+
+        @include respond-below(lg) {
+            margin-right: 11px;
+        }
+    }
+
+    .single-featured-image {
+        aspect-ratio: 711/324;
+        width: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+        margin-bottom: 59px;
+
+        @include respond-below(lg) {
+            aspect-ratio: 342/192;
+            border-radius: 15px;
+            margin-bottom: 85px;
+        }
+    }
+
+    .single-related-text {
+        color: var(--primary-900, #045);
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: -0.56px;
+        text-align: center;
+        margin-bottom: 45px;
+
+        @include respond-below(lg) {
+            margin-bottom: 25px;
+        }
+    }
+
+    .single-related-posts {
+        margin-bottom: 115px;
+
+        @include respond-below(lg) {
+            margin-bottom: 40px;
+        }
+    }
+    .single-related-post-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% + 24px);
+        margin-right: -24px;
+        row-gap: 30px;
+
+        @include respond-below(sm) {
+            width: 100%;
+            margin-right: 0;
+            row-gap: 20px;
+        }    
+    }
+
+    .single-container {
+        display: flex;
+        margin-bottom: 166px;
+        position: relative;
+
+        @include respond-below(lg) {
+            flex-direction: column;
+            margin-bottom: 40px;
+            padding-bottom: 158px;
+        }
+
+        .dec-image {
+            position: absolute;
+            top: 50%;
+            right: -233px;
+            transform: translate(-50%, -50%);
+
+            @include respond-below(lg) {
+                right: -82px;
+                top: unset;
+                bottom: 0;
+                transform: unset;
+            }
+        }
+
+        
+
+        .single-container-left {
+            flex-basis: 3.24%;
+            margin-right: 65px;
+
+            @include respond-below(lg) {
+                order: 1;
+            }
+        }
+
+        .single-container-middle {
+            flex-basis: 57.62%;
+            flex-grow: 1;
+            margin-right: 24px;
+
+            @include respond-below(lg) {
+                order: 0;
+            }
+
+            #single-news-content {
+                h1 {
+                    font-size: 30px;
+                }
+                h2 {
+                    font-size: 24px;
+                }
+                h3 {
+                    font-size: 20px;
+                }
+                h4, h5, h6 {
+                    font-size: 18px;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    color: var(--primary-500-main, #009FC6);
+                    //font-size: 24px;
+                    font-weight: 800;
+                    //line-height: 32px;
+                    letter-spacing: -0.48px;
+                    margin-bottom: 35px;
+                }
+
+                p, div, ul, ol {
+                    margin-bottom: 25px;
+                }
+
+                p, div, li {
+                    color: var(--primary-900, #045);
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+
+                    @include respond-below(lg) {
+                        font-size: 14px;
+                        line-height: 23px;
+                    }
+                }
+
+                a {
+                    text-decoration: underline;
+                }
+
+                // this won't work on firefox, but we need to give last paragraphs before a heading a margin bottom
+                // this is just spacing, so it's ok
+                // margin top on the heading won't work here because the heading could be at the start of the article
+                p:has(+ h1), p:has(+ h2), p:has(+ h3), p:has(+ h4), p:has(+ h5), p:has(+h6) {
+                    margin-bottom: 65px;
+                }
+            }
+        }
+
+        .single-container-right {
+            flex-basis: 32.01%;
+
+            @include respond-below(lg) {
+                order: 2;
+            }
+
+            .newsletter-container {
+                padding: 34px 30px;
+                border-radius: 20px;
+                background: var(--primary-50, #EFFBFF);
+                margin-top: 85px;
+                text-align: center;
+                position: sticky;
+                top: 50px;
+
+                @include respond-below(lg) {
+                    margin-top: 45px;
+                    position: relative;
+                    top: 0;
+                }
+            }
+        }
+    }
 }

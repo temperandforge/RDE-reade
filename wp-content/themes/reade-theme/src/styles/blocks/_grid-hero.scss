@@ -1,0 +1,82 @@
+.grid-hero--section {
+	@apply bg-grid;
+
+	&:before {
+		background-size: unset;
+	}
+
+	.box-svg {
+		@apply absolute;
+		height: 160px;
+		width: 123px;
+  bottom: -7.5rem;
+		right: -3.5rem;
+  
+		@include respond-above(md) {
+   bottom: -5rem;
+		}
+  
+		@include respond-above(xl) {
+   height: 221px;
+   width: 167px;
+   top: calc(85px + 1rem);
+   bottom: unset;
+   right: calc(-167px - 2.5rem);
+		}
+	}
+}
+
+.grid-hero--wrap {
+	@apply relative z-10;
+	@include inner-wrap(1024px);
+}
+
+.grid-hero--figure {
+	@include section-full;
+
+	img {
+		@apply w-full theme-inner-wrap object-cover;
+		aspect-ratio: 390 / 205;
+
+		@include respond-above(lg) {
+			aspect-ratio: 1440 / 387;
+		}
+	}
+}
+
+.grid-hero--content {
+	@apply text-center relative;
+	padding: 85px 0;
+
+	@include respond-above(md) {
+		padding: 106px 0;
+	}
+
+	@include respond-above(xl) {
+		padding: 127px 0;
+	}
+
+	h1 {
+		@include inner-wrap(992px);
+		font-size: 28px;
+		font-weight: 700;
+		line-height: 34px;
+		letter-spacing: -0.56px;
+
+		@include respond-above(md) {
+			font-size: 36px;
+			line-height: 48px;
+			letter-spacing: -1px;
+		}
+
+		@include respond-above(xl) {
+			font-size: 50px;
+			line-height: 58px;
+			letter-spacing: -1.5px;
+		}
+
+		+ p {
+			margin-top: 30px;
+		}
+	}
+}
