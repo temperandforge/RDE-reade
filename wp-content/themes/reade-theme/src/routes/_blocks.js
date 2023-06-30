@@ -58,7 +58,7 @@ function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
 	handleContactLocationInformation()
-	handleBack()
+	// handleBack() //ERR - not defined
 }
 
 export { runBlocks }

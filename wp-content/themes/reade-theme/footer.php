@@ -26,7 +26,7 @@
                      ) );
                   ?>
             </div>
-            <div class="flex flex-col">
+            <div class="footer-logo-subscribe--wrap flex flex-col">
                <a class="footer-logo-link" href="/">
                   <!-- <span class="sr-only visually-hidden"><?php //echo get_bloginfo(); ?> - go to home</span> -->
                   <?php if($option_fields && array_key_exists('logo_footer', $option_fields) && $logo = $option_fields['logo_footer']) { 

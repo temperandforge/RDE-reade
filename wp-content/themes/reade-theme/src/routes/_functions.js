@@ -31,30 +31,80 @@ function mobileMenu() {
 	$menu.removeClass( 'loading' );
 	const $btn = $( '#toggle_nav' );
 
+	// left: 37, up: 38, right: 39, down: 40,
+	// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+	var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+	// function preventDefault(e) {
+	// e.preventDefault();
+	// }
+
+	// function preventDefaultForScrollKeys(e) {
+	// if (keys[e.keyCode]) {
+	// 	preventDefault(e);
+	// 	return false;
+	// }
+	// }
+
+	// // modern Chrome requires { passive: false } when adding event
+	// var supportsPassive = false;
+	// try {
+	// 	window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+	// 		get: function () { supportsPassive = true; } 
+	// 	}));
+	// } catch(e) {}
+
+	// var wheelOpt = supportsPassive ? { passive: false } : false;
+	// var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+	// // call this to Disable
+	// function disableScroll() {
+	// 	//window -> document.querySelector('.main-content-wrap')
+	// 	document.querySelector('.main-content-wrap').addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+	// 	document.querySelector('.main-content-wrap').addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+	// 	document.querySelector('.main-content-wrap').addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+	// 	document.querySelector('.main-content-wrap').addEventListener('keydown', preventDefaultForScrollKeys, false);
+	// }
+
+	// // call this to Enable
+	// function enableScroll() {
+	// 	document.querySelector('.main-content-wrap').removeEventListener('DOMMouseScroll', preventDefault, false);
+	// 	document.querySelector('.main-content-wrap').removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+	// 	document.querySelector('.main-content-wrap').removeEventListener('touchmove', preventDefault, wheelOpt);
+	// 	document.querySelector('.main-content-wrap').removeEventListener('keydown', preventDefaultForScrollKeys, false);
+	// }
+
 	const animating = false; //TODO
-	$( 'main' ).on( 'click', function() {
-		$body.removeClass( 'mm-open' );
-		$menu.fadeOut();
-	} );
+	// $( 'main' ).on( 'click', function() {
+	// 	// $body.removeClass( 'mm-open' );
+	// 	$menu.fadeOut();
+	// } );
 	$btn.on( 'click', function( e ) {
-		//console.log(e)
-		$body.addClass( 'mm-open' );
+		// $body.addClass( 'mm-open' );
+		// disableScroll()
 		$menu.fadeIn();
 	} );
 	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
 		//console.log(e)
-		$body.removeClass( 'mm-open' );
+		// $body.removeClass( 'mm-open' );
+		// enableScroll()
 		$menu.fadeOut();
 	} );
 
 	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
-		$(e.target).siblings('.sub-menu').slideToggle()
+		if(e.target.tagName.toLowerCase() == 'a') {
+			e.preventDefault() //prevent triggering link
+			$(e.target).siblings('.sub-menu').slideToggle(250)
+		} else { //parent li
+			$(e.target).find('.sub-menu').slideToggle(250)
+		}
 	})
 
 	function closeOnDesktop( x ) {
 		if ( x.matches ) {
 			$menu.fadeOut();
 			$menu.find('.sub-menu').slideUp();
+			// enableScroll()
 		}
 	}
 

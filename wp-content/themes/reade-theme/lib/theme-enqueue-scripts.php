@@ -15,7 +15,8 @@ function theme_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), null, true );
 
-	//wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap',  false, null);
+   //TODO head
+	//wp_enqueue_style('font-september', 'hhttps://use.typekit.net/fvv7hkq.css',  false, null);
 
 	//basicscroll - hero parallax
 	// wp_enqueue_script('basicscroll', 'https://cdn.jsdelivr.net/npm/basicscroll@3.0.4/dist/basicScroll.min.js',  ['jquery'], null, true);

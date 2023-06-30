@@ -306,10 +306,10 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
 }
 
 @include respond-above(lg) {
+   .footer-logo-subscribe--wrap {
+      @apply items-center;
+   }
    .footer-info {
-      .footer-links + .flex {
-         @apply items-center;
-      }
       .footer-logo-link {
          display: block;
          margin-bottom: 40px;
@@ -346,5 +346,15 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
    }
    ul.footer-links-list {
       @apply flex-nowrap;
+   }
+   .footer-logo-subscribe--wrap {
+      @apply lg:items-end text-right;
+   }
+
+   .footer-logo-subscribe--wrap {
+      @apply items-end;
+   }
+   .footer-form-msg {
+      @apply text-right;
    }
 }

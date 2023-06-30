@@ -48,7 +48,7 @@ $grid-breakpoints: (
 	}
 }
 
-@mixin dynamic($prop, $vl, $vs, $sl: 1200, $ss: 600) {
+@mixin dynamic($prop, $vl, $vs, $sl: 1280, $ss: 640) {
 	$e: calc((#{$vl} - #{$vs}) / (#{$sl} - #{$ss}));
 	$b: calc((#{$vl} - (#{$e} * #{$sl})) * 1px);
 	$vw: calc(#{$e} * 100vw);
@@ -59,6 +59,7 @@ $grid-breakpoints: (
 	@include clamp($prop, $min, calc($yx + $b), $max);
 	//@return ;
 }
+
 @mixin respond-above($breakpoint) {
 	// If the breakpoint exists in the map.
 	@if map-has-key($grid-breakpoints, $breakpoint) {
@@ -150,10 +151,11 @@ $grid-breakpoints: (
 
 @mixin section-full {
 	margin-inline: calc(-100vw / 2 + 100% / 2);
-	// margin-inline: calc(-100dvw / 2 + 100% / 2); //non-functional
+	margin-inline: calc(-100dvw / 2 + 100% / 2); //non-functional
 	max-width: 100vw;
 	max-width: 100dvw;
-	// width: 100vw;
+	width: calc(100vw - var(--scrollbar-width)); //TODO
+	width: 100dvw;
 }
 .section-full {
 	@include section-full;
@@ -336,7 +338,7 @@ $grid-breakpoints: (
 	@apply relative;
 
 	&:after {
-		@apply absolute top-0 left-0 bottom-0 right-0 section-full;
+		@apply absolute inset-0 section-full;
 		content: '';
 	}
 }

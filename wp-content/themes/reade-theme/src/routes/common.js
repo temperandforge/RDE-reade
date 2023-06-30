@@ -1,5 +1,6 @@
 // import bigpicture from 'bigpicture'
 import lozad from 'lozad';
+
 import { runFunctions } from './_functions';
 import { runBlocks } from './_blocks';
 
@@ -8,8 +9,10 @@ const $body = $( document.body );
 
 export default {
 	init() {
-		const observer = lozad( 'img' );
+		//TODO above the fold lazily loading
+		const observer = lozad( 'img' ); 
 		observer.observe();
+		$('.hero img').attr('loading', 'eager')
 
 		runFunctions();
 		runBlocks();
@@ -55,11 +58,6 @@ export default {
 		let shownCards = cardsToShow;
 
 		if ($('.view-more').length) {
-
-			
-			
-			
-
 			$cards.slice(cardsToShow, totalCards).hide();
 
 			if (totalCards <= cardsPerPage) {
@@ -90,7 +88,6 @@ export default {
 		}
 
 
-
 		/*
 		* news single share positioning
 		*/
@@ -101,10 +98,6 @@ export default {
 				$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
 			}
 		}
-
-		//TODO bigpicture on img
-
-
 
 		// window resize
 		window.onresize = function() {
@@ -156,38 +149,3 @@ export default {
 		}
 	},
 };
-
-function runIO() {
-	// const options = {
-	//   root: null,
-	//   rootMargin: '0px',
-	//   threshold: [],
-	// };
-
-	//closure
-	let count = 0;
-	setInterval( () => {
-		count = Math.max( 0, count - 1 );
-	}, 350 );
-	function handleIntersection( entries ) {
-		entries.map( ( entry ) => {
-			if ( entry.isIntersecting ) {
-				count++;
-				setTimeout( () => {
-					entry.target.classList.add( 'show' );
-				}, ( count % 5 ) * 50 );
-			}
-			// else {
-			//   entry.target.classList.remove('visible')
-			// }
-		} );
-	}
-
-	const io = new IntersectionObserver( handleIntersection );//, options);
-	//match io.scss
-	$( `
-    .landing-hero-content > *, 
-    .page-default-content *[class*=-content] > *,
-    *[class*=-img]:not(.clients-img) > *
-  ` ).each( ( _, el ) => io.observe( el ) );
-}
