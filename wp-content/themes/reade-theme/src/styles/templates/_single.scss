@@ -114,6 +114,7 @@ body.single {
         width: calc(100% + 24px);
         margin-right: -24px;
         row-gap: 30px;
+        justify-content: center;
 
         @include respond-below(sm) {
             width: 100%;

@@ -3,9 +3,30 @@
     "title": "Post Details",
     "fields": [
         {
+            "key": "field_649f374fc8bcb",
+            "label": "Author",
+            "name": "author",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63f9307c5c3f4",
             "label": "Additional Authors",
             "name": "article_add_authors",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +46,7 @@
             "key": "field_63f1400bcf8be",
             "label": "Article Source",
             "name": "article_source",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -59,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677275280
+    "modified": 1688155993
 }

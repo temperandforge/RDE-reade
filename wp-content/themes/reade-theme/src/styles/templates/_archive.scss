@@ -34,8 +34,12 @@ body.news-search {
             margin-left: 5px;
             margin-right: 5px;
 
-            &:last-of-type {
+            &:last-of-type:not(:first-child) {
                 display: none;
+            }
+
+            &.first-arrow {
+                margin-left: 0;
             }
         }
 
