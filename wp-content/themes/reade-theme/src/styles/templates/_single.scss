@@ -138,12 +138,16 @@ body.single {
             top: 50%;
             right: -233px;
             transform: translate(-50%, -50%);
+            width: 164px;
+            height: 221px;
 
             @include respond-below(lg) {
-                right: -82px;
                 top: unset;
-                bottom: 0;
                 transform: unset;
+                width: 118px;
+                height: 159px;
+                right: -41px;
+                bottom: 30px;
             }
         }
 
@@ -214,6 +218,22 @@ body.single {
                 // margin top on the heading won't work here because the heading could be at the start of the article
                 p:has(+ h1), p:has(+ h2), p:has(+ h3), p:has(+ h4), p:has(+ h5), p:has(+h6) {
                     margin-bottom: 65px;
+                }
+
+                ul {
+                    list-style-type: disc;
+                }
+
+                ol {
+                    list-style-type: decimal;
+                }
+
+                ul, ol {
+                    padding-left: 20px;
+
+                    li {
+                        padding-bottom: 20px;
+                    }
                 }
             }
         }

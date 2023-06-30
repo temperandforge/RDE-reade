@@ -58,7 +58,7 @@ function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
 	handleContactLocationInformation()
-	handleBack()
+	//handleBack()
 }
 
 export { runBlocks }

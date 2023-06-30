@@ -28,65 +28,55 @@ export default {
 		/**
 		 * News page, tf dropdown action
 		 */
-		if ($('.news-featured').length) {
-			if ($('.tf-dropdown').length) {
-				$('.tf-dropdown ul li').on('click', function() {
-					document.location.href = $(this).data('key');
-				})
+		function handleTFDropdown() {
+			if ($('.news-featured').length) {
+				if ($('.tf-dropdown').length) {
+					$('.tf-dropdown ul li').on('click', function() {
+						document.location.href = $(this).data('key');
+					})
+				}
 			}
 		}
 
 		/**
 		 * News/archive page, view more functionality
 		 */
-
+		// this variable needs to be global
 		let cardsPerPage;
 
-		// if you change these values, also change the window.onresize() values
-		if (window.innerWidth < 769) {
-			cardsPerPage = 3;
-		} else {
-			cardsPerPage = 6;
-		}
-
-		let $cards = $('.news-card-regular');
-		let totalCards = $cards.length;
-		let cardsToShow = Math.min(cardsPerPage, totalCards);
-		let shownCards = cardsToShow;
-
-		if ($('.view-more').length) {
-
-			
-			
-			
-
-			$cards.slice(cardsToShow, totalCards).hide();
-
-			if (totalCards <= cardsPerPage) {
-				$('#view-more').hide();
+		function handleNewsCardPagination() {
+			// if you change these values, also change the window.onresize() values
+			if (window.innerWidth < 769) {
+				cardsPerPage = 3;
 			} else {
-				$('#view-more').show();
+				cardsPerPage = 6;
 			}
 
-			$('#view-more').click(function() {
-				cardsToShow += cardsPerPage;
-				$cards.slice(shownCards, cardsToShow).fadeIn();
-				shownCards = cardsToShow;
+			let $cards = $('.news-card-regular');
+			let totalCards = $cards.length;
+			let cardsToShow = Math.min(cardsPerPage, totalCards);
+			let shownCards = cardsToShow;
 
-				if (shownCards >= totalCards) {
+			if ($('.view-more').length) {
+
+				$cards.slice(cardsToShow, totalCards).hide();
+
+				if (totalCards <= cardsPerPage) {
 					$('#view-more').hide();
+				} else {
+					$('#view-more').show();
 				}
-			});
-		};
 
+				$('#view-more').click(function() {
+					cardsToShow += cardsPerPage;
+					$cards.slice(shownCards, cardsToShow).fadeIn();
+					shownCards = cardsToShow;
 
-		/**
-		 * News Search
-		 */
-		if ($('.news-search').length) {
-			$('.news-search').on('click', function() {
-
-			})
+					if (shownCards >= totalCards) {
+						$('#view-more').hide();
+					}
+				});
+			};
 		}
 
 
@@ -94,15 +84,25 @@ export default {
 		/*
 		* news single share positioning
 		*/
-		if (window.innerWidth > 1024) {
-			if ($('#single-share').length) {
-				var parentContainer = $('#single-container');
-				var childElement = $('#single-news-content');
-				$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+		function handleNewsSharePosition() {
+			if (window.innerWidth > 1024) {
+				if ($('#single-share').length) {
+					var parentContainer = $('#single-container');
+					var childElement = $('#single-news-content');
+					$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+				}
 			}
 		}
 
-		//TODO bigpicture on img
+
+
+
+		// run functions
+		handleTFDropdown();
+		handleNewsCardPagination();
+		handleNewsSharePosition();
+
+
 
 
 
