@@ -4,7 +4,7 @@
 
 		.primary-cta {
 			@apply relative z-10;
-			@include inner-wrap(948px);
+			/* @include inner-wrap(948px); */
 			padding-top: 75px;
 
 			@include respond-above(md) {
@@ -88,6 +88,7 @@
 
 /* svg styling */
 .primary-footer-cta--wrap {
+	@include inner-wrap(948px);
 	@apply relative z-20;
 }
 
@@ -105,11 +106,15 @@
 		width: 130px;
 	}
 
-	@include respond-above(xl) {
+	@include respond-above(lg) {
 		top: 135px;
-		left: -125px;
+		left: -15%;
 		bottom: unset;
 		height: unset;
 		width: unset;
+	}
+
+	@include respond-above(xl) {
+		left: -30%;
 	}
 }
