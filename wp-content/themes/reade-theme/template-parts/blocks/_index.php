@@ -47,7 +47,7 @@ function theme_register_blocks()
 	]);
 
 	/** 
-	 * Contact Hero
+	 * Contact Dual CTA
 	 * */
 	acf_register_block([
 		'name'			=> 'contact-dual-cta',
@@ -231,6 +231,23 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Primary Footer CTA
+	 * */
+	acf_register_block([
+		'name'			 => 'primary-footer-cta',
+		'title'			 => 'Primary Footer CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-footer-cta.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['footer', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/** 
 	 * Primary Hero Banner
 	 * */
 	acf_register_block([
@@ -299,8 +316,24 @@ function theme_register_blocks()
 	]);
 
 	/** 
-	 * Tools CTA
+	 * Sustainable Dual CTA
 	 * */
+	acf_register_block([
+		'name'			 => 'sustainable-dual-cta',
+		'title'			 => 'Sustainable Dual CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/sustainable-dual-cta.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['sustainable', 'dual', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'		=> ['align' => false]
+	]);
+
+	/**
+	 * Tools CTA
+	 */
+
 	acf_register_block([
 		'name'			 => 'tools-cta',
 		'title'			 => 'Tools CTA',
@@ -310,9 +343,7 @@ function theme_register_blocks()
 		'image'         => $img_root . '/tools-cta.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
-		'supports'      => ['align' => false],
-      //TODO
-		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+		'supports'      => ['align' => false]
 	]);
 }
 
