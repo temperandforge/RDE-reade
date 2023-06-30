@@ -1,5 +1,9 @@
 .primary-hero--section {
 	@apply section-full bg-light-blue;
+
+	&:after {
+		background-color: var(--primary-100, #cfeef6);
+	}
 }
 
 .primary-hero--wrap {
@@ -29,7 +33,7 @@
 	flex-grow: 1;
 	gap: 30px;
 	@apply theme-main;
-	padding: max(1.5rem, min(7vw, 100px));
+	padding: max(1.5rem, min(9.2vw, 135px)) max(1.5rem, min(7vw, 100px));
 
 	@include respond-below(sm) {
 		padding-bottom: 84px;
@@ -80,6 +84,75 @@
 
 		@include respond-above(xl) {
 			clip-path: ellipse(55% 97.5% at 55% 50%);
+		}
+	}
+}
+
+.primary-hero--decor {
+	@apply absolute w-full h-full top-0 right-0 bottom-0 left-0;
+	z-index: -1;
+
+	svg {
+		@apply absolute;
+	}
+
+	.small-boxes {
+		left: -50px;
+		bottom: 75px;
+		height: 115px;
+
+		@include respond-above(lg) {
+			left: -20px;
+			bottom: -25px;
+			height: 172px;
+		}
+	}
+
+	.small-box {
+		@apply hidden md:block;
+		left: 50px;
+		bottom: -50px;
+
+		@include respond-above(sm) {
+			left: 90px;
+		}
+
+		@include respond-above(lg) {
+			left: 120px;
+			bottom: -45px;
+		}
+	}
+
+	.big-boxes {
+		height: 275px;
+		top: -120px;
+		right: -225px;
+		
+		@include respond-above(md) {
+			height: 300px;
+			right: -100px;
+			top: -170px;
+			}
+			
+			@include respond-above(lg) {
+			height: unset;
+			right: -90px;
+		}
+	}
+
+	.medium-box {
+		height: 193px;
+		right: -45px;
+		bottom: 155px;
+
+		@include respond-above(sm) {
+			height: unset;
+			right: -50px;
+			bottom: 50px;
+		}
+
+		@include respond-above(lg) {
+			bottom: 25px;
 		}
 	}
 }
