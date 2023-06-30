@@ -28,7 +28,15 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_649dfa4f5d81f",
+                        "operator": "!=",
+                        "value": "no-primary"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -293,7 +301,8 @@
             },
             "choices": {
                 "bg-blue": "Dark Blue",
-                "bg-light-blue": "Light Blue"
+                "bg-light-blue": "Light Blue",
+                "no-primary": "No Primary CTA"
             },
             "default_value": "light-blue",
             "return_format": "value",
@@ -322,5 +331,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688081280
+    "modified": 1688149685
 }
