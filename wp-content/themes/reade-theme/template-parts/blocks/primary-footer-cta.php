@@ -10,10 +10,9 @@ $fields = get_fields();
 
    <div class="primary-footer-cta--wrap">
 
-    <div class="primary-footer-cta--cta primary-cta">
-     <?php if(!empty($fields['heading'])) :?>
-      <h2><?php echo $fields['heading'] ;?></h2>
-     <?php endif ;?>
+    <?php if(!empty($fields['heading'])) :?>
+      <div class="primary-footer-cta--cta primary-cta">
+        <h2><?php echo $fields['heading'] ;?></h2>
      <?php if(!empty($fields['content'])) :?>
       <p><?php echo $fields['content'] ;?></p>
      <?php endif ;?>
@@ -29,8 +28,9 @@ $fields = get_fields();
        </svg>
        <?php endif ;?>
       </a>
-     <?php endif ;?>
-    </div>
+      <?php endif ;?>
+     </div>
+    <?php endif ;?>
 
 
     <?php if($fields['style'] == 'bg-light-blue') :?>
@@ -45,6 +45,9 @@ $fields = get_fields();
     <div class="primary-footer-secondary--wrap">
      <?php foreach($fields['ctas'] as $index=>$cta) :?>
       <div class="primary-footer-cta--cta secondary-cta">
+        <?php if($cta['icon'] != 'none') :?>
+          <div class="footer-cta-icon--wrap <?php echo $cta['icon'];?>"></div>
+        <?php endif ;?>
        <?php if(!empty($cta['heading'])) :?>
         <h3><?php echo $cta['heading'] ;?></h3>
        <?php endif ;?>
