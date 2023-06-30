@@ -272,7 +272,7 @@ function setup_custom_post_types() {
             "Tool Categories"
          ]
 		],
-		true //$has_archive
+		false //$has_archive
    );
 
    //TODO
