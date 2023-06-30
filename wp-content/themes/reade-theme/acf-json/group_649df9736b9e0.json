@@ -302,7 +302,7 @@
             "choices": {
                 "bg-blue": "Dark Blue",
                 "bg-light-blue": "Light Blue",
-                "no-primary": "No Primary CTA"
+                "white": "White"
             },
             "default_value": "light-blue",
             "return_format": "value",
@@ -331,5 +331,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688149685
+    "modified": 1688151284
 }
