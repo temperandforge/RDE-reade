@@ -14,7 +14,7 @@ if ($cat) {
 ?>
 
 
-<div class="secondary-hero--section  <?php echo $fields['background_color'];?>">
+<div class="secondary-hero--section <?php echo $fields['background_color'];?>">
  <div class="secondary-hero--wrap">
   <div class="secondary-hero--inner">
 

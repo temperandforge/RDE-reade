@@ -2,7 +2,7 @@
 }
 
 .site-footer {
-   @apply bg-footer-primary text-white;
+   @apply bg-footer-primary text-white relative z-10;
 }
 
 .footer-row-1,
