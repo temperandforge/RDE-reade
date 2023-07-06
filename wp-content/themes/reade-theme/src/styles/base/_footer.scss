@@ -234,6 +234,15 @@ a.footer-logo-link {
 ul.footer-legal-list, #menu-footer-legal ul,
 ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
    @apply flex flex-wrap justify-center gap-x-5 gap-y-2 mb-2 pl-0 underline sm:mb-0;
+
+   a {
+      /* Paragraph/Small/Medium */
+      color: var(--primary-footer-blue, #072D36);
+      font-family: $font-open-sans;
+      font-size: 0.875rem;
+      line-height: 1.6428571428571428;
+      // text-decoration: none;
+   }
 }
 
 .social-icon path {

@@ -1,9 +1,3 @@
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// import { CSSPlugin } from 'gsap/CSSPlugin'
-// gsap.registerPlugin(ScrollTrigger)
-// gsap.registerPlugin(CSSPlugin)
-
 const { $ } = window;
 const $body = $( document.body );
 
@@ -26,8 +20,8 @@ function responsiveNavbar() {
 function mobileMenu() {
 	// assumes existence
 	const $menu = $( '.mobile-menu' );
-	$menu.hide();
-	$menu.find('.sub-menu').slideUp();
+	// $menu.hide();
+	$menu.find('.sub-menu').hide();
 	$menu.removeClass( 'loading' );
 	const $btn = $( '#toggle_nav' );
 
@@ -83,15 +77,17 @@ function mobileMenu() {
 		// $body.addClass( 'mm-open' );
 		// disableScroll()
 		$menu.fadeIn();
+		$('.mobile-menu').css('padding-bottom', $('.mobile-menu--footer').outerHeight())
 	} );
 	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
 		//console.log(e)
 		// $body.removeClass( 'mm-open' );
 		// enableScroll()
-		$menu.fadeOut();
+		$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 	} );
 
 	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
+		$(this).toggleClass('item-open')
 		if(e.target.tagName.toLowerCase() == 'a') {
 			e.preventDefault() //prevent triggering link
 			$(e.target).siblings('.sub-menu').slideToggle(250)
@@ -102,8 +98,7 @@ function mobileMenu() {
 
 	function closeOnDesktop( x ) {
 		if ( x.matches ) {
-			$menu.fadeOut();
-			$menu.find('.sub-menu').slideUp();
+			$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 			// enableScroll()
 		}
 	}
@@ -111,6 +106,12 @@ function mobileMenu() {
 	const x = window.matchMedia( '(min-width: 1025px)' ); //match
 	closeOnDesktop( x );
 	x.addListener( closeOnDesktop );
+
+	$('.mobile-menu .language-switcher').on('click', function(e) {
+		console.log(e.target)
+		console.log($(this).find('.gt_option'))
+		$(this).find('.gt_option').width($(this).width())
+	})
 }
 
 function runFunctions() {
