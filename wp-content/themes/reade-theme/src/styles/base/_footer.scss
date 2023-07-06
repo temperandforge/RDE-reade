@@ -197,8 +197,9 @@ a.footer-logo-link {
    @apply max-w-[266px] mx-auto text-center;
    @include body-xs;
    h6 {
-      @apply font-semibold mb-2 mx-auto text-white;
+      @apply font-semibold mb-2 mx-auto;
       @include body;
+      @apply text-white; //override body
       max-width: 14em;
    }
 }
@@ -233,6 +234,17 @@ a.footer-logo-link {
 ul.footer-legal-list, #menu-footer-legal ul,
 ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
    @apply flex flex-wrap justify-center gap-x-5 gap-y-2 mb-2 pl-0 underline sm:mb-0;
+}
+
+.social-icon path {
+   transition: 0.2s;
+}
+@media (hover:hover) {
+   .social-icon:hover {
+      path {
+         @apply fill-primary400;
+      }
+   }
 }
 
 
