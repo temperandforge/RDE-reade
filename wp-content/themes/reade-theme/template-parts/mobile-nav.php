@@ -1,7 +1,7 @@
 <?php
 $option_fields = get_fields('option'); ?>
 
-<section class="mobile-menu">
+<section class="mobile-menu loading">
    <div class="mobile-menu--header">
       <!-- TODO dup -->
       <a href="<?php echo get_site_url() ?>" class="mobile-menu--logo-link">
