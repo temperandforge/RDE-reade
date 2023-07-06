@@ -148,6 +148,21 @@ function theme_register_blocks()
 			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
 		]);
+	
+		/** 
+			* Leadership Slider
+			* */
+		acf_register_block([
+			'name'			=> 'leadership-slider',
+			'title'			=> 'Leadership Slider',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/leadership-slider.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/call-to-action.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'leadership', 'slider', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
 
 	/**
 	 * News Category
