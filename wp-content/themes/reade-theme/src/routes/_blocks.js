@@ -54,10 +54,48 @@ function handleContactLocationInformation() {
 	})
 }
 
+function handleLeadershipSlider() {
+	const $slide = $('.leadership-slider--slider')
+	const $contact = $('.leadership-slider-mobile--contacts')
+
+	if (!$slide.length) {
+		return
+	}
+
+	$slide.slick({
+		infinite: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true,
+		appendDots: $('.leadership-slider--nav'),
+		customPaging: function (slider, i) {
+			var title = $(slider.$slides[i]).data('title')
+			var position = $(slider.$slides[i]).data('position')
+			return `<button class="team-member--btn"><span>${title}</span> ${
+				position ? position : ''
+			}</button>`
+		},
+		arrows: false,
+		asNavFor: $contact,
+		adaptiveHeight: true,
+	})
+
+	$contact.slick({
+		dots: false,
+		slidesToScroll: 1,
+		slidesToShow: 1,
+		infinite: false,
+		asNavFor: $slide,
+		prevArrow: $('.slick-prev-arrow'),
+		nextArrow: $('.slick-next-arrow'),
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
 	handleContactLocationInformation()
+	handleLeadershipSlider()
 }
 
 export { runBlocks }

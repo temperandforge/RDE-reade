@@ -1,0 +1,267 @@
+.leadership-slider--section {
+	padding-bottom: 35px;
+
+	@include respond-above(sm) {
+		padding: 35px 0;
+	}
+
+	@include respond-above(lg) {
+		padding: 50px 0;
+	}
+
+	@include respond-above(xl) {
+		padding: 100px 0;
+	}
+}
+
+.leadership-slider--inner {
+	@apply flex flex-wrap;
+	gap: 25px;
+}
+
+.leadership-slider--nav {
+	@apply hidden xl:block;
+	flex-grow: 1;
+
+	.slick-dots {
+		li {
+			@apply relative;
+			cursor: pointer;
+			padding: 15px 38px;
+			width: 100%;
+			border-radius: 10px;
+			background-color: var(--primary-50, #effbff);
+			transition: all 0.2s ease-out;
+
+			&:not(:first-child) {
+				margin-top: 10px;
+			}
+
+			&.slick-active {
+				background-color: var(--primary-100, #cfeef6);
+			}
+
+			&:after {
+				position: absolute;
+				display: block;
+				right: 38px;
+				height: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z' fill='%23004455'/%3E%3C/svg%3E");
+				transition: all 0.2s ease-out;
+			}
+
+			&:hover {
+				&:after {
+					transform: translate(6px, -50%);
+				}
+			}
+		}
+	}
+}
+
+.team-member--btn {
+	@apply flex flex-col;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 23px;
+
+	span {
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 28px;
+		letter-spacing: -0.4px;
+	}
+}
+
+.leadership-slider--top {
+	@apply flex items-center justify-between;
+	@include respond-below(sm) {
+		@apply theme-main;
+	}
+}
+
+figure {
+	+ .leadership-slider--top {
+		margin-top: 40px;
+
+		@include respond-below(sm) {
+			@apply theme-main;
+			margin-top: 35px;
+		}
+	}
+}
+
+.leadership-slider--slider {
+	max-width: 100%;
+
+	@include respond-below(sm) {
+		@apply section-full;
+		margin-top: 35px;
+	}
+
+	@include respond-above(xl) {
+		@include inner-wrap(768px);
+		max-width: 58%;
+	}
+}
+
+.leadership-slider--slide {
+	figure {
+		img {
+			aspect-ratio: 713 / 487;
+			object-fit: cover;
+			width: 100%;
+
+			@include respond-above(sm) {
+				border-radius: 10px;
+			}
+		}
+	}
+}
+
+.leadership-slider--member {
+	h2 {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 40.7px;
+		letter-spacing: -0.64px;
+	}
+
+	p {
+		font-size: 18.315px;
+		line-height: 24.42px;
+		letter-spacing: -0.366px;
+		margin-top: 8px;
+	}
+}
+
+.leadership-slider--contact {
+	@apply hidden xl:flex;
+	gap: 10px;
+}
+
+.icon-btn {
+	@apply flex items-center justify-center relative;
+	height: 63px;
+	width: 63px;
+	background-color: var(--primary-100, #cfeef6);
+	border-radius: 10px;
+	transition: all 0.2s ease-out;
+
+	svg {
+		transition: all 0.2s ease-out;
+	}
+
+	.sr-only {
+		@apply absolute;
+	}
+
+	&:hover {
+		background-color: var(--primary-500, #009fc6);
+
+		svg {
+			fill: var(--primary-500, #009fc6);
+			path {
+				stroke: var(--primary-100, #cfeef6);
+			}
+		}
+	}
+
+	&.linkedin {
+		&:hover {
+			svg {
+				path {
+					fill: var(--primary-100, #cfeef6);
+					stroke: var(--primary-100, #cfeef6);
+				}
+			}
+		}
+	}
+}
+
+.leadership-slider--content {
+	margin-top: 25px;
+
+	@include respond-above(xl) {
+		margin-top: 55px;
+	}
+
+	@include respond-below(sm) {
+		@apply theme-main;
+		margin-top: 35px;
+	}
+}
+
+.leadership-slider--mobile {
+	@apply w-full xl:hidden;
+}
+
+.leadership-slider-mobile-contact {
+	&.slick-slide {
+		@apply flex justify-center;
+		gap: 7.5px;
+		margin-top: 25px;
+
+		.icon-btn {
+			height: 43px;
+			width: 43px;
+			svg {
+				height: 23px;
+				width: 23px;
+			}
+		}
+	}
+}
+
+.leadership-slider-mobile--arrows {
+	@apply flex justify-center;
+	gap: 12px;
+	.slick-arrow {
+		@apply flex justify-center items-center relative;
+		padding: 23px;
+		border-radius: 10px;
+		background-color: var(--primary-100, #cfeef6);
+		border-color: var(--primary-100, #cfeef6);
+		flex-grow: 1;
+		transition: all 0.2s ease-out;
+
+		.sr-only {
+			@apply absolute;
+		}
+
+		svg {
+			transition: all 0.2s ease-out;
+		}
+
+		&:focus,
+		&:hover {
+			background-color: var(--primary-500, #009fc6);
+
+			svg {
+				path {
+					fill: var(--primary-100, #cfeef6);
+				}
+			}
+		}
+
+		&.slick-prev-arrow {
+			&:focus,
+			&:hover {
+				svg {
+					transform: translateX(-6px);
+				}
+			}
+		}
+
+		&.slick-next-arrow {
+			&:focus,
+			&:hover {
+				svg {
+					transform: translate(6px);
+				}
+			}
+		}
+	}
+}
