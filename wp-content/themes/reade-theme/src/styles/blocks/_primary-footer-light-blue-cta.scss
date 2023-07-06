@@ -1,0 +1,120 @@
+.primary-footer-cta--section {
+	&.bg-light-blue {
+		color: var(--primary-900, #045);
+
+		.primary-cta {
+			@apply relative z-10;
+			/* @include inner-wrap(948px); */
+			padding-top: 75px;
+
+			@include respond-above(md) {
+				padding-top: 105px;
+			}
+
+			@include respond-above(xl) {
+				padding-top: 135px;
+			}
+
+			h2 {
+				font-size: 36px;
+				font-weight: 700;
+				line-height: 44px;
+				letter-spacing: -1.44px;
+
+				@include respond-above(md) {
+					font-size: 42px;
+					line-height: 48px;
+					letter-spacing: -1.5px;
+				}
+
+				@include respond-above(xl) {
+					font-size: 50px;
+					line-height: 58px;
+				}
+			}
+
+			p {
+				/* color: var(--primary-900, #045); */
+				font-size: 14px;
+				line-height: 23px;
+				margin-top: 25px;
+
+				@include respond-above(md) {
+					font-size: unset;
+					line-height: unset;
+				}
+
+				@include respond-above(xl) {
+					font-size: 18px;
+					line-height: 28px;
+				}
+			}
+		}
+
+		.primary-cta-btn {
+			@apply btn-blue-dark-blue;
+			margin-top: 25px;
+
+			@include respond-above(md) {
+				margin-top: clamp(30px, 3.75vw, 50px);
+			}
+		}
+
+		.primary-footer-secondary--wrap {
+			padding-top: 65px;
+
+			&:after {
+				background-color: var(--primary50);
+			}
+
+			@include respond-above(md) {
+				padding-top: 105px;
+			}
+
+			@include respond-above(lg) {
+				padding-bottom: unset;
+
+				&:after {
+					@apply absolute section-full bottom-0 left-0 right-0;
+					top: unset;
+					height: 110px;
+					background-color: var(--primary-footer-blue, #072d36);
+					content: '';
+				}
+			}
+		}
+	}
+}
+
+/* svg styling */
+.primary-footer-cta--wrap {
+	@include inner-wrap(948px);
+	@apply relative z-20;
+}
+
+.primary-footer-cta--box {
+	@apply absolute;
+	height: 134px;
+	width: 100px;
+	bottom: -50px;
+	left: -37px;
+
+	@include respond-above(md) {
+		left: -80px;
+		bottom: 0;
+		height: 179px;
+		width: 130px;
+	}
+
+	@include respond-above(lg) {
+		top: 135px;
+		left: -15%;
+		bottom: unset;
+		height: unset;
+		width: unset;
+	}
+
+	@include respond-above(xl) {
+		left: -30%;
+	}
+}

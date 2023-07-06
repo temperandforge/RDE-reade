@@ -60,7 +60,9 @@ get_header(); ?>
                <div class="single-container-middle">
                   <p class="post-meta">
                      <?php echo date("M jS, Y", strtotime(get_the_date())); ?><br />
-                     <?php the_author(); ?>
+                     <?php if (!empty($fields['author'])) {
+                        echo $fields['author'];
+                     } ?>
                   </p>
 
                   <?php
