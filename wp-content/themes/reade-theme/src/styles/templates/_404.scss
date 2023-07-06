@@ -34,7 +34,7 @@ svg > * {
       .btns-wrap {
          @apply mt-7;
       }
-      .btn-green-dark-green { //TODO
+      .btn-green-dark-green {
          @apply text-white;
          @media (hover:hover) {
             &:hover {

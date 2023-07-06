@@ -1,6 +1,6 @@
-@include respond-below(xl) { //TODO
+@include respond-below(xl) {
    .navbar,
-   .mobile-menu--header { //TODO
+   .mobile-menu--header {
       height: 5rem;
       padding-block: 1rem;
    }

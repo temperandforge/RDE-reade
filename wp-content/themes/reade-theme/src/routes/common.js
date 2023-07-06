@@ -9,7 +9,6 @@ const $body = $( document.body );
 
 export default {
 	init() {
-		//TODO above the fold lazily loading
 		const observer = lozad( 'img' ); 
 		observer.observe();
 		$('.hero img').attr('loading', 'eager')

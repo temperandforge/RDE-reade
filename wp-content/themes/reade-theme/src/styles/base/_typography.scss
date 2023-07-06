@@ -1,13 +1,3 @@
-//TODO Cleanup Figma
-//TODO font-family: Open Sans;
-//TODO font-family: September;
-//TODO Inter override, font-weight, mobile font size
-//TODO - for now, set mobile @include and dont make responsive - code review
-//TODO reduce dup/sim 32/24 32/25
-//TODO line-height - common subset -> twnd
-//TODO browser support
-//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
 $font-open-sans: 'Open Sans', sans-serif; 
 $font-september: 'September', sans-serif;
 $font-stack: $font-open-sans;
@@ -51,7 +41,7 @@ $font-stack: $font-open-sans;
 }
 
 //styleName: Heading/H2/Bold/Desktop;
-@mixin hdl2($font-weight:700) { //mobile services - hero headline ; //TODO font-weigth
+@mixin hdl2($font-weight:700) { //mobile services - hero headline ;
    //font-family: Open Sans;
    font-size: 36px;
    font-weight: 700;
@@ -81,4 +71,4 @@ body { @include body; }
    font-size: 12px;
    line-height: 1.6666666666666667; // 20/12 /* or 167% */
    // text-align: center;
-} //TODO tailwind base class
+} 

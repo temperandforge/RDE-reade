@@ -1,7 +1,7 @@
 @layer components {
 	.btn {
 		@apply border-1 bg-white rounded-md	font-semibold inline-block text-primary500;
-		@apply py-3 px-16; //TODO em
+		@apply py-3 px-16;
 
 		&.btn-arrow-reverse,
 		&.btn-arrow {

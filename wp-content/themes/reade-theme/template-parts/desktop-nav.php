@@ -1,5 +1,5 @@
 <?php
-if(!defined('option_fields')) { //TODO
+if(!defined('option_fields')) {
   $option_fields = get_fields('options'); 
 } ?>
 

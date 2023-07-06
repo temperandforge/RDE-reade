@@ -12,7 +12,7 @@
 }
 
 .psuedo-select-active {
-   @apply flex font-medium items-center justify-between mb-0; //TODO primary
+   @apply flex font-medium items-center justify-between mb-0;
    cursor: pointer;
 }
 
@@ -36,7 +36,7 @@
       font-weight: bold;
    }
    &:not(:last-child) {
-      border-bottom: 1px dashed #8F92FC; //TODO
+      border-bottom: 1px dashed #8F92FC;
    }
 }
 

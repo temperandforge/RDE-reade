@@ -415,12 +415,8 @@ function get_mapbox_token() { //@see Hi5
 }
 
 require_once get_template_directory() . "/lib/util/svg-includes.php";
-// require_once get_template_directory() . "/lib/util/menu-walker.php";
-// require_once get_template_directory() . "/lib/util/functions.php";
 
 require get_template_directory() . '/lib/theme-enqueue-scripts.php';
-// require get_template_directory() . '/lib/theme-gutenberg.php';
-// require get_template_directory() . '/lib/theme-rest.php';
 
 // tf dropdown
 require_once get_template_directory() . '/lib/util/tf-dropdown.php';
@@ -429,7 +425,7 @@ require_once get_template_directory() . '/lib/util/tf-dropdown.php';
 require get_template_directory() . '/lib/cpt/_index.php';
 
 if(IS_LOCAL) {
-	if(file_exists(get_template_directory() . '/scripts/theme-develop.php')) {
+	if(file_exists(get_template_directory() . '/scripts/theme-develop.php')) { //PRE_LAUNCH
 		require get_template_directory() . '/scripts/theme-develop.php';
 	}
 
@@ -474,7 +470,7 @@ function webp_is_displayable($result, $path) {
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 function cc_mime_types( $mimes ){
-	$mimes['svg'] = 'image/svg+xml'; //TODO check
+	$mimes['svg'] = 'image/svg+xml';
 	$mimes['webp'] = 'image/webp';
 	return $mimes;
  }
@@ -487,22 +483,6 @@ function cc_mime_types( $mimes ){
 			}
 			</style>';
 }
-
-
- /** Auto-Generate Single Post Template Content */
-//TODO add_filter( 'default_content', 'set_default_content', 10, 2 );
-function set_default_content( $content, $post ) { //TODO - block
-	/** print_r */
-	if($post->post_status == "auto-draft" && !$post->post_content) {
-		if('post' == $post->post_type) {
-			// $content = "
-			// <!-- wp:acf/faqs {\"id\":\"block_63599568dd90a\",\"name\":\"acf/faqs\",\"data\":{\"faqs_heading\":\"FAQs\",\"_faqs_heading\":\"field_63599b41caf20\",\"faqs\":\"\",\"_faqs\":\"field_63599664e109b\"},\"align\":\"\",\"mode\":\"edit\"} /-->
-			// ";
-		}
-	}
-	return $content;
-}
-
 
 function social_share($soc_name)
 {

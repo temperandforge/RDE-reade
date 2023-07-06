@@ -121,7 +121,7 @@ function cpt_init($slug,$name,$singular_name,$plural_name,$rest_base,$menu_icon,
 			'publicly_queryable'    => $publicly_queryable,
 			'rewrite'               => true,
 			'query_var'             => true,
-			'menu_position'         => null, //TODO
+			'menu_position'         => null,
 			'menu_icon'             => $menu_icon,
 			'show_in_rest'          => true,
 			'rest_base'             => $rest_base,
@@ -190,7 +190,7 @@ function setup_custom_post_types() {
 	/** 
     * Products
     */
-   cpt_init( //TODO woocommerce
+   cpt_init(
       'products', //$slug,
       'Products', //$name,
       'Product',  //$singular_name,
@@ -277,7 +277,6 @@ function setup_custom_post_types() {
 		false //$has_archive
    );
 
-   //TODO
    /*** Copy and Update for each Taxonomy */
 	add_filter( 'term_updated_messages', 'faq_category_updated_messages' );
    function faq_category_updated_messages( $messages ) {

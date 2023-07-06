@@ -74,7 +74,7 @@ function mobileMenu() {
 	// 	document.querySelector('.main-content-wrap').removeEventListener('keydown', preventDefaultForScrollKeys, false);
 	// }
 
-	const animating = false; //TODO
+	const animating = false;
 	// $( 'main' ).on( 'click', function() {
 	// 	// $body.removeClass( 'mm-open' );
 	// 	$menu.fadeOut();
@@ -114,7 +114,7 @@ function mobileMenu() {
 }
 
 function runFunctions() {
-	responsiveNavbar(); //TODO
+	responsiveNavbar();
 	mobileMenu()
 }
 

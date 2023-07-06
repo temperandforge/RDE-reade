@@ -1,4 +1,3 @@
-//TODO cleanup
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
@@ -151,38 +150,14 @@ $grid-breakpoints: (
 
 @mixin section-full {
 	margin-inline: calc(-100vw / 2 + 100% / 2);
-	margin-inline: calc(-100dvw / 2 + 100% / 2); //non-functional
+	margin-inline: calc(-100dvw / 2 + 100% / 2);
 	max-width: 100vw;
 	max-width: 100dvw;
-	width: calc(100vw - var(--scrollbar-width)); //TODO
-	width: 100dvw;
 }
 .section-full {
 	@include section-full;
 }
 
-// @mixin bgrel() {
-//   position: relative;
-//   z-index: 1;
-//   &::before {
-//     z-index: -1;
-//   }
-// }
-// .bg-rel {
-//   @include bgrel;
-// }
-// @mixin rel() {
-//   position: relative;
-//   z-index: 1;
-//   // &:after,
-//   &:before {
-//     content: '';
-//     z-index: -1;
-//   }
-// }
-// .rel {
-//   @include rel;
-// }
 @mixin cover($zidx: -1, $width: 100vw) {
 	@include fillall;
 	@include section-full;
@@ -207,132 +182,6 @@ $grid-breakpoints: (
 	background-repeat: $repeat;
 	background-size: $size;
 }
-// @mixin bg-cover($position: center, $size: cover, $repeat: no-repeat, $idx: -1) {
-//   @include bg($position, $repeat, $size);
-//   // @include fillall();
-//   // @include section-full();
-//   width: 100vw;
-//   @include cover();
-//   // z-index: $idx;
-// }
-// .bg-full,
-// .bg-cover {
-//   @include bg-cover();
-// }
-
-//TODO
-// @function calcB($pl, $ps, $lg: 1100, $sm: 390) {
-//   @return calc(#{$lg} - #{$lg} * ((#{$pl} - #{$ps}) / (#{$lg} - #{$sm})));
-// }
-// @mixin prop($pl, $ps, $po: 'font-size', $lg: 1100, $sm: 390) {
-//   @include clamp(
-//     'font-size',
-//     //$po,
-//     #{$ps}px,
-//     //calc((( #{$pl} - #{$ps} ) * #{$lg} / (#{$lg} - #{$sm})) + calcB($pl, $ps, $lg, $sm)),
-//     calc(100vw * ((#{$pl} - #{$ps}) / (#{$lg} - #{$sm}))),
-//     //+ calcB($pl, $ps)
-//     #{$pl}px
-//   ); //rfs
-// }
-
-// Encode symbols
-// @function url-encode($string) {
-//   $map: (
-//     '%': '%25',
-//     '<': '%3C',
-//     '>': '%3E',
-//     ' ': '%20',
-//     '!': '%21',
-//     '*': '%2A',
-//     "'": '%27',
-//     '"': '%22',
-//     '(': '%28',
-//     ')': '%29',
-//     ';': '%3B',
-//     ':': '%3A',
-//     '@': '%40',
-//     '&': '%26',
-//     '=': '%3D',
-//     '+': '%2B',
-//     '$': '%24',
-//     ',': '%2C',
-//     '/': '%2F',
-//     '?': '%3F',
-//     '#': '%23',
-//     '[': '%5B',
-//     ']': '%5D',
-//   );
-
-//   $new: $string;
-
-//   @each $search, $replace in $map {
-//     $new: str-replace($new, $search, $replace);
-//   }
-
-//   @return $new;
-// }
-
-// Format the SVG as a URL
-// @function inline-svg($string) {
-//   @return url('data:image/svg+xml,#{url-encode($string)}');
-// }
-
-// @mixin fs-reduce($min, $max, $vmin: 390, $vmax: 1400) {
-//   @include clamp(
-//     'font-size',
-//     calc(#{$min} * 1px),
-//     calc((#{$max} - #{$min}) * 100vw / (#{$vmax} - #{$vmin}) + 21px),
-//     //10vw,
-//     calc(#{$max} * 1px)
-//   );
-// }
-
-// @function evalFS($fl, $fs, $sl, $sm, $pl) {
-//   $eval: calc(($fl - $fs) / ($sl - $sm));
-//   $b: calc(($fl * 1px) - ($eval * $pl)); //b
-//   $ret: calc($eval * 100vw + $b);
-//   @return clamp('font-size', $fs, $ret, $fl);
-// }
-
-// @mixin clamp(
-//    $property,
-//    $min-size,
-//    $scaler,
-//    $max-size,
-//    $min-size-left: false,
-//    $scaler-left: false,
-//    $max-size-left: false
-// ) {
-//    @if $min-size-left == false {
-//       #{$property}: $max-size;
-//       #{$property}: #{'min(max(#{$min-size}, #{$scaler}), #{$max-size})'};
-//       #{$property}: clamp($min-size, $scaler, $max-size);
-//    } @else if $min-size-left == 0 or $min-size-left == auto {
-//       #{$property}: $max-size $min-size-left;
-//       #{$property}: #{'min(max(#{$min-size}, #{$scaler}), #{$max-size})'}
-//          $min-size-left;
-//       #{$property}: clamp($min-size, $scaler, $max-size) $min-size-left;
-//    } @else {
-//       #{$property}: $max-size $min-size-left;
-//       #{$property}: #{'min(max(#{$min-size}, #{$scaler}), #{$max-size})'}
-//          #{'min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})'};
-//       #{$property}: clamp($min-size, $scaler, $max-size)
-//          clamp($min-size-left, $scaler-left, $max-size-left);
-//    }
-// }
-
-// @mixin dynamic($prop, $vl, $vs, $sl, $ss) {
-//   $e: calc((#{$vl} - #{$vs}) / (#{$sl} - #{$ss}));
-//   $b: calc((#{$vl} - (#{$e} * #{$sl})) * 1px);
-//   $vw: calc(#{$e} * 100vw);
-//   $yx: $vw;
-//   $min: calc($vs * 1px);
-//   $max: calc($vl * 1px);
-//   //$result:
-//   @include clamp($prop, $min, calc($yx + $b), $max);
-//   //@return ;
-// }
 
 @mixin section-bg-color {
 	@apply relative;

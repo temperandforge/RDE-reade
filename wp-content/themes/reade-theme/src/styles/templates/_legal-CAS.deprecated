@@ -44,7 +44,7 @@
    }
 
    a {
-      @apply text-primary; //TODO
+      @apply text-primary;
    }
 }
 

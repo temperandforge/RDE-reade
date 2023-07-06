@@ -19,7 +19,6 @@ function svg(
       
       default:
          $filepath = get_stylesheet_directory() . "/assets/svg/$svgLabel.svg";
-         //TODO
          if(!file_exists($filepath) || !$svg = file_get_contents($filepath)) {
             error_log("svg(): $svgLabel - not found DNE"); //debug
          }
