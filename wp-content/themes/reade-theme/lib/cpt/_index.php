@@ -80,7 +80,20 @@ function generateTaxonomy(
 }
 
 
-function cpt_init($slug,$name,$singular_name,$plural_name,$rest_base,$menu_icon,$supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],$taxonomies = [],$has_archive = true,$publicly_queryable = true) {
+function cpt_init(
+   $slug,
+   $name,
+   $singular_name,
+   $plural_name,
+   $rest_base,
+   $menu_icon,
+   $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+   $taxonomies = [],
+   $has_archive = true,
+   $publicly_queryable = true
+) {
+
+   error_log(json_encode($rest_base, JSON_PRETTY_PRINT));//debug
 
    register_post_type(
       $slug,
@@ -119,12 +132,12 @@ function cpt_init($slug,$name,$singular_name,$plural_name,$rest_base,$menu_icon,
 			'supports'              => $supports,
 			'has_archive'           => $has_archive,
 			'publicly_queryable'    => $publicly_queryable,
-			'rewrite'               => true,
+			'rewrite'               => [ 'slug' => $rest_base ],//true,
 			'query_var'             => true,
 			'menu_position'         => null,
 			'menu_icon'             => $menu_icon,
 			'show_in_rest'          => true,
-			'rest_base'             => $rest_base,
+			'rest_base'             => $slug,//$rest_base,
 			'rest_controller_class' => 'WP_REST_Posts_Controller',
 		]
    );
@@ -213,23 +226,23 @@ function setup_custom_post_types() {
     * Services
     */
    cpt_init(
-      'services', //$slug,
+      'services-cpt', //$slug,
       'Services', //$name,
       'Service',  //$singular_name,
       'Services', //$plural_name,
-      'services', //$rest_base,
+      'servicess', //$rest_base,
       'dashicons-list-view', //$menu_icon,
       $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ], //$supports
       $taxonomies = [
-         [
-            'service_categories',           // $tax_slug
-            [ 'services' ],      // $post_type_slugs,
-            'Service Category',  // $tax_singular_name, 
-            'Service Categories' // $tax_plural_name
-         ],
+         // [
+         //    'service_categories',           // $tax_slug
+         //    [ 'services_cpt' ],      // $post_type_slugs,
+         //    'Service Category',  // $tax_singular_name, 
+         //    'Service Categories' // $tax_plural_name
+         // ],
       ],
 		false, // $has_archive
-		false  // $publicly_queryable
+		// false  // $publicly_queryable
    );
 
    /** 
