@@ -234,12 +234,12 @@ function setup_custom_post_types() {
       'dashicons-list-view', //$menu_icon,
       $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ], //$supports
       $taxonomies = [
-         // [
-         //    'service_categories',           // $tax_slug
-         //    [ 'services_cpt' ],      // $post_type_slugs,
-         //    'Service Category',  // $tax_singular_name, 
-         //    'Service Categories' // $tax_plural_name
-         // ],
+         [
+            'service_categories',           // $tax_slug
+            [ 'services_cpt' ],      // $post_type_slugs,
+            'Service Category',  // $tax_singular_name, 
+            'Service Categories' // $tax_plural_name
+         ],
       ],
 		false, // $has_archive
 		// false  // $publicly_queryable
