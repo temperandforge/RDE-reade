@@ -101,15 +101,17 @@ echo '<script>console.log('.json_encode($leadership_team, JSON_PRETTY_PRINT).');
             </div>
          <?php endif ;?>
       </div>
-         <div class="leadership-slider--content">
-            <?php echo $content ;?>
-         </div>
+         <?php if(!empty($content)) :?>
+            <div class="leadership-slider--content">
+               <?php echo $content ;?>
+            </div>
+         <?php endif ;?>
       </div>
       <?php endforeach ; ?>
    </div>
 
-   <div class="leadership-slider--mobile">
-      <div class="leadership-slider-mobile--arrows" role="presentation">
+   <div class="leadership-slider--mobile" role="presentation">
+      <div class="leadership-slider-mobile--arrows">
          <button class="slick-prev-arrow">
             <span class="sr-only">Previous slide</span>
             <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,5 +178,3 @@ echo '<script>console.log('.json_encode($leadership_team, JSON_PRETTY_PRINT).');
   </div>
  </div>
 </div>
-
-
