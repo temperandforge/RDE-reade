@@ -27,7 +27,7 @@ ul.footer-links-list {
    > li {
       break-inside: avoid-column;
    }
-   li:not([class*=btn]) > a {
+   > li:not([class*=btn]) > a {
       @apply relative;
       &:before {
          @apply absolute bg-white bottom-[-1px] left-0 h-[2px] w-full;
@@ -36,14 +36,21 @@ ul.footer-links-list {
          opacity: 0;
       }
    }
+   .sub-menu a {
+      transition: 0.2s;
+      &:hover {
+         text-shadow: 0 1px #fff;
+         // letter-spacing: 0.04em;
+      }
+   }
    @media (hover:hover) {
       //about
       li:not(.menu-item-106):hover > a:before {
          opacity:1;
       }
    }
-   .current-page-ancestor,
-   .current-menu-item {
+   //.current-menu-ancestor,
+   > li.current-menu-item {
       > a:before { opacity: 1!important; }
    }
 
