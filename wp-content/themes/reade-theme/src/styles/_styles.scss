@@ -31,12 +31,6 @@
 	}
 }
 
-.page-template-legal {
-	h1 {
-		@include hdl2(500);
-	}
-}
-
 @include respond-below(xl) {
 	.in-page-nav {
 		nav {

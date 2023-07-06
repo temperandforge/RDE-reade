@@ -7,7 +7,10 @@
 
 
 //prevent double scroll from dynamic height set due to gtranslate hover
-html { height: unset!important; }
+html { 
+	height: unset!important; 
+	scroll-behavior: smooth;
+}
 
 html,
 body {

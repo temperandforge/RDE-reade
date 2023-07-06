@@ -21,7 +21,7 @@
    svg {
       margin-right: 1rem;
       max-width: 100%;
-      overflow:hidden;
+      overflow: hidden;
       transition: 0.2s;
    }
    span { pointer-events: none; }
@@ -33,10 +33,10 @@
       }
    }
    &.active {
-      font-weight: bold;
+      @apply font-bold text-primary900;
    }
    &:not(:last-child) {
-      border-bottom: 1px dashed #8F92FC;
+      border-bottom: 1px dashed var(--primary);
    }
 }
 
@@ -46,13 +46,8 @@
       pointer-events: none;
    }
 }
-.in-page-nav {//-mobile {
+.in-page-nav {
    @apply block max-w-md relative rounded w-full;
-   // //body?
-   // font-family: $font-inter;
-   // font-size: 16px;
-   // font-weight: 500;
-   // line-height: 1.5;
 
    .psuedo-select-active {
       @apply px-4 py-3;
@@ -60,15 +55,9 @@
 
    nav {
       @apply absolute bg-white w-full mt-2 rounded px-4;
-      // border-radius: inherit;
-      // box-shadow: 0 0 40px rgba(0,0,0,0.15);
       top: 100%;
       left: 0;
    }
-
-   //TODO a {
-   //    @apply text-primary; //TODO
-   // }
 }
 
 .page-legal-content--article {
@@ -77,25 +66,64 @@
 .page-legal-content--wrap {
    flex: 1;
 }
-//TODO
-html:has(.page-template-legal) {
+.page-template-legal {
    overflow-x: unset;
 }
 
 .page-template-legal {
-   //TODO //p
-   // font-size: 16px;
-   // // font-weight: 400;
-   // line-height: 1.375;//22px;
    .main-content-wrap {
       @apply my-16 md:my-24 lg:my-40;
+      position: relative;
+      z-index: 1;
+
+      li, 
+      p:not([class]) { //p.psuedo-select-active, last-updated
+         /* Paragraph/Medium/Medium */
+         color: var(--primary-900, #045);
+         // font-family: $font-open-sans;
+         font-size: 1rem;
+         // font-weight: 400;
+         line-height: 1.5;
+         margin-bottom: 1em;
+      }
+
+      > svg {
+         @apply hidden md:block absolute top-0 right-0;
+         z-index: -1;
+         margin-right: calc(-50vw + 50%);
+         transform: translateX(20%);
+      }
    }
    h1 {
-      //@apply mb-6 md:mb-12 lg:mb-20;
+      color: var(--primary-900, #045);
+      /* Heading/H1/Bold/Desktop */
+      font-family: $font-open-sans;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
       @include dynamic('margin-bottom', 86, 24);
+      @include respond-above(sm) {
+         //@apply mb-6 md:mb-12 lg:mb-20;
+         @apply font-bold;
+         font-size: 3.4375rem;
+         line-height: 1.1728727272727273;
+         letter-spacing: -0.04em;
+      }
    }
    h2 {
-      @apply mb-8 mt-16;
+      @apply mb-8 mt-16 font-bold;
+      text-wrap: balance;
+      scroll-margin-top: 3rem;
+
+      color: var(--primary-900, #045);
+
+      /* Heading/H5/Bold/Desktop */
+      // font-family: $font-open-sans;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3333333333333333;
+      letter-spacing: -0.02em;
    }
 }
 
@@ -104,7 +132,6 @@ html:has(.page-template-legal) {
    .psuedo-select {
       nav {
          @apply overflow-hidden;
-         box-shadow: 0 0 40px rgba(0,0,0,0.15);
          max-height: 200px;
          overflow: auto;
          overscroll-behavior: contain;
@@ -114,8 +141,6 @@ html:has(.page-template-legal) {
          --scrollBarColor2:#fff;
          
          /* Works on Firefox */
-         //STARTER
-         //TODO build err - base.scss - universal
          scrollbar-width: thin;
          scrollbar-color: var(--scrollBarColor1) var(--scrollBarColor2);
           
@@ -140,6 +165,49 @@ html:has(.page-template-legal) {
          }
       }
    }
+   .page-template-legal aside a,
+   .toc-nav-link {
+      color: var(--primary-900, #045)!important;
+      /* Paragraph/Small/Semibold */
+      // font-family: $font-open-sans;
+      font-size: 0.875rem;
+      // font-style: normal;
+      font-weight: 600;
+      line-height: 1.4285714285714286;
+      border-bottom: unset!important;
+      &.active {
+         svg {
+            @apply hidden;
+         }
+      }
+      @media (hover:hover) {
+         &:hover {
+            background: var(--primary-50, #EFFBFF);
+         }
+      }
+      padding-block: 0.62rem;
+      padding-inline: 1rem;
+   }
+   .in-page-nav nav,
+   .pseudo-select-nav {
+      padding-inline: 0;
+   }
+   .psuedo-select-active {
+      border-radius: 0.3125rem;
+   }
+   .psuedo-select.is-open {
+      .psuedo-select-active {
+         border-radius: 0.3125rem 0.3125rem 0rem 0rem;
+      } 
+      .pseudo-select-nav {
+         border: 1px solid var(--primary-100, #CFEEF6);
+         @include hide-sb(); //cutting off border
+      }
+   }
+   .in-page-nav nav.pseudo-select-nav {
+      margin-top: 0;
+      border-radius: 0 0 0.3125rem 0.3125rem;
+   }
 }
 @include respond-above(xl) {
    .in-page-nav {
@@ -157,6 +225,6 @@ html:has(.page-template-legal) {
    .psuedo-select-active { @apply hidden; }
    
    .page-legal-content--article {
-      @apply flex-row-reverse gap-x-20 items-start relative; //TODO tab order
+      @apply flex-row-reverse gap-x-20 items-start relative;
    }
 }
