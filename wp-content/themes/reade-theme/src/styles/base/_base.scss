@@ -6,38 +6,12 @@
 @import './_utilities';
 
 
-//SETUP - document, gtranslate
-// * { //TODO ask connor
-//    box-sizing: border-box;
-//    margin: 0;
-//    padding: 0;
-
-// 	/* Works on Firefox */
-// 	scrollbar-width: thin;
-// 	scrollbar-color: #fff var(--footer-blue);
-// 	/* Works on Chrome, Edge, and Safari */
-// 	&::-webkit-scrollbar {
-// 		width: var(--scrollbar-width);
-// 	}
-// 	&::-webkit-scrollbar-track {
-// 		background: var(--footer-blue);
-// 	}
-// 	&::-webkit-scrollbar-thumb {
-// 		// position: absolute; //TODO
-// 		// left: 0;
-// 		background-color: #fff;
-// 		border-radius: 20px;
-// 		border: 2px solid var(--footer-blue);
-// 	}
-// }
-
 //prevent double scroll from dynamic height set due to gtranslate hover
 html { height: unset!important; }
 
 html,
 body {
 	@apply flex flex-col;
-	// height: 100%; //TODO
 	min-height: 100%;
 	background-color: $html-bg-color;
 	overflow-x: hidden;
@@ -51,10 +25,7 @@ body {
 }
 
 body {
-	@apply grow relative; 
-	min-height: 100%;
-	// background-color: $body-bg-color;
-	// color: $body-color;
+	@apply grow min-h-full relative;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-tap-highlight-color: transparent;
