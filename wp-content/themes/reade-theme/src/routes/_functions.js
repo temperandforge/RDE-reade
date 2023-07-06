@@ -20,7 +20,7 @@ function responsiveNavbar() {
 function mobileMenu() {
 	// assumes existence
 	const $menu = $( '.mobile-menu' );
-	// $menu.hide();
+	$menu.hide();
 	$menu.find('.sub-menu').hide();
 	$menu.removeClass( 'loading' );
 	const $btn = $( '#toggle_nav' );
