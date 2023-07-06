@@ -1,6 +1,4 @@
 <?php 
-//TODO define ('WPLANG', 'fr_FR');
-
 $option_fields = get_fields('options') ?: [];
 get_header(); 
 ?>
@@ -34,4 +32,4 @@ get_header();
    <?php svg('404-graphic'); ?>
 </main>
 <?php
-get_footer(); ?>
+get_footer();

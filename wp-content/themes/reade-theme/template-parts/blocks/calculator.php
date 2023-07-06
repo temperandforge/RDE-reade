@@ -61,7 +61,7 @@ $fields = get_fields(); ?>
          //       'placeholder',
          //       [
          //          4.75,
-         //          4 //TODO float
+         //          4 // ? float
          //       ]
          //    ]
          // ));

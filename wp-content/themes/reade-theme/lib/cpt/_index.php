@@ -182,8 +182,8 @@ function setup_custom_post_types() {
             'FAQ Categories'  // $tax_plural_name
          ],
       ],
-		false, //$has_archive
-		false //$publicly_queryable
+		false, // $has_archive
+		false  // $publicly_queryable
    );
    
 	
@@ -227,19 +227,21 @@ function setup_custom_post_types() {
             'Service Category',  // $tax_singular_name, 
             'Service Categories' // $tax_plural_name
          ],
-      ]
+      ],
+		false, // $has_archive
+		false  // $publicly_queryable
    );
 
    /** 
-    * Tools 
+    * Team 
     */
    cpt_init(
-      'team', //$slug,
-      'Team', //$name,
+      'team',        //$slug,
+      'Team',        //$name,
       'Team Member', //$singular_name,
-      'Team', //$plural_name,
+      'Team',        //$plural_name,
       'team',        //$rest_base,
-      'dashicons-admin-tools', //TODO //$menu_icon, 
+      'dashicons-groups',
       $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
       $taxonomies = [
          [

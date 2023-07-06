@@ -1,28 +1,9 @@
 <?php 
-//$fields = get_fields(); 
-
 $cat_ID = get_queried_object()->term_id;
-
-//TODO pagination, category
-$featured = get_posts([
-   'post_type'      => 'post',
-   'post_status'    => 'publish',
-   'posts_per_page' => -1,
-   'category'       => $cat_ID,
-   'post__in'       => get_option( 'sticky_posts' ),
-]);
-$remaining = get_posts([
-   'post_type'      => 'post',
-   'post_status'    => 'publish',
-   'posts_per_page' => -1,
-   'category'       => $cat_ID,
-   'post__not_in'       => get_option( 'sticky_posts' ),
-]);
-
 $qobj = get_queried_object();
 $view_more_button_text = get_field('view_more_button_text', 'options') ? get_field('view_more_button_text', 'options') : 'View More';
-
 get_header(); ?>
+
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
       <div class="theme-inner-wrap">
@@ -47,9 +28,9 @@ get_header(); ?>
          <div class="news-archive-articles">
             <?php
 
-            if (!empty($remaining)) {
+            if (!empty($posts)) {
 
-               foreach ($remaining AS $art) {
+               foreach ($posts AS $art) {
                   $npost = $art;
                   include 'template-parts/blocks/partial/news-card-regular.php';
                }

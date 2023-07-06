@@ -1,9 +1,8 @@
 <?php
 define('TEXTDOMAIN', 'acl-theme');
 define("IS_LOCAL", wp_get_environment_type() == "local");
-//TODO if( IS_LOCAL) { define("REMOTE_URL", "https://reade.wpengine.com"); }
+define("REMOTE_URL", "https://reade.wpengine.com");
 
-//PRE_LAUNCH if( IS_LOCAL ) { //rm theme-develop
 ini_set("error_log", get_stylesheet_directory() . "/debug.txt");
 
 require_once( get_stylesheet_directory() . '/lib/theme-setup.php' );
@@ -17,5 +16,3 @@ require_once (get_stylesheet_directory() . '/lib/tf-db-sync.php');
 //   load_theme_textdomain( 'reade-theme', get_template_directory() . '/languages' );
 // }
 // add_action( 'after_setup_theme', 'reade_load_theme_textdomain' );
-
-//TODO setup placeholder structure for new /post

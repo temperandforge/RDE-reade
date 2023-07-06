@@ -3,7 +3,6 @@
  * Enqueue all styles and scripts
  */
 
-//TODO - https://kinsta.com/blog/eliminate-render-blocking-javascript-css/
 function theme_scripts() {
 	$theme = wp_get_theme();
 	$theme_uri = get_template_directory_uri();
