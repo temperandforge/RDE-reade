@@ -151,6 +151,11 @@ function handleIndustrySlider() {
 		slidesToScroll: 1,
 		rows: 3,
 		slidesPerRow: 2,
+		adaptiveHeight: true,
+		dots: true,
+		appendDots: $('.industry-slider--dots'),
+		prevArrow: $('.slick-prev-arrow'),
+		nextArrow: $('.slick-next-arrow'),
 		responsive: [
 			{
 				breakpoint: 768,
