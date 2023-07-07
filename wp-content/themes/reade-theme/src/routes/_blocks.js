@@ -91,7 +91,7 @@ function handleLeadershipSlider() {
 	})
 }
 
-function handleTabbed() {
+function handleTabbedRotator() {
 	const $tabs = $('.tabbed-rotator--tabs')
 
 	if (!$tabs) {
@@ -137,12 +137,39 @@ function handleTabbed() {
 	})
 }
 
+function handleIndustrySlider() {
+	const $slides = $('.industry-slider--slider')
+
+	console.log('test')
+
+	if (!$slides.length) {
+		return
+	}
+	console.log('test')
+
+	$slides.slick({
+		slidesToScroll: 1,
+		rows: 3,
+		slidesPerRow: 2,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					rows: 6,
+					slidesPerRow: 1,
+				},
+			},
+		],
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
 	handleContactLocationInformation()
 	handleLeadershipSlider()
-	handleTabbed()
+	handleTabbedRotator()
+	handleIndustrySlider()
 }
 
 export { runBlocks }
