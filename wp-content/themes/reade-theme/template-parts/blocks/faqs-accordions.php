@@ -1,4 +1,5 @@
 <?php 
+
 $post_type = 'faqs';
 $recommended_posts = [];
 if(is_single()) {
@@ -23,6 +24,7 @@ if(!$recommended_posts) {
    ]);
    $recommended_posts = $wp_query->posts;
 }
+
 ?>
 
 <div class="faqs-accordion--section">

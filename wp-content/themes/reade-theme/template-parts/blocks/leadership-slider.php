@@ -1,4 +1,5 @@
 <?php 
+
 $post_type = 'team';
 $leadership_team = [];
 if(is_single()) {
