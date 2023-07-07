@@ -23,6 +23,21 @@ function theme_register_blocks()
 	/** Keep Alphabetic */
 	$img_root = "./assets/img/blocks";
 	$mode = 'edit';
+ /** 
+	 * Calculator
+	 * */
+	acf_register_block([
+		'name'			=> 'calculator',
+		'title'			=> 'Calculator',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/calculator.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
 	/** 
 	 * Call To Action
 	 * */
@@ -92,21 +107,20 @@ function theme_register_blocks()
 		'keywords'		=> ['contact', 'location', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
-	
-   /** 
-	 * Calculator
+
+	/** 
+	 * Dual Block
 	 * */
 	acf_register_block([
-		'name'			=> 'calculator',
-		'title'			=> 'Calculator',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+		'name'			=> 'dual-block',
+		'title'			=> 'Dual Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/dual-block.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
-		'image'        => $img_root . '/calculator.webp',
 		'mode'			=> $mode,
-		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
-		'supports'     => ['align' => false],
+		'keywords'		=> ['dual', 'block', 'reade', 'theme', TEXTDOMAIN]
 	]);
+	
 
 	/** 
 	 * FAQS Accordions
@@ -325,6 +339,23 @@ function theme_register_blocks()
 		'mode'			 => $mode,
 		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false]
+	]);
+
+	/** 
+	 * Tabbed Rotator
+	 * */
+	acf_register_block([
+		'name'			 => 'tabbed-rotator',
+		'title'			 => 'Tabbed Rotator',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tabbed-rotator.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['tabbed', 'rotator', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
 	]);
 }
 

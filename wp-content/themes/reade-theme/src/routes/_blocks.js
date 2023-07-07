@@ -91,11 +91,58 @@ function handleLeadershipSlider() {
 	})
 }
 
+function handleTabbed() {
+	const $tabs = $('.tabbed-rotator--tabs')
+
+	if (!$tabs) {
+		return
+	}
+
+	let $mobileBtn = $('.current-tab')
+	let $tabArr = $('.tabbed-rotator--tab')
+
+	function toggleNavClass() {
+		$('.tabbed-rotator-content--wrap').toggleClass('opened closed')
+	}
+
+	$mobileBtn.on('click', function () {
+		toggleNavClass()
+	})
+
+	$tabs.slick({
+		infinite: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true,
+		adaptiveHeight: true,
+		appendDots: $('.tabbed-rotator--nav'),
+		customPaging: function (slider, i) {
+			var title = $(slider.$slides[i]).data('title')
+			return `<button class="team-member--btn"><span>${title}</span></button>`
+		},
+		arrows: false,
+	})
+
+	$tabs.on('afterChange', function (event, slick, currentSlide) {
+		$tabArr.each(function (index) {
+			index == currentSlide ? $mobileBtn.text($(this).data('title')) : null
+		})
+	})
+
+	$tabs.on('beforeChange', function (event, slick, currentSlide) {
+		let x = window.matchMedia('(max-width: 1024px)')
+		if (x.matches) {
+			toggleNavClass()
+		}
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
 	handleContactLocationInformation()
 	handleLeadershipSlider()
+	handleTabbed()
 }
 
 export { runBlocks }
