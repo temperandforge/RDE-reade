@@ -49,9 +49,24 @@
       // width: 100dvw; //non-functional
       @include padding-main;
       background: var(--primary-100, #CFEEF6);
+      
+      // .gtranslate_wrapper, 
+      //.language-switcher-mobile,
+      .gt_selected,
       [class*=btn] {
-         @apply grow inline-flex justify-center px-3 text-center;
+         @apply grow inline-flex items-center justify-center px-3 text-center;
+      }
+      .language-switcher-mobile,
+      [class*=btn] {
          flex-basis: calc(50% - 0.75rem / 2);
+      }
+      // .gtranslate_wrapper {
+      .gt_selected {
+         @apply btn;
+         display: inline-flex;
+         &:hover {
+            @apply bg-white text-primary;
+         }
       }
    }
    &--menu-list {
