@@ -23,6 +23,21 @@ function theme_register_blocks()
 	/** Keep Alphabetic */
 	$img_root = "./assets/img/blocks";
 	$mode = 'edit';
+ /** 
+	 * Calculator
+	 * */
+	acf_register_block([
+		'name'			=> 'calculator',
+		'title'			=> 'Calculator',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/calculator.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
 	/** 
 	 * Call To Action
 	 * */
@@ -92,21 +107,20 @@ function theme_register_blocks()
 		'keywords'		=> ['contact', 'location', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
-	
-   /** 
-	 * Calculator
+
+	/** 
+	 * Dual Block
 	 * */
 	acf_register_block([
-		'name'			=> 'calculator',
-		'title'			=> 'Calculator',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+		'name'			=> 'dual-block',
+		'title'			=> 'Dual Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/dual-block.php",
 		'category'		=> 'theme-blocks',
 		'icon'			=> 'button',
-		'image'        => $img_root . '/calculator.webp',
 		'mode'			=> $mode,
-		'keywords'		=> ['hero', 'reade', 'theme', TEXTDOMAIN],
-		'supports'     => ['align' => false],
+		'keywords'		=> ['dual', 'block', 'reade', 'theme', TEXTDOMAIN]
 	]);
+	
 
 	/** 
 	 * FAQS Accordions
