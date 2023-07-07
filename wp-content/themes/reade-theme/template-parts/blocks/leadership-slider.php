@@ -112,13 +112,13 @@ if(!$leadership_team) {
 
    <div class="leadership-slider--mobile" role="presentation">
       <div class="leadership-slider-mobile--arrows">
-         <button class="slick-prev-arrow">
+         <button class="slick-prev-arrow" aria-label="Previous">
             <span class="sr-only">Previous slide</span>
             <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1018 25.1C15.5687 25.633 14.7045 25.633 14.1715 25.1L5.98181 16.9104C5.44877 16.3773 5.44877 15.5131 5.98181 14.98L14.1715 6.79041C14.7045 6.25736 15.5687 6.25736 16.1018 6.79041C16.6348 7.32345 16.6348 8.18768 16.1018 8.72072L10.2422 14.5803H26.0561C26.81 14.5803 27.4211 15.1914 27.4211 15.9452C27.4211 16.699 26.81 17.3101 26.0561 17.3101L10.2422 17.3101L16.1018 23.1697C16.6348 23.7027 16.6348 24.567 16.1018 25.1Z" fill="#009FC6"/>
             </svg>
          </button>
-         <button class="slick-next-arrow">
+         <button class="slick-next-arrow" aria-label="Next">
             <span class="sr-only">Next slide</span>
             <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8982 25.1C17.4313 25.633 18.2955 25.633 18.8285 25.1L27.0182 16.9104C27.5512 16.3773 27.5512 15.5131 27.0182 14.98L18.8285 6.79041C18.2955 6.25736 17.4313 6.25736 16.8982 6.79041C16.3652 7.32345 16.3652 8.18768 16.8982 8.72072L22.7578 14.5803H6.94386C6.19003 14.5803 5.57892 15.1914 5.57892 15.9452C5.57892 16.699 6.19003 17.3101 6.94386 17.3101L22.7578 17.3101L16.8982 23.1697C16.3652 23.7027 16.3652 24.567 16.8982 25.1Z" fill="#009FC6"/>   
