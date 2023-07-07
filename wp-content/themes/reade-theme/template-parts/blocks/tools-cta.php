@@ -1,6 +1,7 @@
 <?php
 
 $fields = get_fields();
+
 ?>
 
 <div class="tools-cta">

@@ -116,7 +116,8 @@ function theme_register_blocks()
 		'title'			=> 'Dual Block',
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/dual-block.php",
 		'category'		=> 'theme-blocks',
-		'icon'			=> 'button',
+		'icon'			=> 'button',			
+		'image'        => $img_root . '/dual-block.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['dual', 'block', 'reade', 'theme', TEXTDOMAIN]
 	]);
@@ -158,8 +159,23 @@ function theme_register_blocks()
 			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/grid-hero.php",
 			'category'		=> 'theme-blocks',
 			'icon'			=> 'button',
+			'image'        => $img_root . '/grid-hero.webp',
 			'mode'			=> $mode,
 			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false],
+		]);
+	
+		/** 
+			* Industry Slider
+			* */
+		acf_register_block([
+			'name'			=> 'industry-slider',
+			'title'			=> 'Industry Slider',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/industry-slider.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'mode'			=> $mode,
+			'keywords'		=> ['industry', 'reade', 'slider', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
 		]);
 	
@@ -172,7 +188,7 @@ function theme_register_blocks()
 			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/leadership-slider.php",
 			'category'		=> 'theme-blocks',
 			'icon'			=> 'button',
-			'image'        => $img_root . '/call-to-action.webp',
+			'image'        => $img_root . '/leadership-slider.webp',
 			'mode'			=> $mode,
 			'keywords'		=> ['reade', 'leadership', 'slider', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false], //TODO
@@ -251,6 +267,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-footer-cta.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button',
+		'image'        => $img_root . '/primary-footer-cta.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['footer', 'cta', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
@@ -265,6 +282,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-hero-banner.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button',
+		'image'        => $img_root . '/primary-hero.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
@@ -279,6 +297,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/secondary-hero.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button',
+		'image'        => $img_root . '/secondary-hero.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['secondary', 'hero', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
@@ -311,9 +330,9 @@ function theme_register_blocks()
 		'keywords'		 => ['static', 'testimonial', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],
 	]);
-
+	
 	/** 
-	 * Sustainable Dual CTA
+		* Sustainable Dual CTA
 	 * */
 	acf_register_block([
 		'name'			 => 'sustainable-dual-cta',
@@ -321,6 +340,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/sustainable-dual-cta.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button',
+		'image'        => $img_root . '/sustainable-dual-cta.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['sustainable', 'dual', 'cta', 'reade', 'theme', TEXTDOMAIN],
 		'supports'		=> ['align' => false]
@@ -350,7 +370,7 @@ function theme_register_blocks()
 		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tabbed-rotator.php",
 		'category'		 => 'theme-blocks',
 		'icon'			 => 'button', //TODO
-		'image'         => $img_root . '/page-hero.webp',
+		'image'         => $img_root . '/tabbed-rotator.webp',
 		'mode'			 => $mode,
 		'keywords'		 => ['tabbed', 'rotator', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false],

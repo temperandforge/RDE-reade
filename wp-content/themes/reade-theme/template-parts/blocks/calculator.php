@@ -1,5 +1,8 @@
 <?php 
-$fields = get_fields(); ?>
+
+$fields = get_fields(); 
+
+?>
 
 <div class="calculator">
    <div class="calculator--content">

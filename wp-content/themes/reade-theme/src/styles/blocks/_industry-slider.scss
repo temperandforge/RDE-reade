@@ -1,0 +1,30 @@
+.industry-slider--section {
+	@apply bg-light-blue;
+	padding: 50px 0;
+
+	@include respond-above(md) {
+		padding: 90px 0;
+	}
+
+	@include respond-above(xl) {
+		padding: 130px 0;
+	}
+}
+
+.industry-slider--main {
+	@apply relative z-10;
+}
+
+.industry-slider--content {
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 24px;
+		letter-spacing: -0.36px;
+	}
+
+	P {
+		font-size: 14px;
+		line-height: 23px;
+	}
+}
