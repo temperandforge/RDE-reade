@@ -24,7 +24,6 @@ if(!$leadership_team) {
    $leadership_team = $wp_query->posts;
 }
 
-echo '<script>console.log('.json_encode($leadership_team, JSON_PRETTY_PRINT).');</script>';
 ?>
 
 <div class="leadership-slider--section">
