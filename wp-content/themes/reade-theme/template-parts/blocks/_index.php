@@ -346,6 +346,23 @@ function theme_register_blocks()
       //TODO
 		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
 	]);
+
+	/** 
+	 * Tabbed Rotator
+	 * */
+	acf_register_block([
+		'name'			 => 'tabbed-rotator',
+		'title'			 => 'Tabbed Rotator',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tabbed-rotator.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		'image'         => $img_root . '/page-hero.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['tabbed', 'rotator', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
 }
 
 
