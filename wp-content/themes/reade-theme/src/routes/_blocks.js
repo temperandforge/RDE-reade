@@ -140,12 +140,9 @@ function handleTabbedRotator() {
 function handleIndustrySlider() {
 	const $slides = $('.industry-slider--slider')
 
-	console.log('test')
-
 	if (!$slides.length) {
 		return
 	}
-	console.log('test')
 
 	$slides.slick({
 		slidesToScroll: 1,

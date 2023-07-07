@@ -93,8 +93,6 @@ function cpt_init(
    $publicly_queryable = true
 ) {
 
-   error_log(json_encode($rest_base, JSON_PRETTY_PRINT));//debug
-
    register_post_type(
       $slug,
       [
