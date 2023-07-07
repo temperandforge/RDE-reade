@@ -78,7 +78,7 @@ ul.header-links {
 			margin: 0.4375rem 0; //does not stack
 			&:before {
 				@apply absolute bg-[#004455] bottom-[-1px] left-0 h-[2px] w-full;
-				// content: '';
+				content: '';
 				transition: inherit;
 			}
 		}
@@ -344,8 +344,7 @@ ul.header-links {
 		}
 	}
 }
-.gtranslate_wrapper {
-}
+// .gtranslate_wrapper { }
 .gt_selected {
 	background: unset !important;
 	@apply inline-flex items-center;
@@ -427,7 +426,7 @@ ul.header-links {
 		> li {
 			padding-inline: 0.5rem;
 
-			&:hover,
+		&:hover,
       &:focus-within, //POST prevent page reload
       &.current-page-ancestor, //TODO check
       &.current-menu-item {

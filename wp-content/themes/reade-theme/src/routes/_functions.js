@@ -30,7 +30,6 @@ function mobileMenu() {
 		$menu.fadeIn();
 		$('.mobile-menu').css('padding-bottom', $('.mobile-menu--footer').outerHeight())
 	} );
-	console.log($('.mobile-menu--footer').outerHeight())
 	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
 		$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 	} );

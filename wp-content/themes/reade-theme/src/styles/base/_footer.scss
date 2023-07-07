@@ -45,7 +45,8 @@ ul.footer-links-list {
    }
    @media (hover:hover) {
       //about
-      li:not(.menu-item-106):hover > a:before {
+      // li:not(.menu-item-has-children):hover > a:before {
+      > li > a:hover:before {
          opacity:1;
       }
    }
@@ -277,7 +278,7 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
 }
 @include respond-above(lg) {
    ul.footer-links-list {
-      @apply flex;
+      @apply flex items-start;
       --column-gap: 1rem;
       column-gap: var(--column-gap);
       justify-content: center;
