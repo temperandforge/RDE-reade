@@ -30,7 +30,7 @@ get_header(); ?>
          <div class="news-archive-articles">
             <?php
 
-            $posts = get_posts(array('status' => 'publish', 'orderby' => 'date', 'order' => 'DESC', 'numberposts' => '-1'));
+            $posts = get_posts(array('status' => 'publish', 'orderby' => 'date', 'order' => 'DESC', 'numberposts' => '-1', 'category' => $cat_ID));
 
             if (!empty($posts)) {
 
