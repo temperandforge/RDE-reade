@@ -72,14 +72,14 @@
         line-height: 24px;
     }
     .news-hero-right {
-        padding-left: 96px;
+        //padding-left: 96px;
         @include respond-below(md) {
             padding-left: unset;
         }
 
         img {
+            margin: 0 auto;
             @include respond-below(md) {
-                margin: 0 auto;
                 max-height: 329px;
                 width: auto;
             }
