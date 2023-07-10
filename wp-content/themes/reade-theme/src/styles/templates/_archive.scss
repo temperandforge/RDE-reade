@@ -55,10 +55,26 @@ body.news-search {
             font-weight: 600;
             column-gap: 10px;
             align-items: center;
+            transition: ease 0.35s;
+
+            svg path {
+                transition: ease 0.35s;
+            }
 
             @include respond-below(sm) {
                 // in case breadcrumbs go on multiple lines
                 margin-bottom: 10px;
+            }
+
+            &:hover {
+                background: var(--primary-500-main, #009FC6);
+                color: $white;
+            }
+
+            &:hover svg {
+                path {
+                    fill: $white;
+                }
             }
         }
     }
