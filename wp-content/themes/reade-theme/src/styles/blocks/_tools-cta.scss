@@ -3,7 +3,7 @@
     .bg-grid {
         &:before {
             @include respond-below(md) {
-                background-size: 312%;
+                background-size: 1328px; //312% if needs scaling
             }
         }
     }
