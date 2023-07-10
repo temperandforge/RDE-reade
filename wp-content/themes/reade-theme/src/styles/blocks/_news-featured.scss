@@ -132,7 +132,8 @@
             @include respond-below(md) {
                 border-top-right-radius: unset;
                 border-bottom-left-radius: 15px;
-                height: 233px;
+                //height: 233px;
+                aspect-ratio: 12/9;
             }
         }
     }

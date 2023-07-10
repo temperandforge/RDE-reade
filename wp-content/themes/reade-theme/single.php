@@ -11,6 +11,7 @@ get_header(); ?>
 
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
+   
       <div class="theme-inner-wrap">
          <article class="single-content">
             
@@ -36,22 +37,22 @@ get_header(); ?>
             ?>
 
             <div id="single-container" class="single-container">
-               <?php
-   
-               if (!$dec_image) {
-                  $dec_image = $fallback_image;
-               }
+            <?php
+      
+      if (!$dec_image) {
+         $dec_image = $fallback_image;
+      }
 
-               if ($dec_image) {
-                  ?>
-                  <img class="dec-image" src="<?php echo $dec_image['url']; ?>"
-                     alt="<?php echo $dec_image['alt']; ?>"
-                     width="<?php echo $dec_image['width']; ?>"
-                     height="<?php echo $dec_image['height']; ?>"
-                  ><?php 
-               }
+      if ($dec_image) {
+         ?>
+         <img class="dec-image" src="<?php echo $dec_image['url']; ?>"
+            alt="<?php echo $dec_image['alt']; ?>"
+            width="<?php echo $dec_image['width']; ?>"
+            height="<?php echo $dec_image['height']; ?>"
+         ><?php 
+      }
 
-               ?>
+      ?>
                <div class="single-container-left">
                   <?php
                   include 'template-parts/single/share.php';

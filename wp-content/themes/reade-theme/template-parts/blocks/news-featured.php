@@ -32,9 +32,11 @@ $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card
         </div>
         <div class="news-featured-top-right">
                 <form action="/news-search/" method="get">
-                    <input type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+                    <label for="sv-input">
+                        <span class="sr-only">Search</span>
+                        <input id="sv-input" type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+                    </label>
                 </form>
-            </form>
         </div>
     </div>
     <?php
