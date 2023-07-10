@@ -50,6 +50,7 @@
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
 				@apply bg-primary900 text-white;
+				border-color: var(--primary-500);
 			}
 		}
 	}

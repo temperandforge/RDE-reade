@@ -1,5 +1,6 @@
 .primary-footer-cta--section {
-	&.bg-light-blue {
+	&.bg-light-blue,
+	&.white {
 		color: var(--primary-900, #045);
 
 		.primary-cta {

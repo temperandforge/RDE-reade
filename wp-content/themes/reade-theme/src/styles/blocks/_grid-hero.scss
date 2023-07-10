@@ -35,8 +35,9 @@
 	@include section-full;
 
 	img {
-		@apply w-full theme-inner-wrap object-cover;
+		@apply w-full section-full object-cover;
 		aspect-ratio: 390 / 205;
+		max-height: 600px;
 
 		@include respond-above(lg) {
 			aspect-ratio: 1440 / 387;

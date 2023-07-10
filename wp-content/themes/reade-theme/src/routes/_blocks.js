@@ -40,6 +40,7 @@ function handleContactLocationInformation() {
 					$(this).attr('aria-expanded') == 'true'
 						? $(this).attr('aria-expanded', 'false')
 						: $(this).attr('aria-expanded', 'true')
+						$(this).toggleClass('btn btn-blue-dark-blue')
 				})
 				$contentBlocks.each(function () {
 					$(this).attr('aria-hidden') == 'true'
@@ -138,30 +139,34 @@ function handleTabbedRotator() {
 }
 
 function handleIndustrySlider() {
-	const $slides = $('.industry-slider--slider')
+	const $slides = $('.industry-slider--section')
 
 	if (!$slides.length) {
 		return
 	}
 
-	$slides.slick({
-		slidesToScroll: 1,
-		rows: 3,
-		slidesPerRow: 2,
-		adaptiveHeight: true,
-		dots: true,
-		appendDots: $('.industry-slider--dots'),
-		prevArrow: $('.industry-slider--arrows .slick-prev-arrow'),
-		nextArrow: $('.industry-slider--arrows .slick-next-arrow'),
-		responsive: [
-			{
-				breakpoint: 768,
-				settings: {
-					rows: 6,
-					slidesPerRow: 1,
-				},
-			},
-		],
+	$slides.each(function () {
+		$(this)
+			.find('.industry-slider--slider')
+			.slick({
+				slidesToScroll: 1,
+				rows: 3,
+				slidesPerRow: 2,
+				adaptiveHeight: true,
+				dots: true,
+				appendDots: $(this).find('.industry-slider--dots'),
+				prevArrow: $(this).find('.industry-slider--arrows .slick-prev-arrow'),
+				nextArrow: $(this).find('.industry-slider--arrows .slick-next-arrow'),
+				responsive: [
+					{
+						breakpoint: 768,
+						settings: {
+							rows: 6,
+							slidesPerRow: 1,
+						},
+					},
+				],
+			})
 	})
 }
 
@@ -185,7 +190,6 @@ function handleTestimonialSlider() {
 				nextArrow: $(this).find('.slick-next-arrow'),
 			})
 	})
-
 }
 
 function runBlocks() {
