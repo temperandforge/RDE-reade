@@ -1,9 +1,6 @@
 <?php
 
 $fields = get_fields();
-if(IS_LOCAL) {
-echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
-}
 
 ?>
 
@@ -11,6 +8,17 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
  <div class="industry-slider--main">
   <div class="industry-slider--inner">
    <div class="industry-slider--wrap">
+    <?php if((!empty($fields['heading'])) || (!empty($fields['content']))) :?>
+     <div class="industry-slider--heading">
+      <?php if(!empty($fields['heading'])) :?>
+       <h2><?php echo $fields['heading'] ;?></h2>
+      <?php endif ;?>
+      <?php if(!empty($fields['content'])) :?>
+       <p><?php echo $fields['content'] ;?></p>
+      <?php endif ;?>
+     </div>
+    <?php endif ;?>
+
     <div class="industry-slider--slider">
      <?php foreach($fields['items'] as $item) :?>
       <div class="industry-slider--item">
@@ -53,3 +61,4 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
   </div>
  </div>
 </div>
+
