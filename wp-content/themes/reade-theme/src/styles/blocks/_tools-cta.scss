@@ -1,4 +1,12 @@
 .tools-cta {
+
+    .bg-grid {
+        &:before {
+            @include respond-below(md) {
+                background-size: 312%;
+            }
+        }
+    }
     .tools-cta-top {
         padding-top: 109px;
 
