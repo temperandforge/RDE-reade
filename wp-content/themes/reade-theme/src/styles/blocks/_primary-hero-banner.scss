@@ -8,7 +8,7 @@
 
 .primary-hero--wrap {
 	@apply relative z-10;
-	@include inner-wrap(1920px);
+	/* @include inner-wrap(1920px); */
 }
 
 .primary-hero--inner {
@@ -47,11 +47,6 @@
 		font-weight: 700;
 		line-height: 56px;
 
-		/* @include respond-above(md) {
-   font-size: 60px;
-   line-height: 56px;
-		} */
-
 		@include respond-above(xl) {
 			font-size: 65px;
 			line-height: 66.071px;
@@ -84,6 +79,7 @@
 
 		@include respond-above(xl) {
 			clip-path: ellipse(55% 97.5% at 55% 50%);
+			max-height: 750px;
 		}
 	}
 }
