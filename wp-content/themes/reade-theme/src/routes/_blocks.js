@@ -151,8 +151,8 @@ function handleIndustrySlider() {
 		adaptiveHeight: true,
 		dots: true,
 		appendDots: $('.industry-slider--dots'),
-		prevArrow: $('.slick-prev-arrow'),
-		nextArrow: $('.slick-next-arrow'),
+		prevArrow: $('.industry-slider--arrows .slick-prev-arrow'),
+		nextArrow: $('.industry-slider--arrows .slick-next-arrow'),
 		responsive: [
 			{
 				breakpoint: 768,
@@ -165,6 +165,29 @@ function handleIndustrySlider() {
 	})
 }
 
+function handleTestimonialSlider() {
+	const $slider = $('.testimonial-slider--section')
+
+	if (!$slider.length) {
+		return
+	}
+
+	$slider.each(function () {
+		$(this)
+			.find('.testimonial-slider--slider')
+			.slick({
+				variableWidth: true,
+				infinite: false,
+				dots: true,
+				adaptiveHeight: false,
+				appendDots: $(this).find('.testimonial-slider--dots'),
+				prevArrow: $(this).find('.slick-prev-arrow'),
+				nextArrow: $(this).find('.slick-next-arrow'),
+			})
+	})
+
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -172,6 +195,7 @@ function runBlocks() {
 	handleLeadershipSlider()
 	handleTabbedRotator()
 	handleIndustrySlider()
+	handleTestimonialSlider()
 }
 
 export { runBlocks }

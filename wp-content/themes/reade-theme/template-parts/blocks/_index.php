@@ -174,6 +174,7 @@ function theme_register_blocks()
 			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/industry-slider.php",
 			'category'		=> 'theme-blocks',
 			'icon'			=> 'button',
+			'image'        => $img_root . '/industry-slider.webp',
 			'mode'			=> $mode,
 			'keywords'		=> ['industry', 'reade', 'slider', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
@@ -346,22 +347,7 @@ function theme_register_blocks()
 		'supports'		=> ['align' => false]
 	]);
 
-	/**
-	 * Tools CTA
-	 */
-
-	acf_register_block([
-		'name'			 => 'tools-cta',
-		'title'			 => 'Tools CTA',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tools-cta.php",
-		'category'		 => 'theme-blocks',
-		'icon'			 => 'button',
-		'mode'			 => $mode,
-		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
-		'supports'      => ['align' => false]
-	]);
-
-	/** 
+		/** 
 	 * Tabbed Rotator
 	 * */
 	acf_register_block([
@@ -376,6 +362,38 @@ function theme_register_blocks()
 		'supports'      => ['align' => false],
       //TODO
 		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+		/** 
+	 * Testimonial Slider
+	 * */
+	acf_register_block([
+		'name'			 => 'testimonial-slider',
+		'title'			 => 'Testimonial Slider',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/testimonial-slider.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		// 'image'         => $img_root . '/testimonial-slider.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['testimonial', 'slider', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/**
+	 * Tools CTA
+	 */
+
+	acf_register_block([
+		'name'			 => 'tools-cta',
+		'title'			 => 'Tools CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tools-cta.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
 	]);
 }
 
