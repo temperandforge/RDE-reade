@@ -1,10 +1,10 @@
 .news-featured {
-    padding-top: 110px;
-    padding-bottom: 110px;
+    padding-top: 55px;
+    padding-bottom: 55px;
 
     @include respond-below(md) {
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 43px;
     }
 
     .news-featured-top {
