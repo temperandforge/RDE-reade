@@ -8,11 +8,9 @@
     flex-direction: column;
     position: relative;
 
-    @media(hover: hover) {
-        &:hover {
-            svg {
-                transform: translateX(4px);
-            }
+    &:hover {
+        svg {
+            transform: translateX(4px);
         }
     }
 
