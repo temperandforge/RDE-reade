@@ -6,6 +6,15 @@
     margin-right: 24px;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    @media(hover: hover) {
+        &:hover {
+            svg {
+                transform: translateX(4px);
+            }
+        }
+    }
 
     @include respond-below(lg) {
         min-width: 55vw;
@@ -39,7 +48,7 @@
         flex-direction: column;
         flex-grow: 1;
 
-        a {
+        a:not(.fillall) {
             margin-top: auto;
             max-width: 185px;
             padding: 12px 20px;
