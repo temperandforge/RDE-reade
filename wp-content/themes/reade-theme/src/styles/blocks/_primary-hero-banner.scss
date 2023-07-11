@@ -8,23 +8,13 @@
 
 .primary-hero--wrap {
 	@apply relative z-10;
-	/* @include inner-wrap(1920px); */
 }
 
 .primary-hero--inner {
 	@apply flex flex-col-reverse lg:flex-row;
-	/* gap: 58px; */
 
 	@include respond-above(lg) {
 		padding-bottom: unset;
-		/* gap: unset; */
-	}
-}
-
-.primary-hero--content,
-.primary-hero--figure {
-	@include respond-above(xl) {
-		/* flex: 0 0 50%; */
 	}
 }
 
@@ -34,6 +24,10 @@
 	gap: 30px;
 	@apply theme-main;
 	padding: max(1.5rem, min(9.2vw, 135px)) max(1.5rem, min(7vw, 100px));
+
+	@include respond-above(5xl) {
+		padding: max(1.5rem, min(9.2vw, 135px)) 8.4% max(1.5rem, min(9.2vw, 135px)) min(7.2%, 100px);
+	}
 
 	@include respond-below(sm) {
 		padding-bottom: 84px;
@@ -81,6 +75,14 @@
 			clip-path: ellipse(55% 97.5% at 55% 50%);
 			max-height: 750px;
 		}
+
+		@include respond-above(2xl) {
+			clip-path: ellipse(55% 110% at 55% 50%);
+		}
+
+		@include respond-above(4xl) {
+			clip-path: ellipse(55% 140% at 55% 50%);
+		}
 	}
 }
 
@@ -123,14 +125,14 @@
 		height: 275px;
 		top: -120px;
 		right: -225px;
-		
+
 		@include respond-above(md) {
 			height: 300px;
 			right: -100px;
 			top: -170px;
-			}
-			
-			@include respond-above(lg) {
+		}
+
+		@include respond-above(lg) {
 			height: unset;
 			right: -90px;
 		}

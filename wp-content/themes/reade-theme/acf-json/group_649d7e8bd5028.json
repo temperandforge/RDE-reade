@@ -1,6 +1,6 @@
 {
     "key": "group_649d7e8bd5028",
-    "title": "Gtrid Hero",
+    "title": "Grid Hero",
     "fields": [
         {
             "key": "field_649d7e8cf09ce",
@@ -84,6 +84,40 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_64ac6221c8264",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bags-svg": "Bags",
+                "bigbox-svg": "Boxes - Big First",
+                "smallbox-svg": "Boxes - Small First",
+                "circles-svg": "Circles",
+                "document-svg": "Document",
+                "flag-svg": "Flag",
+                "globe-svg": "Globe",
+                "microscope-svg": "Microscope",
+                "pestle-svg": "Mortar and Pestle",
+                "no-svg": "No Icon"
+            },
+            "default_value": "no-svg",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -104,5 +138,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688043224
+    "modified": 1689019251
 }

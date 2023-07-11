@@ -32,12 +32,8 @@ $fields = get_fields();
      </div>
     <?php endif ;?>
 
-
-    <?php if(($fields['style'] == 'bg-light-blue') && (!empty($fields['heading']))) :?>
-     <svg class="primary-footer-cta--box" width="170" height="224" viewBox="0 0 170 224" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M150.194 44.916L75.5482 1L1 44.916L75.5902 88.832V185.673L150.194 141.771V44.916ZM150.194 44.916L75.5902 88.832L1 44.916V141.771L75.5902 185.673" stroke="#AEE3F0" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M168.399 148.318L129.272 125.298L90.1953 148.318L129.294 171.337V222.099L168.399 199.087V148.318ZM168.399 148.318L129.294 171.337L90.1953 148.318V199.087L129.294 222.099" stroke="#AEE3F0" stroke-width="2" stroke-linejoin="round"/>
-     </svg>
+    <?php if(($fields['style'] == 'bg-light-blue') && ($fields['icon'] != 'no-svg') && (!empty($fields['heading']))) :?>
+     <div class="primary-footer-cta--decor <?php echo $fields['icon'] ;?>" aria-hidden="true"></div>
     <?php endif ;?>
    </div>
    
