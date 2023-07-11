@@ -397,6 +397,21 @@ function theme_register_blocks()
 	]);
 
 	/**
+	 * Tile Slider
+	 */
+
+	acf_register_block([
+		'name'			 => 'tile-slider',
+		'title'			 => 'Tile Slider',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tile-slider.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['tile', 'slider', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
+	]);
+
+	/**
 	 * Tools CTA
 	 */
 
