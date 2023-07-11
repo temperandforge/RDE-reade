@@ -195,6 +195,21 @@ function theme_register_blocks()
 			'supports'     => ['align' => false], //TODO
 		]);
 
+		/** 
+			* Primary CTA
+			* */
+		acf_register_block([
+			'name'			=> 'primary-cta',
+			'title'			=> 'Primary CTA',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-cta.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'primary', 'cta', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
 	/**
 	 * News Category
 	 * */
