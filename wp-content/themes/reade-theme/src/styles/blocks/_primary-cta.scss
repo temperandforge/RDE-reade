@@ -1,15 +1,34 @@
 #main-content:has(.primary-cta) + #site-footer {
-    padding-top: 89px;
+    @include respond-above(sm) {
+        padding-top: 89px;
+    }
+}
+
+/** can't do :has() with mozilla **/
+@-moz-document url-prefix() {
+    body.home #site-footer {
+        @include respond-above(sm) {
+            padding-top: 89px;
+        }
+    }
 }
 
 .primary-cta {
     margin-top: 300px;
     position: relative;
+
+    @include respond-below(sm) {
+        margin-top: 35px;
+    }
     
     &:before {
         background-color: #00bdec;
         height: min(185px, 14vw);
         min-height: 179px;
+
+        @include respond-below(sm) {
+            content: unset;
+        }
     }
 
     .primary-cta-main {
@@ -34,6 +53,13 @@
             padding-top: min(77px, 5.347vw);
             padding-bottom: min(108px, 7.500vw);
         }
+
+        @include respond-below(sm) {
+            @apply section-full;
+            top: unset;
+            margin-bottom: unset;
+            padding: 67px 48px;
+        }
         
         img {
             position: absolute;
@@ -41,11 +67,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
             border-radius: 0px 35px;
             border: 5px solid #FFF;
             z-index: -1;
+
+            @include respond-below(sm) {
+                border-radius: 0;
+                border: unset;
+                object-fit: fill;
+            }
         }
     }
 
@@ -72,6 +103,10 @@
             width: 100%;
         }
 
+        @include respond-below(sm) {
+            padding: 42px 35px;
+        }
+
         .primary-cta-title {
             color: var(--primary-900, #045);
             font-size: clamp(2.25rem, 1.65rem + 1.5vw, 3rem);
@@ -85,16 +120,21 @@
             color: var(--primary-900, #045);
             font-size: 16px;
             font-weight: 400;
-            line-height: 24px;
+            line-height: 1.5;
             max-width: 52ch;
 
             @media (max-width: 1200px) {
                 max-width: 100%;
                 margin-bottom: 10px;
             }
+
+            @include respond-below(sm) {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
         }
 
-        .btn-green-dark-green {
+        .btn-green-light-green {
             width: 287px;
             text-align: center;
             position: absolute;
@@ -107,6 +147,12 @@
                 position: relative;
                 right: 0;
                 top: 0;
+            }
+
+            @include respond-below(sm) {
+                width: 100%;
+                padding-left: unset;
+                padding-right: unset;
             }
         }
     }
