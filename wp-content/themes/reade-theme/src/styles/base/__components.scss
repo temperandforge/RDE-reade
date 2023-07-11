@@ -35,12 +35,11 @@
 		}
 	}
 
-	.btn-green-dark-green {
+	.btn-green-light-green {
 		@apply btn bg-green border-green text-footer-primary;
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
-				@apply bg-green border-green text-footer-primary;
-				filter: brightness(80%);
+				@apply bg-lightgreen border-lightgreen text-footer-primary;
 			}
 		}
 	}
