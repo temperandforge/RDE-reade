@@ -40,7 +40,7 @@ function handleContactLocationInformation() {
 					$(this).attr('aria-expanded') == 'true'
 						? $(this).attr('aria-expanded', 'false')
 						: $(this).attr('aria-expanded', 'true')
-						$(this).toggleClass('btn btn-blue-dark-blue')
+					$(this).toggleClass('btn btn-blue-dark-blue')
 				})
 				$contentBlocks.each(function () {
 					$(this).attr('aria-hidden') == 'true'
@@ -192,6 +192,49 @@ function handleTestimonialSlider() {
 	})
 }
 
+function handleTileSlider() {
+	const $section = $('.tile-slider--section')
+
+	if (!$section.length) {
+		return
+	}
+
+	$section.each(function () {
+		$(this)
+			.find('.tile-slider--slider')
+			.slick({
+				slidesPerRow: 3,
+				rows: 3,
+				dots: true,
+				nextArrow:
+					"<button type='button' class='slick-next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+				prevArrow:
+					"<button type='button' class='slick-prev'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+				appendDots: $(this).find('.tile-slider--dots'),
+				appendArrows: $(this).find('.tile-slider--arrows'),
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							rows: 3,
+							adaptiveHeight: true,
+							slidesPerRow: 2,
+							adaptiveHeight: true,
+						},
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							rows: 6,
+							slidesPerRow: 1,
+							adaptiveHeight: true,
+						},
+					},
+				],
+			})
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -200,6 +243,7 @@ function runBlocks() {
 	handleTabbedRotator()
 	handleIndustrySlider()
 	handleTestimonialSlider()
+	handleTileSlider()
 }
 
 export { runBlocks }
