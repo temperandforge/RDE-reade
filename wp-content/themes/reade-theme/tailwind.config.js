@@ -50,6 +50,7 @@ module.exports = {
 				'heavy-beige': '#9E7E75',
 				'ultra-beige': '#786059',
 				'green': 		'#8BC53F',
+				'lightgreen': 		'#BEFF69',
 				'superlight':  '#F3EFEF',
 			},
 			screens: {

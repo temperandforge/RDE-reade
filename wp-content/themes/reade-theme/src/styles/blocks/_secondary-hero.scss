@@ -45,6 +45,14 @@
 	@apply relative;
 	@include inner-wrap(1240px);
 
+	.bags-decor,
+	.bigbox-decor,
+	.smallbox-decor,
+	.document-decor,
+	.flag-decor,
+	.globe-decor,
+	.microscope-decor,
+	.pestle-decor,
 	.geo-decor {
 		@apply absolute;
 		left: -125px;
@@ -54,6 +62,15 @@
 			height: unset;
 			width: unset;
 		}
+	}
+
+	.pestle-decor,
+	.microscope-decor,
+	.globe-decor,
+	.flag-decor,
+	.bags-decor,
+	.document-decor {
+		left: -60px;
 	}
 }
 
