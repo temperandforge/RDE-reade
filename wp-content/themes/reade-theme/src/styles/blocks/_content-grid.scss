@@ -13,15 +13,22 @@
     }
 
     .content-grid-text {
-        width: min(1085px, 100%);
+        width: 56.53%;
         margin: 0 auto;
         text-align: center;
         display: flex;
         flex-direction: column;
         row-gap: 26px;
 
+        @include respond-below(lg) {
+            width: 100%;
+        }
         &.wider-text {
-            width: min(1373px, 100%);
+            width: 71.51%;
+
+            @include respond-below(lg) {
+                width: 100%;
+            }
         }
 
         .content-grid-text-headline {
@@ -45,9 +52,12 @@
         column-gap: 25px;
         row-gap: 21px;
         flex-wrap: wrap;
-        width: min(1085px, 100%);
+        width: 56.53%;
         margin: 0 auto;
 
+        @include respond-below(lg) {
+            width: 100%;
+        }
         @include respond-below(sm) {
             flex-direction: column;
             row-gap: 15px;
