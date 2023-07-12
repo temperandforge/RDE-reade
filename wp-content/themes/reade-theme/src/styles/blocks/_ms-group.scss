@@ -1,10 +1,10 @@
 .ms-group {
-    padding-top: 135px;
-    padding-bottom: 135px;
+    padding-top: clamp(3.125rem, -0.67rem + 10.119vw, 8.438rem);
+    padding-bottom: clamp(3.125rem, -0.67rem + 10.119vw, 8.438rem);
 
     display: flex;
     flex-direction: column;
-    row-gap: 100px;
+    row-gap: clamp(4.688rem, 3.571rem + 2.976vw, 6.25rem);
 
     .ms-group-cat {
 
@@ -40,10 +40,44 @@
             flex-wrap: wrap;
             width: calc(100% + 25px);
             margin-right: -25px;
+
+            @include respond-below(sm) {
+                flex-wrap: unset;
+                overflow-x: scroll;
+                padding-right: 1.4rem;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         .ms-group-cat-post {
             flex-basis: calc(25% - 25px);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            @include respond-below(lg) {
+                flex-basis: calc(33% - 22px);
+            }
+
+            @include respond-below(md) {
+                flex-basis: calc(50% - 25px);
+            }
+
+            @include respond-below(sm) {
+                flex-basis: 72.56%;
+                width: 72.56%;
+                min-width: 72.56%;
+            }
+            @media(hover: hover) {
+                &:hover {
+                    .btn-blue-dark-blue {
+                        background-color: rgb(0, 68, 85);
+                    }
+                }
+            }
         }
 
         .ms-group-cat-post-icon {
@@ -68,6 +102,9 @@
             color: $white;
             font-size: 14px;
             font-weight: 600;
+            box-sizing: border-box;
+            height: auto;
+            flex-grow: 1;
         }
     }
 }
