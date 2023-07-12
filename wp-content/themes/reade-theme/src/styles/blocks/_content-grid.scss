@@ -6,8 +6,14 @@
     row-gap: 70px;
     flex-direction: column;
 
+    @include respond-below(sm) {
+        margin-top: 55px;
+        margin-bottom: 55px;
+        row-gap: 58px;
+    }
+
     .content-grid-text {
-        width: 814px;
+        width: min(814px, 100%);
         margin: 0 auto;
         text-align: center;
         display: flex;
@@ -15,7 +21,7 @@
         row-gap: 26px;
 
         &.wider-text {
-            width: 1030px;
+            width: min(1030px, 100%);
         }
 
         .content-grid-text-headline {
@@ -39,8 +45,13 @@
         column-gap: 25px;
         row-gap: 21px;
         flex-wrap: wrap;
-        width: 814px;
+        width: min(814px, 100%);
         margin: 0 auto;
+
+        @include respond-below(sm) {
+            flex-direction: column;
+            row-gap: 15px;
+        }
     }
 
     .content-grid-items-item {
@@ -61,5 +72,10 @@
         font-weight: 700;
         line-height: 1.4;
         letter-spacing: -0.4px;
+
+        @include respond-below(sm) {
+            min-height: 68px;
+            padding: 20px;
+        }
     }
 }
