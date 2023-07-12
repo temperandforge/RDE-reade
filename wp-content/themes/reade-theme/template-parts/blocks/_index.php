@@ -139,6 +139,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Dropshadow Cards
+	 * */
+	acf_register_block([
+		'name'			=> 'dropshadow-cards',
+		'title'			=> 'Dropshadow Cards',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/dropshadow-cards.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/dropshadow-cards.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['dropshadow', 'card', 'cards', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
 	 * Dual Block
 	 * */
 	acf_register_block([

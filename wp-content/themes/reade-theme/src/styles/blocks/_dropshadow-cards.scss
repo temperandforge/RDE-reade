@@ -1,0 +1,24 @@
+.dropshadow-cards {
+    margin-top: clamp(-10rem, 2.107rem + -13.452vw, -2.938rem);
+    margin-bottom: 155px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    position: relative;
+
+    .dropshadow-cards-card {
+        flex-basis: calc(50% - 12.5px);
+        display: flex;
+        flex-direction: column;
+        padding: 73px 81px;
+        border-radius: 10px;
+        background: $white;
+        box-shadow: 0px 10px 124px 0px rgba(0, 0, 0, 0.08);
+        flex-grow: 1;
+        z-index: 10;
+        row-gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+}
