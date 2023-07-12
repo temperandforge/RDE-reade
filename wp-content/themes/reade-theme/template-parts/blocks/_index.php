@@ -109,6 +109,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Content Grid
+	 * */
+	acf_register_block([
+		'name'			=> 'content-grid',
+		'title'			=> 'Content Grid',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/content-grid.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/content-grid.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['content', 'grid', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
 	 * Dual Block
 	 * */
 	acf_register_block([
