@@ -76,7 +76,8 @@ if (!empty($fields['categories_to_show'])) {
 
                                             ?>
                                         </div>
-                                        <a class="btn-blue-dark-blue" href="<?php echo !empty($pfields['url']) ? $pfields['url'] : '#'; ?>" <?php if ($pfields['open_in_new_tab']) { echo 'target="_blank"'; } ?>><?php echo $mscatpost->post_title; ?></a>
+                                        <button class="btn-blue-dark-blue" ><?php echo $mscatpost->post_title; ?></button>
+                                        <a class="fillall" href="<?php echo !empty($pfields['url']) ? $pfields['url'] : '#'; ?>" <?php if ($pfields['open_in_new_tab']) { echo 'target="_blank"'; } ?>><span class="sr-only"><?php echo $mscatpost->post_title; ?></span></a>
                                     </div>
                                     <?php
                                 }
