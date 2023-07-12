@@ -226,6 +226,21 @@ function theme_register_blocks()
 		]);
 
 		/** 
+			* Materials Science Documents (MS Group)
+			* */
+		acf_register_block([
+			'name'			=> 'ms-group',
+			'title'			=> 'MS Group',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/ms-group.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/ms-group.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['materials', 'science', 'group', 'reade', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
 			* Primary CTA
 			* */
 		acf_register_block([

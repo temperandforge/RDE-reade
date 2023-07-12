@@ -196,6 +196,29 @@ function setup_custom_post_types() {
 		false, // $has_archive
 		false  // $publicly_queryable
    );
+
+   /**
+    * Materials science documents
+    */
+   cpt_init(
+      'ms-documents',        //$slug,
+      'MS Documents',        //$name,
+      'MS Document', //$singular_name,
+      'MS Documents',        //$plural_name,
+      'ms-documents',        //$rest_base,
+      'dashicons-media-document',
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt'],
+      $taxonomies = [
+         [
+            'ms_documents_categories', 
+            [ 'ms-documents' ], 
+            "MS Documents Category",
+            "MS Documents Categories"
+         ]
+      ],
+      false, //$has_archive
+      false //$publicly_queryable
+   );
    
 	
 	/** 
@@ -317,6 +340,17 @@ function setup_custom_post_types() {
       $slug          = "service_category"; 
       $singular_name = "Service Category";
       $plural_name   = "Service Categories";
+      
+      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+      return $messages;
+   }
+
+   add_filter( 'materials_science_documents_updated_messages', 'materials_science_documents_category_updated_messages' );
+   function materials_science_documents_category_updated_messages( $messages ) {
+
+      $slug          = "ms_documents_category"; 
+      $singular_name = "MS Documents Category";
+      $plural_name   = "MS Documents Categories";
       
       cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
       return $messages;
