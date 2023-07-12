@@ -13,7 +13,7 @@
     }
 
     .content-grid-text {
-        width: min(814px, 100%);
+        width: min(1085px, 100%);
         margin: 0 auto;
         text-align: center;
         display: flex;
@@ -21,7 +21,7 @@
         row-gap: 26px;
 
         &.wider-text {
-            width: min(1030px, 100%);
+            width: min(1373px, 100%);
         }
 
         .content-grid-text-headline {
@@ -45,7 +45,7 @@
         column-gap: 25px;
         row-gap: 21px;
         flex-wrap: wrap;
-        width: min(814px, 100%);
+        width: min(1085px, 100%);
         margin: 0 auto;
 
         @include respond-below(sm) {

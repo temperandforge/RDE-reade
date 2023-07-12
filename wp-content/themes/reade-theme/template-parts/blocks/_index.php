@@ -124,6 +124,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Document Library Cards
+	 * */
+	acf_register_block([
+		'name'			=> 'document-library-cards',
+		'title'			=> 'Document Library Cards',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/document-library-cards.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/document-library-cards.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['document', 'library', 'card', 'cards', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
 	 * Dual Block
 	 * */
 	acf_register_block([
