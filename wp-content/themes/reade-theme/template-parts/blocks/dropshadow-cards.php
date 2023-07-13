@@ -41,10 +41,32 @@ if (!empty($fields['cards'])) {
     <div class="dropshadow-cards">
         <?php
 
-        foreach ($fields['cards'] AS $cards) {
+        foreach ($fields['cards'] AS $card) {
             ?>
             <div class="dropshadow-cards-card">
-                card
+                <?php
+
+                if (!empty($card['icon']) && isset($dsicons[$card['icon']])) {
+                    echo $dsicons[$card['icon']];
+                }
+
+                if (!empty($card['headline'])) {
+                    ?><h3 class="dropshadow-cards-card-headline"><?php echo $card['headline']; ?></h3><?php
+                }
+
+                if (!empty($card['text'])) {
+                    ?><p class="dropshadow-cards-card-text"><?php echo $card['text']; ?></p><?php
+                }
+
+                if (!empty($card['button'])) {
+                    ?><a class="btn-blue-dark-blue btn-arrow" href="<?php echo $card['button']['url']; ?>"><?php echo $card['button']['title']; ?>
+                        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.81634C12.348 6.47463 12.902 6.47463 13.2437 6.81634L16.7437 10.3163C17.0854 10.658 17.0854 11.2121 16.7437 11.5538L13.2437 15.0538C12.902 15.3955 12.348 15.3955 12.0063 15.0538C11.6646 14.7121 11.6646 14.158 12.0063 13.8163L14.0126 11.8101H3.875C3.39175 11.8101 3 11.4183 3 10.9351C3 10.4518 3.39175 10.0601 3.875 10.0601H14.0126L12.0063 8.05378C11.6646 7.71207 11.6646 7.15805 12.0063 6.81634Z" fill="#FAFAFA"/>
+                        </svg>
+                    </a><?php
+                }
+
+                ?>
             </div>
             <?php
         }
