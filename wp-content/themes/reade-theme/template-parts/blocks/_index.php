@@ -53,6 +53,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Certificate CTA
+	 * */
+	acf_register_block([
+		'name'			=> 'certificate-cta',
+		'title'			=> 'Certificate CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/certificate-cta.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/certificate-cta.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['certificate', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
 	 * Contact Dual CTA
 	 * */
 	acf_register_block([
@@ -105,6 +120,51 @@ function theme_register_blocks()
 		'icon'			=> 'button',
 		'mode'			=> $mode,
 		'keywords'		=> ['contact', 'location', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
+	 * Content Grid
+	 * */
+	acf_register_block([
+		'name'			=> 'content-grid',
+		'title'			=> 'Content Grid',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/content-grid.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/content-grid.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['content', 'grid', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
+	 * Document Library Cards
+	 * */
+	acf_register_block([
+		'name'			=> 'document-library-cards',
+		'title'			=> 'Document Library Cards',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/document-library-cards.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/document-library-cards.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['document', 'library', 'card', 'cards', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
+	 * Dropshadow Cards
+	 * */
+	acf_register_block([
+		'name'			=> 'dropshadow-cards',
+		'title'			=> 'Dropshadow Cards',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/dropshadow-cards.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/dropshadow-cards.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['dropshadow', 'card', 'cards', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
 
@@ -174,6 +234,7 @@ function theme_register_blocks()
 			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/industry-slider.php",
 			'category'		=> 'theme-blocks',
 			'icon'			=> 'button',
+			'image'        => $img_root . '/industry-slider.webp',
 			'mode'			=> $mode,
 			'keywords'		=> ['industry', 'reade', 'slider', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
@@ -191,6 +252,36 @@ function theme_register_blocks()
 			'image'        => $img_root . '/leadership-slider.webp',
 			'mode'			=> $mode,
 			'keywords'		=> ['reade', 'leadership', 'slider', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
+			* Materials Science Documents (MS Group)
+			* */
+		acf_register_block([
+			'name'			=> 'ms-group',
+			'title'			=> 'MS Group',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/ms-group.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/ms-group.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['materials', 'science', 'group', 'reade', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
+			* Primary CTA
+			* */
+		acf_register_block([
+			'name'			=> 'primary-cta',
+			'title'			=> 'Primary CTA',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-cta.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'primary', 'cta', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false], //TODO
 		]);
 
@@ -318,6 +409,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Simple CTA
+	 * */
+	acf_register_block([
+		'name'			 => 'split-content-block',
+		'title'			 => 'Split Content Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/split-content-block.php",
+		'category'		 => 'theme-blocks',
+		'image'        => $img_root . '/split-content-block.webp',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['split', 'content', 'block', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+	]);
+
+	/** 
 	 * Static Testimonial
 	 * */
 	acf_register_block([
@@ -346,22 +452,7 @@ function theme_register_blocks()
 		'supports'		=> ['align' => false]
 	]);
 
-	/**
-	 * Tools CTA
-	 */
-
-	acf_register_block([
-		'name'			 => 'tools-cta',
-		'title'			 => 'Tools CTA',
-		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tools-cta.php",
-		'category'		 => 'theme-blocks',
-		'icon'			 => 'button',
-		'mode'			 => $mode,
-		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
-		'supports'      => ['align' => false]
-	]);
-
-	/** 
+		/** 
 	 * Tabbed Rotator
 	 * */
 	acf_register_block([
@@ -376,6 +467,53 @@ function theme_register_blocks()
 		'supports'      => ['align' => false],
       //TODO
 		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+		/** 
+	 * Testimonial Slider
+	 * */
+	acf_register_block([
+		'name'			 => 'testimonial-slider',
+		'title'			 => 'Testimonial Slider',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/testimonial-slider.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button', //TODO
+		// 'image'         => $img_root . '/testimonial-slider.webp',
+		'mode'			 => $mode,
+		'keywords'		 => ['testimonial', 'slider', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+      //TODO
+		//'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.css',
+	]);
+
+	/**
+	 * Tile Slider
+	 */
+
+	acf_register_block([
+		'name'			 => 'tile-slider',
+		'title'			 => 'Tile Slider',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tile-slider.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['tile', 'slider', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
+	]);
+
+	/**
+	 * Tools CTA
+	 */
+
+	acf_register_block([
+		'name'			 => 'tools-cta',
+		'title'			 => 'Tools CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/tools-cta.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
 	]);
 }
 

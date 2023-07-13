@@ -13,7 +13,28 @@ body.single .blog-hero-part {
 }
 
 body.single {
-    overflow-x: visible; // allows position sticky to work
+
+    .dec-image {
+        position: absolute;
+        top: 50%;
+        right: -100px;
+        transform: translate(-50%, -50%);
+        width: 164px;
+        height: 221px;
+
+        @include respond-below(lg) {
+            top: unset;
+            transform: unset;
+            width: 118px;
+            height: 159px;
+            right: -41px;
+            bottom: 30px;
+        }
+    }
+
+    @include respond-above(lg) {
+        overflow-x: visible; // allows position sticky to work
+    }
 
     .post-meta {
         color: var(--primary-900, #045);
@@ -126,7 +147,9 @@ body.single {
     .single-container {
         display: flex;
         margin-bottom: 166px;
-        position: relative;
+        @include respond-below(lg) {
+            position: relative;
+        }
 
         @include respond-below(lg) {
             flex-direction: column;
@@ -134,23 +157,7 @@ body.single {
             padding-bottom: 158px;
         }
 
-        .dec-image {
-            position: absolute;
-            top: 50%;
-            right: -233px;
-            transform: translate(-50%, -50%);
-            width: 164px;
-            height: 221px;
-
-            @include respond-below(lg) {
-                top: unset;
-                transform: unset;
-                width: 118px;
-                height: 159px;
-                right: -41px;
-                bottom: 30px;
-            }
-        }
+        
 
         
 

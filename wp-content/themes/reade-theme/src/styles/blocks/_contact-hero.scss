@@ -1,9 +1,9 @@
 .contact-hero--section {
 	padding: 32px 0 40px;
-  
-  @include respond-above(xl) {
+
+	@include respond-above(xl) {
 		@apply relative;
-  padding: 145px 0 60px;
+		padding: 145px 0 60px;
 	}
 }
 
@@ -15,22 +15,22 @@
 .contact-hero--figure {
 	@include respond-above(xl) {
 		@apply absolute;
-  top: 48px;
-  right: -15%;
+		top: 48px;
+		right: -15%;
 	}
 
- @include respond-above(3xl) {
-  right: -7.5%;
+	@include respond-above(3xl) {
+		right: -7.5%;
 	}
 
- @include respond-above(4xl) {
-  right: 0;
+	@include respond-above(4xl) {
+		right: 0;
 	}
 
 	img {
 		max-width: 60%;
 		margin: 0 auto;
-  aspect-ratio: 1 / 1;
+		aspect-ratio: 1 / 1;
 
 		@include respond-above(xl) {
 			max-width: 558px;
@@ -56,9 +56,10 @@
 		font-weight: 700;
 		line-height: 48px;
 		letter-spacing: -0.8px;
+		text-wrap: balance;
 
 		@include respond-above(md) {
-   @apply mt-0;
+			@apply mt-0;
 			font-size: 45px;
 			line-height: 53px;
 			letter-spacing: -1.2px;
