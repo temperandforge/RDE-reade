@@ -34,7 +34,7 @@ function generateTaxonomy(
    $tax_plural_name
 ) {
 	register_taxonomy( $tax_slug, $tax_post_type_slugs, [
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'show_in_nav_menus'     => true,
 		'show_ui'               => true,
@@ -325,7 +325,7 @@ function setup_custom_post_types() {
 	add_filter( 'term_updated_messages', 'tools_category_updated_messages' );
    function tools_category_updated_messages( $messages ) {
 
-      $slug          = "tools_category"; 
+      $slug          = "tools_category";  //TODO tools_categories
       $singular_name = "Tool Category";
       $plural_name   = "Tool Categories";
       

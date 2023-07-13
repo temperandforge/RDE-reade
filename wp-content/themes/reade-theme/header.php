@@ -22,7 +22,7 @@
   </noscript> -->
 
    <style>
-      .mobile-menu.loading,
+      .mobile-mepnu.loading,
       .mobile-menu.loading .sub-menu {
          display: none;
       }
