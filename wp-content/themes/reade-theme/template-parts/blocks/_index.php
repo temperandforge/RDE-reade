@@ -53,6 +53,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Certificate CTA
+	 * */
+	acf_register_block([
+		'name'			=> 'certificate-cta',
+		'title'			=> 'Certificate CTA',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/certificate-cta.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/certificate-cta.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['certificate', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+	/** 
 	 * Contact Dual CTA
 	 * */
 	acf_register_block([
