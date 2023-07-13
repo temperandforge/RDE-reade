@@ -20,7 +20,7 @@ $fields = get_fields();
 
         ?>
     </div>
-    <div class="split-content-block-bottom">
+    <div class="split-content-block-bottom <?php if ($fields['alignment']) { echo 'split-content-block-align-right'; } ?>">
         
         <?php
 
