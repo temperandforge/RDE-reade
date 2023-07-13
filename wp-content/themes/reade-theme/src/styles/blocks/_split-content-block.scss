@@ -1,0 +1,74 @@
+.split-content-block {
+	padding: clamp(4.188rem, 1.537rem + 6.625vw, 7.5rem) 0;
+
+	// remains inset until screen size lg, like content grid block
+	.split-content-block-text {
+		width: 56.81%; // 1091px if fixed
+		margin: 0 auto;
+		text-align: center;
+
+		@include respond-below(lg) {
+			width: 100%;
+		}
+
+		.split-content-block-text-headline {
+			color: var(--primary-900, #045);
+			font-size: clamp(2.25rem, 1.55rem + 1.75vw, 3.125rem);
+			font-weight: 700;
+			line-height: 1;
+			letter-spacing: -1.5px;
+			margin-bottom: 26px;
+		}
+
+		.split-content-block-text-text {
+			color: var(--primary-900, #045);
+			font-size: clamp(0.875rem, 0.675rem + 0.5vw, 1.125rem);
+			font-weight: 400;
+			line-height: 1.5;
+			margin-bottom: 75px;
+		}
+	}
+
+	.split-content-block-bottom {
+		display: flex;
+		column-gap: 25px;
+
+		.split-content-block-image {
+			flex-basis: 66%;
+
+			img {
+				aspect-ratio: 814/376;
+				width: 100%;
+				border-radius: 10px;
+				height: 100%;
+				object-fit: cover;
+				max-height: 376px;
+			}
+		}
+		.split-content-block-card {
+			flex-basis: 34%;
+			border-radius: 10px;
+			background-color: var(--primary-50, #EFFBFF);
+			padding: 56px 67px;
+			display: flex;
+			flex-direction: column;
+			row-gap: 10px;
+			justify-content: center;
+
+			.split-content-block-card-headline {
+				color: var(--primary-900, #045);
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1.33;
+				letter-spacing: -0.48px;
+			}
+
+			.split-content-block-card-text {
+				color: var(--primary-900, #045);
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.64;
+			}
+		}
+	}
+}
