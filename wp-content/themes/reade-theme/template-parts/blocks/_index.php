@@ -394,6 +394,21 @@ function theme_register_blocks()
 	]);
 
 	/** 
+	 * Simple CTA
+	 * */
+	acf_register_block([
+		'name'			 => 'split-content-block',
+		'title'			 => 'Split Content Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/split-content-block.php",
+		'category'		 => 'theme-blocks',
+		'image'        => $img_root . '/split-content-block.webp',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['split', 'content', 'block', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false],
+	]);
+
+	/** 
 	 * Static Testimonial
 	 * */
 	acf_register_block([
