@@ -224,6 +224,21 @@ function theme_register_blocks()
 			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
 		]);
+
+		/** 
+			* Icon block
+			* */
+		acf_register_block([
+			'name'			=> 'icon-block',
+			'title'			=> 'Icon Block',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/icon-block.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/icon-block.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['icon', 'block', 'read', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false],
+		]);
 	
 		/** 
 			* Industry Slider
