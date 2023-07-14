@@ -1,0 +1,47 @@
+.certificate-cta {
+	padding-top: clamp(5.313rem, 3.763rem + 3.875vw, 7.25rem);
+	padding-bottom: clamp(5.313rem, 3.763rem + 3.875vw, 7.25rem);
+	width: 71.5%;
+	margin: 0 auto;
+	z-index: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	row-gap: clamp(1.875rem, 0.875rem + 2.5vw, 3.125rem);
+
+	@include respond-below(lg) {
+		width: 100%;
+	}
+
+	&.bg-light-blue {
+		&::after {
+			z-index: -1;
+		}
+	}
+
+	.certificate-cta-headline {
+		color: var(--primary-900, #045);
+		text-align: center;
+		font-size: clamp(2.25rem, 1.55rem + 1.75vw, 3.125rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -1.5px;
+	}
+
+	.certificate-cta-text {
+		color: var(--primary-900, #045);
+		text-align: center;
+		font-size: clamp(0.875rem, 0.675rem + 0.5vw, 1.125rem);
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	.btn-blue-dark-blue {
+		padding: 12px 28px;
+		text-align: center;
+		font-weight: 500;
+		max-width: 366px;
+		margin: 0 auto;
+	}
+
+}

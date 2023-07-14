@@ -1,0 +1,91 @@
+.content-grid {
+    margin: 0 auto;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    display: flex;
+    row-gap: 70px;
+    flex-direction: column;
+
+    @include respond-below(sm) {
+        margin-top: 55px;
+        margin-bottom: 55px;
+        row-gap: 58px;
+    }
+
+    .content-grid-text {
+        width: 56.53%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        row-gap: 26px;
+
+        @include respond-below(lg) {
+            width: 100%;
+        }
+        &.wider-text {
+            width: 71.51%;
+
+            @include respond-below(lg) {
+                width: 100%;
+            }
+        }
+
+        .content-grid-text-headline {
+            color: var(--primary-900, #045);
+            text-align: center;
+            font-size: clamp(2.25rem, 2.05rem + 0.5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -1.5px;
+        }
+
+        .content-grid-text-text {
+            color: var(--primary-900, #045);
+            font-size: clamp(0.875rem, 0.675rem + 0.5vw, 1.125rem);
+            line-height: 1.5;
+        }
+    }
+
+    .content-grid-items {
+        display: flex;
+        column-gap: 25px;
+        row-gap: 21px;
+        flex-wrap: wrap;
+        width: 56.53%;
+        margin: 0 auto;
+
+        @include respond-below(lg) {
+            width: 100%;
+        }
+        @include respond-below(sm) {
+            flex-direction: column;
+            row-gap: 15px;
+        }
+    }
+
+    .content-grid-items-item {
+        flex-basis: calc(50% - 12.5px);
+        border-radius: 10px;
+        border: 1px solid var(--primary-500-main, #009FC6);
+        background: #FFF;
+        padding: 50px 20px;
+        min-height: 184px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-grow: 1;
+        color: var(--primary-900, #045);
+        text-align: center;
+        font-size: clamp(1.125rem, 1.025rem + 0.25vw, 1.25rem);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.4px;
+
+        @include respond-below(sm) {
+            min-height: 68px;
+            padding: 20px;
+        }
+    }
+}

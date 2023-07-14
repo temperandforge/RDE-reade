@@ -196,6 +196,29 @@ function setup_custom_post_types() {
 		false, // $has_archive
 		false  // $publicly_queryable
    );
+
+   /**
+    * Materials science documents
+    */
+   cpt_init(
+      'ms-documents',        //$slug,
+      'MS Documents',        //$name,
+      'MS Document', //$singular_name,
+      'MS Documents',        //$plural_name,
+      'ms-documents',        //$rest_base,
+      'dashicons-media-document',
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt'],
+      $taxonomies = [
+         [
+            'ms_documents_categories', 
+            [ 'ms-documents' ], 
+            "MS Documents Category",
+            "MS Documents Categories"
+         ]
+      ],
+      false, //$has_archive
+      false //$publicly_queryable
+   );
    
 	
 	/** 
@@ -269,24 +292,24 @@ function setup_custom_post_types() {
    /** 
     * Tools 
     */
-   cpt_init(
-      'tools', //$slug,
-      'Tools', //$name,
-      'Tool',
-      'Tools',
-      'tools',
-      'dashicons-admin-tools',
-      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-      $taxonomies = [
-         [
-            'tool_categories', 
-            [ 'tools' ], 
-            "Tool Category",
-            "Tool Categories"
-         ]
-		],
-		false //$has_archive
-   );
+   // cpt_init(
+   //    'tools', //$slug,
+   //    'Tools', //$name,
+   //    'Tool',
+   //    'Tools',
+   //    'tools',
+   //    'dashicons-admin-tools',
+   //    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+   //    $taxonomies = [
+   //       [
+   //          'tool_categories', 
+   //          [ 'tools' ], 
+   //          "Tool Category",
+   //          "Tool Categories"
+   //       ]
+	// 	],
+	// 	false //$has_archive
+   // );
 
    /*** Copy and Update for each Taxonomy */
 	add_filter( 'term_updated_messages', 'faq_category_updated_messages' );
@@ -321,17 +344,28 @@ function setup_custom_post_types() {
       cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
       return $messages;
    }
-	
-	add_filter( 'term_updated_messages', 'tools_category_updated_messages' );
-   function tools_category_updated_messages( $messages ) {
 
-      $slug          = "tools_category"; 
-      $singular_name = "Tool Category";
-      $plural_name   = "Tool Categories";
+   add_filter( 'materials_science_documents_updated_messages', 'materials_science_documents_category_updated_messages' );
+   function materials_science_documents_category_updated_messages( $messages ) {
+
+      $slug          = "ms_documents_category"; 
+      $singular_name = "MS Documents Category";
+      $plural_name   = "MS Documents Categories";
       
       cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
       return $messages;
    }
+	
+	// add_filter( 'term_updated_messages', 'tools_category_updated_messages' );
+   // function tools_category_updated_messages( $messages ) {
+
+   //    $slug          = "tools_category"; 
+   //    $singular_name = "Tool Category";
+   //    $plural_name   = "Tool Categories";
+      
+   //    cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+   //    return $messages;
+   // }
    
 }
 add_action( 'init', 'setup_custom_post_types' );
