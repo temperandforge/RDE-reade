@@ -12,7 +12,8 @@
 
 $fields = get_fields(); 
 $events = $fields['events']; 
-echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
+//TODO if
+echo '<script>console.log('.json_encode($fields['events'], JSON_PRETTY_PRINT).');</script>';//debug
 ?>
 
 <div id="history" class="history">
@@ -43,4 +44,12 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
    </div>
    <!-- Line connecting events - dynamic connections written - orcas-generated -->
    <svg></svg>
+</div>
+
+<!-- TODO disable scroll linking on right click -->
+<div id="history-desktop" class="history-desktop _dragscroll">
+   <?php include( locate_template('template-parts/history/1773.php'));?>
+   <?php include( locate_template('template-parts/history/2023.php'));?>
+   <?php include( locate_template('template-parts/history/2023.php'));?>
+   <?php include( locate_template('template-parts/history/2023.php'));?>
 </div>

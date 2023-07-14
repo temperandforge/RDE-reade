@@ -1,5 +1,8 @@
 <?php
-if($fields = get_fields()): ?>
+
+if($fields = get_fields()): 
+
+?>
 
 <div class="call-to-action">
    <div class="call-to-action-content">

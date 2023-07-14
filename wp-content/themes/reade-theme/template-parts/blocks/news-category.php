@@ -38,7 +38,7 @@ if (!empty($fields['category'])) {
                 ));
 
                 foreach ($nposts AS $npost) {
-                    include 'partial/news-card.php';
+                    include 'partial/news-card-slider.php';
                 }
 
                 ?>

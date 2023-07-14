@@ -39,7 +39,7 @@ function handleMobileInPageNav() {
 }
 
 function generateInPageNavigation() {
-	const $nav = $( '.in-page-nav nav' );
+	const $nav = $( '.in-page-nav nav ul' );
 	const sectionHeadings = document.querySelectorAll( '.main-content-wrap h2' );
 
 	//dyanmically generate a link for each h2

@@ -39,7 +39,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Location",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -106,7 +106,7 @@
                 {
                     "key": "field_649b0736098df",
                     "label": "Address",
-                    "name": "address_line_1",
+                    "name": "address",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -125,45 +125,178 @@
                     "parent_repeater": "field_649b05b1098dd"
                 },
                 {
-                    "key": "field_649b0c34aeb90",
-                    "label": "Contact Line 1",
-                    "name": "contact_line_1",
+                    "key": "field_649b1f320c27b",
+                    "label": "Contacts",
+                    "name": "contacts",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Contact",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_649b1f500c27c",
+                            "label": "Contact Type",
+                            "name": "contact_type",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "EG: Telephone, Fax etc",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_649b1f320c27b"
+                        },
+                        {
+                            "key": "field_649b1f6e0c27d",
+                            "label": "Contact Info",
+                            "name": "contact_info",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_649b1f320c27b"
+                        }
+                    ],
                     "parent_repeater": "field_649b05b1098dd"
                 },
                 {
-                    "key": "field_649b0c4aaeb91",
-                    "label": "Contact Line 2",
-                    "name": "contact_line_2",
+                    "key": "field_649b1fc30c27e",
+                    "label": "Point Of Contact",
+                    "name": "point_of_contact",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add POC",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_649b24690c27f",
+                            "label": "Position",
+                            "name": "position",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_649b1fc30c27e"
+                        },
+                        {
+                            "key": "field_649b24760c280",
+                            "label": "Name",
+                            "name": "name",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_649b1fc30c27e"
+                        },
+                        {
+                            "key": "field_649b247f0c281",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "parent_repeater": "field_649b1fc30c27e"
+                        }
+                    ],
+                    "parent_repeater": "field_649b05b1098dd"
+                },
+                {
+                    "key": "field_649b27f8b49e1",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
                     "parent_repeater": "field_649b05b1098dd"
                 }
             ]
@@ -187,5 +320,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687887514
+    "modified": 1687981067
 }

@@ -3,21 +3,66 @@ svg > * {
 }
 .error404 {
    .main-content-wrap {
-      @apply bg-primary50 flex flex-col items-center justify-center relative;
-      min-height: calc(100vh - var(--navbar-height));
+      @apply bg-primary50 flex flex-col items-center justify-center relative text-center;
+
+      @include dynamic('padding-block', 128, 72);
+      
       > svg {
          @apply absolute right-0;
-         top: 25%;
+         @include dynamic('width', 392, 180);
+         top: 50%;
+         transform: translate(25%, -50%);
       }
-      h1 {
-         @apply mb-0 text-primary500;
-         @include font404;
+      
+      /* Paragraph/Small/Medium */
+      color: var(--primary-500-main, #009FC6);
+      font-size: 14px;
+      line-height: 1.6428571428571428;
+
+      h1, .title {
+         @apply mb-3 text-primary500;
+         color: inherit;
+         font-size: inherit;
+      }
+      p {
+         @apply max-w-sm;
+         text-wrap: balance;
       }
       p:last-of-type {
          @apply mb-0;
       }
       .btns-wrap {
          @apply mt-7;
+      }
+      .btn-green-dark-green {
+         @apply text-white;
+         @media (hover:hover) {
+            &:hover {
+               filter: brightness(120%);
+               @apply text-white;
+            }
+         }
+      }
+   }
+}
+
+.svg-404 {
+   @apply mb-9;
+   @include dynamic('width', 470, 342);
+}
+
+
+@include respond-above(xl) {
+   .error404 .main-content-wrap {
+      min-height: calc(100vh - var(--navbar-height));
+   }
+}
+@include respond-below(md) {
+   .error404 {
+      .main-content-wrap {
+         > svg {
+            @apply hidden;
+         }
       }
    }
 }

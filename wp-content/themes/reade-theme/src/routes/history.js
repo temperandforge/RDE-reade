@@ -22,9 +22,19 @@ export default {
       // })
 
       //
+
+      //TODO dragscroll preventing
+      // $(document.querySelector('.btn--back-to-start').addEventListener('click', function(e) {
+      $('.btn--back-to-start').on('click', function(e) {
+        e.preventDefault()
+        for(let i = e.target.closest("#history-desktop").scrollLeft; i > 0; i--) {
+          setTimeout(() => {
+            e.target.closest("#history-desktop").scrollTo(i, 0)//, {behavior: 'smooth'})
+          }, (e.target.closest("#history-desktop").scrollLeft - i )/ 11) //TODO easeInOut
+        }
+      })
   },
   finalize() {
-   console.log('hsdkfh')
     loadjs([
       // 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', 
       //mobile-first
@@ -44,11 +54,11 @@ export default {
         const historySlider = document.querySelector( '.history--slider' )
         if( ! historySlider ) return 
         const history = historySlider.parentNode
-        function renderHistoryLayout(x) {
+        function renderHistoryLayout(x) { //TODO
           if (x.matches) {
-            console.log('history - mobile')
-            console.log($)
-            console.log($(historySlider))
+            // console.log('history - mobile')
+            // console.log($)
+            // console.log($(historySlider))
             $('.history--slider').slick({
               arrows: true,
               autoplay: false,
@@ -63,7 +73,7 @@ export default {
               nextArrow: history.querySelector('.slick-next')
             })
           } else {
-            console.log('history - desktop')
+            // console.log('history - desktop')
             if(document.querySelector('.history--slider.slick-initialized')) {
               $(historySlider).slick('unslick')
             }
@@ -73,7 +83,7 @@ export default {
         var x = window.matchMedia("(max-width: 1280px)") //h89 match css on change
         renderHistoryLayout(x) // Call listener function at run time
         x.addListener(renderHistoryLayout) // Attach listener function on state changes
-        console.log('success')
+        // console.log('success')
       },
       error: function(depsNotFound) { 
          /* foobar bundle load failed */ 
@@ -81,4 +91,9 @@ export default {
       },
     });
   },
+}
+
+
+function drawSVG() {
+  //dynamically pinpoint and draw svg
 }

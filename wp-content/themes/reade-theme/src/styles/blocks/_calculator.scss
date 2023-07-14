@@ -19,7 +19,7 @@
    /* Heading/H2/Bold/Desktop */ //REFACTOR
    .title {
       @apply font-bold text-primary500;
-      font-family: $font-open-sans; //TODO Open Sans;
+      font-family: $font-open-sans;
       
       // color: var(--primary-500-main, #009FC6);
       font-size: 2.25rem;

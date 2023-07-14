@@ -1,0 +1,79 @@
+/**
+* This news card is for the news sections that do not turn into a slider
+*/
+.news-card-regular {
+    width: calc(33.333333% - 24px);
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media(hover: hover) {
+        &:hover {
+            svg {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    @include respond-below(lg) {
+         width: calc(50% - 15px);
+         margin-right: 15px;
+    }
+    @include respond-below(sm) {
+        width: 100%;
+        margin-right: 0;
+    }
+    // @include respond-below(md) {
+    //     min-width: 75vw;
+    // }
+    // @include respond-below(sm) {
+    //     min-width: 82%;
+    // }
+
+    img {
+        width: 100%;
+        aspect-ratio: 397/184;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        object-fit: cover;
+
+        @include respond-below(lg) {
+            //aspect-ratio: 283/184;
+        }
+    }
+
+    .card-info {
+        border-radius: 10px;
+        background: var(--primary-50, #EFFBFF);
+        padding: 35px 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        a:not(.fillall) {
+            margin-top: auto;
+            max-width: 185px;
+            padding: 12px 20px;
+        }
+    }
+
+    .card-post-date {
+        color: var(--primary-900, #045);
+        font-size: 12px;
+        font-family: Open Sans;
+        font-weight: 600;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+
+    .card-post-title {
+        color: var(--primary-900, #045);
+        font-size: 18px;
+        font-family: Open Sans;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -0.36px;
+        margin-bottom: 20px;
+    }
+}

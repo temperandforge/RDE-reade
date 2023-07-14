@@ -147,18 +147,18 @@ function initPages() {
 }
 
 
-// Rest api stuff - TODO nonce
-add_action('rest_api_init', function () {
-	$namespace = 'dev/v1';
-	register_rest_route( $namespace, '/setup', array(
-		'methods'  => 'GET',
-		'callback' => 'initSetup',
-		// 'permission_callback' => function( WP_REST_Request $request ) {
-		// 	return current_user_can( 'manage_options' );
-		// },
-	));
-	register_rest_route( $namespace, '/pages', array(
-		'methods'  => 'GET',
-		'callback' => 'initPages',
-	));
-});
+// Rest api stuff
+// add_action('rest_api_init', function () {
+// 	$namespace = 'dev/v1';
+// 	register_rest_route( $namespace, '/setup', array(
+// 		'methods'  => 'GET',
+// 		'callback' => 'initSetup',
+// 		// 'permission_callback' => function( WP_REST_Request $request ) {
+// 		// 	return current_user_can( 'manage_options' );
+// 		// },
+// 	));
+// 	register_rest_route( $namespace, '/pages', array(
+// 		'methods'  => 'GET',
+// 		'callback' => 'initPages',
+// 	));
+// });

@@ -50,9 +50,13 @@ module.exports = {
 				'heavy-beige': '#9E7E75',
 				'ultra-beige': '#786059',
 				'green': 		'#8BC53F',
+				'lightgreen': 		'#BEFF69',
 				'superlight':  '#F3EFEF',
 			},
 			screens: {
+				'3xs': '375px',
+				'2xs': '425px',
+				xs: '520px',
 				ml: '992px',
 				'2xl': '1440px',
 				'3xl': '1536px',

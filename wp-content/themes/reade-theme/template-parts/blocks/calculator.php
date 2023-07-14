@@ -1,5 +1,8 @@
 <?php 
-$fields = get_fields(); ?>
+
+$fields = get_fields(); 
+
+?>
 
 <div class="calculator">
    <div class="calculator--content">
@@ -61,7 +64,7 @@ $fields = get_fields(); ?>
          //       'placeholder',
          //       [
          //          4.75,
-         //          4 //TODO float
+         //          4 // ? float
          //       ]
          //    ]
          // ));

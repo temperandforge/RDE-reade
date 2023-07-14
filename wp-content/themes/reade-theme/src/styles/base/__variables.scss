@@ -2,6 +2,8 @@
 
 :root {
    --navbar-height: 96px;
+   --scrollbar-width: 0.875rem; //default scrollbar on chrome mac //TODO; if scrollbar
+
    //@see tailwind.config
    --gray50:  #FAFAFA;
    --gray100: #F5F5F5;
@@ -32,6 +34,7 @@
    --primary300:     #8BD4DF;
    --primary400:     #61C5DD;
    --primary500:     #009FC6;
+   --primary:        #009FC6;
    --primary600:     #0794B7;
    --primary700:     #007B99;
    --primary800:     #004455;
@@ -103,6 +106,8 @@ $btn-border-radius: 0.5rem;
 $btn-bg: $primary;
 $btn-text: white;
 $primary50: var (--primary50);
+$green: var(--secondary-green, #8BC53F);
+
 
 
 

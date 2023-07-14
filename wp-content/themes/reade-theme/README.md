@@ -1,52 +1,8 @@
 
 # READE THEME
 
-## Design Handoff
-- semptember font
-- variaable gap
-- header icons, header buttons - missing serach on mobile; accounts? notifications
-- footer ordering
-- footer overlap - firefox
-- header hover sate
 
-## Theme Notes
-
-## Demo Setup
-
-## Resources
-
-## Testing
-- everything editable
-- responsive
-- conditional - debug output
-- a11y
-- performance
-- refactor
-- separate structure from theme styling
-
-## Local Setup
-
-## Resources
-
+## Notes
+- the mobile menu bottom padding to account for scrolling is set when the button is clicked. In development, preventing the menu hide on load will make this functionality not works as intended. It is not an issue. Simply it requires following the desired UX flow.
+- change the menu requires selector updates in the scss - search `.menu-item-`
 ## CHANGELOG
-
-## Lauch Checklist
-- permalinks
-- seo
-- GA
-- 
-
-## Development Setup
-- 404 footer, header, legal, breakdown
-- typography
-- TODO
-- social icons
-- legal refactor
-- screen reader - flex tab order
-
-## STARTER INTEGRATIONS
-- editorconfig
-
-## CHANGELOG
-
-

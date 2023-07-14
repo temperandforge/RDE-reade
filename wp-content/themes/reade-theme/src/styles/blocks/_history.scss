@@ -1,6 +1,6 @@
 #history,
-.history {
-   @apply py-16; 
+div.history {
+   @apply xl:hidden py-16; 
 
    /** SLIDES **/
    /* If slide ( fade: false ) */
@@ -84,23 +84,177 @@
    }
 }
 
-
 @include respond-above(xl) { //h89 match js on change
    .slick-arrow--container {
       @apply hidden;
    }
 
    .history--slider {
-      @apply section-full;
+      @apply section-full flex;
       scroll-direction: horizontal;
       overflow: auto;
-   }
-   .history--event { // must left align with content
-      @apply inline-block;
-      width: 100vw;
-      width: 100dvw;
-      > * { //TODO TMP
-      pointer-events: none;
+      > * {
+         @apply inline-block;
+         flex-basis: 100vw;
+         width: 100vw;
+         width: 100dvw;
+         flex-shrink: 0;
+         flex-shrink: 0;
       }
+   }
+   // .history--event { // must left align with content
+   //    @apply inline-block;
+   //    width: 100vw;
+   //    width: 100dvw;
+   //    > * { //TODO TMP
+   //       pointer-events: none;
+   //    }
+   // }
+
+   // --light-blue-dot: '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="5.98438" cy="6.39331" r="5.52344" fill="#BAE3E9"/> </svg>';
+   // --primary-dot: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="11.1094" cy="11.1587" r="5.52344" fill="#009FC6"/> <circle cx="11.1113" cy="11.1587" r="10.002" stroke="#009FC6"/> </svg> ';
+   .history--slider > *:not(.event-0) {
+      @apply hidden;
+   }
+   .event-0 { //TODO IDs
+
+   }
+   
+   
+}
+
+
+
+/*** NEW APPROACH ***/
+// REF https://arcteryx.com/us/en/explore/whoweare/inspiration/
+// REF https://css-tricks.com/pure-css-horizontal-scrolling/
+.history-desktop {
+   @apply hidden xl:flex items-center;
+   font-size: min(max(1rem, 1.0007vw), 4rem);
+   padding-bottom: 7.2rem;
+   min-height: 100vh;
+   
+   @apply theme-main;
+   // padding-inline: calc( ( 100vw - min(100%, 107.5rem) ) / 2);
+   @apply w-screen;
+   @include section-full;
+   // margin-inline: calc(-50vw - 50%);
+   column-gap: 5rem;
+   overflow-x: auto; //scroll
+   overflow-y: hidden;
+   @include hide-sb;
+   scroll-direction: horizontal;
+   // scroll-behavior: smooth; //disables dragscroll
+   cursor: grab;
+   // scroll-snap-type: x mandatory;
+
+   h2 {
+      color: var(--primary-500-main, #009FC6);
+      // font-family: Open Sans;
+      font-size: 8.12531rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 11.57863rem; /* 142.5% */
+      letter-spacing: -0.1625rem;
+   }
+   h3 {
+      margin-bottom: 1.45rem;
+      color: var(--primary-500-main, #009FC6);
+
+      /* Heading/H4/Bold/Desktop */
+      // font-family: Open Sans;
+      font-size: 1.75rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 2.25rem; /* 128.571% */
+      letter-spacing: -0.035rem;
+   }
+   p {
+      color: var(--primary-500-main, #009FC6);
+      font-family: Open Sans;
+      font-size: 1.0175rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.52625rem; /* 150% */
+   }
+   em {
+      color: var(--primary-500-main, #009FC6);
+      font-family: Open Sans;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5rem; /* 150% */
+
+      display: block;
+      margin-bottom: 1.3rem;
+   }
+   picture {
+      border-radius: 0.625rem;
+      img {
+         @apply w-full h-full;
+         border-radius: 0.625rem;
+         object-fit: cover;
+      }
+   }
+}
+#history-desktop > [id^=history-] {
+   @apply inline-block shrink-0 w-fit;
+   // scroll-snap-align: start;
+}
+#history-1773 {
+   // > * {
+   //    pointer-events: none;
+   // }
+   > .flex {
+      @apply w-full;
+      column-gap: 14.7rem;
+   }
+   
+   --pt: 4rem;
+   padding-top: var(--pt);
+   h2 {
+      margin-top: calc(var(--pt) * -1);
+   }
+   picture {
+      @apply w-full;
+
+      //layout
+      display: flex;
+      width: 44.3125rem;
+      height: 25.1875rem;
+      // padding: 1.10356rem 1.11794rem 22.77119rem 41.88181rem;
+      justify-content: flex-end;
+      align-items: center;
+      flex-shrink: 0;
+      
+      //style
+      //background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 0.625rem;
+      
+      margin-top: 3.25rem;
+   }
+
+   p {
+      width: 44.3125rem;
+   }
+}
+
+#history-2023 {
+   picture {
+      display: inline-flex;
+      height: 29.125rem;
+      // padding: 14.1875rem 6.0625rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.625rem;
+      flex-shrink: 0;
+   }
+}
+
+
+.btn--back-to-start {
+   > * {
+      pointer-events: none;
    }
 }

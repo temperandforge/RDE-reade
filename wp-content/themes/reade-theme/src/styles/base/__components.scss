@@ -1,14 +1,12 @@
 @layer components {
 	.btn {
-		@apply border-1 rounded-1 font-semibold inline-block text-primary500;
-		@apply py-3 px-16; //TODO em
+		@apply border-1 bg-white rounded-md	font-semibold inline-block text-primary500;
+		@apply py-3 px-16;
 
+		&.btn-arrow-reverse,
 		&.btn-arrow {
 			display: flex;
-			/* align-items: center; */
-			/* justify-content: center; */
-			/* gap: 8px; */
-			@apply  items-center justify-center gap-2;
+			@apply items-center justify-center gap-2;
 
 			svg {
 				transition: all 0.2s ease-out;
@@ -25,14 +23,23 @@
 				}
 			}
 		}
+
+		&.btn-arrow-reverse {
+			@media screen and (hover: hover) and (pointer: fine) {
+				&:hover {
+					svg {
+						transform: translateX(-4px);
+					}
+				}
+			}
+		}
 	}
 
-	.btn-green-dark-green {
+	.btn-green-light-green {
 		@apply btn bg-green border-green text-footer-primary;
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
-				@apply bg-green border-green text-footer-primary;
-				filter: brightness(80%);
+				@apply bg-lightgreen border-lightgreen text-footer-primary;
 			}
 		}
 	}
@@ -42,6 +49,7 @@
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
 				@apply bg-primary900 text-white;
+				border-color: var(--primary-500);
 			}
 		}
 	}

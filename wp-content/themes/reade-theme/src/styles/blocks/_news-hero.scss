@@ -4,6 +4,7 @@
     display: flex;
     padding-top: 110px;
     padding-bottom: 110px;
+    margin-bottom: 55px;
 
     @include respond-below(md) {
         flex-direction: column;
@@ -72,14 +73,14 @@
         line-height: 24px;
     }
     .news-hero-right {
-        padding-left: 96px;
+        //padding-left: 96px;
         @include respond-below(md) {
             padding-left: unset;
         }
 
         img {
+            margin: 0 auto;
             @include respond-below(md) {
-                margin: 0 auto;
                 max-height: 329px;
                 width: auto;
             }

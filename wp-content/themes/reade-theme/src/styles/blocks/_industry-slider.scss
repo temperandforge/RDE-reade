@@ -1,0 +1,153 @@
+.industry-slider--section {
+	@apply bg-light-blue;
+	padding: 50px 0;
+
+	@include respond-above(md) {
+		padding: 90px 0;
+	}
+
+	@include respond-above(xl) {
+		padding: 130px 0;
+	}
+}
+
+.industry-slider--main {
+	@apply relative z-10;
+}
+
+.industry-slider--heading {
+	@apply text-center;
+	@include inner-wrap(1024px);
+
+	h2 {
+		text-align: center;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 44px;
+		letter-spacing: -1.44px;
+
+		@include respond-above(md) {
+			font-size: 42px;
+			line-height: 48px;
+			letter-spacing: -1.5px;
+		}
+
+		@include respond-above(xl) {
+			font-size: 50px;
+			line-height: 58px;
+		}
+	}
+
+	p {
+		margin-top: 28px;
+		text-align: center;
+		font-size: 14px;
+		line-height: 23px;
+
+		@include respond-above(md) {
+			margin-top: 26px;
+			font-size: 16px;
+			line-height: 24px;
+		}
+
+		@include respond-above(xl) {
+			font-size: 18px;
+			line-height: 27px;
+		}
+	}
+
+	+ .industry-slider--slider {
+		margin-top: 50px;
+
+		@include respond-above(md) {
+			margin-top: 75px;
+		}
+
+		@include respond-above(xl) {
+			margin-top: 100px;
+		}
+	}
+}
+
+.industry-slider--content {
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 24px;
+		letter-spacing: -0.36px;
+
+		+ p {
+			@apply mt-4;
+		}
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 23px;
+	}
+}
+
+.industry-slider--slider {
+	.slick-slide {
+		> div {
+			@include respond-above(md) {
+				@apply flex;
+				gap: min(5vw, 105px);
+			}
+
+			&:not(:first-child) {
+				.industry-slider--item {
+					margin-top: 50px;
+
+					@include respond-above(md) {
+						margin-top: 65px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.industry-slider--nav {
+	@apply flex flex-col items-center justify-center;
+	gap: 32px;
+	margin-top: 50px;
+
+	@include respond-above(md) {
+		margin-top: 75px;
+	}
+
+	@include respond-above(xl) {
+		margin-top: 100px;
+	}
+}
+
+.industry-slider--dots {
+	.slick-dots {
+		@apply flex items-center justify-center;
+		gap: 6px;
+
+		li {
+			border-radius: 50%;
+			width: 12px;
+			height: 12px;
+			border: 1px solid var(--primary-500-main, #009fc6);
+
+			&.slick-active {
+				background-color: var(--primary-500-main, #009fc6);
+			}
+		}
+
+		button {
+			color: transparent;
+		}
+	}
+}
+
+.industry-slider--arrows {
+	.slick-arrow {
+		padding: 10px 33px;
+		background-color: var(--primary-500-main, #009fc6);
+		border-radius: 5px;
+	}
+}

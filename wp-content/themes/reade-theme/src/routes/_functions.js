@@ -1,9 +1,3 @@
-// import { gsap } from 'gsap'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// import { CSSPlugin } from 'gsap/CSSPlugin'
-// gsap.registerPlugin(ScrollTrigger)
-// gsap.registerPlugin(CSSPlugin)
-
 const { $ } = window;
 const $body = $( document.body );
 
@@ -25,30 +19,34 @@ function responsiveNavbar() {
 
 function mobileMenu() {
 	// assumes existence
-	const $menu = $( '#mobile-menu' );
+	const $menu = $( '.mobile-menu' );
 	$menu.hide();
+	$menu.find('.sub-menu').hide();
 	$menu.removeClass( 'loading' );
 	const $btn = $( '#toggle_nav' );
 
-	const animating = false; //TODO
-	$( 'main' ).on( 'click', function() {
-		$body.removeClass( 'mm-open' );
-		$menu.fadeOut();
-	} );
+	const animating = false;
 	$btn.on( 'click', function( e ) {
-		//console.log(e)
-		$body.toggleClass( 'mm-open' );
-		$menu.fadeToggle();
+		$menu.fadeIn();
+		$('.mobile-menu').css('padding-bottom', $('.mobile-menu--footer').outerHeight())
 	} );
-	$( '#mobile-menu .menu-item' ).on( 'click', function( e ) {
-		//console.log(e)
-		$body.toggleClass( 'mm-open' );
-		$menu.fadeToggle();
+	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
+		$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 	} );
+
+	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
+		$(this).toggleClass('item-open')
+		if(e.target.tagName.toLowerCase() == 'a') {
+			e.preventDefault() //prevent triggering link
+			$(e.target).siblings('.sub-menu').slideToggle(250)
+		} else { //parent li
+			$(e.target).find('.sub-menu').slideToggle(250)
+		}
+	})
 
 	function closeOnDesktop( x ) {
 		if ( x.matches ) {
-			$menu.fadeOut();
+			$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 		}
 	}
 
@@ -59,7 +57,7 @@ function mobileMenu() {
 
 function runFunctions() {
 	responsiveNavbar();
-	// mobileMenu()
+	mobileMenu()
 }
 
 export {

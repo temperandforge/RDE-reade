@@ -1,4 +1,5 @@
 <?php 
+
 $post_type = 'faqs';
 $recommended_posts = [];
 if(is_single()) {
@@ -23,6 +24,7 @@ if(!$recommended_posts) {
    ]);
    $recommended_posts = $wp_query->posts;
 }
+
 ?>
 
 <div class="faqs-accordion--section">
@@ -42,7 +44,7 @@ if(!$recommended_posts) {
      <a 
      class="faq-btn" 
      href="<?php echo $link['url'] ;?>"
-     target="<?php echo $link['target'] ;?>"><?php echo $link['title'] ;?></a>
+     target="<?php echo $link['target'] ?: '_self' ;?>"><?php echo $link['title'] ;?></a>
      <?php endif ;?>
     </div>
   </li>

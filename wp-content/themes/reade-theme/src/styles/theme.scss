@@ -7,4 +7,33 @@
 @import './templates/_index';
 @import './_styles';
 
+.logged-in {
+   .mobile-menu {
+      height: calc(100vh - 2rem);
+      @media screen and (max-width: 782px) {
+         height: calc(100vh - 46px);
+      }
+   }
+}
+
+
 /*** Temporary *****/
+// body.mm-open {
+body {
+//    max-height: 100vh;
+//    &.logged-in {
+//       max-height: calc(100vh - 2rem);
+//       @media screen and (max-width: 782px) {
+//          max-height: calc(100vh - 46px);
+//       }
+//    }
+//    overflow: hidden;
+   .mobile-menu {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+
+//       ~ {
+//          pointer-events: none;
+//       }
+   }
+}

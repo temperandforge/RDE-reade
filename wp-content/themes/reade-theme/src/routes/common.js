@@ -1,5 +1,6 @@
 // import bigpicture from 'bigpicture'
 import lozad from 'lozad';
+
 import { runFunctions } from './_functions';
 import { runBlocks } from './_blocks';
 
@@ -8,8 +9,9 @@ const $body = $( document.body );
 
 export default {
 	init() {
-		const observer = lozad( 'img' );
+		const observer = lozad( 'img' ); 
 		observer.observe();
+		$('.hero img').attr('loading', 'eager')
 
 		runFunctions();
 		runBlocks();
@@ -25,49 +27,132 @@ export default {
 			$body.removeClass( 'using-mouse' );
 		} );
 
-		if ($('.news-featured').length) {
-			if ($('.tf-dropdown').length) {
-				$('.tf-dropdown ul li').on('click', function() {
-					document.location.href = $(this).data('key');
-				})
+		/**
+		 * News page, tf dropdown action
+		 */
+		function handleTFDropdown() {
+			if ($('.news-featured').length) {
+				if ($('.tf-dropdown').length) {
+					$('.tf-dropdown ul li').on('click', function() {
+						document.location.href = $(this).data('key');
+					})
+				}
 			}
 		}
 
-		//TODO bigpicture on img
+		/**
+		 * News/archive page, view more functionality
+		 */
+		// this variable needs to be global
+		let cardsPerPage;
+
+		function handleNewsCardPagination() {
+			// if you change these values, also change the window.onresize() values
+			if (window.innerWidth < 769) {
+				cardsPerPage = 3;
+
+			} else {
+				cardsPerPage = 6;
+			}
+
+			let $cards = $('.news-card-regular');
+			let totalCards = $cards.length;
+			let cardsToShow = Math.min(cardsPerPage, totalCards);
+			let shownCards = cardsToShow;
+
+			if ($('.view-more').length) {
+
+				$cards.slice(cardsToShow, totalCards).hide();
+
+				if (totalCards <= cardsPerPage) {
+					$('#view-more').hide();
+				} else {
+					$('#view-more').show();
+				}
+
+				$('#view-more').click(function() {
+					cardsToShow += cardsPerPage;
+					$cards.slice(shownCards, cardsToShow).fadeIn();
+					shownCards = cardsToShow;
+
+					if (shownCards >= totalCards) {
+						$('#view-more').hide();
+					}
+				});
+			};
+		}
+
+
+		/*
+		* news single share positioning
+		*/
+		function handleNewsSharePosition() {
+			if (window.innerWidth > 1024) {
+				if ($('#single-share').length) {
+					var parentContainer = $('#single-container');
+					var childElement = $('#single-news-content');
+					$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+				}
+			}
+		}
+
+
+
+		// run functions
+		handleTFDropdown();
+		handleNewsCardPagination();
+		handleNewsSharePosition();
+
+
+
+
+		// window resize
+		window.onresize = function() {
+			
+			/**
+			 * Change pagination of news cards/grids
+			 */
+			if ($('.view-more').length) {
+				if (window.innerWidth < 769) {
+					cardsPerPage = 3;
+				} else {
+					cardsPerPage = 6;
+				}
+		
+				$cards = $('.news-card-regular');
+				totalCards = $cards.length;
+				//if (cardsToShow == cardsPerPage) {
+					cardsToShow = Math.min(cardsPerPage, totalCards);
+				//} else {
+					//cardsToShow = $('.news-card-regular:visible').length;
+				//}
+				shownCards = cardsToShow;
+
+				$cards.slice(0, cardsToShow).show();
+				$cards.slice(cardsToShow, totalCards).hide();
+		
+				if (totalCards <= cardsPerPage) {
+					$('#view-more').hide();
+				} else {
+					$('#view-more').show();
+				}
+			}
+
+
+			/**
+			 * Share element positioning
+			 */
+			if (window.innerWidth > 1024) {
+				if ($('#single-share').length) {
+					var parentContainer = $('#single-container');
+					var childElement = $('#single-news-content');
+					$('#single-share').css('top', childElement.offset().top - parentContainer.offset().top);
+				}
+			} else {
+				if ($('#single-share').length) {
+					$('#single-share').css('top', '0');
+				}
+			}
+		}
 	},
 };
-
-function runIO() {
-	// const options = {
-	//   root: null,
-	//   rootMargin: '0px',
-	//   threshold: [],
-	// };
-
-	//closure
-	let count = 0;
-	setInterval( () => {
-		count = Math.max( 0, count - 1 );
-	}, 350 );
-	function handleIntersection( entries ) {
-		entries.map( ( entry ) => {
-			if ( entry.isIntersecting ) {
-				count++;
-				setTimeout( () => {
-					entry.target.classList.add( 'show' );
-				}, ( count % 5 ) * 50 );
-			}
-			// else {
-			//   entry.target.classList.remove('visible')
-			// }
-		} );
-	}
-
-	const io = new IntersectionObserver( handleIntersection );//, options);
-	//match io.scss
-	$( `
-    .landing-hero-content > *, 
-    .page-default-content *[class*=-content] > *,
-    *[class*=-img]:not(.clients-img) > *
-  ` ).each( ( _, el ) => io.observe( el ) );
-}
