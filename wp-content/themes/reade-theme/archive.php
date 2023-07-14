@@ -50,6 +50,8 @@ get_header(); ?>
 
          <button id="view-more" class="btn-white-blue view-more"><?php echo $view_more_button_text; ?></button>
 
+
+         <?php include( locate_template( 'template-parts/blocks/primary-footer-cta.php', false, false, $args = get_fields($qobj) ?: array()) );  ?>
          
 
 
@@ -70,5 +72,6 @@ get_header(); ?>
    </div>
 </main>
 <?php
-//loop
+
+$fields = get_fields($qobj);
 get_footer(); ?>
