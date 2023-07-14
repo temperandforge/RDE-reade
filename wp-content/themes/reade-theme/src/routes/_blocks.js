@@ -235,6 +235,110 @@ function handleTileSlider() {
 	})
 }
 
+function handleVerticalAccordions() {
+	const $sections = $('.vertical-accordion--section')
+	if (!$sections.length) {
+		return
+	}
+
+	const $accordions = $('.vertical-accordion--accordion')
+	const $images = $('.vertical-accordion--figure')
+	const $buttons = $('.vertical-accordion--btn')
+	const $content = $('.vertical-accordion--content')
+
+	const $originalArias = []
+	$buttons.map(function () {
+		$originalArias.push($(this).attr('aria-expanded'))
+	})
+
+	// handles accordion open and close button
+	function handleClicks() {
+		$accordions.each(function (idx) {
+			$(this)
+				.find('.vertical-accordion--btn')
+				.on('click', function () {
+					if ($(this).attr('aria-expanded') == 'true') {
+						return
+					}
+
+					$accordions.each(function (i) {
+						if (i == idx) {
+							$(this)
+								.find('.vertical-accordion--btn')
+								.attr('aria-expanded', 'true')
+							$(this)
+								.find('.vertical-accordion--content')
+								.attr('aria-hidden', 'false')
+							$(this)
+								.find('.vertical-accordion--content')
+								.toggleClass('active inactive')
+						} else {
+							$(this)
+								.find('.vertical-accordion--btn')
+								.attr('aria-expanded', 'false')
+							$(this)
+								.find('.vertical-accordion--content')
+								.attr('aria-hidden', 'true')
+							$(this).find('.vertical-accordion--content').addClass('inactive')
+							$(this).find('.vertical-accordion--content').removeClass('active')
+						}
+					})
+
+					$images.each(function (i) {
+						if (i == idx) {
+							$(this).removeClass('inactive')
+							$(this).addClass('active')
+						} else {
+							$(this).addClass('inactive')
+							$(this).removeClass('active')
+						}
+					})
+				})
+		})
+	}
+
+	handleClicks()
+
+	let maxWindow = window.matchMedia('(max-width: 1024px)')
+
+	function handleMobileAccordion() {
+		if (maxWindow.matches) {
+			$buttons.each(function () {
+				$(this).attr('aria-expanded', 'true')
+			})
+			$content.each(function () {
+				$(this).attr('aria-hidden', 'false')
+				$(this).addClass('active')
+				$(this).removeClass('inactive')
+			})
+		} else {
+			$buttons.each(function (index) {
+				index == 0
+					? $(this).attr('aria-expanded', 'true')
+					: $(this).attr('aria-expanded', 'false')
+			})
+			$content.each(function (index) {
+				if (index == 0) {
+					$(this).attr('aria-hidden', 'false')
+					$(this).addClass('active')
+					$(this).removeClass('inactive')
+				} else {
+					$(this).attr('aria-hidden', 'true')
+					$(this).removeClass('active')
+					$(this).addClass('inactive')
+				}
+			})
+		}
+	}
+
+	handleMobileAccordion()
+
+	$(window).on('resize', function () {
+		
+		handleMobileAccordion()
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -244,6 +348,7 @@ function runBlocks() {
 	handleIndustrySlider()
 	handleTestimonialSlider()
 	handleTileSlider()
+	handleVerticalAccordions()
 }
 
 export { runBlocks }
