@@ -1,0 +1,171 @@
+.benefits {
+    width: 73%;
+    margin: 0 auto;
+    padding: clamp(3.938rem, 0.988rem + 7.375vw, 7.625rem) 0;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: clamp(4.063rem, 3.362rem + 1.75vw, 4.938rem);
+    
+
+    &.bg-light-blue {
+        &:after {
+            z-index: -1;
+        }
+    }
+
+    @include respond-below(lg) {
+        width: 100%;
+    }
+
+    .benefits-top {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 26px;
+
+        @include respond-below(lg) {
+            width: 100%;
+        }
+
+
+        .benefits-top-text {
+            text-align: center;
+            width: 67%;
+            margin: 0 auto;
+            color: var(--primary-900, #045);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.55;
+
+            @include respond-below(sm) {
+                width: 100%;
+            }
+        }
+
+        .benefits-top-headline {
+            color: var(--primary-900, #045);
+            text-align: center;
+            font-size: clamp(2.25rem, 2.05rem + 0.5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2; /* 120% */
+            letter-spacing: -0.8px;
+            width: 79%;
+            margin: 0 auto;
+
+            @include respond-below(sm) {
+                width: 100%;
+            }
+        }
+
+        &.benefits-wider-text {
+            .benefits-top-text, .benefits-top-headline {
+                width: 83%;
+
+            }
+        }
+
+    }
+
+    .benefits-benefits {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 11%;
+        row-gap: clamp(3.125rem, 2.625rem + 1.25vw, 3.75rem);
+
+        @include respond-below(sm) {
+            flex-direction: column;
+        }
+
+        .benefits-benefits-item {
+            flex-basis: calc(50% - 5.5%);
+            display: flex;
+            column-gap: clamp(0.938rem, 0.087rem + 2.125vw, 2rem);
+
+            @include respond-below(sm) {
+                flex-wrap: wrap;
+                row-gap: 16px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .benefits-benefits-item-left {
+                flex-basis: 53px;
+            }
+
+            .benefits-benefits-item-right {
+                display: flex;
+                flex-direction: column;
+                row-gap: clamp(1rem, 0.3rem + 1.75vw, 1.875rem);
+
+                @include respond-below(sm) {
+                    justify-content: center;
+                    flex-grow: 1;
+                    max-width: calc(100% - calc(53px + clamp(0.938rem, 0.087rem + 2.125vw, 2rem)));
+                }
+            }
+
+            .benefits-benefits-item-text-mobile {
+                display: none;
+
+                @include respond-below(sm) {
+                    display: block;
+                    flex-basis: 100%;
+                }
+            }
+
+            .benefits-benefits-item-headline {
+                color: var(--primary-900, #045);
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 1.33;
+                letter-spacing: -0.36px;
+            }
+            .benefits-benefits-item-text {
+                color: var(--primary-900, #045);
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.64;
+
+                @include respond-below(sm) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    hr {
+        width: 38%;
+        border: none;
+        height: 1px;
+        background-color: var(--primary-500-main, #009FC6);
+        margin: 0 auto;
+
+        @include respond-below(md) {
+            width: 100%;
+        }
+    }
+
+    .benefits-subtext {
+        width: 83%;
+        margin: 0 auto;
+
+        @include respond-below(lg) {
+            width: 100%;
+        }
+
+        p {
+            color: var(--primary-900, #045);
+            text-align: center;
+            font-family: Open Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.55;
+        }
+    }
+}
+
+
+//11%

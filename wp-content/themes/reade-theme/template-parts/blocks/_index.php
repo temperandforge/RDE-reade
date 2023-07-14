@@ -23,6 +23,23 @@ function theme_register_blocks()
 	/** Keep Alphabetic */
 	$img_root = "./assets/img/blocks";
 	$mode = 'edit';
+
+	/** 
+	 * Benefits
+	 * */
+	acf_register_block([
+		'name'			=> 'benefits',
+		'title'			=> 'Benefits',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/benefits.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/benefits.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['benefits', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
  /** 
 	 * Calculator
 	 * */
