@@ -300,6 +300,7 @@ function handleVerticalAccordions() {
 	handleClicks()
 
 	let maxWindow = window.matchMedia('(max-width: 1024px)')
+	let currentW = window.innerWidth
 
 	function handleMobileAccordion() {
 		if (maxWindow.matches) {
@@ -334,8 +335,11 @@ function handleVerticalAccordions() {
 	handleMobileAccordion()
 
 	$(window).on('resize', function () {
-		
-		handleMobileAccordion()
+		if (currentW < 1024 && window.innerWidth > 1024) {
+			handleMobileAccordion()
+		}
+
+		currentW = window.innerWidth
 	})
 }
 
