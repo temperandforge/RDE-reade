@@ -410,6 +410,21 @@ function theme_register_blocks()
 		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false]
 	]);
+
+	/**
+	 * Vertical Accordion
+	 */
+
+	acf_register_block([
+		'name'			 => 'vertical-accordion',
+		'title'			 => 'Vertical Accordion',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/vertical-accordion.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['vertical', 'accordion', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
+	]);
 }
 
 

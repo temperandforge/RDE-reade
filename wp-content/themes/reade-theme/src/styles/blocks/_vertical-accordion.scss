@@ -1,0 +1,165 @@
+.vertical-accordion--section {
+	@apply bg-grid;
+
+	&:before {
+		background-size: unset;
+	}
+}
+
+.vertical-accordion--main {
+	@apply relative z-10;
+	padding-top: max(15%, 100px);
+	padding-bottom: max(15%, 100px);
+
+	@include respond-above(md) {
+		padding-top: 12.5%;
+		padding-bottom: 12.5%;
+	}
+
+	&:before {
+		@apply absolute section-full top-0 w-screen;
+		height: min(20%, 100px);
+		content: '';
+		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+	}
+
+	&:after {
+		@apply absolute section-full bottom-0 w-screen;
+		height: 15%;
+		content: '';
+		background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+	}
+}
+
+.vertical-accordion--inner {
+	@apply relative z-20;
+}
+
+.vertical-accordion--number {
+	color: var(--primary-500-main, #009fc6);
+	font-size: 32.426px;
+	font-weight: 700;
+	line-height: 41.27px;
+	letter-spacing: -0.649px;
+}
+
+.vertical-accordion--wrapper {
+	@apply flex justify-between;
+}
+
+.vertical-accordion--accordions {
+	@apply flex flex-col relative;
+	flex: 0 0 100%;
+	gap: 40px;
+
+	&:not(:first-child) {
+		margin-top: 40px;
+	}
+
+	@include respond-above(lg) {
+		flex: 0 0 40%;
+		gap: 45px;
+	}
+}
+
+.vertical-accordion--heading {
+	margin-top: 25px;
+
+	@include respond-above(lg) {
+		margin-top: unset;
+	}
+
+	h2 {
+		button {
+			@apply w-full relative text-left;
+			font-size: 25.183px;
+			font-weight: 600;
+			line-height: 32.051px;
+			letter-spacing: -0.504px;
+
+			&:hover {
+				cursor: default;
+
+				@include respond-above(lg) {
+					cursor: pointer;
+				}
+			}
+
+			@include respond-above(lg) {
+				&:after {
+					@apply absolute right-0;
+					top: 50%;
+					transform: translateY(-50%);
+					transition: all 0.2s ease-out;
+					content: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.9297 6.73969L24.9066 14.7166M24.9066 14.7166L16.9297 22.6935M24.9066 14.7166L4.39453 14.7166' stroke='%23009FC6' stroke-width='2.4468' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+				}
+			}
+		}
+
+		&:hover {
+			button {
+				&:after {
+					transform: translate(4px, -50%);
+				}
+			}
+		}
+	}
+}
+
+.vertical-accordion--content {
+	@apply flex flex-col items-start;
+	gap: 25px;
+	margin-top: 25px;
+	max-height: 1500px;
+	opacity: 1;
+	transition: all 0.2s ease-out;
+
+	@include respond-above(lg) {
+		padding-right: 20%;
+	}
+
+	&.inactive {
+		@include respond-above(lg) {
+			transition: all 0s ease-out;
+			max-height: 0;
+			opacity: 0;
+			margin-top: 0;
+			overflow: hidden;
+			position: absolute;
+		}
+	}
+}
+
+.vertical-accordion-mobile--figure {
+	@apply lg:hidden;
+
+	img {
+		aspect-ratio: 342 / 200;
+		object-fit: cover;
+		border-radius: 10px;
+		width: 100%;
+	}
+}
+
+.vertical-accordion--figures {
+	@apply hidden lg:block relative;
+	flex: 0 0 49%;
+
+	figure {
+		@apply w-full h-full;
+		transition: opacity 0.2s ease-out;
+
+		&.inactive {
+			@apply absolute top-0 left-0 right-0 bottom-0 opacity-0;
+			z-index: -1;
+		}
+
+		img {
+			@apply w-full h-full;
+			max-height: 750px;
+			border-radius: 10px;
+			aspect-ratio: 608 / 581;
+			object-fit: cover;
+		}
+	}
+}
