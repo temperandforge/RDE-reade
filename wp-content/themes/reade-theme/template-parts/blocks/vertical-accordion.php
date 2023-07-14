@@ -34,7 +34,9 @@ $fields = get_fields();
        aria-hidden="<?php echo ($index == 0) ? 'false' : 'true' ;?>"
        >
         <?php if(!empty($item['content'])) :?>
-         <p><?php echo $item['content'] ;?></p>
+          <div>
+            <?php echo $item['content'] ;?>
+          </div>
         <?php endif ;?>
         <?php if(!empty($item['link'])) :?>
          <a 
