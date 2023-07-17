@@ -81,6 +81,19 @@ function theme_register_blocks()
 		'image'        => $img_root . '/certificate-cta.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['certificate', 'cta', 'reade', 'theme', TEXTDOMAIN],
+	 	]);
+				
+			/** 
+				* Career Block
+	 * */
+	acf_register_block([
+		'name'			=> 'career-block',
+		'title'			=> 'Career Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/career-block.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'mode'			=> $mode,
+		'keywords'		=> ['career', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
 

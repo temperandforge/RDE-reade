@@ -39,7 +39,7 @@
 }
 
 .dual-block--first {
-	@apply flex items-center flex-col text-center gap-3;
+	@apply flex items-center justify-center flex-col text-center gap-3;
 
 	h2 {
 		font-size: 40px;

@@ -221,6 +221,29 @@ function setup_custom_post_types() {
    );
    
 	
+   /** 
+    * Careers 
+    */
+   cpt_init(
+      'careers',
+      'Careers',
+      'Career',
+      'Careers',
+      'careers',
+      'dashicons-businessperson', //$menu_icon,
+      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+      $taxonomies = [
+         [
+            'career_categories', // $tax_slug
+            [ 'careers' ],       // $post_type_slugs,
+            'Career Category',   // $tax_singular_name, 
+            'Career Categories'  // $tax_plural_name
+         ],
+      ],
+		false, // $has_archive
+		false  // $publicly_queryable
+   );
+
 	/** 
     * Products
     */
@@ -311,8 +334,20 @@ function setup_custom_post_types() {
 	// 	false //$has_archive
    // );
 
+
    /*** Copy and Update for each Taxonomy */
-	add_filter( 'term_updated_messages', 'faq_category_updated_messages' );
+   add_filter( 'term_updated_messages', 'careers_category_updated_messages' );
+   function careers_category_updated_messages( $messages ) {
+
+      $slug          = "careers_category"; 
+      $singular_name = "Career Category";
+      $plural_name   = "Career Categories";
+      
+      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+      return $messages;
+   }
+	
+   add_filter( 'term_updated_messages', 'faq_category_updated_messages' );
    function faq_category_updated_messages( $messages ) {
 
       $slug          = "faq_category"; 
