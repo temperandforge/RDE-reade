@@ -1,0 +1,154 @@
+.career-block--section {
+	@apply bg-light-blue;
+	padding: clamp(65px, 10%, 135%) 0;
+}
+
+.career-block--main {
+	@apply relative z-10;
+}
+
+.career-block--heading {
+	@apply text-center;
+
+	h2 {
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 44px; /* 122.222% */
+		letter-spacing: -1.44px;
+
+		@include respond-above(lg) {
+			font-size: 50px;
+			font-weight: 700;
+			line-height: 58px; /* 116% */
+			letter-spacing: -1.5px;
+		}
+
+		+ p {
+			margin-top: 25px;
+		}
+	}
+
+	.btn-blue-dark-blue {
+		&.btn-arrow {
+			display: inline-flex;
+   margin-top: 43px;
+		}
+	}
+}
+
+.career-block--slider {
+	margin-top: 70px;
+
+	@include respond-above(md) {
+		margin-top: 100px;
+
+		/* the slides */
+		.slick-slide {
+			margin: 0 max(2.5rem, 2.5vw);
+		}
+		/* the parent */
+		.slick-list {
+			margin: 0 calc(max(2.5rem, 2.5vw) * -1);
+		}
+	}
+
+	@include respond-above(xl) {
+		margin-top: 100px;
+
+		/* the slides */
+		.slick-slide {
+			margin: 0 max(5rem, 5vw);
+		}
+		/* the parent */
+		.slick-list {
+			margin: 0 calc(max(5rem, 5vw) * -1);
+		}
+	}
+
+	.slick-slide {
+		> div {
+			&:not(:first-child) {
+				margin-top: 60px;
+			}
+		}
+	}
+}
+
+.career-block--content {
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 24px; /* 133.333% */
+		letter-spacing: -0.36px;
+
+		+ p {
+			margin-top: 20px;
+			font-size: 14px;
+			line-height: 23px; /* 164.286% */
+		}
+	}
+
+	.btn-blue-dark-blue {
+		display: inline-flex;
+		margin-top: 22px;
+	}
+}
+
+.career-block--slide {
+	margin: 0 auto;
+
+	&.solo-slide {
+		@include respond-above(lg) {
+			max-width: max(40%, 445px);
+			margin: 0 auto;
+		}
+	}
+}
+
+.career-block--nav {
+	@apply flex flex-col items-center relative;
+	gap: 35px;
+	margin-top: 70px;
+
+	@include respond-above(lg) {
+		gap: 40px;
+		margin-top: 100px;
+	}
+}
+
+.career-block--arrows {
+	@apply flex;
+	gap: 20px;
+
+	.slick-arrow {
+		padding: 10px 33px;
+
+		&:hover {
+			svg {
+				transform: unset;
+			}
+		}
+	}
+}
+
+.career-block--dots {
+	.slick-dots {
+		@apply flex items-center justify-center;
+		gap: 6px;
+
+		li {
+			border-radius: 50%;
+			width: 12px;
+			height: 12px;
+			border: 1px solid var(--primary-500-main, #009fc6);
+
+			&.slick-active {
+				background-color: var(--primary-500-main, #009fc6);
+			}
+		}
+
+		button {
+			color: transparent;
+		}
+	}
+}

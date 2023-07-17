@@ -55,10 +55,10 @@
 	}
 
 	.btn-dark-blue-blue {
-		@apply btn bg-primary900 text-white;
+		@apply btn bg-primary900 text-white border-primary900;
 		@media screen and (hover: hover) and (pointer: fine) {
 			&:hover {
-				@apply bg-primary500 text-white;
+				@apply bg-primary500 text-white border-primary500;
 			}
 		}
 	}
