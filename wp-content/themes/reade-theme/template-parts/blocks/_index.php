@@ -330,6 +330,22 @@ function theme_register_blocks()
 			'supports'     => ['align' => false], //TODO
 		]);
 
+	/** 
+	 * Product RFQ
+	 * */
+	acf_register_block([
+		'name'			=> 'product-rfq',
+		'title'			=> 'Product RFQ',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-rfq.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-rfq.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'request', 'quote', 'rfq', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
 	/**
 	 * News Category
 	 * */
