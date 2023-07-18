@@ -13,19 +13,24 @@
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
  * @version     1.6.4
+ * 
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
 get_header();
+
+// get fields
+$productfields = get_fields();
 
 // get product info
 $qo = get_queried_object();
 $product = new WC_Product($qo->ID);
 
 // use "global $product" in blocks to get product info
+
+
 
 ?>
 <main id="main-content" class="main-content-wrap">

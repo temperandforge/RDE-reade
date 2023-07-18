@@ -247,23 +247,23 @@ function setup_custom_post_types() {
 	/** 
     * Products
     */
-   cpt_init(
-      'products', //$slug,
-      'Products', //$name,
-      'Product',  //$singular_name,
-      'Products', //$plural_name,
-      'products', //$rest_base,
-      'dashicons-products', //$menu_icon,
-      $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-      $taxonomies = [
-         [
-            'product_categories', // $tax_slug
-            [ 'products' ],       // $post_type_slugs,
-            'Product Category',  // $tax_singular_name, 
-            'Product Categories' // $tax_plural_name
-         ],
-      ]
-   );
+   // cpt_init(
+   //    'products', //$slug,
+   //    'Products', //$name,
+   //    'Product',  //$singular_name,
+   //    'Products', //$plural_name,
+   //    'products', //$rest_base,
+   //    'dashicons-products', //$menu_icon,
+   //    $supports = [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+   //    $taxonomies = [
+   //       [
+   //          'product_categories', // $tax_slug
+   //          [ 'products' ],       // $post_type_slugs,
+   //          'Product Category',  // $tax_singular_name, 
+   //          'Product Categories' // $tax_plural_name
+   //       ],
+   //    ]
+   // );
 
 
    /** 

@@ -10,7 +10,7 @@
         flex-direction: column;
         row-gap: 26px;
         position: relative;
-        z-index: 10;
+        z-index: 20;
     }
 
     .product-rfq-top .btn-blue-dark-blue {
@@ -94,6 +94,9 @@
             border-radius: 5px;
             border: 1px solid var(--primary-500-main, #009FC6);
             background: #FFF;
+            max-height: 300px;
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
 
         dt, dd ul li {
