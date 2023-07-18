@@ -193,7 +193,7 @@ function setup_custom_post_types() {
             'FAQ Categories'  // $tax_plural_name
          ],
       ],
-		false, // $has_archive
+		true, // $has_archive
 		false  // $publicly_queryable
    );
 
@@ -241,7 +241,7 @@ function setup_custom_post_types() {
          ],
       ],
 		false, // $has_archive
-		false  // $publicly_queryable
+		true  // $publicly_queryable
    );
 
 	/** 
