@@ -104,7 +104,7 @@ export default {
 
 		/** WOOCOMMERCE JS **/
 		function handleSingleProductDropdown() {
-			$('body.single-product #select1 ul li').on('click', function() {
+			$('body.single-product #select1 ul li, body.single-product #select2 ul li').on('click', function() {
 				// hide all
 				$('.product-rfq-select').addClass('tf-dropdown-hidden');
 
@@ -114,6 +114,12 @@ export default {
 				}
 			});
 		}
+
+		// function handleAddToQuote() {
+		// 	$('#add-to-quote-button').on('click', function() {
+				
+		// 	})
+		// }
 
 		// run functions
 		handleTFDropdown();
