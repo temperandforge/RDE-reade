@@ -9,10 +9,14 @@
       "wp-content/languages": true,
       "wp-content/themes/reade-theme/languages": true,
       "wp-content/themes/reade-theme/acf-json": true,
-      "wp-content/themes/reade-theme/assets": true,
+      "wp-content/themes/reade-theme/assets/**/*.css": true,
+      "wp-content/themes/reade-theme/**/*.pot": true,
+      "wp-content/themes/reade-theme/**/*.po": true,
+      "wp-content/themes/reade-theme/**/*.mo": true,
       "wp-content/themes/reade-theme/package*": true,
-      "wp-content/themes/reade-theme": true,
-      "wp-content/themes/reade-theme/**/*.deprecated": true,
+      "wp-content/themes/reade-theme/LICENSE": true,
+      "wp-content/themes/reade-theme/**/*.DEPRECATED": true,
+      "wp-content/themes/reade-theme/assets": true,
       "wp-content/uploads": true,
       "wp-includes": true
    }

@@ -3,9 +3,9 @@
   "version": "2023.01.01",
   "description": "",
   "author": "Temper & Forge",
-  "private":true,
-  "workspaces": [ 
-    "blocks/*" 
+  "private": true,
+  "workspaces": [
+    "blocks/*"
   ],
   "scripts": {
     "start": "run-p dev style:watch",
@@ -37,6 +37,7 @@
     "url": "/issues"
   },
   "dependencies": {
+    "loadjs": "^4.3.0-rc1",
     "lozad": "^1.16.0"
   },
   "devDependencies": {
