@@ -14,20 +14,23 @@
 }
 
 .primary-cta {
-    margin-top: 300px;
-    position: relative;
+    &:not(.primary-footer-cta--cta) {
 
-    @include respond-below(sm) {
-        margin-top: 35px;
-    }
-    
-    &:before {
-        background-color: #00bdec;
-        height: min(185px, 14vw);
-        min-height: 179px;
-
+        margin-top: 300px;
+        position: relative;
+        
         @include respond-below(sm) {
-            content: unset;
+            margin-top: 35px;
+            }
+            
+            &:before {
+                background-color: #00bdec;
+                height: min(185px, 14vw);
+                min-height: 179px;
+                
+                @include respond-below(sm) {
+                    content: unset;
+            }
         }
     }
 
