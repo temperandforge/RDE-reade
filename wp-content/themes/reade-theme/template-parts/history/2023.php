@@ -1,4 +1,4 @@
-<div id="history-2023">
+<div id="history-2023" class="historical-event panel">
    <div class="flex items-start">
       <div>
          <h2>2023</h2>

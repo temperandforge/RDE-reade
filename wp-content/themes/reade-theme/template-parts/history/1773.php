@@ -1,4 +1,4 @@
-<div id="history-1773">
+<div id="history-1773" class="historical-event panel">
    <div class="flex">
       <div class="flex flex-col justify-between">
          <h2>1773</h2>
