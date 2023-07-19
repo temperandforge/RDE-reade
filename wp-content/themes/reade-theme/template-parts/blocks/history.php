@@ -12,8 +12,14 @@
 
 $fields = get_fields(); 
 $events = $fields['events']; 
+$events_map = [];
+foreach($events as $idx => $event ) {
+   $events_map[$event['year']] = $event;
+}
+
+
 //TODO if
-echo '<script>console.log('.json_encode($fields['events'], JSON_PRETTY_PRINT).');</script>';//debug
+echo '<script>console.log('.json_encode($events_map, JSON_PRETTY_PRINT).');</script>';//debug
 ?>
 
 <!-- TODO disable scroll linking on right click -->
@@ -28,12 +34,15 @@ echo '<script>console.log('.json_encode($fields['events'], JSON_PRETTY_PRINT).')
    <div class="history-desktop--scroll-container">
       <?php foreach([
          1773,
-         2023,
+         1873,
+         1878,
+         1881,
+         // 1905,
+         // 1941,
          2023
       ] as $idx => $year ) {
-         include( locate_template("template-parts/history/$year.php"));
+         include( locate_template("template-parts/history/$year.php", false, false, $args=$events_map[$year]));
       } ?>
-      <?php include( locate_template('template-parts/history/2023.php'));?>
 
       <!-- <div class="description panel blue">
          <div>

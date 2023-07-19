@@ -108,13 +108,13 @@ export default {
 
           let x = 0
           let sections = gsap.utils.toArray(".panel");
-          let widths = sections.slice(0, sections.length - 1).map(el => el.getBoundingClientRect().width)
+          let widths = sections.map(el => el.getBoundingClientRect().width)
           widths.map(val => x += val)
           // console.log(-x, widths)
 
           gsap.to(sections, {
             // xPercent: -100 * (sections.length - 1),
-            x: -x,
+            x: -x + document.body.clientWidth,
             ease: "none",
             scrollTrigger: {
               trigger: ".history-desktop--scroll-container",
