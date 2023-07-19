@@ -34,7 +34,8 @@ function tf_dropdown($options) {
 		'return'		=> false,
 		'width'			=> '225px',
 		'show_all'		=> false,
-		'show_all_text' => 'All'
+		'show_all_text' => 'All',
+		'extra_classes' => array()
 	);
 
 	/* fill out all options with defaults if they're not set */
@@ -56,7 +57,7 @@ function tf_dropdown($options) {
 		}
 	}
 
-	$output .= '<dl id="' . $opts['id'] . '" class="tf-dropdown">
+	$output .= '<dl id="' . $opts['id'] . '" class="tf-dropdown' . (!empty($opts['extra_classes']) ? ' ' . implode(' ', $opts['extra_classes']) : '') . '">
 		<dt>';
 
 		if ($opts['selected_value'] && empty($opts['selected_value']) !== true) {

@@ -98,10 +98,38 @@ export default {
 
 
 
+
+
+
+
+		/** WOOCOMMERCE JS **/
+		function handleSingleProductDropdown() {
+			$('body.single-product #select1 ul li, body.single-product #select2 ul li').on('click', function() {
+				// hide all
+				$('.product-rfq-select').addClass('tf-dropdown-hidden');
+
+				// show relevant select box
+				if ($('#product-rfq-select-' + $(this).data('key')).length) {
+					$('#product-rfq-select-' + $(this).data('key')).removeClass('tf-dropdown-hidden');
+				}
+			});
+		}
+
+		// function handleAddToQuote() {
+		// 	$('#add-to-quote-button').on('click', function() {
+				
+		// 	})
+		// }
+
 		// run functions
 		handleTFDropdown();
 		handleNewsCardPagination();
 		handleNewsSharePosition();
+
+		// woocommerce functions
+		handleSingleProductDropdown();
+
+
 
 
 

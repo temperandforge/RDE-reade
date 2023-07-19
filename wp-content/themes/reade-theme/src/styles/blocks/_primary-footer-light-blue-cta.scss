@@ -93,13 +93,6 @@
 }
 
 /* svg styling */
-/* .primary-footer-cta--wrap {
-	@include inner-wrap(948px);
-	@apply relative z-20;
-} */
-
-/* .primary-footer-cta--decor {} */
-
 .primary-footer-cta--decor {
 	@apply absolute section-full;
 	z-index: -1;

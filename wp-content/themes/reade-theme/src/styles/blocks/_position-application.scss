@@ -1,0 +1,30 @@
+.position--application--section {
+	padding: 50px 0 82px;
+
+	@include respond-above(md) {
+		padding: 85px 0 120px;
+	}
+
+	@include respond-above(xl) {
+		padding: 120px 0 160px;
+	}
+}
+
+.position-application--wrap {
+ @include inner-wrap(620px);
+	@apply flex flex-col items-center text-center;
+	gap: 50px;
+
+	@include respond-above(md) {
+		gap: 30px;
+	}
+
+	.btn-blue-dark-blue {
+		@apply w-full;
+
+  @include respond-above(md) {
+   width: unset;
+   min-width: 425px;
+  }
+	}
+}

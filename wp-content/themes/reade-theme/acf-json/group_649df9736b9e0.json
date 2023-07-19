@@ -362,6 +362,13 @@
                 "operator": "==",
                 "value": "acf\/primary-footer-cta"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
         ]
     ],
     "menu_order": 0,
@@ -373,5 +380,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689091029
+    "modified": 1689363222
 }

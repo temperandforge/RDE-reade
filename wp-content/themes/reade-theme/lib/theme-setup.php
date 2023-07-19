@@ -499,3 +499,15 @@ function social_share($soc_name)
 	
 	return '#';
 }
+
+
+add_filter( 'default_content', 'set_default_content', 10, 2 );
+function set_default_content( $content, $post ) {
+	/** print_r */
+	if($post->post_status == "auto-draft" && !$post->post_content) {
+		if('product' == $post->post_type) {
+			$content = "<!-- wp:acf/product-rfq {\"name\":\"acf/product-rfq\",\"data\":{\"headline\":\"Add {productname} to your quote\",\"_headline\":\"field_64b57bdb2b812\",\"text\":\"\",\"_text\":\"field_64b57be02b813\",\"\":\"\",\"_\":\"field_64b57bf02b814\",\"button_text\":\"Add To Quote\",\"_button_text\":\"field_64b57bfb2b815\",\"bottom_text\":\"Not seeing what you’re looking for?\",\"_bottom_text\":\"field_64b57c3e2b816\",\"bottom_button\":{\"title\":\"Request Product\",\"url\":\"#\",\"target\":\"\"},\"_bottom_button\":\"field_64b57c4a2b817\"},\"mode\":\"edit\"} /-->";
+		}
+	}
+	return $content;
+}

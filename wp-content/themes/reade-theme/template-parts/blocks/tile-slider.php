@@ -19,14 +19,19 @@ $tileCount = count($fields['tiles'])
      <?php endif ;?>
     </div>
    <?php endif ;?>
-   <div class="tile-slider--slider">
-    <?php foreach($fields['tiles'] as $tile) :?>
-     <div class="tile-slider--slide">
-      <p><strong><?php echo $tile['heading'] ;?></strong></p>
-     </div>
-    <?php endforeach ;?>
+   <div class="tile-slider--wrapper">
+    <div class="tile-slider--slider">
+     <?php foreach($fields['tiles'] as $tile) :?>
+      <div class="tile-slider--slide">
+       <p><strong><?php echo $tile['heading'] ;?></strong></p>
+      </div>
+     <?php endforeach ;?>
+    </div>
+    <?php if($fields['icon'] != 'no-svg') :?>
+     <div class="tile-slider--decor <?php echo $fields['icon'] ;?>" aria-hidden="true"></div>
+    <?php endif ;?>
    </div>
-   <div class="tile-slider--nav<?php echo $tileCount <= 9 ? ' lg:hidden' : null ;?><?php echo $tileCount <= 6 ? ' hidden' : null ;?>">
+   <div class="tile-slider--nav<?php echo ($tileCount <= 9) && ($tileCount >= 6) ? ' lg:hidden' : null ;?><?php echo $tileCount <= 6 ? ' hidden' : null ;?>">
     <div class="tile-slider--dots"></div>
     <div class="tile-slider--arrows"></div>
    </div>

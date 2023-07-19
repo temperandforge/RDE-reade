@@ -23,6 +23,23 @@ function theme_register_blocks()
 	/** Keep Alphabetic */
 	$img_root = "./assets/img/blocks";
 	$mode = 'edit';
+
+	/** 
+	 * Benefits
+	 * */
+	acf_register_block([
+		'name'			=> 'benefits',
+		'title'			=> 'Benefits',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/benefits.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/benefits.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['benefits', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
  /** 
 	 * Calculator
 	 * */
@@ -64,6 +81,19 @@ function theme_register_blocks()
 		'image'        => $img_root . '/certificate-cta.webp',
 		'mode'			=> $mode,
 		'keywords'		=> ['certificate', 'cta', 'reade', 'theme', TEXTDOMAIN],
+	 	]);
+				
+			/** 
+				* Career Block
+	 * */
+	acf_register_block([
+		'name'			=> 'career-block',
+		'title'			=> 'Career Block',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/career-block.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'mode'			=> $mode,
+		'keywords'		=> ['career', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
 
@@ -224,6 +254,21 @@ function theme_register_blocks()
 			'keywords'		=> ['grid', 'reade', 'hero', 'theme', TEXTDOMAIN],
 			'supports'     => ['align' => false],
 		]);
+
+		/** 
+			* Icon block
+			* */
+		acf_register_block([
+			'name'			=> 'icon-block',
+			'title'			=> 'Icon Block',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/icon-block.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/icon-block.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['icon', 'block', 'read', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false],
+		]);
 	
 		/** 
 			* Industry Slider
@@ -285,6 +330,22 @@ function theme_register_blocks()
 			'supports'     => ['align' => false], //TODO
 		]);
 
+	/** 
+	 * Product RFQ
+	 * */
+	acf_register_block([
+		'name'			=> 'product-rfq',
+		'title'			=> 'Product RFQ',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-rfq.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-rfq.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'request', 'quote', 'rfq', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
 	/**
 	 * News Category
 	 * */
@@ -332,6 +393,66 @@ function theme_register_blocks()
 		'keywords'		=> ['news featured', 'news', 'featured', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
 	]);
+
+		/** 
+			* Position Application
+			* */
+		acf_register_block([
+			'name'			=> 'position-application',
+			'title'			=> 'Position Application',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/position-application.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			// 'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'position', 'application', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
+			* Position Hero
+			* */
+		acf_register_block([
+			'name'			=> 'position-hero',
+			'title'			=> 'Position Hero',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/position-hero.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			// 'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'position', 'hero', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
+			* Position Qualifications
+			* */
+		acf_register_block([
+			'name'			=> 'position-qualifications',
+			'title'			=> 'Position Qualifications',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/position-qualifications.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			// 'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'position', 'qualifications', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
+
+		/** 
+			* Primary CTA
+			* */
+		acf_register_block([
+			'name'			=> 'primary-cta',
+			'title'			=> 'Primary CTA',
+			'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/primary-cta.php",
+			'category'		=> 'theme-blocks',
+			'icon'			=> 'button',
+			'image'        => $img_root . '/primary-cta.webp',
+			'mode'			=> $mode,
+			'keywords'		=> ['reade', 'primary', 'cta', 'theme', TEXTDOMAIN],
+			'supports'     => ['align' => false], //TODO
+		]);
 
 	// /** 
 	//  * Page Hero 
@@ -513,6 +634,21 @@ function theme_register_blocks()
 		'icon'			 => 'button',
 		'mode'			 => $mode,
 		'keywords'		 => ['tools', 'cta', 'reade', 'theme', TEXTDOMAIN],
+		'supports'      => ['align' => false]
+	]);
+
+	/**
+	 * Vertical Accordion
+	 */
+
+	acf_register_block([
+		'name'			 => 'vertical-accordion',
+		'title'			 => 'Vertical Accordion',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/vertical-accordion.php",
+		'category'		 => 'theme-blocks',
+		'icon'			 => 'button',
+		'mode'			 => $mode,
+		'keywords'		 => ['vertical', 'accordion', 'reade', 'theme', TEXTDOMAIN],
 		'supports'      => ['align' => false]
 	]);
 }

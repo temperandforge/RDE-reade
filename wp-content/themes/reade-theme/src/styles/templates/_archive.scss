@@ -17,6 +17,19 @@ body.news-search {
     }
 }
 
+body.category {
+    @include respond-below(sm) {
+        .primary-footer-secondary--wrap:after {
+            background-color: $white;
+        }
+    }
+    @include respond-above(md) {
+        .primary-footer-cta--section {
+            padding-top: 50px;
+        }
+    }
+}
+
 .blog-hero-part {
     margin-top: 100px;
     margin-bottom: 52px;
