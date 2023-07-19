@@ -13,43 +13,59 @@ if ($cat) {
 
 ?>
 
+<?php echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug?>
 
 <div class="secondary-hero--section <?php echo $fields['background_color']; ?>">
    <div class="secondary-hero--wrap">
       <div class="secondary-hero--inner">
 
-         <div class="secondary-hero--shadow">
-            <div class="secondary-hero--content">
-               <div class="secondary-hero--copy">
-                  <?php if ($fields['heading']) : ?>
-                     <h1><?php echo $fields['heading']; ?></h1>
-                  <?php endif; ?>
-                  <?php if ($fields['content']) : ?>
-                     <p><?php echo $fields['content']; ?></p>
-                  <?php endif; ?>
-                  <?php if (($fields['back_btn']) && (!empty($cat))) : ?>
-                     <a class="secondary-back--btn  btn-arrow-reverse" href="<?php echo get_permalink($cat_parent_id); ?>">
-                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path fill-rule="evenodd" clip-rule="evenodd" d="M6.64179 11.5692C6.38143 11.8295 5.9593 11.8295 5.69895 11.5692L3.03218 8.90241C2.77182 8.64205 2.77182 8.21992 3.03218 7.95956L5.69894 5.2928C5.9593 5.03244 6.38143 5.03244 6.64179 5.2928C6.90215 5.55316 6.90215 5.97529 6.64179 6.23565L5.11314 7.7643L12.8373 7.76429C13.2055 7.76429 13.504 8.06278 13.504 8.43098C13.504 8.79919 13.2055 9.09768 12.8373 9.09768L5.11314 9.09768L6.64179 10.6263C6.90215 10.8867 6.90215 11.3088 6.64179 11.5692Z" fill="white" />
-                        </svg>
-                        <span>
-                           Back to all <?php echo $cat_parent_name; ?>
-                        </span>
-                     </a>
-                  <?php elseif ((!$fields['back_btn']) && (!empty($fields['link']))) : ?>
-                     <a class="btn-blue-dark-blue" href="<?php echo $fields['link']['url']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>">
-                        <?php echo $fields['link']['title']; ?>
-                     </a>
-                  <?php endif; ?>
-               </div>
-
-               <?php if (!empty($fields['image'])) : ?>
-                  <figure class="secondary-hero--figure">
-                     <?php echo wp_get_attachment_image($fields['image']['ID'], 'full');; ?>
-                  </figure>
-               <?php endif; ?>
-            </div>
-         </div>
+   <div class="secondary-hero--shadow">
+    <div class="secondary-hero--content">
+     <div class="secondary-hero--copy">
+      <?php if($fields['heading']) :?>
+       <h1><?php echo $fields['heading'] ;?></h1>
+       <?php endif ;?>
+       <?php if($fields['content']) :?>
+        <p><?php echo $fields['content'] ;?></p>
+       <?php endif ;?>
+       <?php if(($fields['back_btn']) && (!empty($cat))) :?>
+        <a class="secondary-back--btn btn-arrow-reverse" href="<?php echo get_permalink( $cat_parent_id );?>">
+          <svg class="svg-arrow-reversed" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 5.88128C12.848 5.53957 13.402 5.53957 13.7437 5.88128L17.2437 9.38128C17.5854 9.72299 17.5854 10.277 17.2437 10.6187L13.7437 14.1187C13.402 14.4604 12.848 14.4604 12.5063 14.1187C12.1646 13.777 12.1646 13.223 12.5063 12.8813L14.5126 10.875H4.375C3.89175 10.875 3.5 10.4832 3.5 10C3.5 9.51675 3.89175 9.125 4.375 9.125H14.5126L12.5063 7.11872C12.1646 6.77701 12.1646 6.22299 12.5063 5.88128Z" fill="#FAFAFA"></path>
+          </svg>
+        <span>
+         Back to all <?php echo $cat_parent_name ;?>
+        </span>
+       </a>
+       <?php elseif ((!$fields['back_btn']) && (!empty($fields['link']))) :?>
+        <a 
+        class="btn-blue-dark-blue <?php echo ($fields['arrow'] != 'none') ? $fields['arrow'] : null ;?>"
+        href="<?php echo $fields['link']['url'] ;?>"
+        target="<?php echo $fields['link']['target'] ?: '_self' ;?>">
+        <?php if($fields['arrow'] == 'btn-arrow-reverse') :?>
+          <svg class="svg-arrow-reversed" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 5.88128C12.848 5.53957 13.402 5.53957 13.7437 5.88128L17.2437 9.38128C17.5854 9.72299 17.5854 10.277 17.2437 10.6187L13.7437 14.1187C13.402 14.4604 12.848 14.4604 12.5063 14.1187C12.1646 13.777 12.1646 13.223 12.5063 12.8813L14.5126 10.875H4.375C3.89175 10.875 3.5 10.4832 3.5 10C3.5 9.51675 3.89175 9.125 4.375 9.125H14.5126L12.5063 7.11872C12.1646 6.77701 12.1646 6.22299 12.5063 5.88128Z" fill="#FAFAFA"></path>
+          </svg>
+        <?php endif ;?>
+        <span>
+          <?php echo $fields['link']['title'] ;?>
+        </span>
+        <?php if($fields['arrow'] == 'btn-arrow') :?>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 5.88128C12.848 5.53957 13.402 5.53957 13.7437 5.88128L17.2437 9.38128C17.5854 9.72299 17.5854 10.277 17.2437 10.6187L13.7437 14.1187C13.402 14.4604 12.848 14.4604 12.5063 14.1187C12.1646 13.777 12.1646 13.223 12.5063 12.8813L14.5126 10.875H4.375C3.89175 10.875 3.5 10.4832 3.5 10C3.5 9.51675 3.89175 9.125 4.375 9.125H14.5126L12.5063 7.11872C12.1646 6.77701 12.1646 6.22299 12.5063 5.88128Z" fill="#FAFAFA"></path>
+          </svg>
+        <?php endif ;?>
+       </a>
+       <?php endif ;?>
+      </div>
+      
+     <?php if(!empty($fields['image'])) :?>
+      <figure class="secondary-hero--figure<?php echo $fields['include_image_curve'] == true ? ' clip' : null ;?>">
+       <?php echo wp_get_attachment_image( $fields['image']['ID'], 'full' ); ;?>
+      </figure>
+     <?php endif ;?>
+    </div>
+   </div>
 
          <?php if (!empty($fields['resource_link'])) : ?>
             <div class="secondary-hero--resource secondary-hero--shadow">
