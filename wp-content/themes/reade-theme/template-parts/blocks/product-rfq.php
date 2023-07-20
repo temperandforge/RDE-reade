@@ -5,6 +5,9 @@ $fields = get_fields();
 // global product
 global $product;
 
+// this is the product id that gets submitted in the form, hopefully it gets updated later on, but we will start with this
+$submittedProduct = $product->get_id();
+
 // global product fields
 // [multiple_attributes] => (bool) true/false
 //
@@ -30,6 +33,12 @@ if (!empty($crosssellsproducts)) {
 }
 
 
+// product type variable, used for javascript in validation
+$productType = '';
+// product attribute name, used for javascript in validation
+$productAttrName = '';
+
+
 ?>
 <div class="product-rfq">
     <div class="product-rfq-top">
@@ -37,6 +46,11 @@ if (!empty($crosssellsproducts)) {
 <path d="M12.8953 7.60782L67.6222 -24.5892L122.277 7.60782L67.5915 39.8049V110.804L12.8953 78.6175V7.60782ZM12.8953 7.60782L67.5915 39.8049L122.277 7.60782V78.6175L67.5915 110.804" stroke="#AEE3F0" stroke-width="2" stroke-linejoin="round"/>
 <path d="M1.81692 83.4166L30.5034 66.5397L59.1523 83.4166L30.4873 100.294V137.51L1.81692 120.638V83.4166ZM1.81692 83.4166L30.4873 100.294L59.1523 83.4166V120.638L30.4873 137.51" stroke="#AEE3F0" stroke-width="2" stroke-linejoin="round"/>
 </svg>
+
+
+        <div id="product-rfq-error-message"></div>
+
+       
 
 
         <?php
@@ -65,7 +79,18 @@ if (!empty($crosssellsproducts)) {
             if (count($cspattrs) === 1) {
                 foreach ($cspattrs AS $cspattr) {
                     if (count($cspattr) === 1) {
+                        // set skip cross sell select to true
                         $skipCrossSellSelect = true;
+                        // update submitted product
+                        $submittedProduct = array_keys($cspattrs)[0];
+                        // set product type
+                        $productType = 'skip_crosssell';
+
+                        ?>
+                        <input id="submitted_product_1" type="hidden" value="<?php echo $submittedProduct; ?>">
+                        <input id="product-<?php echo $submittedProduct; ?>-variant" type="hidden" value="">
+                        <input id="skip_crosssell" type="hidden" value="1">
+                        <?php
                     }
                 }
             }
@@ -75,13 +100,21 @@ if (!empty($crosssellsproducts)) {
 
                 // check if we have multiple initial cross sell selects
                 if ($productfields['multiple_attributes']) {
+
+                    // set product type
+                    $productType = 'multiple_attributes_and';
+
+                    ?>
+                    <input id="multiple_attributes" type="hidden" value="1">
+                    <?php
                     
                     if (!empty($crosssellsproducts)) {
                         $it = 1;
                         foreach ($crosssellsproducts AS $csp) {
+                            //echo '<pre>'; print_r($csp); echo '</pre>';
                              $s1options = array(
                                 'id' => 'select' . $it,
-                                'select_text' => 'Select Type',
+                                'select_text' => 'Specifications Available',
                                 'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
                                 </svg>',
@@ -94,6 +127,8 @@ if (!empty($crosssellsproducts)) {
                                 }
                             }
 
+                            $submittedProduct = $csp->get_id();         
+
                             //tf_dropdown($s1options);
                             $it++;
                         }
@@ -104,9 +139,12 @@ if (!empty($crosssellsproducts)) {
                      * Initial select box shows cross sell items
                      */
 
+                    // set product type
+                    $productType = 'multiple_attributes_or';
+
                     $s1options = array(
                         'id' => 'select1',
-                        'select_text' => 'Select Type',
+                        'select_text' => 'Specifications Available',
                         'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
         </svg>
@@ -120,65 +158,98 @@ if (!empty($crosssellsproducts)) {
                         }
                     }
 
+                    ?>
+                     <!-- this value will be updated and submitted and changed via javascript -->
+                    <input id="submitted_product_1" type="hidden" value="<?php echo $submittedProduct; ?>">
+                    <input id="product-<?php echo $submittedProduct; ?>-variant" type="hidden" class="submitted_product_1_variant" value="">
+                    <?php
+
                     tf_dropdown($s1options);
                 }
             }
 
 
             /** After initial select box, we need to have a select box for the attributes.  We have to have a select box for all possible attributes, so it can be shown after it's selected in box one.  It will be hidden by default, and onselect of select one, the correct attribute box will be shown **/
-            foreach ($cspattrs AS $pid => $pattrs) {
+            $it = 1;
+            
+            foreach ($cspattrs AS $pid => $pattrs) { 
+                $pattrName = array_values($pattrs)[0]->get_data()['name'];
+                $thisProduct = new WC_Product_Variable($pid);
+                $thisProductVariations = $thisProduct->get_available_variations();
 
-                $attrCount = count($pattrs);
+                $soptions = array(
+                    'id' => 'product-rfq-select-' . $pid,
+                    'select_text' => 'Select',
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                    </svg>',
+                    'width' => '100%',
+                    'extra_classes' => array('product-rfq-select')
+                );
 
-                foreach ($pattrs AS $pattr) {
-                    $pattrdata = $pattr->get_data();
-                    $soptions = array(
-                        'id' => 'product-rfq-select-' . $pid,
-                        'select_text' => 'Select',
-                        'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
-</svg>
-',
-                        'width' => '100%',
-                        'extra_classes' => array('product-rfq-select')
-                    );
+                if (!$skipCrossSellSelect && !$productfields['multiple_attributes']) {
+                    $soptions['extra_classes'][] = 'tf-dropdown-hidden';
+                }
 
-                    if (!$skipCrossSellSelect && !$productfields['multiple_attributes']) {
-                        $soptions['extra_classes'][] = 'tf-dropdown-hidden';
-                    }
-                    
-                    $soptions['select_text'] = 'Select ' . $pattrdata['name'];
+                if ($skipCrossSellSelect) {
+                    $productAttrName = $pattrName;
+                    ?>
+                    <input type="hidden" id="product_1_attribute_name" value="<?php echo $productAttrName; ?>">
+                    <?php
+                }
 
-                    if (!empty($pattrdata['options'])) {
-                        $options = $pattrdata['options'];
-                    
-                        foreach ($options AS $id => $option) {
-                            $soptions['values'][$id] = $option;
+                if ($productfields['multiple_attributes']) {
+                    $submittedProduct = $pid;
+                    ?>
+                    <input id="submitted_product_<?php echo $it; ?>" type="hidden" value="<?php echo $submittedProduct; ?>">
+                    <input id="product-<?php echo $submittedProduct; ?>-variant" type="hidden" value="">
+                    <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
+                    <?php
+                } else {
+                    ?>
+                    <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
+                    <?php
+                }
+                        
+                $soptions['select_text'] = 'Select ' . $pattrName;
+
+                foreach ($thisProductVariations AS $tpv) {
+                    if (!empty($tpv['attributes'])) {
+                        foreach ($tpv['attributes'] AS $id => $option) {
+                            $soptions['values'][$tpv['variation_id']] = array_values($tpv['attributes'])[0];
                         }
-
-                        tf_dropdown($soptions);
                     }
                 }
+
+                tf_dropdown($soptions);
+
+                $it++;
             }
+ 
 
             ?>
             <div class="product-rfq-qty">
                 <?php
 
                 /** show qty **/
-                $qtyoptions = array(
-                    'id' => 'product-qty',
-                    'select_text' => '1',
-                    '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
-                    </svg>',
-                );
+                // $qtyoptions = array(
+                //     'id' => 'product-qty',
+                //     'select_text' => '1',
+                //     '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                //     <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                //     </svg>',
+                // );
 
-                for ($i = 1; $i < 10; $i++) {
-                    $qtyoptions['values'][$i] = $i;
-                }
+                // for ($i = 1; $i < 10; $i++) {
+                //     $qtyoptions['values'][$i] = $i;
+                // }
 
-                tf_dropdown($qtyoptions);
+                // tf_dropdown($qtyoptions);
+
+                ?>
+                <input id="product-qty" type="number" name="qty_number" value="1">
+                <input id="product-qty-units" type="hidden" name="qty_unit" value="Units">
+                <?php
 
 
                 /** show units **/
@@ -190,14 +261,26 @@ if (!empty($crosssellsproducts)) {
                     </svg>',
                 );
 
-                $unitoptions['values']['cm'] = 'CM';
-                $unitoptions['values']['in'] = 'IN';
-                $unitoptions['values']['Other'] = 'Other';
+                $unitoptions['values']['pieces'] = 'Pieces';
+                $unitoptions['values']['grams'] = 'Grams';
+                $unitoptions['values']['troy ounces'] = 'Troy Ounces';
+                $unitoptions['values']['pounds'] = 'Pounds';
+                $unitoptions['values']['kilograms'] = 'Kilograms';
+                $unitoptions['values']['metric tons'] = 'Metric Tons';
+                $unitoptions['values']['net tons'] = 'Net Tons';
+                $unitoptions['values']['feet'] = 'Feet';
+                $unitoptions['values']['meters'] = 'Meters';
+                $unitoptions['values']['inches'] = 'Inches';
+                $unitoptions['values']['centimeters'] = 'Centimeters';
+                $unitoptions['values']['millimeters'] = 'Millimeters';
+
 
                 tf_dropdown($unitoptions);
 
                 ?>
             </div>
+
+
 
 
         </div>
@@ -206,12 +289,16 @@ if (!empty($crosssellsproducts)) {
         $buttontext = !empty($fields['button_text']) ? $fields['button_text'] : 'Add To Quote';
 
         ?>
-        <a href="#add-to-quote-success" class="btn-blue-dark-blue btn-arrow" data-lity>
+        <button id="product-submit-button" class="btn-blue-dark-blue btn-arrow">
             <?php echo $buttontext; ?>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.83734C12.848 6.49563 13.402 6.49563 13.7437 6.83734L17.2437 10.3373C17.5854 10.679 17.5854 11.2331 17.2437 11.5748L13.7437 15.0748C13.402 15.4165 12.848 15.4165 12.5063 15.0748C12.1646 14.7331 12.1646 14.179 12.5063 13.8373L14.5126 11.8311H4.375C3.89175 11.8311 3.5 11.4393 3.5 10.9561C3.5 10.4728 3.89175 10.0811 4.375 10.0811H14.5126L12.5063 8.07477C12.1646 7.73306 12.1646 7.17904 12.5063 6.83734Z" fill="#FAFAFA"/>
             </svg>
-        </a>
+            <svg class="spinner" viewBox="0 0 50 50">
+                  <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                </svg>
+        </button>
+        <a id="hidden-lity-opener" style="display: none;" href="#add-to-quote-success" data-lity>&nbsp;</a>
 
     </div>
     <div class="product-rfq-bottom">
@@ -236,3 +323,6 @@ if (!empty($crosssellsproducts)) {
         ?>
     </div>
 </div>
+
+<!-- product type for javascript -->
+<input id="product_type" type="hidden" value="<?php echo $productType; ?>">
