@@ -4,6 +4,7 @@ const $body = $(document.body)
 
 export default {
   init() {
+    
     //TODO replace jquery use were possible
     //TODO does not work with new use of GSAP
     //TODO animation easing - easeInOut
@@ -15,6 +16,7 @@ export default {
         }, (e.target.closest("#history-desktop").scrollLeft - i ) / 11)
       }
     })
+
   },
   finalize() {
     //TODO include script integrity security checks
@@ -35,6 +37,7 @@ export default {
     loadjs.ready('gsap', {
       /* scripts successfully loaded */ 
       success: function() { 
+        //mobile
         const historySlider = document.querySelector( '.history--slider' )
         if( ! historySlider ) { return }
         const history = historySlider.parentNode
