@@ -317,6 +317,22 @@ function theme_register_blocks()
 			'supports'     => ['align' => false], //TODO
 		]);
 
+   /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-hero',
+		'title'			=> 'Product Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-hero.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
 	/** 
 	 * Product RFQ
 	 * */
