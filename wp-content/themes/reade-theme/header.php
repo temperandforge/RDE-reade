@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- //TODO -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://reade.wpengine.com https://reade.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://use.typekit.net; script-src 'self' 'unsafe-inline' 'strict-dynamic' https:; object-src 'none'; require-trusted-types-for 'script';">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://reade.wpengine.com https://reade.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://use.typekit.net; script-src 'self' 'unsafe-inline' 'strict-dynamic' https:; object-src 'none'; require-trusted-types-for 'script';"> -->
   <?php wp_head(); ?>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
