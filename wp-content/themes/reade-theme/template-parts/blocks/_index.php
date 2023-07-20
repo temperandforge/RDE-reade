@@ -602,6 +602,21 @@ function theme_register_blocks()
       'supports'      => ['align' => false],
    ]);
 
+			/** 
+				* RFQ Form
+				* */
+			acf_register_block([
+				'name'			 => 'rfq-form',
+				'title'			 => 'RFQ Form',
+				'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
+				'category'		 => 'theme-blocks',
+				'icon'			 => 'button',
+				// 'image'        => $img_root . '/primary-hero.webp',
+				'mode'			 => $mode,
+				'keywords'		 => ['rfq', 'form', 'reade', 'theme', TEXTDOMAIN],
+				'supports'      => ['align' => false],
+			]);
+
    /** 
     * Secondary Hero
     * */

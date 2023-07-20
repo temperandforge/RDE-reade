@@ -367,9 +367,9 @@ function handleCareerSlider() {
 		arrows: true,
 		appendArrows: $('.career-block--arrows'),
 		nextArrow:
-		"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 		prevArrow:
-		"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 	}
 	let desktopSettings = {
 		rows: 1,
@@ -400,6 +400,18 @@ function handleCareerSlider() {
 			$slider.slick('unslick')
 		}
 		initSlick()
+	})
+}
+
+function disableFirstDropdownOptionRFQ() {
+	const $form = $('.rfq-form--form')
+
+	if (!$form.length) {
+		return
+	}
+
+	$form.each(function(){
+		$(this).find()
 	})
 }
 
