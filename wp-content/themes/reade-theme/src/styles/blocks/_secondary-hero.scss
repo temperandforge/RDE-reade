@@ -144,23 +144,50 @@
 		@include respond-above(lg) {
 			margin-top: 55px;
 		}
+
+		.svg-arrow-reversed {
+			transform: scale(-1);
+		}
+
+		&:hover {
+			.svg-arrow-reversed {
+				transform: scale(-1) translateX(4px);
+			}
+		}
 	}
 }
 
 .secondary-hero--figure {
+	@include respond-above(lg) {
+		flex: 0 0 40%;
+	}
+
+	&.clip {
+		img {
+			clip-path: ellipse(90% 60% at 50% 65%);
+
+			@include respond-above(lg) {
+				clip-path: ellipse(60% 75% at 63% 50%);
+			}
+
+			@include respond-above(xl) {
+				clip-path: ellipse(55% 100% at 55% 50%);
+			}
+		}
+	}
+
 	img {
 		aspect-ratio: 342 / 257;
 		@apply object-cover w-full;
-		clip-path: ellipse(90% 60% at 50% 65%);
 
 		@include respond-above(lg) {
-			clip-path: ellipse(60% 75% at 63% 50%);
+			/* clip-path: ellipse(60% 75% at 63% 50%); */
 			@apply h-full;
 			aspect-ratio: 496 / 440;
 		}
 
 		@include respond-above(xl) {
-			clip-path: ellipse(55% 100% at 55% 50%);
+			/* clip-path: ellipse(55% 100% at 55% 50%); */
 		}
 	}
 }
