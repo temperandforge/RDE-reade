@@ -1,3 +1,20 @@
 .product-hero {
+	position: relative;
+
 	
+
+	.product-hero-top-container {
+		&::before {
+			content: '';
+			@apply section-full;
+			background-color: #BAE3E9;
+			height: 100%;
+			width: 100vw;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100vw;
+			position: absolute;
+		}
+	}
 }
