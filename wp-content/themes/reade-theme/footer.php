@@ -7,7 +7,7 @@
 ?>
 <footer id="site-footer" class="site-footer">
 <div class="theme-main">
-<div class="theme-inner-wrap-wide">
+<div class="_theme-inner-wrap-wide">
          <div class="footer-info footer-row-1">
             <div class="footer-links">
                <?php

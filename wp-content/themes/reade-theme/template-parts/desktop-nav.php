@@ -5,7 +5,7 @@ if(!defined('option_fields')) {
 
 <div class="navbar-wrap">
   <div class="theme-main">
-    <div class="theme-inner-wrap-wide">
+    <div class="_theme-inner-wrap-wide">
        <div class="navbar">
         <a href="<?php echo get_site_url() ?>" class="logo-link">
           <?php //if($option_fields && array_key_exists('logo', $option_fields) && $logo = $option_fields['logo']) { 

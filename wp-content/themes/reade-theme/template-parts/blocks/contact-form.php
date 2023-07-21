@@ -23,4 +23,3 @@ $fields = get_fields();
   </div>
  </div>
 </div>
-

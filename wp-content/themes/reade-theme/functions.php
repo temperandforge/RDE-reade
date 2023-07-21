@@ -47,3 +47,10 @@ function enable_taxonomy_rest( $args ) {
 
 add_filter( 'woocommerce_taxonomy_args_product_cat', 'enable_taxonomy_rest' );
 add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
+
+//rid of resize warnings for woocommerce being outputted on the page
+if( IS_LOCAL ) {
+   add_filter('woocommerce_resize_images', static function() {
+      return false;
+   });
+}
