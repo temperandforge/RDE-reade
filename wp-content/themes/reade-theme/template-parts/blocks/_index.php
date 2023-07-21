@@ -356,6 +356,22 @@ function theme_register_blocks()
 	]);
 
 
+ /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-itemized-quote',
+		'title'			=> 'Product Itemized Quote',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-itemized-quote.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-itemized-quote.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'itemized', 'quote', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
 	/** 
 	 * Product RFQ
 	 * */
