@@ -43,7 +43,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <a href="#main_content" class="sr-only"><?php echo __("Skip to main content", TEXTDOMAIN); ?></a>
+  <a href="#main-content" class="sr-only"><?php echo __("Skip to main content", TEXTDOMAIN); ?></a>
   <?php include( locate_template( 'template-parts/mobile-nav.php', false, false ) );  ?>
   <?php include( locate_template( 'template-parts/desktop-nav.php', false, false ) );  ?>
 
