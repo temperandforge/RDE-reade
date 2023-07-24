@@ -1,0 +1,33 @@
+#history-1878 {
+	width: 60vw;
+
+	.historical-event--1878 {
+		@apply h-full flex flex-col justify-between;
+	}
+
+	.history-content {
+		@apply flex absolute;
+  gap: 50px;
+		top: 70%;
+		width: 85%;
+
+		h2 {
+			line-height: 8.12531rem;
+		}
+	}
+
+	figure {
+		position: absolute;
+		left: -30%;
+		top: 6%;
+		height: 48%;
+		width: 72%;
+
+		/* img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		} */
+	}
+}

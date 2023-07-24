@@ -49,6 +49,17 @@ $product = new WC_Product($qo->ID);
 
          	the_content($product->get_description());
 
+         	/* temp */
+
+         	 if (isset($_GET['empty_cart'])) {
+         	 	$woocommerce->cart->empty_cart();
+         	 }
+
+         	// temp
+         	// echo '<h3>Cart</h3>';
+         	// echo '<a href="?empty_cart">Empty Cart</a>';
+         	// echo '<pre>'; print_r($woocommerce->cart->get_cart_contents()); echo '</pre>';
+
          	?>
          </article>
      </div>

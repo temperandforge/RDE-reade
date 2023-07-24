@@ -340,6 +340,38 @@ function theme_register_blocks()
       'supports'     => ['align' => false],
    ]);
 
+   /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-hero',
+		'title'			=> 'Product Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-hero.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
+ /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-itemized-quote',
+		'title'			=> 'Product Itemized Quote',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-itemized-quote.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-itemized-quote.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'itemized', 'quote', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
 	/** 
 	 * Product RFQ
 	 * */
@@ -601,6 +633,21 @@ function theme_register_blocks()
       'keywords'       => ['hero', 'reade', 'theme', TEXTDOMAIN],
       'supports'      => ['align' => false],
    ]);
+
+			/** 
+				* Product RFQ Form
+				* */
+			acf_register_block([
+				'name'			 => 'rfq-form',
+				'title'			 => 'Product RFQ Form',
+				'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
+				'category'		 => 'theme-blocks',
+				'icon'			 => 'button',
+				// 'image'        => $img_root . '/primary-hero.webp',
+				'mode'			 => $mode,
+				'keywords'		 => ['rfq', 'form', 'reade', 'product', 'theme', TEXTDOMAIN],
+				'supports'      => ['align' => false],
+			]);
 
    /** 
     * Secondary Hero

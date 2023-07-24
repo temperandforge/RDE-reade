@@ -1,12 +1,14 @@
-<div id="history-2023" class="historical-event panel">
+<div id="history-2023" class="historical-event panel w-200vw">
    <div class="flex items-start">
       <div>
-         <h2>2023</h2>
-         <h3>New Branding</h3>
-         <p>The new look goes beyond aesthetics. It symbolizes the thoughtfulness and care Reade puts into every aspect of its business practices.</p>
-         <picture>
-            <img src="https://picsum.photos/1920/1080.webp" alt="" />
-         </picture>
+         <h2><?php echo __($args['year'], TEXTDOMAIN);?></h2>
+         <h3><?php echo __($args['heading'], TEXTDOMAIN);?></h3>
+         <!-- <p><?php echo $args['content'] ;?></p> -->
+         <?php if(!empty($args['image'])) :?>
+            <figure>
+               <?php echo wp_get_attachment_image($args['image']['id'], 'full', ) ;?>
+            </figure>
+         <?php endif ;?>
       </div>
       <button class="btn--back-to-start">
          <em><?php echo __( "Back to beginning", TEXTDOMAIN);?></em>
