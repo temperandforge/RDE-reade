@@ -1,0 +1,26 @@
+#history-1941 {
+	width: 106vw;
+
+	.history-figure {
+		@apply absolute top-0 left-0 flex items-center justify-center;
+		width: 47%;
+		height: 100%;
+		background-color: $black;
+
+		figure {
+			width: 56%;
+			height: 56%;
+
+			img {
+				border-radius: unset;
+			}
+		}
+	}
+
+	.history-content {
+		@apply absolute;
+		left: 55%;
+		top: 14%;
+		width: 34%;
+	}
+}

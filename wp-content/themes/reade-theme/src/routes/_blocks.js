@@ -410,8 +410,12 @@ function disableFirstDropdownOptionRFQ() {
 		return
 	}
 
-	$form.each(function(){
-		$(this).find()
+	$form.each(function () {
+		$(this)
+			.find('.dropdown option:first-child')
+			.each(function () {
+				$(this).prop('disabled', true)
+			})
 	})
 }
 
@@ -426,6 +430,7 @@ function runBlocks() {
 	handleTileSlider()
 	handleVerticalAccordions()
 	handleCareerSlider()
+	disableFirstDropdownOptionRFQ()
 }
 
 export { runBlocks }

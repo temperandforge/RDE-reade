@@ -1,0 +1,36 @@
+#history-1873 {
+	width: 93vw;
+	/* padding-top: 6%; */
+
+	.history-content {
+		@apply flex gap-x-6 items-center absolute left-0 z-10;
+		top: 6%;
+		text-shadow: 1px 1px 2px #fff;
+  
+		h2 {
+			line-height: 8.12531rem;
+		}
+	}
+
+	h3 {
+		@apply absolute left-0;
+		/* bottom: calc(); */
+		top: 86%;
+	}
+
+	figure {
+		@apply absolute;
+		left: 0;
+		top: 20%;
+
+		height: 63%;
+		width: 92%;
+
+		/* img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		} */
+	}
+}

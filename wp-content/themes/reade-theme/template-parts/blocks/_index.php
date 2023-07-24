@@ -603,17 +603,17 @@ function theme_register_blocks()
    ]);
 
 			/** 
-				* RFQ Form
+				* Product RFQ Form
 				* */
 			acf_register_block([
 				'name'			 => 'rfq-form',
-				'title'			 => 'RFQ Form',
+				'title'			 => 'Product RFQ Form',
 				'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
 				'category'		 => 'theme-blocks',
 				'icon'			 => 'button',
 				// 'image'        => $img_root . '/primary-hero.webp',
 				'mode'			 => $mode,
-				'keywords'		 => ['rfq', 'form', 'reade', 'theme', TEXTDOMAIN],
+				'keywords'		 => ['rfq', 'form', 'reade', 'product', 'theme', TEXTDOMAIN],
 				'supports'      => ['align' => false],
 			]);
 

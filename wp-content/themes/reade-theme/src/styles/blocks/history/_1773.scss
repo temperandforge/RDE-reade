@@ -1,0 +1,38 @@
+#history-1773 {
+	width: 100vw;
+
+	.year {
+		@apply absolute;
+		left: 7%;
+		top: 23%;
+	}
+
+	.scroll-btn {
+		@apply absolute;
+		left: 7%;
+		bottom: 13%;
+	}
+
+	.history-content {
+		@apply absolute z-10;
+		width: 49%;
+		left: 44%;
+		top: 25%;
+		text-shadow: 1px 1px 2px #fff;
+	}
+
+	figure {
+		@apply absolute;
+		width: 49%;
+		left: 44%;
+		bottom: 13%;
+		height: 41%;
+
+		/* img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		} */
+	}
+}
