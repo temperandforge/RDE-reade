@@ -46,7 +46,13 @@ $cart_contents = $cart->get_cart_contents();
                     <div class="piq-cart-item">
                         <div class="piq-product-info">
                             <h2 class="piq-product-name"><?php echo $parentItem->get_name(); ?></h2>
-                            cas number
+                            <?php
+
+                            $pfields = get_fields($parentItem->get_id());
+
+                            echo '<pre>'; print_r($pfields); echo '</pre>';
+
+                            ?>
                         </div>
                         <div class="piq-product-details">
                             <div class="piq-product-details-attributes">
