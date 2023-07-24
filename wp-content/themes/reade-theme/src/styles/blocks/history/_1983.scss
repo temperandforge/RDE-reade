@@ -1,0 +1,24 @@
+#history-1983 {
+	width: 87vw;
+
+	h2 {
+		@apply absolute left-0;
+		bottom: 7%;
+	}
+
+	.history-content {
+		@apply absolute;
+		left: 44%;
+		top: 58%;
+		width: 43%;
+	}
+
+	figure {
+		@apply absolute left-0;
+		top: 6%;
+		width: 40%;
+		height: 69%;
+	}
+}
+
+/* 1250 */
