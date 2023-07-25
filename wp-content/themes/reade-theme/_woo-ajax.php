@@ -107,3 +107,48 @@ if (!empty($_POST['action']) && ($_POST['action'] == 'doAddToQuote')) {
 		}
 	}
 }
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doRemoveFromQuote')) {
+	if (!empty($_POST['key'])) {
+		$post_key = json_decode(stripslashes($_POST['key']));
+
+		foreach ($cart->get_cart_contents() AS $key => $item) {
+			if ($post_key == $key) {
+				$cart->remove_cart_item($key);
+				die('success');
+			}
+		}
+
+	} else {
+		die('error6');
+	}
+}
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doChangeUnits')) {
+	if (!empty($_POST['newUnit']) && !empty($_POST['cartKey'])) {
+		$post_key = $_POST['cartKey'];
+
+		foreach ($cart->get_cart_contents() AS $key => $item) {
+			if ($post_key == $key) {
+				$item['qty_unit'] = $_POST['newUnit'];
+				$cart->cart_contents[ $key ] = $item;
+				$cart->set_session();
+				die('success');
+			}
+		}
+	}
+}
+
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doChangeQty')) {
+	if (!empty($_POST['cartKey']) && !empty($_POST['qty'])) {
+		$post_key = $_POST['cartKey'];
+		$qty = $_POST['qty']; // type cast to (int) ?  thinking about if someone orders 1.5 lbs, for example
+		foreach ($cart->get_cart_contents() AS $key => $item) {
+			if ($post_key == $key) {
+				$cart->set_quantity($key, $qty);
+				die('success');
+			}
+		}
+	}
+}
