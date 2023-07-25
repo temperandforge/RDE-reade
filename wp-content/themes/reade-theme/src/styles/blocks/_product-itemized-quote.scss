@@ -44,6 +44,26 @@
         }
     }
 
+    .rfq-empty {
+        display: flex;
+        padding: 50px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex: 1 0 0;
+        border-radius: 10px;
+        background-color: var(--primary-50, #EFFBFF);
+        width: 100%;
+    }
+
+    .rfq-cas-number {
+        color: #BCBCBC;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.7;
+        letter-spacing: -0.28px;
+    }
     .rfq-notes {
         width: 100%;
         aspect-ratio: 818/228;
