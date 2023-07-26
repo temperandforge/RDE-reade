@@ -37,6 +37,14 @@ function theme_register_blocks()
 		'mode'			=> $mode,
 		'keywords'		=> ['benefits', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
 	]);
 
 
