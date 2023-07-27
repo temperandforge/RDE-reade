@@ -1,0 +1,44 @@
+.product-custom-fields {
+    margin-bottom: clamp(0.938rem, -0.813rem + 4.375vw, 3.125rem);
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    .product-custom-fields-title, .product-custom-fields-text {
+        border-radius: 10px;
+        background: $white;
+        padding: 19px 25px;
+    }
+
+    .product-custom-fields-title {
+        color: var(--primary-900, #045);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px; /* 150% */
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 15px;
+        align-items: flex-start;
+
+        span {
+            flex-grow: 1;
+        }
+        
+        svg {
+            flex-basis: 17px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            margin-top: 4px;
+            transition: ease 0.25s;
+        }
+    }
+
+    .product-custom-fields-text {
+        color: var(--primary-900, #045);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 23px; /* 164.286% */
+        display: none;
+    }
+}

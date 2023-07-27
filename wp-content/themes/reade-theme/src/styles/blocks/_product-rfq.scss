@@ -16,6 +16,9 @@
         row-gap: 26px;
         position: relative;
         z-index: 20;
+        background-color: $white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 
     .product-rfq-top .btn-blue-dark-blue {
