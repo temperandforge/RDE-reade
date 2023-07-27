@@ -1,10 +1,10 @@
 {
     "key": "group_64b95902a19ed",
-    "title": "RFQ Form",
+    "title": "RFQ Form Success",
     "fields": [
         {
             "key": "field_64b959022b24c",
-            "label": "RFQ Form",
+            "label": "RFQ Form Success",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -18,159 +18,6 @@
             },
             "open": 0,
             "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_64b986c5e59e6",
-            "label": "Form",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_64b959162b24d",
-            "label": "Heading",
-            "name": "heading",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_64b9591c2b24e",
-            "label": "Content",
-            "name": "content",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_64b959272b24f",
-            "label": "Form Code",
-            "name": "form_code",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "EG: [contact-form-7 id=\"776\" title=\"RFQ Form\"]",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_64b98692b1427",
-            "label": "Icon",
-            "name": "icon",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "bags-svg": "Bags",
-                "bigbox-svg": "Boxes - Big First",
-                "smallbox-svg": "Boxes - Small First",
-                "circles-svg": "Circles",
-                "document-svg": "Document",
-                "flag-svg": "Flag",
-                "globe-svg": "Globe",
-                "microscope-svg": "Microscope",
-                "pestle-svg": "Mortar and Pestle",
-                "no-svg": "No Icon"
-            },
-            "default_value": "bigbox-svg",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_64b986b9e59e5",
-            "label": "Image",
-            "name": "image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_64b986dae59e7",
-            "label": "Submit Screen",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
             "endpoint": 0
         },
         {
@@ -260,7 +107,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/rfq-form"
+                "value": "acf\/rfq-form-success"
             }
         ]
     ],
@@ -273,5 +120,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689880548
+    "modified": 1690473608
 }
