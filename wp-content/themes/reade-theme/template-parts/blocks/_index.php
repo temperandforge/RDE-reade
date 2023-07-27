@@ -24,6 +24,29 @@ function theme_register_blocks()
    $img_root = "./assets/img/blocks";
    $mode = 'edit';
 
+
+   /** 
+    * Basic Content
+    * */
+    acf_register_block([
+      'name'          => 'basic-content',
+      'title'          => 'Basic Content',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/basic-content.php",
+      'category'       => 'theme-blocks',
+      'icon'          => 'button',
+      'mode'          => $mode,
+      'keywords'       => ['basic', 'content', 'reade', 'theme', TEXTDOMAIN],
+      'supports'      => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
    /** 
     * Benefits
     * */
@@ -47,10 +70,7 @@ function theme_register_blocks()
       ),
    ]);
 
-
-   /** 
-    * Calculator
-    * */
+   /** * Calculator * */
    acf_register_block([
       'name'         => 'calculator',
       'title'         => 'Calculator',
@@ -72,8 +92,7 @@ function theme_register_blocks()
    ]);
 
    /** 
-    * Call To Action
-    * */
+    * Call To Action * */
    acf_register_block([
       'name'         => 'call-to-action',
       'title'         => 'Call To Action',
@@ -407,7 +426,7 @@ function theme_register_blocks()
 	]);
 
 
- /** 
+   /** 
 	 * Product Itemized Quote
 	 * */
 	acf_register_block([

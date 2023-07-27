@@ -1,6 +1,4 @@
 <?php
-echo '<script>console.log('.json_encode($block, JSON_PRETTY_PRINT).');</script>';//debug
-
 // Block preview
 if( !empty( $block['data']['_is_preview'] ) ) { 
    ?>
