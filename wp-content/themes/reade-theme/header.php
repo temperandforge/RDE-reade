@@ -10,7 +10,7 @@
     content="
       default-src 'self'; 
       font-src 'self' data: https://fonts.gstatic.com https://use.typekit.net;
-      img-src 'self' data: https://reade.wpengine.com https://secure.gravatar.com; 
+      img-src 'self' data: https://reade.wpengine.com https://secure.gravatar.com https://cdn.gtranslate.net; 
       script-src 'self' 
          <?php if( IS_LOCAL ) { 
             echo "'unsafe-inline' "; 
@@ -24,9 +24,12 @@
          'sha256-ATiVyhKFjD/l50SVfcO+fYyrXiz2OhpfZ0TBjlZjJD0='
          'sha256-7nWgRnpVWats471LIIVH3brFWOVH5nnnE+mUbHZHu58='
          'sha256-8//zSBdstORCAlBMo1/Cig3gKc7QlPCh9QfWbRu0OjU='
+         'sha256-hfXxIc+s7Zu1qVWEelLpqI6o0fB18XBEV6qabda2aE0='
+         'sha256-lRjvU+Ovjmmxf3/997fldyACVfnepKrNmyg7/ilu5AY='
+         'sha256-tyAYsFWvk5C2Ynwfe+8NWzoBt1ZLMJ6QoAVaagpipmk='
          <?php
          }
-         echo 'https://cdnjs.cloudflare.com'; ?>
+         echo 'https://cdnjs.cloudflare.com https://translate.google.com/'; ?>
       ; 
       style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://p.typekit.net https://use.typekit.net; 
       object-src 'none'; 
