@@ -5,17 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- //TODO -->
-  <!-- <meta 
+  <meta 
     http-equiv="Content-Security-Policy" 
     content="
       default-src 'self'; 
-      img-src 'self' data: https://reade.wpengine.com https://reade.com https://secure.gravatar.com; 
-      style-src 'self' 'unsafe-inline' https:; 
-      font-src 'self' https://fonts.gstatic.com https://use.typekit.net data:; 
-      script-src 'self' 'unsafe-inline' https:; 
+      font-src 'self' data: https://fonts.gstatic.com https://use.typekit.net;
+      img-src 'self' data: https://reade.wpengine.com https://secure.gravatar.com; 
+      script-src 'self' 
+         <?php if( IS_LOCAL ) { 
+            echo "'unsafe-inline' "; 
+         } else { ?>
+         'sha256-iIr4q36PyVNA4P4kimvb9AsD9EFSN7S2a4jm9KEWYVY='
+         'sha256-h3JABsExOt/n2fHKR4py5RBf4T0cY4tvadWA77p+o5U='
+         'sha256-eHL/Izx7K/qWL0kdBXXnHwsLSHvGOJn/THLHydUZdog='
+         'sha256-KwnvQTtu+yCN5S8WrJoU8oBC9+DiEu1pg4UQMZvl/7s='
+         'sha256-CSpeNcGc9mEwoH8pqbdZxgIRVwNBbSE+avwsgADJvKs='
+         'sha256-m16ZMcWtXyc/TG61mIUG72BHGVeSMSSyiqsvhWPot/0='
+         'sha256-ATiVyhKFjD/l50SVfcO+fYyrXiz2OhpfZ0TBjlZjJD0='
+         'sha256-7nWgRnpVWats471LIIVH3brFWOVH5nnnE+mUbHZHu58='
+         'sha256-8//zSBdstORCAlBMo1/Cig3gKc7QlPCh9QfWbRu0OjU='
+         <?php
+         }
+         echo 'https://cdnjs.cloudflare.com'; ?>
+      ; 
+      style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://p.typekit.net https://use.typekit.net; 
       object-src 'none'; 
-      "> -->
-   <!-- require-trusted-types-for 'script'; trusted-types default; -->
+      ">
+      <!-- require-trusted-types-for 'script'; -->
   <?php wp_head(); ?>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">

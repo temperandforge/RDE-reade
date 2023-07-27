@@ -4,11 +4,11 @@ echo '<script>console.log('.json_encode($block, JSON_PRETTY_PRINT).');</script>'
 // Block preview
 if( !empty( $block['data']['_is_preview'] ) ) { 
    ?>
-   <figure>
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/blocks/benefits.webp" alt="Preview of Benefits Block">
+   <figure style="width: 100%;height: auto; display: block;">
+      <img style="width: 100%;height: auto;" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/blocks/benefits.webp" alt="Preview of Benefits Block">
    </figure>
 <?php 
-} else if( $fields = get_fields() ) {
+} else if( $fields = get_fields() ?: []) {
 
    $bicons = array(
       'textplus' => '<svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect width="53" height="52" rx="10" fill="#CFEEF7"/> <mask id="mask0_4510_67909" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="13" y="12" width="27" height="28"> <rect x="13" y="12.5" width="27" height="27" fill="#D9D9D9"/> </mask> <g mask="url(#mask0_4510_67909)"> <path d="M16.375 30.5V28.25H24.25V30.5H16.375ZM16.375 26V23.75H28.75V26H16.375ZM16.375 21.5V19.25H28.75V21.5H16.375ZM31 35V30.5H26.5V28.25H31V23.75H33.25V28.25H37.75V30.5H33.25V35H31Z" fill="#009FC6"/> </g> </svg> ',

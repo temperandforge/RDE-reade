@@ -1,20 +1,26 @@
 <?php
+// Block preview
+if (!empty($block['data']['_is_preview'])) {
+?>
+   <figure>
+      <img style="object-fit: contain; max-width: 100%;" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/blocks/grid-hero.webp" alt="Preview of Benefits Block">
+   </figure>
+   <?php
+} else if ($fields = get_fields() ?: []) {
 
-$fields = get_fields();
-
-$dsicons = array(
-    'clock' => '<svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+   $dsicons = array(
+      'clock' => '<svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="53" height="52" rx="10" fill="#CFEEF7"/>
 <path d="M23.8164 18.8467V25.5844C23.8248 26.409 24.1582 27.197 24.7442 27.7771C25.3302 28.3572 26.1213 28.6828 26.9462 28.6828H32.3111V26.0001H26.9462C26.7108 26.0008 26.5155 25.8189 26.499 25.5844V18.8467H23.8164Z" fill="#009FC6"/>
 <path d="M26.5003 12.1406C24.3223 12.1422 22.1751 12.6574 20.2332 13.6438C18.2912 14.6301 16.609 16.0606 15.3233 17.8186V13.9291H12.6406V22.4236H21.1352V19.7413H17.2587C19.2836 16.765 22.618 14.9462 26.2171 14.8548C29.8156 14.7637 33.2379 16.4113 35.411 19.281C37.584 22.151 38.2417 25.8918 37.1783 29.3307C36.1146 32.7699 33.4597 35.4862 30.0458 36.6282C26.6319 37.7699 22.8771 37.1976 19.9585 35.0907C17.04 32.9838 15.3143 29.6002 15.3233 26.0006V25.5534H12.6407V26.0006C12.6407 29.6765 14.1011 33.2017 16.7002 35.8004C19.2993 38.3995 22.8245 39.8599 26.5 39.8599C30.1756 39.8599 33.7012 38.3995 36.2999 35.8004C38.8989 33.2014 40.3594 29.6762 40.3594 26.0006C40.3594 22.325 38.8989 18.7995 36.2999 16.2008C33.7008 13.6017 30.1756 12.1413 26.5 12.1413L26.5003 12.1406Z" fill="#009FC6"/>
 </svg>
 ',
-    'people' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      'people' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.5" width="53" height="52" rx="10" fill="#CFEEF7"/>
 <path d="M26.8945 15.7001C27.8718 14.5929 29.3016 13.8945 30.8945 13.8945C33.8401 13.8945 36.2279 16.2823 36.2279 19.2279C36.2279 22.1734 33.8401 24.5612 30.8945 24.5612C29.3016 24.5612 27.8718 23.8629 26.8945 22.7556M30.8945 37.8945H14.8945V36.5612C14.8945 32.1429 18.4763 28.5612 22.8945 28.5612C27.3128 28.5612 30.8945 32.1429 30.8945 36.5612V37.8945ZM30.8945 37.8945H38.8945V36.5612C38.8945 32.1429 35.3128 28.5612 30.8945 28.5612C29.4374 28.5612 28.0712 28.9508 26.8945 29.6315M28.2279 19.2279C28.2279 22.1734 25.8401 24.5612 22.8945 24.5612C19.949 24.5612 17.5612 22.1734 17.5612 19.2279C17.5612 16.2823 19.949 13.8945 22.8945 13.8945C25.8401 13.8945 28.2279 16.2823 28.2279 19.2279Z" stroke="#009FC6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 ',
-    'data' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      'data' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.75" width="53" height="52" rx="10" fill="#CFEEF7"/>
 <mask id="mask0_4504_65586" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="13" y="12" width="28" height="28">
 <rect x="13.377" y="12.6699" width="27" height="27" fill="#D9D9D9"/>
@@ -24,7 +30,7 @@ $dsicons = array(
 </g>
 </svg>
 ',
-    'earth' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      'earth' => '<svg width="54" height="52" viewBox="0 0 54 52" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.25" width="53" height="52" rx="10" fill="#CFEEF7"/>
 <mask id="mask0_4504_65597" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="13" y="12" width="28" height="28">
 <rect x="13.25" y="12.5" width="27" height="27" fill="#D9D9D9"/>
@@ -34,44 +40,45 @@ $dsicons = array(
 </g>
 </svg>
 '
-);
+   );
 
-if (!empty($fields['cards'])) {
-    ?>
-    <div class="dropshadow-cards">
-        <?php
+   if (!empty($fields['cards'])) {
+   ?>
+      <div class="dropshadow-cards">
+         <?php
 
-        foreach ($fields['cards'] AS $card) {
-            ?>
+         foreach ($fields['cards'] as $card) {
+         ?>
             <div class="dropshadow-cards-card">
-                <?php
+               <?php
 
-                if (!empty($card['icon']) && isset($dsicons[$card['icon']])) {
-                    echo $dsicons[$card['icon']];
-                }
+               if (!empty($card['icon']) && isset($dsicons[$card['icon']])) {
+                  echo $dsicons[$card['icon']];
+               }
 
-                if (!empty($card['headline'])) {
-                    ?><h3 class="dropshadow-cards-card-headline"><?php echo $card['headline']; ?></h3><?php
-                }
+               if (!empty($card['headline'])) {
+               ?><h3 class="dropshadow-cards-card-headline"><?php echo $card['headline']; ?></h3><?php
+                                                                                                   }
 
-                if (!empty($card['text'])) {
-                    ?><p class="dropshadow-cards-card-text"><?php echo $card['text']; ?></p><?php
-                }
+                                                                                                   if (!empty($card['text'])) {
+                                                                                                      ?><p class="dropshadow-cards-card-text"><?php echo $card['text']; ?></p><?php
+                                                                                                   }
 
-                if (!empty($card['button'])) {
-                    ?><a class="btn-blue-dark-blue btn-arrow" href="<?php echo $card['button']['url']; ?>"><?php echo $card['button']['title']; ?>
-                        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.81634C12.348 6.47463 12.902 6.47463 13.2437 6.81634L16.7437 10.3163C17.0854 10.658 17.0854 11.2121 16.7437 11.5538L13.2437 15.0538C12.902 15.3955 12.348 15.3955 12.0063 15.0538C11.6646 14.7121 11.6646 14.158 12.0063 13.8163L14.0126 11.8101H3.875C3.39175 11.8101 3 11.4183 3 10.9351C3 10.4518 3.39175 10.0601 3.875 10.0601H14.0126L12.0063 8.05378C11.6646 7.71207 11.6646 7.15805 12.0063 6.81634Z" fill="#FAFAFA"/>
-                        </svg>
-                    </a><?php
-                }
+                                                                                                   if (!empty($card['button'])) {
+                                                                                             ?><a class="btn-blue-dark-blue btn-arrow" href="<?php echo $card['button']['url']; ?>"><?php echo $card['button']['title']; ?>
+                     <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.81634C12.348 6.47463 12.902 6.47463 13.2437 6.81634L16.7437 10.3163C17.0854 10.658 17.0854 11.2121 16.7437 11.5538L13.2437 15.0538C12.902 15.3955 12.348 15.3955 12.0063 15.0538C11.6646 14.7121 11.6646 14.158 12.0063 13.8163L14.0126 11.8101H3.875C3.39175 11.8101 3 11.4183 3 10.9351C3 10.4518 3.39175 10.0601 3.875 10.0601H14.0126L12.0063 8.05378C11.6646 7.71207 11.6646 7.15805 12.0063 6.81634Z" fill="#FAFAFA" />
+                     </svg>
+                  </a><?php
+                                                                                                   }
 
-                ?>
+                        ?>
             </div>
-            <?php
-        }
+         <?php
+         }
 
-        ?>
-    </div>
-    <?php
-}
+         ?>
+      </div>
+<?php
+   }
+} ?>
