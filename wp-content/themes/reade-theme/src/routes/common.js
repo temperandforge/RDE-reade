@@ -267,7 +267,12 @@ export default {
 		            data: 'action=doRemoveFromQuote&key=' + JSON.stringify(cartKey),
 		            success: function(responseText){
 		              if (responseText == 'success') {
-		              	$('#cart-item-' + cartKey).fadeOut();
+		              	$('#cart-item-' + cartKey).fadeOut(200, function() {
+		              		if (!$('.piq-cart-item:visible').length) {
+		              			$('.piq-additional-notes, .rfq-notes, .piq-container-right').css('display', 'none');
+		              			$('.rfq-empty').css('display', 'flex');
+		              		}
+		              	});
 		              }
 		            },
 		            error: function() {
@@ -317,8 +322,6 @@ export default {
 				let cartKey = $(e.target).data('cartKey');
 				let qtyVal = $(e.target).val();
 
-				console.log(qtyVal);
-
 				$.ajax({
 		            type: "POST",
 		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
@@ -339,11 +342,38 @@ export default {
 			}, 500));
 		}
 
-		// function handleAddToQuote() {
-		// 	$('#add-to-quote-button').on('click', function() {
-				
-		// 	})
-		// }
+		function handleRFQSubmit() {
+			$('.piq-container-right button').on('click', function() {
+				$.ajax({
+		            type: "POST",
+		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+		            data: 'action=doSubmit&formData=x',
+		            success: function(responseText){
+		            	//alert(responseText);
+		              if (responseText == 'success') {
+		              	document.location.href = '/itemized-rfq-form-success/';
+		              }
+		            },
+		            error: function() {
+		            	//alert('there was an error');
+		            },
+		            complete: function() {
+		            }
+		          });
+			})
+		}
+
+		function handleProductCustomField() {
+			$('.product-custom-fields-title').on('click', function() {
+				if ($(this).next().css('display') == 'none') {
+					$(this).find('svg').css('transform', 'rotate(180deg)');
+				} else {
+					$(this).find('svg').css('transform', 'unset');
+				}
+
+				$(this).next().slideToggle(250);
+			});
+		}
 
 		// run functions
 		handleTFDropdown();
@@ -358,6 +388,8 @@ export default {
 		handleRemoveFromQuote();
 		handleChangeUnits();
 		handleChangeQty();
+		handleRFQSubmit();
+		handleProductCustomField();
 
 
 
