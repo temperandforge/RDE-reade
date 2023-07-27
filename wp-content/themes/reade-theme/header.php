@@ -5,7 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- //TODO -->
-  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://reade.wpengine.com https://reade.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://use.typekit.net; script-src 'self' 'unsafe-inline' 'strict-dynamic' https:; object-src 'none'; require-trusted-types-for 'script';"> -->
+  <!-- <meta 
+    http-equiv="Content-Security-Policy" 
+    content="
+      default-src 'self'; 
+      img-src 'self' data: https://reade.wpengine.com https://reade.com https://secure.gravatar.com; 
+      style-src 'self' 'unsafe-inline' https:; 
+      font-src 'self' https://fonts.gstatic.com https://use.typekit.net data:; 
+      script-src 'self' 'unsafe-inline' https:; 
+      object-src 'none'; 
+      "> -->
+   <!-- require-trusted-types-for 'script'; trusted-types default; -->
   <?php wp_head(); ?>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +53,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <a href="#main_content" class="sr-only"><?php echo __("Skip to main content", TEXTDOMAIN); ?></a>
+  <a href="#main-content" class="sr-only"><?php echo __("Skip to main content", TEXTDOMAIN); ?></a>
   <?php include( locate_template( 'template-parts/mobile-nav.php', false, false ) );  ?>
   <?php include( locate_template( 'template-parts/desktop-nav.php', false, false ) );  ?>
 

@@ -255,6 +255,90 @@ export default {
 			});
 		}
 
+
+		function handleRemoveFromQuote() {
+			$('.removeFromQuote').on('click', function() {
+
+				let cartKey = $(this).data('cartKey');
+
+				$.ajax({
+		            type: "POST",
+		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+		            data: 'action=doRemoveFromQuote&key=' + JSON.stringify(cartKey),
+		            success: function(responseText){
+		              if (responseText == 'success') {
+		              	$('#cart-item-' + cartKey).fadeOut();
+		              }
+		            },
+		            error: function() {
+		            	//alert('there was an error');
+		            },
+		            complete: function() {
+		            }
+		          });
+			})
+		}
+
+		function handleChangeUnits() {
+			$('.tf-dropdown ul li').on('click', function() {
+				let cartKey = $(this).parent().parent().parent().parent().parent().parent().parent().data('cartKey');
+				let unit = $(this).text();
+
+				 $.ajax({
+		            type: "POST",
+		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+		            data: 'action=doChangeUnits&newUnit=' + unit + '&cartKey=' + cartKey,
+		            success: function(responseText){
+		              if (responseText == 'success') {
+		              	//$('#cart-item-' + cartKey).fadeOut();
+		              }
+		            },
+		            error: function() {
+		            	//alert('there was an error');
+		            },
+		            complete: function() {
+		            }
+		          });
+			});
+		}
+
+		function debounce(fn, duration) {
+				var timer;
+				return function(e){
+				  clearTimeout(timer);
+				  timer = setTimeout(fn, duration, e);
+				}
+			  }
+
+		function handleChangeQty() {
+			$('.product-qty').on('input', debounce((e) => {
+				// how to get $(this) data here?
+				// curently
+				let cartKey = $(e.target).data('cartKey');
+				let qtyVal = $(e.target).val();
+
+				console.log(qtyVal);
+
+				$.ajax({
+		            type: "POST",
+		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+		            data: 'action=doChangeQty&cartKey=' + cartKey + '&qty=' + qtyVal,
+		            success: function(responseText){
+		            	//alert(responseText);
+		              if (responseText == 'success') {
+		              	//$('#cart-item-' + cartKey).fadeOut();
+		              }
+		            },
+		            error: function() {
+		            	//alert('there was an error');
+		            },
+		            complete: function() {
+		            }
+		          });
+
+			}, 500));
+		}
+
 		// function handleAddToQuote() {
 		// 	$('#add-to-quote-button').on('click', function() {
 				
@@ -271,6 +355,9 @@ export default {
 		handleSingleRFQDropdown();
 		handleSingleQTYUnits();
 		handleAddToQuote();
+		handleRemoveFromQuote();
+		handleChangeUnits();
+		handleChangeQty();
 
 
 

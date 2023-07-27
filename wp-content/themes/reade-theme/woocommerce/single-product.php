@@ -51,9 +51,9 @@ $product = new WC_Product($qo->ID);
 
          	/* temp */
 
-         	// if (isset($_GET['empty_cart'])) {
-         	// 	$woocommerce->cart->empty_cart();
-         	// }
+         	 if (isset($_GET['empty_cart'])) {
+         	 	$woocommerce->cart->empty_cart();
+         	 }
 
          	// temp
          	// echo '<h3>Cart</h3>';

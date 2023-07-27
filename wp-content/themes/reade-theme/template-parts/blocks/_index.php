@@ -37,6 +37,14 @@ function theme_register_blocks()
 		'mode'			=> $mode,
 		'keywords'		=> ['benefits', 'reade', 'theme', TEXTDOMAIN],
 		'supports'     => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
 	]);
 
 
@@ -339,6 +347,38 @@ function theme_register_blocks()
       'keywords'      => ['faqs', 'reade', 'hero', 'theme', TEXTDOMAIN],
       'supports'     => ['align' => false],
    ]);
+
+   /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-hero',
+		'title'			=> 'Product Hero',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-hero.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-hero.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'hero', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
+
+ /** 
+	 * Product Hero
+	 * */
+	acf_register_block([
+		'name'			=> 'product-itemized-quote',
+		'title'			=> 'Product Itemized Quote',
+		'render_template'	=> get_stylesheet_directory() . "/template-parts/blocks/product-itemized-quote.php",
+		'category'		=> 'theme-blocks',
+		'icon'			=> 'button',
+		'image'        => $img_root . '/product-itemized-quote.webp',
+		'mode'			=> $mode,
+		'keywords'		=> ['product', 'itemized', 'quote', 'reade', 'theme', TEXTDOMAIN],
+		'supports'     => ['align' => false],
+	]);
+
 
 	/** 
 	 * Product RFQ
