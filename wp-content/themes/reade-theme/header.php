@@ -27,6 +27,9 @@
          'sha256-hfXxIc+s7Zu1qVWEelLpqI6o0fB18XBEV6qabda2aE0='
          'sha256-lRjvU+Ovjmmxf3/997fldyACVfnepKrNmyg7/ilu5AY='
          'sha256-tyAYsFWvk5C2Ynwfe+8NWzoBt1ZLMJ6QoAVaagpipmk='
+         'sha256-snvaDPzOaWCFbnG/Ad1l9+3xD3fOHnY16CK1OttdP8g='
+         'sha256-C3tzgmdqHbOPCAFKoc9ZVI4dX8DzBPS1Fxh2Tmbm0/8='
+         'sha256-GVoG8PgoLPPEO3dbynO+c/p9gw/pB3P9zxhbgWC4BL8='
          <?php
          }
          echo 'https://cdnjs.cloudflare.com https://translate.google.com/'; ?>
