@@ -37,6 +37,7 @@ foreach($events as $idx => $event ) {
    $events_map[$event['year']] = $event;
 }
 ?>
+<?php echo '<script>console.log('.json_encode($events_map, JSON_PRETTY_PRINT).');</script>';//debug?>
 <!-- DESKTOP -->
 <div id="history-desktop" class="history-desktop hidden xl:block">
    <div class="history-desktop--scroll-container">
@@ -51,6 +52,10 @@ foreach($events as $idx => $event ) {
          1905,
          1941,
          1983,
+         1989,
+         1999,
+         2003,
+         \'03-\'05',
          2023
       ] as $idx => $year ) {
          include( locate_template("template-parts/history/$year.php", false, false, $args=$events_map[$year]));

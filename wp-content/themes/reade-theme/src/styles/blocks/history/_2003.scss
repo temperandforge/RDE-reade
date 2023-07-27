@@ -1,0 +1,23 @@
+#history-0305,
+#history-2003 {
+	width: 32vw;
+
+	h3 {
+		@apply absolute z-10 left-0;
+		top: 6.7%;
+	}
+
+	figure {
+		@apply absolute left-0;
+		top: 13%;
+		width: 91%;
+		height: 56%;
+	}
+
+	.history-content {
+		@apply absolute z-10 left-0;
+		bottom: 5.7%;
+	}
+}
+
+/* width: 455px */
