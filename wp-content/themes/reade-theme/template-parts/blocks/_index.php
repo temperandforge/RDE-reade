@@ -340,6 +340,22 @@ function theme_register_blocks()
       'supports'     => ['align' => false],
    ]);
 
+
+   /** 
+    * Product Custom Fields
+    * */
+   acf_register_block([
+      'name'         => 'product-custom-fields',
+      'title'        => 'Product Custom Fields',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-custom-fields.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-custom-fields.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'custom', 'fields', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+   ]);
+
    /** 
 	 * Product Hero
 	 * */
@@ -357,7 +373,7 @@ function theme_register_blocks()
 
 
  /** 
-	 * Product Hero
+	 * Product Itemized Quote
 	 * */
 	acf_register_block([
 		'name'			=> 'product-itemized-quote',
