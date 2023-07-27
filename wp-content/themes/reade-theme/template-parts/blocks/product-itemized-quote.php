@@ -23,13 +23,49 @@ $cart_contents = $cart->get_cart_contents();
 
     <div class="piq-container">
         <div class="piq-container-left">
+            <div class="rfq-empty" <?php if (empty($cart_contents)) { echo 'style="display: flex;"'; } ?>>
+                    <?php
+
+                    if (!empty($fields['empty_quote_headline']) || !empty($fields['empty_quote_subtext'])) {
+                        ?>
+                        <div>
+                            <?php
+
+                            if (!empty($fields['empty_quote_headline'])) {
+                                ?>
+                                <span class="rfq-empty-headline"><?php echo $fields['empty_quote_headline']; ?></span>
+                                <?php
+                            }
+
+                            if (!empty($fields['empty_quote_subtext'])) {
+                                ?>
+                                <span class="rfq-empty-subtext"><?php echo $fields['empty_quote_subtext']; ?></span>
+                                <?php
+                            }
+
+                            ?>
+                        </div>
+                        <?php
+                    }
+
+                    if (!empty($fields['empty_quote_button'])) {
+                        ?>
+                        <a href="<?php echo $fields['empty_quote_button']['url']; ?>" class="btn-blue-dark-blue btn-arrow">
+                            <?php echo $fields['empty_quote_button']['title']; ?>
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.75823C12.848 6.41653 13.402 6.41653 13.7437 6.75823L17.2437 10.2582C17.5854 10.5999 17.5854 11.154 17.2437 11.4957L13.7437 14.9957C13.402 15.3374 12.848 15.3374 12.5063 14.9957C12.1646 14.654 12.1646 14.0999 12.5063 13.7582L14.5126 11.752H4.375C3.89175 11.752 3.5 11.3602 3.5 10.877C3.5 10.3937 3.89175 10.002 4.375 10.002H14.5126L12.5063 7.99567C12.1646 7.65396 12.1646 7.09994 12.5063 6.75823Z" fill="#FAFAFA"/>
+                            </svg>
+                        </a>
+                        <?php
+                    }
+
+                    ?>
+                </div>
             <?php
 
             if (empty($cart_contents)) {
                 ?>
-                <div class="rfq-empty">
-                    contents
-                </div>
+                
                 <?php
             } else {
                 $it = 1;
@@ -133,14 +169,19 @@ $cart_contents = $cart->get_cart_contents();
                 }
             }
 
+            if (!empty($cart_contents)) {
+                ?>
+                <h2 class="piq-additional-notes"><?php echo !empty($fields['notes_text']) ? $fields['notes_text'] : 'Additional Quote Notes'; ?></h2>
+                <textarea class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
+                <?php
+            }
+
             ?>
-            <h2 class="piq-additional-notes"><?php echo !empty($fields['notes_text']) ? $fields['notes_text'] : 'Additional Quote Notes'; ?></h2>
-            <textarea class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
 
             <div class="piq-container-left-bottom">
                 <?php
                 if (!empty($fields['bottom_block_headline'])) {
-                    ?>
+                     ?>
                     <p class="piq-bottom-block-headline"><?php echo $fields['bottom_block_headline']; ?></p>
                     <?php
                 }
@@ -156,8 +197,8 @@ $cart_contents = $cart->get_cart_contents();
                     <a class="btn-green-light-green btn-arrow" href="<?php echo $fields['bottom_block_button']['url']; ?>">
                         <?php echo $fields['bottom_block_button']['title']; ?>
                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.75823C12.848 6.41653 13.402 6.41653 13.7437 6.75823L17.2437 10.2582C17.5854 10.5999 17.5854 11.154 17.2437 11.4957L13.7437 14.9957C13.402 15.3374 12.848 15.3374 12.5063 14.9957C12.1646 14.654 12.1646 14.0999 12.5063 13.7582L14.5126 11.752H4.375C3.89175 11.752 3.5 11.3602 3.5 10.877C3.5 10.3937 3.89175 10.002 4.375 10.002H14.5126L12.5063 7.99567C12.1646 7.65396 12.1646 7.09994 12.5063 6.75823Z" fill="#FAFAFA"/>
-</svg>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.75823C12.848 6.41653 13.402 6.41653 13.7437 6.75823L17.2437 10.2582C17.5854 10.5999 17.5854 11.154 17.2437 11.4957L13.7437 14.9957C13.402 15.3374 12.848 15.3374 12.5063 14.9957C12.1646 14.654 12.1646 14.0999 12.5063 13.7582L14.5126 11.752H4.375C3.89175 11.752 3.5 11.3602 3.5 10.877C3.5 10.3937 3.89175 10.002 4.375 10.002H14.5126L12.5063 7.99567C12.1646 7.65396 12.1646 7.09994 12.5063 6.75823Z" fill="#FAFAFA"/>
+    </svg>
 
                     </a>
                     <?php
@@ -167,36 +208,44 @@ $cart_contents = $cart->get_cart_contents();
             </div>
         </div>
         <div class="piq-container-right">
-            <div class="piq-container-right-form">
-                <h2 class="piq-form-headline"><?php echo !empty($fields['form_headline']) ? $fields['form_headline'] : 'Customer Info'; ?></h2>
-                <div class="piq-form">
-                    <div class="piq-form-container">
-                        <input type="hidden" name="action" value="doSubmitRFQForm">
-                        <input type="text" name="rfq-first-name" placeholder="First Name" value="">
-                        <input type="text" name="rfq-last-name" placeholder="Last Name" value="">
-                        <input type="text" name="rfq-company" placeholder="Company" value="">
-                        <input type="phone" name="rfq-phone" placeholder="Phone Number" value="">
-                        <input type="email" name="rfq-email" placeholder="Email" value="">
-                        <input type="text" name="rfq-address-line-1" placeholder="Address" value="">
-                        <input type="text" name="rfq-address-line-2" placeholder="Address Line 2" value="">
-                        <input type="text" name="rfq-city" placeholder="City" value="">
-                        <input type="text" name="rfq-state" placeholder="State" value="">
-                        <input type="text" name="rfq-zip" placeholder="Zip" value="">
+            <?php
+
+            if (!empty($cart_contents)) {
+                ?>
+                <div class="piq-container-right-form">
+                    <h2 class="piq-form-headline"><?php echo !empty($fields['form_headline']) ? $fields['form_headline'] : 'Customer Info'; ?></h2>
+                    <div class="piq-form">
+                        <div class="piq-form-container">
+                            <input type="hidden" name="action" value="doSubmitRFQForm">
+                            <input type="text" name="rfq-first-name" placeholder="First Name" value="">
+                            <input type="text" name="rfq-last-name" placeholder="Last Name" value="">
+                            <input type="text" name="rfq-company" placeholder="Company" value="">
+                            <input type="phone" name="rfq-phone" placeholder="Phone Number" value="">
+                            <input type="email" name="rfq-email" placeholder="Email" value="">
+                            <input type="text" name="rfq-address-line-1" placeholder="Address" value="">
+                            <input type="text" name="rfq-address-line-2" placeholder="Address Line 2" value="">
+                            <input type="text" name="rfq-city" placeholder="City" value="">
+                            <input type="text" name="rfq-state" placeholder="State" value="">
+                            <input type="text" name="rfq-zip" placeholder="Zip" value="">
+                        </div>
                     </div>
                 </div>
-            </div>
-                <button class="btn-blue-dark-blue btn-arrow">
-                    <?php echo !empty($fields['form_submit_button_text']) ? $fields['form_submit_button_text'] : 'Submit RFQ'; ?>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z" fill="#FAFAFA"/>
-</svg></button>
+                    <button class="btn-blue-dark-blue btn-arrow">
+                        <?php echo !empty($fields['form_submit_button_text']) ? $fields['form_submit_button_text'] : 'Submit RFQ'; ?>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z" fill="#FAFAFA"/>
+    </svg></button>
 
-                <a href="/products/" class="btn-dark-blue-blue btn-arrow-reverse">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.99372 14.1187C7.65201 14.4604 7.09799 14.4604 6.75628 14.1187L3.25628 10.6187C2.91457 10.277 2.91457 9.72299 3.25628 9.38128L6.75628 5.88128C7.09799 5.53957 7.65201 5.53957 7.99372 5.88128C8.33543 6.22299 8.33543 6.77701 7.99372 7.11872L5.98744 9.125L16.125 9.125C16.6082 9.125 17 9.51675 17 10C17 10.4832 16.6082 10.875 16.125 10.875L5.98744 10.875L7.99372 12.8813C8.33543 13.223 8.33543 13.777 7.99372 14.1187Z" fill="#FAFAFA"/>
-</svg>
-                    <?php echo !empty($fields['back_to_products_text']) ? $fields['back_to_products_text'] : 'Back To Products'; ?>
-                </a>
+                    <a href="/products/" class="btn-dark-blue-blue btn-arrow-reverse">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99372 14.1187C7.65201 14.4604 7.09799 14.4604 6.75628 14.1187L3.25628 10.6187C2.91457 10.277 2.91457 9.72299 3.25628 9.38128L6.75628 5.88128C7.09799 5.53957 7.65201 5.53957 7.99372 5.88128C8.33543 6.22299 8.33543 6.77701 7.99372 7.11872L5.98744 9.125L16.125 9.125C16.6082 9.125 17 9.51675 17 10C17 10.4832 16.6082 10.875 16.125 10.875L5.98744 10.875L7.99372 12.8813C8.33543 13.223 8.33543 13.777 7.99372 14.1187Z" fill="#FAFAFA"/>
+    </svg>
+                        <?php echo !empty($fields['back_to_products_text']) ? $fields['back_to_products_text'] : 'Back To Products'; ?>
+                    </a>
+                <?php
+            }
+
+            ?>
         </div>
     </div>
 

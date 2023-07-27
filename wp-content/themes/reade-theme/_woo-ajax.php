@@ -152,3 +152,7 @@ if (!empty($_POST['action']) && ($_POST['action'] == 'doChangeQty')) {
 		}
 	}
 }
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doSubmit')) {
+	die('success');
+}

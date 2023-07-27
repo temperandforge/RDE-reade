@@ -657,6 +657,22 @@ function theme_register_blocks()
 				'supports'      => ['align' => false],
 			]);
 
+
+			/**
+			 * RFQ Form Success
+			 */
+			acf_register_block([
+		      'name'          => 'rfq-form-success',
+		      'title'          => 'Product RFQ Form Success',
+		      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/rfq-form-success.php",
+		      'category'       => 'theme-blocks',
+		      'icon'          => 'button',
+		      'image'        => $img_root . '/rfq-form-success.webp',
+		      'mode'          => $mode,
+		      'keywords'       => ['rfq', 'form', 'success', 'reade', 'theme', TEXTDOMAIN],
+		      'supports'      => ['align' => false],
+		   ]);
+
    /** 
     * Secondary Hero
     * */
