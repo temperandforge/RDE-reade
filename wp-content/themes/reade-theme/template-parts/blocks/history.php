@@ -55,7 +55,11 @@ foreach($events as $idx => $event ) {
          1989,
          1999,
          2003,
-         \'03-\'05',
+         20032005,
+         20112015,
+         2018,
+         2020,
+         2022,
          2023
       ] as $idx => $year ) {
          include( locate_template("template-parts/history/$year.php", false, false, $args=$events_map[$year]));
