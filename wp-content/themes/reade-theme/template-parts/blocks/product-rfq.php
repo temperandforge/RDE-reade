@@ -5,6 +5,10 @@ $fields = get_fields();
 // global product
 global $product;
 
+if (is_null($product)) {
+    return;
+}
+
 // this is the product id that gets submitted in the form, hopefully it gets updated later on, but we will start with this
 $submittedProduct = $product->get_id();
 
