@@ -13,8 +13,6 @@ if ($cat) {
 
 ?>
 
-<?php echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug?>
-
 <div class="secondary-hero--section <?php echo $fields['background_color']; ?>">
    <div class="secondary-hero--wrap">
       <div class="secondary-hero--inner">

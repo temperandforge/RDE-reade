@@ -38,7 +38,6 @@ foreach($events as $idx => $event ) {
    $events_map[$event['year']] = $event;
 }
 ?>
-<?php echo '<script>console.log('.json_encode($events_map, JSON_PRETTY_PRINT).');</script>';//debug?>
 <!-- DESKTOP -->
 <div id="history-desktop" class="history-desktop hidden xl:block">
    <div class="history-desktop--scroll-container">

@@ -1131,6 +1131,28 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Small Dropdowns
+    * */
+   acf_register_block([
+      'name'          => 'small-dropdowns',
+      'title'          => 'Small Dropdowns',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/small-dropdowns.php",
+      'category'       => 'theme-blocks',
+      'icon'          => 'button',
+      'mode'          => $mode,
+      'keywords'       => ['small', 'dropdowns', 'reade', 'theme', TEXTDOMAIN],
+      'supports'      => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
     * Static Testimonial
     * */
    acf_register_block([
