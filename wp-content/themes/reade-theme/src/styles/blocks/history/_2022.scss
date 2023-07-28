@@ -1,0 +1,18 @@
+#history-2022 {
+	width: 62.6vw;
+
+	figure {
+		@apply absolute left-0 top-0;
+		width: 64.4%;
+		height: 39.8%;
+	}
+
+	.history-content {
+		@apply absolute;
+		top: 61%;
+		left: 11.4%;
+  max-width: 471px;
+	}
+}
+
+/* width 902 */

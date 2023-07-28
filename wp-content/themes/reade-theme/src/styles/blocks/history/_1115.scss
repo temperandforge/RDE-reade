@@ -1,0 +1,23 @@
+#history-1115 {
+	width: 68vw;
+
+	h3 {
+		@apply absolute z-10 left-0;
+		top: 6.7%;
+	}
+
+	figure {
+		@apply absolute left-0;
+		top: 13%;
+		width: 57%;
+		height: 56%;
+	}
+
+	.history-content {
+		@apply absolute z-10 left-0;
+		width: 57%;
+		top: 69%;
+	}
+}
+
+/* width 982 */
