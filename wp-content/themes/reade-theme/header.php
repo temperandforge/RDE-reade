@@ -56,8 +56,7 @@
   </noscript> -->
 
    <style>
-      .mobile-mepnu.loading,
-      .mobile-menu.loading .sub-menu {
+      .mobile-menu.loading {
          display: none;
       }
    </style>
