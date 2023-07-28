@@ -1,0 +1,36 @@
+#history-2018 {
+	width: 64.5vw;
+
+	.secondary-figure {
+		@apply absolute;
+		top: 10.4%;
+		left: 0;
+		width: 30%;
+		height: 43.2%;
+
+		img {
+			border-radius: unset;
+		}
+	}
+
+	.primary-figure {
+		@apply absolute;
+		bottom: 0;
+		left: 49.7%;
+		width: 44.2%;
+		height: 56.4%;
+	}
+
+	h3 {
+		@apply absolute left-0;
+		top: 56%;
+	}
+
+	.history-content {
+		@apply absolute;
+		top: 7.8%;
+		left: 36.3%;
+	}
+}
+
+/* width 929 */

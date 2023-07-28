@@ -67,9 +67,38 @@
                     "name": "year",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "If multiple years use XXXXXXXX format",
                     "required": 0,
                     "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_649b4fe7c4ad3"
+                },
+                {
+                    "key": "field_64c2865731ec4",
+                    "label": "Year Display",
+                    "name": "year_display",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_649b503ac4ad8",
+                                "operator": "==pattern",
+                                "value": "^[0-9]{8}$"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -132,7 +161,49 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_649b503ac4ad8",
+                                "operator": "!=",
+                                "value": "2020"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_649b4fe7c4ad3"
+                },
+                {
+                    "key": "field_64c285fd31ec3",
+                    "label": "Secondary Image",
+                    "name": "secondary_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_649b503ac4ad8",
+                                "operator": "==",
+                                "value": "2018"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -171,5 +242,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689960144
+    "modified": 1690489901
 }
