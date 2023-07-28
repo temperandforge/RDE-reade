@@ -10,11 +10,21 @@ export default {
     //TODO animation easing - easeInOut
     $('.btn--back-to-start').on('click', function(e) {
       e.preventDefault()
-      for(let i = e.target.closest("#history-desktop").scrollLeft; i > 0; i--) {
-        setTimeout(() => {
-          e.target.closest("#history-desktop").scrollTo(i, 0)
-        }, (e.target.closest("#history-desktop").scrollLeft - i ) / 11)
-      }
+
+      // calculate farthest left side of first history section to scroll x coordinate
+      const beginningHistory = document.getElementById('history-1773')
+      let beginRect = beginningHistory.getBoundingClientRect()
+
+      // calculate height of navbar and hero section to scroll under both for y coordinate
+      const heroSection = document.querySelector('.grid-hero--section')
+      let heroRect = heroSection.getBoundingClientRect()
+      let heroBottom = heroRect.height
+      
+      const navbar = document.querySelector('.navbar-wrap')
+      let navRect = navbar.getBoundingClientRect()
+      let navBottom = navRect.height
+
+      scrollTo(beginRect.x, heroBottom + navBottom)
     })
 
   },

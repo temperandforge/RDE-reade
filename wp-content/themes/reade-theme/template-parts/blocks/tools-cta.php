@@ -1,9 +1,14 @@
 <?php
-
-$fields = get_fields();
+// Block preview
+if( !empty( $block['data']['_is_preview'] ) ) { 
+   ?>
+   <figure>
+      <img style="object-fit: contain; max-width: 100%;" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/blocks/image.webp" alt="Preview of Benefits Block">
+   </figure>
+<?php 
+} else if( $fields = get_fields() ?: []) {
 
 ?>
-
 <div class="tools-cta">
   <div class="tools-cta-top bg-grid">
     <div class="tools-cta-top-container">
@@ -103,3 +108,6 @@ $fields = get_fields();
 
     ?>
 </div>
+
+<?php
+} ?>

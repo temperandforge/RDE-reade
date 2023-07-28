@@ -31,8 +31,8 @@ function theme_scripts() {
 
    // Add filters to catch and modify the styles and scripts as they're loaded.
    // add_filter( 'style_loader_tag', __NAMESPACE__ . '\wpdocs_my_add_sri', 10, 2 );
-   add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
-   add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
+   // add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
+   // add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts', 10 );
 

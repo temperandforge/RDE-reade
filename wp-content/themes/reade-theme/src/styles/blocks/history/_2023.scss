@@ -1,0 +1,25 @@
+#history-2023 {
+ width: 61vw;
+
+ .history-content {
+  @apply absolute left-0;
+  top: 8.5%;
+  max-width: 471px;
+ }
+
+ figure {
+  @apply absolute left-0;
+  top: 45.3%;
+  width: 64.44%;
+  height: 48%;
+ }
+
+ .btn--back-to-start {
+  @apply absolute;
+  top: 7.5%;
+  right: 9%;
+ }
+}
+
+
+/* width 879 */

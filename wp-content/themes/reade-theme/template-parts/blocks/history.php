@@ -13,8 +13,8 @@ $events = $fields['events'];
             <?php echo $event['content']; ?>
 
             <picture>
-               <?php //echo wp_get_attachment_image($event['img']['ID'], [1920,1920], false, []); ?>
-               <img src="https://picsum.photos/1920/192<?php echo strval($idx);?>.webp" alt="" />
+               <?php echo wp_get_attachment_image($event['img']['ID'], 'large ', false, []); ?>
+               <!-- <img src="https://picsum.photos/1920/192<?php echo strval($idx);?>.webp" alt="" /> -->
             </picture>
          </div>
       <?php endforeach;?>
@@ -37,6 +37,7 @@ foreach($events as $idx => $event ) {
    $events_map[$event['year']] = $event;
 }
 ?>
+<?php echo '<script>console.log('.json_encode($events_map, JSON_PRETTY_PRINT).');</script>';//debug?>
 <!-- DESKTOP -->
 <div id="history-desktop" class="history-desktop hidden xl:block">
    <div class="history-desktop--scroll-container">
@@ -45,11 +46,20 @@ foreach($events as $idx => $event ) {
       // array_keys($events_map) values may change
       foreach([
          1773,
-         // 1873,
+         1873,
          1878,
          1881,
-         // 1905,
-         // 1941,
+         1905,
+         1941,
+         1983,
+         1989,
+         1999,
+         2003,
+         20032005,
+         20112015,
+         2018,
+         2020,
+         2022,
          2023
       ] as $idx => $year ) {
          include( locate_template("template-parts/history/$year.php", false, false, $args=$events_map[$year]));

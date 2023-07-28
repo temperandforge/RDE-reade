@@ -1,9 +1,14 @@
+<?php
+// Block preview
+if( !empty( $block['data']['_is_preview'] ) ) { 
+   ?>
+   <figure>
+      <img style="object-fit: contain; max-width: 100%;" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/blocks/grid-hero.webp" alt="Preview of Benefits Block">
+   </figure>
 <?php 
-
-$fields = get_fields(); 
+} else if( $fields = get_fields() ?: []) {
 
 ?>
-
 <div class="calculator">
    <div class="calculator--content">
       <?php if (array_key_exists('heading', $fields) && $heading = $fields['heading'] ): ?>
@@ -74,3 +79,6 @@ $fields = get_fields();
       } ?>
    </div>
 </div>
+
+<?php 
+} ?>
