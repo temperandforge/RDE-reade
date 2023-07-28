@@ -204,6 +204,12 @@ $grid-breakpoints: (
 	}
 }
 
+.bg-light-blue-100 {
+	&:after {
+		background-color: var(--primary100);
+	}
+}
+
 .bg-blue {
 	&:after {
 		background-color: var(--primary500);
