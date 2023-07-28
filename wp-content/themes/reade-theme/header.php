@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- //TODO -->
-  <meta 
+  <!-- <meta 
     http-equiv="Content-Security-Policy" 
     content="
       default-src 'self'; 
@@ -13,7 +13,7 @@
       img-src 'self' data: https://reade.wpengine.com https://secure.gravatar.com https://cdn.gtranslate.net; 
       script-src 'self' 
          <?php if( IS_LOCAL ) { 
-            echo "'unsafe-inline' "; 
+            //echo "'unsafe-inline' "; 
          } else { ?>
          'sha256-iIr4q36PyVNA4P4kimvb9AsD9EFSN7S2a4jm9KEWYVY='
          'sha256-h3JABsExOt/n2fHKR4py5RBf4T0cY4tvadWA77p+o5U='
@@ -32,11 +32,11 @@
          'sha256-GVoG8PgoLPPEO3dbynO+c/p9gw/pB3P9zxhbgWC4BL8='
          <?php
          }
-         echo 'https://cdnjs.cloudflare.com https://translate.google.com/'; ?>
+         //echo 'https://cdnjs.cloudflare.com https://translate.google.com/'; ?>
       ; 
       style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://p.typekit.net https://use.typekit.net; 
       object-src 'none'; 
-      ">
+      "> -->
       <!-- require-trusted-types-for 'script'; -->
   <?php wp_head(); ?>
   
@@ -44,7 +44,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <!-- September Font -->
-  <link href="https://use.typekit.net/fvv7hkq.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/gll2aqr.css">
   <!-- <link 
       rel="preload" 
       as="style" 
