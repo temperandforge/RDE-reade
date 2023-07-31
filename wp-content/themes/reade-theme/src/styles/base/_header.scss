@@ -104,14 +104,14 @@ ul.header-links {
 			//TODO margin-left: -1em;
 			margin-right: auto;
 		}
-
-		&:hover,
-		&:focus-within {
+		
+		&:focus-within,
+		&:hover {
 			//TODO
 			.sub-menu {
 				opacity: 1;
 				pointer-events: initial;
-				max-height: unset;
+				max-height: unset!important; //safari //STARTER
 				visibility: visible;
 				transition: 0.2s;
 			}

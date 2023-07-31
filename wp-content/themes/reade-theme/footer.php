@@ -91,7 +91,29 @@ if (!('customElements' in window)) {
 }
 </script>
 
+
 <?php wp_footer(); ?>
+
+<!-- TODO security -->
+<script>
+   var cb = function() {
+      let h = document.getElementsByTagName('head')[0]; 
+      for(let src of [
+         'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap',
+         'https://use.typekit.net/gll2aqr.css',
+         '/wp-content/themes/reade-theme/assets/css/bundle-min.css'
+      ]) {
+         let l = document.createElement('link'); 
+         l.rel = 'stylesheet';
+         // l.href = '/wp-content/themes/reade-theme/assets/css/bundle-min.css';
+         l.href = src;
+         h.parentNode.insertBefore(l, h);
+      }
+   };
+   var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+   if (raf) raf(cb);
+   else window.addEventListener('load', cb);
+</script>
 
 <?php 
 if (array_key_exists('footer_code', $option_fields) && $footer_code = $option_fields['footer_code']) {

@@ -29,7 +29,7 @@ if (!empty($block['data']['_is_preview'])) {
                </div>
                <div class="dual-block--second">
                   <figure>
-                     <?php echo wp_get_attachment_image($fields['image']['id'], 'full'); ?>
+                     <?php echo wp_get_attachment_image($fields['image']['id'], 'large', false, ['loading' => 'eager']); ?>
                   </figure>
                </div>
             </div>

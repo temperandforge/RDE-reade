@@ -9,6 +9,12 @@ const $body = $( document.body );
 
 export default {
 	init() {
+		new PerformanceObserver((entryList) => {
+			for (const entry of entryList.getEntriesByName('first-contentful-paint')) {
+			  console.log('FCP candidate:', entry.startTime, entry);
+			}
+		 }).observe({type: 'paint', buffered: true});
+		 
 		const observer = lozad( 'img' ); 
 		observer.observe();
 		$('.hero img, .primary-hero--figure img').attr('loading', 'eager')
@@ -95,11 +101,6 @@ export default {
 				}
 			}
 		}
-
-
-
-
-
 
 
 		/** WOOCOMMERCE JS **/
@@ -467,7 +468,7 @@ export default {
 
 
 
-			  function handleSearch() {
+			function handleSearch() {
 				$('.pab-filters-search').on('keyup', debounceSearch(() => {
 					let search = $('.pab-filters-search').val().toLowerCase();
 
@@ -533,8 +534,6 @@ export default {
 		handleChangeQty();
 		handleRFQSubmit();
 		handleProductCustomField();
-
-
 
 
 		window.addEventListener('resize', function handleResize() {

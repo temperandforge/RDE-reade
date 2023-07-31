@@ -16,12 +16,17 @@ function theme_scripts() {
    wp_dequeue_style( 'wp-block-library-theme' ); // Wordpress core
    wp_dequeue_style( 'wc-blocks-style' ); // WooCommerce
 
+   //TODO just for build wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
+   //TODO just for build wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
+   // wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+
 	// Deregister the jquery version bundled with WordPress.
 	wp_dequeue_script( 'jquery' );
 	wp_deregister_script( 'jquery' );
 	//TODO  // wp_enqueue_script( 'cash-dom', 'https://cdn.jsdelivr.net/npm/cash-dom@8.1.5/dist/cash.min.js', array(), null, true );
    //<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js', array(), null, true );
+	wp_enqueue_script( 'jquery-passive', $theme_uri . "/assets/js/passive.js", ['jquery'], $theme->version, true);
 
 	// slick //TODO remove -> loadjs?
 	//wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
@@ -29,11 +34,11 @@ function theme_scripts() {
 	
 	//lity
 	//wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
-	wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
+	//TODO Just for build? wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
 	
    // bundle
 	// wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
-	//wp_enqueue_style('theme-css', $theme_uri . "/dist/styles.css",  false, $theme->version);
+	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/critical.css",  false, $theme->version);
 	wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery'], $theme->version, true);
 
    // Add filters to catch and modify the styles and scripts as they're loaded.
@@ -84,4 +89,4 @@ function prefix_add_footer_styles() {
    add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
    add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
 };
-add_action( 'get_footer', 'prefix_add_footer_styles' );
+// add_action( 'get_footer', 'prefix_add_footer_styles' );
