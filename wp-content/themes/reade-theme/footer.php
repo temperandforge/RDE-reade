@@ -101,7 +101,7 @@ if (!('customElements' in window)) {
       for(let src of [
          'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap',
          'https://use.typekit.net/gll2aqr.css',
-         '/wp-content/themes/reade-theme/assets/css/bundle-min.css'
+         // '/wp-content/themes/reade-theme/assets/css/bundle-min.css'
       ]) {
          let l = document.createElement('link'); 
          l.rel = 'stylesheet';

@@ -12,6 +12,7 @@
     "build": "run-p rollup-build style:build",
     "dev": "rollup -c -w",
     "rollup-build": "rollup -c",
+    "audit": "npx unlighthouse@0.10.0 --site https://reade.wpengine.com --mobile",
     "watch": "run-p sass:watch twnd:watch",
     "style:watch": "run-p sass:watch twnd:watch",
     "style:build": "npm run sass:build && npm run twnd:build",
