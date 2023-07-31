@@ -390,8 +390,14 @@ export default {
 
 		if (document.body.classList.contains('post-type-archive-product')) {
 			  let currentPage = 1;
-			  const elementsPerPage = 6;
+			  let elementsPerPage;
 			  let totalElements = $(categoryType).length;
+
+			  if (window.innerWidth < 640) {
+			  	elementsPerPage = 3;
+			  } else {
+			  	elementsPerPage = 6;
+			  }
 
 			  function showElements(startIndex, endIndex) {
 			    $('.pab-category').hide();
@@ -531,10 +537,27 @@ export default {
 
 
 
-
+		window.addEventListener('resize', function handleResize() {
+			/* Per page elements for products */
+			if (window.innerWidth < 640) {
+				if (3 != elementsPerPage) {
+					elementsPerPage = 3;
+					showElements(0, elementsPerPage);
+			  		updatePaginationButtons();
+			  		updateDots();
+				};
+			} else {
+				if (6 != elementsPerPage) {
+					elementsPerPage = 6;
+					showElements(0, elementsPerPage);
+			  		updatePaginationButtons();
+			  		updateDots();
+				}
+			}
+		})
 
 		// window resize
-		window.onresize = function() {
+		window.addEventListener('resize', function() {
 			
 			/**
 			 * Change pagination of news cards/grids
@@ -580,6 +603,9 @@ export default {
 					$('#single-share').css('top', '0');
 				}
 			}
-		}
+
+
+			
+		});
 	},
 };

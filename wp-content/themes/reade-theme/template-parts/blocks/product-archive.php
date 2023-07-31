@@ -42,6 +42,7 @@ $fields = get_fields();
       </div>
       <div class="pab-filters-right">
          <input class="pab-filters-search" type="text" value="" placeholder="Search">
+         <hr>
       </div>
    </div>
 
@@ -118,7 +119,7 @@ $fields = get_fields();
                         }
                      } else {
                         ?>
-                        <img src="https://localhost:3000/wp-content/uploads/2023/07/family-home-gb68e281c2_640.jpg">
+                        <!--<img src="https://localhost:3000/wp-content/uploads/2023/07/family-home-gb68e281c2_640.jpg">-->
                         <?php
                      }
 
