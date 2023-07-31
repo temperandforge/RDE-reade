@@ -11,7 +11,7 @@ export default {
 	init() {
 		const observer = lozad( 'img' ); 
 		observer.observe();
-		$('.hero img').attr('loading', 'eager')
+		$('.hero img, .primary-hero--figure img').attr('loading', 'eager')
 
 		runFunctions();
 		runBlocks();
