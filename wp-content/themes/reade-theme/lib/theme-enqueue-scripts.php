@@ -9,6 +9,10 @@ function theme_scripts() {
 	$theme_uri = get_template_directory_uri();
 
 	wp_deregister_script( 'wp-embed' );
+   //STARTER
+   wp_dequeue_style( 'wp-block-library' ); // Wordpress core
+   wp_dequeue_style( 'wp-block-library-theme' ); // Wordpress core
+   wp_dequeue_style( 'wc-block-style' ); // WooCommerce
 
 	// Deregister the jquery version bundled with WordPress.
 	wp_dequeue_script( 'jquery' );
