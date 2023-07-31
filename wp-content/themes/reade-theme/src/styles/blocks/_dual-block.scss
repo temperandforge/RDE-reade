@@ -71,7 +71,7 @@
 	}
 
 	img {
-		@apply object-cover w-full;
+		@apply w-full; //object-cover
 		aspect-ratio: 451 / 389;
 		max-width: 550px;
 

@@ -203,12 +203,14 @@ a.footer-logo-link {
 }
 .footer-form-msg { 
    @apply max-w-[266px] mx-auto text-center;
-   @include body-xs;
-   h6 {
+   small {
+      @include body-xs;
+   }
+   p {
       @apply font-semibold mb-2 mx-auto;
       @include body;
       @apply text-white; //override body
-      max-width: 14em;
+      //max-width: 14em;
    }
 }
 .wpcf7-spinner { @apply hidden; }
