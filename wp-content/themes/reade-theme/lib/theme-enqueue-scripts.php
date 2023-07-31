@@ -11,6 +11,8 @@ function theme_scripts() {
 	wp_deregister_script( 'wp-embed' );
    //STARTER
    wp_dequeue_style( 'wp-block-library' ); // Wordpress core
+   wp_dequeue_style( 'wp-block-styles' ); // Wordpress core
+   wp_dequeue_style( 'classic-theme-styles-css' ); // Wordpress core
    wp_dequeue_style( 'wp-block-library-theme' ); // Wordpress core
    wp_dequeue_style( 'wc-block-style' ); // WooCommerce
 
