@@ -136,7 +136,7 @@
 	.pab-category {
 		flex-basis: calc(33.333333% - calc(50px / 3));
 		display: none;
-		position: relative;
+		position: relative; 
 
 		@include respond-below(lg) {
 			flex-basis: calc(50% - 12.5px);
