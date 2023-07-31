@@ -2,16 +2,24 @@ name: Deploy to WP Engine
 on:
   push:
     branches:
-      - opt-performance
+      - test-performance
 jobs:
   build:
     runs-on: ubuntu-latest  
     steps:
-    - name: Running Page Speed Insights
+    - name: sustainable-products-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: psi
+      id: sustainable-products-mbl
       with:
-        url: "https://reade.wpengine.com/"
-        threshold: 96
+        url: "https://reade.wpengine.com/sustainable-products/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: sustainable-products-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: sustainable-products-dsk
+      with:
+        url: "https://reade.wpengine.com/sustainable-products/"
+        threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
