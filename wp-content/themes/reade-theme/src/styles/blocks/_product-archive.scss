@@ -122,9 +122,9 @@
 	}
 	.pab-categories {
 		display: flex;
-		row-gap: 25px;
+		gap: 25px;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 	.pab-categories-slide {
 		display: flex;
@@ -134,9 +134,9 @@
 	}
 
 	.pab-category {
-		flex-basis: calc(33% - 25px);
+		flex-basis: calc(33.333333% - calc(50px / 3));
 		display: none;
-		position: relative;
+		position: relative; 
 
 		@include respond-below(lg) {
 			flex-basis: calc(50% - 12.5px);
@@ -154,6 +154,10 @@
 		border-radius: 5px;
 		background: lightgray 50% / cover no-repeat;
 		box-shadow: 0px 8px 31px 4px rgba(16, 24, 40, 0.09);
+
+		@include respond-below(sm) {
+			aspect-ratio: 342/210;
+		}
 	}
 
 	.pab-category-info {
@@ -190,6 +194,10 @@
 		position: relative;
 		padding-top: 16px;
 
+		@include respond-below(sm) {
+			padding-top: 5px;
+		}
+
 		.btn-dark-blue-blue {
 			display: inline-flex;
 			padding: 10px 33px;
@@ -221,6 +229,12 @@
 		position: absolute;
 		right: 0;
 		top: 0;
+
+		@include respond-below(sm) {
+			position: relative;
+			text-align: center;
+			margin-top: 34px;
+		}
 	}
 
 	.pab-pagination-dot-current {
@@ -258,8 +272,7 @@
             border: 1px solid var(--primary-500-main, #009FC6);
             background: #FFF;
             max-height: 300px;
-            overflow-x: hidden;
-            overflow-y: scroll;
+            overflow: hidden;
         }
 
         dt, dd ul li {

@@ -7,6 +7,7 @@ import { runBlocks } from './_blocks';
 const { $ } = window;
 const $body = $( document.body );
 
+
 export default {
 	init() {
 		// new PerformanceObserver((entryList) => {
@@ -24,6 +25,7 @@ export default {
 		// runIO()
 	},
 	finalize() {
+
 		// JavaScript to be fired on all pages, after page specific JS is fired
 		// class to hide outlines if not using keyboard
 		$body.on( 'mousedown', function() {
@@ -32,6 +34,41 @@ export default {
 		$body.on( 'keydown', function() {
 			$body.removeClass( 'using-mouse' );
 		} );
+
+
+		let elementsPerPage;
+		let categoryType = '.pab-category';
+		let searchLoaded = false;
+		let currentPage = 1;
+		let totalElements = $(categoryType).length;
+
+		function showElements(startIndex, endIndex) {
+			$('.pab-category').hide();
+			let pabs = $(categoryType).slice(startIndex, endIndex);
+			pabs.each(function() {
+				$(this).fadeIn(250).css('display', 'block');
+			});
+		}
+
+		function updatePaginationButtons() {
+			$('.prev-btn').prop('disabled', currentPage === 1);
+			$('.next-btn').prop('disabled', currentPage === Math.ceil(totalElements / elementsPerPage));
+		}
+
+		function updateDots(create=false) {
+			let pages = Math.ceil($(categoryType).length / elementsPerPage);
+			$('.pab-pagination-dots').html('');
+
+			for (let i = 0; i < pages; i++) {
+				$('.pab-pagination-dots').append('<svg ' + (i+1 == currentPage ? 'class="pab-pagination-dot-current" ' : '') + 'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>');
+			}
+				  		
+			totalElements = $(categoryType).length;
+			updatePaginationButtons();
+		}
+
+
+
 
 		/**
 		 * News page, tf dropdown action
@@ -384,64 +421,19 @@ export default {
 			});
 		}
 
-		let categoryType = '.pab-category';
-		let searchLoaded = false;
+		
 
 
 
 		if (document.body.classList.contains('products')) {
-			  let currentPage = 1;
-			  let elementsPerPage;
-			  let totalElements = $(categoryType).length;
+			  
 
 			  if (window.innerWidth < 640) {
 			  	elementsPerPage = 3;
 			  } else {
 			  	elementsPerPage = 6;
 			  }
-
-			  function showElements(startIndex, endIndex) {
-			    $('.pab-category').hide();
-			    let pabs = $(categoryType).slice(startIndex, endIndex);
-				pabs.each(function() {
-					$(this).fadeIn(250);
-				});
-			  }
-
-			  function updatePaginationButtons() {
-			    $('.prev-btn').prop('disabled', currentPage === 1);
-			    $('.next-btn').prop('disabled', currentPage === Math.ceil(totalElements / elementsPerPage));
-			  }
-
-			  function updateDots(create=false) {
-
-			  	if (create) {
-			  		let pages = Math.ceil($('.search-result').length / elementsPerPage);
-			  		$('.pab-pagination-dots').html('');
-			  		currentPage = 1;
-			  		for (let i = 0; i < pages; i++) {
-			  			$('.pab-pagination-dots').append('<svg ' + (i+1 == currentPage ? 'class="pab-pagination-dot-current" ' : '') + 'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>');
-			  		}
-			  		
-			  		totalElements = $(categoryType).length;
-			  		updatePaginationButtons();
-			  	} else {
-				  	let dots = $('.pab-pagination-dots svg');
-				  	dots.removeClass('pab-pagination-dot-current');
-
-				  	for (let i = 0; i < dots.length; i++) {
-				  		if (i + 1 == currentPage) {
-				  			dots[i].classList.add('pab-pagination-dot-current');
-			  			}
-			  		}
-
-			  		
-			  	}
-
-			  }
-
-			  showElements(0, elementsPerPage); // Initially show the first 3 elements
-			  updatePaginationButtons();
+			  showElements(0, elementsPerPage);
 			  updateDots();
 
 			  $('.prev-btn').on('click', function() {
@@ -450,7 +442,6 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updatePaginationButtons();
 			      updateDots();
 			    }
 			  });
@@ -461,7 +452,6 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updatePaginationButtons();
 			      updateDots();
 			    }
 			  });
@@ -515,6 +505,60 @@ export default {
 			}
 
 			handleSearch();
+
+			function handleSort() {
+				$('#filter1 dd ul li').on('click', function() {
+					let sort = $(this).data('key');
+					let container = $('.pab-categories');
+					let cards = $(categoryType);
+					currentPage = 1;
+					cards.hide();
+
+					if (sort == 'alpha') {
+						cards.sort(function(a, b) {
+							
+							var nameA = $(a).find('.pab-category-info-left').text().toLowerCase().trim();
+							var nameB = $(b).find('.pab-category-info-left').text().toLowerCase().trim();
+
+							if (nameA < nameB) {
+								return -1;
+							}
+							if (nameA > nameB) {
+								return 1;
+							}
+							return 0;
+						});
+						
+					} else if (sort == 'reversealpha') {
+						cards.sort(function(a, b) {
+							
+							var nameA = $(a).find('.pab-category-info-left').text().toLowerCase().trim();
+							var nameB = $(b).find('.pab-category-info-left').text().toLowerCase().trim();
+
+							if (nameA > nameB) {
+								return -1;
+							}
+							if (nameA < nameB) {
+								return 1;
+							}
+							return 0;
+						});
+						
+					}
+
+					// hide all cards
+					$(categoryType).remove();
+
+					cards.each(function() {
+						$(container).append($(this).show());
+					});
+
+					showElements(0, elementsPerPage);
+					updateDots();
+				});
+			}
+
+			handleSort();
 		}
 
 		
