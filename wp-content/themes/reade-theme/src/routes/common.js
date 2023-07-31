@@ -315,6 +315,14 @@ export default {
 				}
 			  }
 
+		function debounceSearch(fn, duration) {
+				var timer;
+				return function(){
+				  clearTimeout(timer);
+				  timer = setTimeout(fn, duration);
+				}
+			  }
+
 		function handleChangeQty() {
 			$('.product-qty').on('input', debounce((e) => {
 				// how to get $(this) data here?
@@ -375,6 +383,141 @@ export default {
 			});
 		}
 
+		let categoryType = '.pab-category';
+		let searchLoaded = false;
+
+
+
+		if (document.body.classList.contains('post-type-archive-product')) {
+			  let currentPage = 1;
+			  let elementsPerPage;
+			  let totalElements = $(categoryType).length;
+
+			  if (window.innerWidth < 640) {
+			  	elementsPerPage = 3;
+			  } else {
+			  	elementsPerPage = 6;
+			  }
+
+			  function showElements(startIndex, endIndex) {
+			    $('.pab-category').hide();
+			    let pabs = $(categoryType).slice(startIndex, endIndex);
+				pabs.each(function() {
+					$(this).fadeIn(250);
+				});
+			  }
+
+			  function updatePaginationButtons() {
+			    $('.prev-btn').prop('disabled', currentPage === 1);
+			    $('.next-btn').prop('disabled', currentPage === Math.ceil(totalElements / elementsPerPage));
+			  }
+
+			  function updateDots(create=false) {
+
+			  	if (create) {
+			  		let pages = Math.ceil($('.search-result').length / elementsPerPage);
+			  		$('.pab-pagination-dots').html('');
+			  		currentPage = 1;
+			  		for (let i = 0; i < pages; i++) {
+			  			$('.pab-pagination-dots').append('<svg ' + (i+1 == currentPage ? 'class="pab-pagination-dot-current" ' : '') + 'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>');
+			  		}
+			  		
+			  		totalElements = $(categoryType).length;
+			  		updatePaginationButtons();
+			  	} else {
+				  	let dots = $('.pab-pagination-dots svg');
+				  	dots.removeClass('pab-pagination-dot-current');
+
+				  	for (let i = 0; i < dots.length; i++) {
+				  		if (i + 1 == currentPage) {
+				  			dots[i].classList.add('pab-pagination-dot-current');
+			  			}
+			  		}
+
+			  		
+			  	}
+
+			  }
+
+			  showElements(0, elementsPerPage); // Initially show the first 3 elements
+			  updatePaginationButtons();
+			  updateDots();
+
+			  $('.prev-btn').on('click', function() {
+			    if (currentPage > 1) {
+			      currentPage--;
+			      const startIndex = (currentPage - 1) * elementsPerPage;
+			      const endIndex = startIndex + elementsPerPage;
+			      showElements(startIndex, endIndex);
+			      updatePaginationButtons();
+			      updateDots();
+			    }
+			  });
+
+			  $('.next-btn').on('click', function() {
+			    if (currentPage < Math.ceil(totalElements / elementsPerPage)) {
+			      currentPage++;
+			      const startIndex = (currentPage - 1) * elementsPerPage;
+			      const endIndex = startIndex + elementsPerPage;
+			      showElements(startIndex, endIndex);
+			      updatePaginationButtons();
+			      updateDots();
+			    }
+			  });
+
+
+
+			  function handleSearch() {
+				$('.pab-filters-search').on('keyup', debounceSearch(() => {
+					let search = $('.pab-filters-search').val().toLowerCase();
+
+					if (search.length >= 3) {
+						// set category type to search
+						categoryType = '.search-result';
+						searchLoaded = true;
+
+						$('.pab-category').hide();
+
+						let allCats = $('.pab-category');
+
+						for (let i = 0; i < allCats.length; i++) {
+							if ($(allCats[i]).data('searchTerms').indexOf(search) !== -1) {
+								$(allCats[i]).addClass('search-result');
+							} else {
+								$(allCats[i]).removeClass('search-result');
+							}
+						}
+
+						showElements(0, elementsPerPage);
+						updateDots(true);
+
+					} else {
+						if (searchLoaded) {
+							categoryType = '.pab-category';
+							showElements(0, elementsPerPage);
+							updateDots();
+							updatePaginationButtons();
+							searchLoaded = false;
+
+							totalElements = $(categoryType).length;
+					  		let pages = Math.ceil($('.pab-category').length / elementsPerPage);
+					  		currentPage = 1;
+					  		$('.pab-pagination-dots').html('');
+					  		for (let i = 0; i < pages; i++) {
+					  				$('.pab-pagination-dots').append('<svg ' + (i+1 == currentPage ? 'class="pab-pagination-dot-current" ' : '') + 'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>');
+					  		}
+					  		updatePaginationButtons();
+						}
+					}
+
+				}, 250));
+			}
+
+			handleSearch();
+		}
+
+		
+
 		// run functions
 		handleTFDropdown();
 		handleNewsCardPagination();
@@ -394,10 +537,27 @@ export default {
 
 
 
-
+		window.addEventListener('resize', function handleResize() {
+			/* Per page elements for products */
+			if (window.innerWidth < 640) {
+				if (3 != elementsPerPage) {
+					elementsPerPage = 3;
+					showElements(0, elementsPerPage);
+			  		updatePaginationButtons();
+			  		updateDots();
+				};
+			} else {
+				if (6 != elementsPerPage) {
+					elementsPerPage = 6;
+					showElements(0, elementsPerPage);
+			  		updatePaginationButtons();
+			  		updateDots();
+				}
+			}
+		})
 
 		// window resize
-		window.onresize = function() {
+		window.addEventListener('resize', function() {
 			
 			/**
 			 * Change pagination of news cards/grids
@@ -443,6 +603,9 @@ export default {
 					$('#single-share').css('top', '0');
 				}
 			}
-		}
+
+
+			
+		});
 	},
 };
