@@ -388,7 +388,7 @@ export default {
 
 
 
-		if (document.body.classList.contains('post-type-archive-product')) {
+		if (document.body.classList.contains('products')) {
 			  let currentPage = 1;
 			  let elementsPerPage;
 			  let totalElements = $(categoryType).length;
