@@ -1,4 +1,4 @@
-name: Deploy to WP Engine
+name: Page Speed Checks
 on:
   push:
     branches:
