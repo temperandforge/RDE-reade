@@ -46,7 +46,7 @@ export default {
 			$('.pab-category').hide();
 			let pabs = $(categoryType).slice(startIndex, endIndex);
 			pabs.each(function() {
-				$(this).fadeIn(250);
+				$(this).fadeIn(250).css('display', 'block');
 			});
 		}
 
@@ -433,7 +433,6 @@ export default {
 			  } else {
 			  	elementsPerPage = 6;
 			  }
-
 			  showElements(0, elementsPerPage);
 			  updateDots();
 
