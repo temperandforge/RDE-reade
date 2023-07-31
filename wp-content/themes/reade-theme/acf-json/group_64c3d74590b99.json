@@ -1,13 +1,13 @@
 {
-    "key": "group_64b6b6e4e4be0",
-    "title": "Product Single",
+    "key": "group_64c3d74590b99",
+    "title": "Product Archive",
     "fields": [
         {
-            "key": "field_64b6b70d02a4b",
-            "label": "This product has multiple attributes that must be selected",
-            "name": "multiple_attributes",
+            "key": "field_64c3d74655de9",
+            "label": "Product Archive",
+            "name": "",
             "aria-label": "",
-            "type": "true_false",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,14 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
-            "key": "field_64be94b34207c",
-            "label": "CAS Number",
-            "name": "cas_number",
+            "key": "field_64c3d75755dea",
+            "label": "Headline",
+            "name": "headline",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -43,11 +41,11 @@
             "append": ""
         },
         {
-            "key": "field_64c3f18ad0985",
-            "label": "Is Main Product?",
-            "name": "is_main_product",
+            "key": "field_64c3d75d55deb",
+            "label": "Text",
+            "name": "text",
             "aria-label": "",
-            "type": "true_false",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -56,19 +54,19 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "product"
+                "value": "acf\/product-archive"
             }
         ]
     ],
@@ -81,5 +79,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1690562984
+    "modified": 1690556289
 }
