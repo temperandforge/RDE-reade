@@ -24,21 +24,22 @@ function theme_scripts() {
 	wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js', array(), null, true );
 
 	// slick //TODO remove -> loadjs?
-	wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
+	//wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
 	wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', ['jquery'], $theme->version, true);
 	
 	//lity
-	wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
+	//wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
 	wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
 	
    // bundle
-	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+	// wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+	//wp_enqueue_style('theme-css', $theme_uri . "/dist/styles.css",  false, $theme->version);
 	wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery'], $theme->version, true);
 
    // Add filters to catch and modify the styles and scripts as they're loaded.
    // add_filter( 'style_loader_tag', __NAMESPACE__ . '\wpdocs_my_add_sri', 10, 2 );
-   // add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
-   // add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
+   add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
+   add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts', 10 );
 
@@ -71,3 +72,16 @@ function wpdocs_my_add_sri( $html, $handle ) : string {
    } 
    return $html;
 }
+
+
+function prefix_add_footer_styles() {
+	$theme = wp_get_theme();
+	$theme_uri = get_template_directory_uri();
+   
+   wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+   wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
+   wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
+   add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
+   add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
