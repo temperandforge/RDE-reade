@@ -80,7 +80,7 @@
 
   <?php
 
-  if (is_woocommerce()) {
+  if (is_woocommerce() || is_archive()) {
     $options = get_fields('options');
     ?>
     <div id="add-to-quote-success" class="lity-hide">
