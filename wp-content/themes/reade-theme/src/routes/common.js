@@ -427,6 +427,7 @@ export default {
 
 		if (
 			document.body.classList.contains('woocommerce-shop')
+			|| document.body.classList.contains('products')
 			|| document.body.classList.contains('sustainable-products')
 			|| document.body.classList.contains('tax-product_cat')
 		) {
