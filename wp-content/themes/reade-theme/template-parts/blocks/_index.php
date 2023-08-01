@@ -424,6 +424,29 @@ function theme_register_blocks()
 //      ),
    ]);
 
+   /** 
+    * Product Archive
+    * */
+   acf_register_block([
+      'name'         => 'product-archive-main',
+      'title'        => 'Product Archive Main',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-archive-main.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-archive-main.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'archive', 'main', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
+
 
    /** 
     * Product Custom Fields

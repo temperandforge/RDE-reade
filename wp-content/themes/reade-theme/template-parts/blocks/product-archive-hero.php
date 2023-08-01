@@ -1,6 +1,10 @@
 <?php
 
-$fields = get_fields();
+if (is_archive()) {
+  $fields = $args;
+} else {
+  $fields = get_fields();
+}
 
 ?>
 <div class="product-archive-hero">

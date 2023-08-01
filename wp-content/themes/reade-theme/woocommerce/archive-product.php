@@ -31,10 +31,50 @@ $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
          	<?php
 
             if ($page_id) {
+               
+               /*
+               * product post type archive page
+               */
+               
                $post = get_post($page_id);
                echo the_content(null, false, $post);
+
             } else {
-               echo 'archive page';
+
+               /*
+               * product category archive page
+               */
+               $qobj = get_queried_object();
+               
+                
+               // product archive hero
+               $pah_fields = array(
+                  'headline' => $qobj->name,
+                  'text' => $qobj->description,
+               );
+
+               $thumbnail_id = get_term_meta($qobj->term_id, 'thumbnail_id', true);
+               if ($thumbnail_id) {
+                  if($img = wp_get_attachment_image_src($thumbnail_id, 'full')) {
+                     $pah_fields['image']['sizes']['large'] = $img[0];
+                     $pah_fields['image']['alt'] = $qobj->name . ' Category Image';
+                     $pah_fields['image']['sizes']['large_width'] = $img[1];
+                     $pah_fields['image']['sizes']['large_height'] = $img[2];
+                  }
+               }
+
+               include( locate_template( 'template-parts/blocks/product-archive-hero.php', false, false, $args = $pah_fields ?: array()) );
+
+
+
+               // product archive main
+               $pam_fields = array(
+                  'column_1_text' => 'Product Name',
+                  'column_2_text' => 'Description',
+                  'term_id' => $qobj->term_id
+               );
+
+               include( locate_template( 'template-parts/blocks/product-archive-main.php', false, false, $args = $pam_fields ?: array()) );
             }
 
          	?>
