@@ -425,7 +425,7 @@ export default {
 
 
 
-		if (document.body.classList.contains('products')) {
+		if (document.body.classList.contains('woocommerce-shop')) {
 			  
 
 			  if (window.innerWidth < 640) {
