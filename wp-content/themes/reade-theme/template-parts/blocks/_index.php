@@ -379,6 +379,29 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Product Archive Hero
+    * */
+   acf_register_block([
+      'name'         => 'product-archive-hero',
+      'title'        => 'Product Archive Hero',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-archive-hero.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-archive-hero.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'archive', 'hero', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
+
+   /** 
     * Product Archive
     * */
    acf_register_block([
