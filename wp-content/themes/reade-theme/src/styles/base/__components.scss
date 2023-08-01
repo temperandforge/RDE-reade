@@ -89,6 +89,20 @@
 			}
 		}
 	}
+
+	.btn-light-blue-blue {
+		@apply btn bg-primary50 text-primary500 border-none;
+		@media screen and (hover: hover) and (pointer: fine) {
+			&:hover {
+				background-color: primary500;
+				@apply text-white;
+
+				svg path {
+					fill: var(--primary500);
+				}
+			}
+		}
+	}
 }
 
 
