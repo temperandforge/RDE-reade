@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$page_id = wc_get_page_id( 'shop' );
+$page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
 ?>
 
@@ -29,8 +29,13 @@ $page_id = wc_get_page_id( 'shop' );
       <div class="theme-inner-wrap">
          <article class="product-archive">
          	<?php
-         	$post = get_post($page_id);
-         	echo the_content(null, false, $post);
+
+            if ($page_id) {
+               $post = get_post($page_id);
+               echo the_content(null, false, $post);
+            } else {
+               echo 'archive page';
+            }
 
          	?>
          </article>
