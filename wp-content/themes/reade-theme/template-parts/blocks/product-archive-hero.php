@@ -6,6 +6,8 @@ if (is_archive()) {
   $fields = get_fields();
 }
 
+$options = get_fields('options');
+
 ?>
 <div class="product-archive-hero">
   <div class="pah-top bg-light-blue">
@@ -51,8 +53,16 @@ if (is_archive()) {
         <div class="pah-image-mobile">
           <img src="<?php echo $fields['image']['sizes']['large']; ?>" alt="<?php echo $fields['image']['alt']; ?>" width="<?php echo $fields['image']['sizes']['large-width']; ?>" height="<?php echo $fields['image']['sizes']['large-height']; ?>">
         </div>
-    <?php
-  }
+        <?php
+      } else {
+        if (!empty($options['category_fallback_image']['url'])) {
+          ?>
+          <div class="pah-image-mobile">
+            <img src="<?php echo $options['category_fallback_image']['sizes']['medium_large']; ?>" alt="<?php echo $product_category->name; ?> Category" width="<?php echo $options['category_fallback_image']['sizes']['medium_large-width']; ?>" height="<?php echo $options['category_fallback_image']['sizes']['medium_large-height']; ?>">
+          </div>
+          <?php
+        }
+      }
 
   ?>
     </div>
@@ -65,6 +75,14 @@ if (is_archive()) {
       <img src="<?php echo $fields['image']['sizes']['large']; ?>" alt="<?php echo $fields['image']['alt']; ?>" width="<?php echo $fields['image']['sizes']['large-width']; ?>" height="<?php echo $fields['image']['sizes']['large-height']; ?>">
     </div>
     <?php
+  } else {
+    if (!empty($options['category_fallback_image']['url'])) {
+          ?>
+          <div class="pah-image">
+            <img src="<?php echo $options['category_fallback_image']['sizes']['medium_large']; ?>" alt="<?php echo $product_category->name; ?> Category" width="<?php echo $options['category_fallback_image']['sizes']['medium_large-width']; ?>" height="<?php echo $options['category_fallback_image']['sizes']['medium_large-height']; ?>">
+          </div>
+          <?php
+        }
   }
 
   ?>
