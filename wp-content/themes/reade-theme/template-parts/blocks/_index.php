@@ -425,7 +425,7 @@ function theme_register_blocks()
    ]);
 
    /** 
-    * Product Archive
+    * Product Archive Main
     * */
    acf_register_block([
       'name'         => 'product-archive-main',
@@ -517,6 +517,29 @@ function theme_register_blocks()
          )
       ),
 	]);
+
+   /** 
+    * Product Related Products
+    * */
+   acf_register_block([
+      'name'         => 'product-related-products',
+      'title'        => 'Product Related Products',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-related-products.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-related-products.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'related', 'products', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
 
 
 	/** 
