@@ -78,7 +78,7 @@
 		}
 
 		img {
-			aspect-ratio: 1240/623;
+			aspect-ratio: 1240/395;
 			width: 100%;
 			border-radius: 15px;
 			background: linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat;
@@ -91,13 +91,23 @@
 		img {
 			border-radius: 15px;
 			background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 100%), url(<path-to-image>), lightgray 50% / cover no-repeat;
-			aspect-ratio: 342/172;
+			aspect-ratio: 342/200;
 			width: 100%;
 			object-fit: cover;
 		}
 
 		@include respond-below(md) {
 			display: block;
+		}
+	}
+}
+
+body.term-sustainable-products {
+	.product-archive-hero {
+		.pah-image {
+			img {
+				aspect-ratio: 1240/623;
+			}
 		}
 	}
 }
