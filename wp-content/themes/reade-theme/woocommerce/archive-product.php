@@ -17,6 +17,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+if (stripos($_SERVER['REQUEST_URI'], 'product-category/sustainable-products') !== false) {
+   wp_redirect(get_site_url() . '/sustainable-products/', 301);
+   exit;
+}
+
 get_header();
 
 $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
@@ -51,6 +56,7 @@ $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
                $pah_fields = array(
                   'headline' => $qobj->name,
                   'text' => $qobj->description,
+                  'applications' => get_field('applications', $qobj)
                );
 
                $thumbnail_id = get_term_meta($qobj->term_id, 'thumbnail_id', true);
@@ -69,12 +75,17 @@ $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
                // product archive main
                $pam_fields = array(
-                  'column_1_text' => 'Product Name',
-                  'column_2_text' => 'Description',
+                  'column_1_text' => '',
+                  'column_2_text' => '',
                   'term_id' => $qobj->term_id
                );
 
                include( locate_template( 'template-parts/blocks/product-archive-main.php', false, false, $args = $pam_fields ?: array()) );
+
+
+
+               // cta
+               include( locate_template( 'template-parts/blocks/primary-footer-cta.php', false, false, $args = get_fields($qobj) ?: array()) );
             }
 
          	?>
