@@ -1,6 +1,6 @@
 <?php
 
-if (is_category()) {
+if (is_category() || is_archive()) {
   $fields = $args;
 } else {
   $fields = get_fields();

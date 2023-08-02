@@ -103,6 +103,24 @@
 			}
 		}
 	}
+
+	.btn-light-blue-blue-alt {
+		@apply btn bg-primary100 text-primary500 border-none;
+		padding: 12px 20px;
+		max-width: 230px;
+		font-size: 16px;
+		font-weight: 500;
+		@media screen and (hover: hover) and (pointer: fine) {
+			&:hover {
+				background-color: primary500;
+				@apply text-white;
+
+				svg path {
+					fill: $white;
+				}
+			}
+		}
+	}
 }
 
 
