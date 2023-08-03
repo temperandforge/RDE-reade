@@ -2,7 +2,6 @@ name: Deploy to WP Engine
 on:
   push:
     branches:
-      - main
       - test-qa
 jobs:
   build:

@@ -384,3 +384,117 @@ jobs:
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  news-search--no-results:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: news-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: news--no-results-dsk
+      with:
+        url: "https://reade.wpengine.com/news-search/?sv=sdfsdf"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: news-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: news--no-results-mbl
+      with:
+        url: "https://reade.wpengine.com/news-search/?sv=sdfsdf"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  news-search--has-results--has-category:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: news-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: news--has-results--has-category-dsk
+      with:
+        url: "https://reade.wpengine.com/news-search/?sv=sample"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: news-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: news--has-results--has-category-mbl
+      with:
+        url: "https://reade.wpengine.com/news-search/?sv=sample"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  custom-product-rfq-form:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: custom-product-rfq-form-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: custom-product-rfq-form-dsk
+      with:
+        url: "https://reade.wpengine.com/custom-product-rfq-form/"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: custom-product-rfq-form-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: custom-product-rfq-form-mbl
+      with:
+        url: "https://reade.wpengine.com/custom-product-rfq-form/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  tools:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: tools-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: tools-dsk
+      with:
+        url: "https://reade.wpengine.com/tools/"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: tools-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: tools-mbl
+      with:
+        url: "https://reade.wpengine.com/tools/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  document-library:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: tools-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: document-library-dsk
+      with:
+        url: "https://reade.wpengine.com/tools/document-library/"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: tools-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: document-library-mbl
+      with:
+        url: "https://reade.wpengine.com/tools/document-library/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  materials-science-toolkit:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: tools-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: materials-science-toolkit-dsk
+      with:
+        url: "https://reade.wpengine.com/tools/materials-science-toolkit/"
+        threshold: 90
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: tools-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: materials-science-toolkit-mbl
+      with:
+        url: "https://reade.wpengine.com/tools/materials-science-toolkit/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
