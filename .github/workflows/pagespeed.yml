@@ -12,7 +12,7 @@ jobs:
       id: home-dsk
       with:
         url: "https://reade.wpengine.com/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: home-mbl
@@ -20,7 +20,7 @@ jobs:
       id: home-mbl
       with:
         url: "https://reade.wpengine.com/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   services:
@@ -31,7 +31,7 @@ jobs:
       id: services-dsk
       with:
         url: "https://reade.wpengine.com/services"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: services-mbl
@@ -39,7 +39,7 @@ jobs:
       id: services-mbl
       with:
         url: "https://reade.wpengine.com/services"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   global-sourcing:
@@ -50,7 +50,7 @@ jobs:
       id: global-sourcing-dsk
       with:
         url: "https://reade.wpengine.com/services/global-sourcing"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: global-sourcing-mbl
@@ -58,7 +58,7 @@ jobs:
       id: global-sourcing-mbl
       with:
         url: "https://reade.wpengine.com/services/global-sourcing"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   toll-processing:
@@ -69,7 +69,7 @@ jobs:
       id: toll-processing-dsk
       with:
         url: "https://reade.wpengine.com/services/toll-processing"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: toll-processing-mbl
@@ -77,7 +77,7 @@ jobs:
       id: toll-processing-mbl
       with:
         url: "https://reade.wpengine.com/services/toll-processing"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   toll-packaging:
@@ -88,7 +88,7 @@ jobs:
       id: toll-packaging-dsk
       with:
         url: "https://reade.wpengine.com/services/toll-packaging"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: toll-packaging-mbl
@@ -96,7 +96,7 @@ jobs:
       id: toll-packaging-mbl
       with:
         url: "https://reade.wpengine.com/services/toll-packaging"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   about-us:
@@ -107,7 +107,7 @@ jobs:
       id: about-us-dsk
       with:
         url: "https://reade.wpengine.com/about-us"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: about-us-mbl
@@ -115,7 +115,7 @@ jobs:
       id: about-us-mbl
       with:
         url: "https://reade.wpengine.com/about-us"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   history:
@@ -126,7 +126,7 @@ jobs:
       id: history-dsk
       with:
         url: "https://reade.wpengine.com/about-us/history"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: history-mbl
@@ -134,7 +134,7 @@ jobs:
       id: history-mbl
       with:
         url: "https://reade.wpengine.com/about-us/history"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   terms-conditions-of-sale:
@@ -145,7 +145,7 @@ jobs:
       id: terms-conditions-of-sale-dsk
       with:
         url: "https://reade.wpengine.com/about-us/terms-conditions-of-sale"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: terms-conditions-of-sale-mbl
@@ -153,7 +153,7 @@ jobs:
       id: terms-conditions-of-sale-mbl
       with:
         url: "https://reade.wpengine.com/about-us/terms-conditions-of-sale"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   faqs:
@@ -164,7 +164,7 @@ jobs:
       id: faqs-dsk
       with:
         url: "https://reade.wpengine.com/about-us/faqs"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: faqs-mbl
@@ -172,7 +172,7 @@ jobs:
       id: faqs-mbl
       with:
         url: "https://reade.wpengine.com/about-us/faqs"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   careers:
@@ -183,7 +183,7 @@ jobs:
       id: careers-dsk
       with:
         url: "https://reade.wpengine.com/about-us/careers"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: careers-mbl
@@ -191,7 +191,7 @@ jobs:
       id: careers-mbl
       with:
         url: "https://reade.wpengine.com/about-us/careers"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   service-disabled-veteran-owned-small-business:
@@ -202,7 +202,7 @@ jobs:
       id: service-disabled-veteran-owned-small-business-dsk
       with:
         url: "https://reade.wpengine.com/about-us/service-disabled-veteran-owned-small-business"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: service-disabled-veteran-owned-small-business-mbl
@@ -210,7 +210,7 @@ jobs:
       id: service-disabled-veteran-owned-small-business-mbl
       with:
         url: "https://reade.wpengine.com/about-us/service-disabled-veteran-owned-small-business"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   industries-served:
@@ -221,7 +221,7 @@ jobs:
       id: industries-served-dsk
       with:
         url: "https://reade.wpengine.com/about-us/industries-served"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: industries-served-mbl
@@ -229,7 +229,7 @@ jobs:
       id: industries-served-mbl
       with:
         url: "https://reade.wpengine.com/about-us/industries-served"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   quality-at-reade:
@@ -240,7 +240,7 @@ jobs:
       id: quality-at-reade-dsk
       with:
         url: "https://reade.wpengine.com/about-us/quality-at-reade"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: quality-at-reade-mbl
@@ -248,7 +248,7 @@ jobs:
       id: quality-at-reade-mbl
       with:
         url: "https://reade.wpengine.com/about-us/quality-at-reade"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   leadership:
@@ -259,7 +259,7 @@ jobs:
       id: leadership-dsk
       with:
         url: "https://reade.wpengine.com/about-us/leadership"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: leadership-mbl
@@ -267,7 +267,7 @@ jobs:
       id: leadership-mbl
       with:
         url: "https://reade.wpengine.com/about-us/leadership"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   contact:
@@ -278,7 +278,7 @@ jobs:
       id: contact-dsk
       with:
         url: "https://reade.wpengine.com/contact/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: contact-mbl
@@ -286,7 +286,7 @@ jobs:
       id: contact-mbl
       with:
         url: "https://reade.wpengine.com/contact/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   partner-with-us:
@@ -297,7 +297,7 @@ jobs:
       id: partner-with-us-dsk
       with:
         url: "https://reade.wpengine.com/partner-with-us/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: partner-with-us-mbl
@@ -305,7 +305,7 @@ jobs:
       id: partner-with-us-mbl
       with:
         url: "https://reade.wpengine.com/partner-with-us/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   terms-of-service:
@@ -316,7 +316,7 @@ jobs:
       id: terms-of-service-dsk
       with:
         url: "https://reade.wpengine.com/terms-of-service/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: terms-of-service-mbl
@@ -324,7 +324,7 @@ jobs:
       id: terms-of-service-mbl
       with:
         url: "https://reade.wpengine.com/terms-of-service/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   products:
@@ -335,7 +335,7 @@ jobs:
       id: products-dsk
       with:
         url: "https://reade.wpengine.com/products/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: products-mbl
@@ -343,7 +343,7 @@ jobs:
       id: products-mbl
       with:
         url: "https://reade.wpengine.com/products/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   sustainable-products:
@@ -354,7 +354,7 @@ jobs:
       id: sustainable-products-dsk
       with:
         url: "https://reade.wpengine.com/sustainable-products/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: sustainable-products-mbl
@@ -362,7 +362,7 @@ jobs:
       id: sustainable-products-mbl
       with:
         url: "https://reade.wpengine.com/sustainable-products/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
   news:
@@ -373,7 +373,7 @@ jobs:
       id: news-dsk
       with:
         url: "https://reade.wpengine.com/news/"
-        threshold: 80
+        threshold: 90
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
     - name: news-mbl
@@ -381,6 +381,6 @@ jobs:
       id: news-mbl
       with:
         url: "https://reade.wpengine.com/news/"
-        threshold: 80
+        threshold: 90
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
