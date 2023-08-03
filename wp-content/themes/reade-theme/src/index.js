@@ -5,6 +5,7 @@ import pageTemplateLegal from './routes/legal'
 import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
 import history from './routes/history'
+import singleProduct from './routes/single-product';
 
 /**
  * Populate Router instance with DOM routes
@@ -15,7 +16,8 @@ const routes = new Router({
   single,
   pageTemplateLegal,
   frontPage,
-  history
+  history,
+  singleProduct
 })
 
 /** Load Events */
