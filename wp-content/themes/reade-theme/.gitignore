@@ -13,15 +13,11 @@ pnpm-lock.yaml
 
 # Generated
 build/
-assets/js/bundle.js.map
-assets/js/bundle.js
-assets/css/bundle.css.map
-assets/css/bundle.css
-assets/css/bundle-twnd.css
-assets/css/editor.css.map
-assets/css/editor.css
-assets/css/bundle-twnd.css.map
-assets/css/bundle-twnd.css
+assets/js/*.js.map
+assets/js/*.js
+assets/css/*.css.map
+assets/css/*.css
+! assets/css/critical.css
 
 # composer dependencies
 vendor
