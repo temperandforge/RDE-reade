@@ -7,22 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest  
     steps:
-    - name: sustainable-products-mbl
-      uses: jakepartusch/psi-action@v1.3
-      id: sustainable-products-mbl
-      with:
-        url: "https://reade.wpengine.com/sustainable-products/"
-        threshold: 80
-        strategy: mobile
-        key: ${{ secrets.PSI_APIKEY }}
-    - name: sustainable-products-dsk
-      uses: jakepartusch/psi-action@v1.3
-      id: sustainable-products-dsk
-      with:
-        url: "https://reade.wpengine.com/sustainable-products/"
-        threshold: 80
-        strategy: desktop
-        key: ${{ secrets.PSI_APIKEY }}
+# Home
     - name: home-mbl
       uses: jakepartusch/psi-action@v1.3
       id: home-mbl
@@ -36,6 +21,132 @@ jobs:
       id: home-dsk
       with:
         url: "https://reade.wpengine.com/"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    
+# Services
+    - name: services-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: services-mbl
+      with:
+        url: "https://reade.wpengine.com/services"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: services-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: services-dsk
+      with:
+        url: "https://reade.wpengine.com/services"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    
+    - name: global-sourcing-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: global-sourcing-mbl
+      with:
+        url: "https://reade.wpengine.com/global-sourcing"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: global-sourcing-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: global-sourcing-dsk
+      with:
+        url: "https://reade.wpengine.com/global-sourcing"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    
+    - name: toll-processing-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: toll-processing-mbl
+      with:
+        url: "https://reade.wpengine.com/toll-processing"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: toll-processing-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: toll-processing-dsk
+      with:
+        url: "https://reade.wpengine.com/toll-processing"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    
+    - name: toll-packaging-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: toll-packaging-mbl
+      with:
+        url: "https://reade.wpengine.com/toll-packaging"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: toll-packaging-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: toll-packaging-dsk
+      with:
+        url: "https://reade.wpengine.com/toll-packaging"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+
+
+
+# About
+    - name: about-us-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: about-us-mbl
+      with:
+        url: "https://reade.wpengine.com/about-us"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: about-us-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: about-us-dsk
+      with:
+        url: "https://reade.wpengine.com/about-us"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+
+    - name: history-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: history-mbl
+      with:
+        url: "https://reade.wpengine.com/history"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: history-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: history-dsk
+      with:
+        url: "https://reade.wpengine.com/history"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+
+
+
+# Products
+    - name: sustainable-products-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: sustainable-products-mbl
+      with:
+        url: "https://reade.wpengine.com/sustainable-products/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: sustainable-products-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: sustainable-products-dsk
+      with:
+        url: "https://reade.wpengine.com/sustainable-products/"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
