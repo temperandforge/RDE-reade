@@ -1117,6 +1117,20 @@ function theme_register_blocks()
 
 
 
+         /**
+          * Product Custom RFQ Form
+          */
+         acf_register_block([
+            'name'          => 'product-custom-rfq-form',
+            'title'          => 'Product Custom RFQ Form',
+            'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/product-custom-rfq-form.php",
+            'category'       => 'theme-blocks',
+            'icon'          => 'button',
+            'image'        => $img_root . '/product-custom-rfq-form.webp',
+            'mode'          => $mode,
+            'keywords'       => ['rfq', 'form', 'success', 'reade', 'theme', TEXTDOMAIN],
+            'supports'      => ['align' => false],
+         ]);
 
          
 

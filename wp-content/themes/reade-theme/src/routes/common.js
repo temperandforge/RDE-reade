@@ -35,6 +35,12 @@ export default {
 			$body.removeClass( 'using-mouse' );
 		} );
 
+		if (document.body.classList.contains('custom-product-rfq-form')) {
+			document.addEventListener( 'wpcf7mailsent', function( event ) {
+			  location = '/itemized-rfq-form-success/';
+			}, false );
+		}
+
 
 		let elementsPerPage;
 		let categoryType = '.pab-category';
