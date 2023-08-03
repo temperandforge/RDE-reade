@@ -40,7 +40,7 @@ function theme_scripts() {
    wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
 	
    // bundle
-	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-posttwnd.css",  false, $theme->version);
 	//TODO wp_enqueue_style('theme-css', $theme_uri . "/assets/css/critical.css",  false, $theme->version);
 	wp_enqueue_script('theme-js', $theme_uri . "/assets/js/bundle.js", ['jquery'], $theme->version, true);
 
