@@ -44,7 +44,7 @@ if (!empty($block['data']['_is_preview'])) {
                               <p><?php echo $tab['content']; ?></p>
                            <?php endif; ?>
                            <?php if (!empty($tab['link'])) : ?>
-                              <a href="<?php echo $tab['link']['title']; ?>" target="<?php echo $tab['link']['target'] ?: '_self'; ?>" class="btn">
+                              <a href="<?php echo $tab['link']['url']; ?>" target="<?php echo $tab['link']['target'] ?: '_self'; ?>" class="btn">
                                  <?php echo $tab['link']['title']; ?>
                               </a>
                            <?php endif; ?>
