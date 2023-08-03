@@ -44,7 +44,7 @@ if (!empty($block['data']['_is_preview'])) {
             </div>
             <?php if (!empty($fields['link'])) : ?>
                <div class="tile-slider--link">
-                  <a href="<?php echo $fields['link']['title']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
+                  <a href="<?php echo $fields['link']['url']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
                      <?php echo $fields['link']['title']; ?>
                   </a>
                </div>

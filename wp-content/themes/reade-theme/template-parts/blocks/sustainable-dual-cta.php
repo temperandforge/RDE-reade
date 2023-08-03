@@ -18,7 +18,7 @@ $fields = get_fields();
       <?php endif ;?>
       <?php if(!empty($cta['link'])) :?>
        <a 
-       href="<?php echo $cta['link']['title'] ;?>"
+       href="<?php echo $cta['link']['url'] ;?>"
        class="sustainable-btn"
        target="<?php echo $cta['link']['target'] ?: '_self' ;?>"><?php echo $cta['link']['title'] ;?></a>
       <?php endif ;?>

@@ -2,7 +2,7 @@ name: Page Speed Checks
 on:
   push:
     branches:
-      - test-performance
+      - test-qa
 jobs:
   build:
     runs-on: ubuntu-latest  
@@ -20,6 +20,22 @@ jobs:
       id: sustainable-products-dsk
       with:
         url: "https://reade.wpengine.com/sustainable-products/"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: home-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: home-mbl
+      with:
+        url: "https://reade.wpengine.com/"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: home-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: home-dsk
+      with:
+        url: "https://reade.wpengine.com/"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}

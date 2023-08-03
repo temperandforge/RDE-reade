@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - test-qa
 jobs:
   build:
     runs-on: ubuntu-latest  

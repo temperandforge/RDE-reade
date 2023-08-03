@@ -22,7 +22,7 @@ if (!empty($block['data']['_is_preview'])) {
                      <p><?php echo $fields['content']; ?></p>
                   <?php endif; ?>
                   <?php if (!empty($fields['link'])) : ?>
-                     <a href="<?php echo $fields['link']['title']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
+                     <a href="<?php echo $fields['link']['url']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
                         <?php echo $fields['link']['title']; ?>
                      </a>
                   <?php endif; ?>
