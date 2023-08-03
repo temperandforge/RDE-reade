@@ -16,8 +16,10 @@ function theme_scripts() {
    wp_dequeue_style( 'wp-block-library-theme' ); // Wordpress core
    wp_dequeue_style( 'wc-blocks-style' ); // WooCommerce
 
-   //TODO just for build wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
-   //TODO just for build wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
+   //TODO just for build 
+   wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
+   //TODO just for build 
+   wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
    // wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
 
 	// Deregister the jquery version bundled with WordPress.
@@ -34,7 +36,8 @@ function theme_scripts() {
 	
 	//lity
 	//wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
-	//TODO Just for build? wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
+	//TODO Just for build? 
+   wp_enqueue_script('lity', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js", ['jquery'], $theme->version, true);
 	
    // bundle
 	wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
