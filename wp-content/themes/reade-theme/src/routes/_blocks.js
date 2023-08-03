@@ -115,6 +115,7 @@ function handleTabbedRotator() {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		dots: true,
+		fade: true,
 		adaptiveHeight: true,
 		appendDots: $('.tabbed-rotator--nav'),
 		customPaging: function (slider, i) {
