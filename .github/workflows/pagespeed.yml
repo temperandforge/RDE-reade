@@ -308,22 +308,22 @@ jobs:
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
-  terms-of-services:
+  terms-of-service:
     runs-on: ubuntu-latest  
     steps:
-    - name: terms-of-services-dsk
+    - name: terms-of-service-dsk
       uses: jakepartusch/psi-action@v1.3
-      id: terms-of-services-dsk
+      id: terms-of-service-dsk
       with:
-        url: "https://reade.wpengine.com/terms-of-services/"
+        url: "https://reade.wpengine.com/terms-of-service/"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-    - name: terms-of-services-mbl
+    - name: terms-of-service-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: terms-of-services-mbl
+      id: terms-of-service-mbl
       with:
-        url: "https://reade.wpengine.com/terms-of-services/"
+        url: "https://reade.wpengine.com/terms-of-service/"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
