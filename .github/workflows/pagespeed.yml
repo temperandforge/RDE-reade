@@ -4,18 +4,9 @@ on:
     branches:
       - test-qa
 jobs:
-  build:
+  home:
     runs-on: ubuntu-latest  
     steps:
-# Home
-    - name: home-mbl
-      uses: jakepartusch/psi-action@v1.3
-      id: home-mbl
-      with:
-        url: "https://reade.wpengine.com/"
-        threshold: 80
-        strategy: mobile
-        key: ${{ secrets.PSI_APIKEY }}
     - name: home-dsk
       uses: jakepartusch/psi-action@v1.3
       id: home-dsk
@@ -24,16 +15,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-    
-# Services
-    - name: services-mbl
+    - name: home-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: services-mbl
+      id: home-mbl
       with:
-        url: "https://reade.wpengine.com/services"
+        url: "https://reade.wpengine.com/"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  services:
+    runs-on: ubuntu-latest  
+    steps:
     - name: services-dsk
       uses: jakepartusch/psi-action@v1.3
       id: services-dsk
@@ -42,15 +34,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-    
-    - name: global-sourcing-mbl
+    - name: services-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: global-sourcing-mbl
+      id: services-mbl
       with:
-        url: "https://reade.wpengine.com/global-sourcing"
+        url: "https://reade.wpengine.com/services"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  global-sourcing:
+    runs-on: ubuntu-latest  
+    steps:
     - name: global-sourcing-dsk
       uses: jakepartusch/psi-action@v1.3
       id: global-sourcing-dsk
@@ -59,15 +53,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-    
-    - name: toll-processing-mbl
+    - name: global-sourcing-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: toll-processing-mbl
+      id: global-sourcing-mbl
       with:
-        url: "https://reade.wpengine.com/toll-processing"
+        url: "https://reade.wpengine.com/global-sourcing"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  toll-processing:
+    runs-on: ubuntu-latest  
+    steps:
     - name: toll-processing-dsk
       uses: jakepartusch/psi-action@v1.3
       id: toll-processing-dsk
@@ -76,15 +72,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-    
-    - name: toll-packaging-mbl
+    - name: toll-processing-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: toll-packaging-mbl
+      id: toll-processing-mbl
       with:
-        url: "https://reade.wpengine.com/toll-packaging"
+        url: "https://reade.wpengine.com/toll-processing"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  toll-packaging:
+    runs-on: ubuntu-latest  
+    steps:
     - name: toll-packaging-dsk
       uses: jakepartusch/psi-action@v1.3
       id: toll-packaging-dsk
@@ -93,18 +91,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-
-
-
-# About
-    - name: about-us-mbl
+    - name: toll-packaging-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: about-us-mbl
+      id: toll-packaging-mbl
       with:
-        url: "https://reade.wpengine.com/about-us"
+        url: "https://reade.wpengine.com/toll-packaging"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  about-us:
+    runs-on: ubuntu-latest  
+    steps:
     - name: about-us-dsk
       uses: jakepartusch/psi-action@v1.3
       id: about-us-dsk
@@ -113,15 +110,17 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-
-    - name: history-mbl
+    - name: about-us-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: history-mbl
+      id: about-us-mbl
       with:
-        url: "https://reade.wpengine.com/history"
+        url: "https://reade.wpengine.com/about-us"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  history:
+    runs-on: ubuntu-latest  
+    steps:
     - name: history-dsk
       uses: jakepartusch/psi-action@v1.3
       id: history-dsk
@@ -130,18 +129,55 @@ jobs:
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
-
-
-
-# Products
-    - name: sustainable-products-mbl
+    - name: history-mbl
       uses: jakepartusch/psi-action@v1.3
-      id: sustainable-products-mbl
+      id: history-mbl
       with:
-        url: "https://reade.wpengine.com/sustainable-products/"
+        url: "https://reade.wpengine.com/history"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
+  terms-conditions-of-sale:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: terms-conditions-of-sale-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: terms-conditions-of-sale-dsk
+      with:
+        url: "https://reade.wpengine.com/terms-conditions-of-sale"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: terms-conditions-of-sale-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: terms-conditions-of-sale-mbl
+      with:
+        url: "https://reade.wpengine.com/terms-conditions-of-sale"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  faqs:
+    runs-on: ubuntu-latest  
+    steps:
+    - name: faqs-dsk
+      uses: jakepartusch/psi-action@v1.3
+      id: faqs-dsk
+      with:
+        url: "https://reade.wpengine.com/faqs"
+        threshold: 80
+        strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: faqs-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: faqs-mbl
+      with:
+        url: "https://reade.wpengine.com/faqs"
+        threshold: 80
+        strategy: mobile
+        key: ${{ secrets.PSI_APIKEY }}
+  products:
+    runs-on: ubuntu-latest  
+    steps:
     - name: sustainable-products-dsk
       uses: jakepartusch/psi-action@v1.3
       id: sustainable-products-dsk
@@ -149,4 +185,12 @@ jobs:
         url: "https://reade.wpengine.com/sustainable-products/"
         threshold: 80
         strategy: desktop
+        key: ${{ secrets.PSI_APIKEY }}
+    - name: sustainable-products-mbl
+      uses: jakepartusch/psi-action@v1.3
+      id: sustainable-products-mbl
+      with:
+        url: "https://reade.wpengine.com/sustainable-products/"
+        threshold: 80
+        strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
