@@ -54,7 +54,7 @@
                <?php if($social_links){ include( locate_template('template-parts/social-links.php')); } ?>
             </div>
             <?php if($btn = $option_fields['footer_contact']): ?>
-            <a class="btn-green-dark-green" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
+            <a class="btn-green-light-green _btn-green-dark-green" href="<?php echo $btn['url'];?>" target="<?php echo $btn['target']?:'_self';?>" rel="noreferrer">
                <?php echo __($btn['title'], TEXTDOMAIN); ?>
             </a>
             <?php endif; ?>
