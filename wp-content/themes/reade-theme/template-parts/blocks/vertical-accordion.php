@@ -38,7 +38,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
                               </div>
                            <?php endif; ?>
                            <?php if (!empty($item['link'])) : ?>
-                              <a href="<?php echo $item['link']['title']; ?>" target="<?php echo $item['link']['target'] ?: '_self'; ?>" class="btn">
+                              <a href="<?php echo $item['link']['url']; ?>" target="<?php echo $item['link']['target'] ?: '_self'; ?>" class="btn">
                                  <?php echo $item['link']['title']; ?>
                               </a>
                            <?php endif; ?>
