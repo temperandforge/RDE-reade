@@ -43,6 +43,12 @@
 			background: lightgray 50% / cover no-repeat;
 			box-shadow: 0px 8px 31px 4px rgba(16, 24, 40, 0.09);
 		}
+
+		@include respond-below(md) {
+			flex-basis: 100%;
+			max-width: 450px;
+			margin: 0 auto;
+		}
 	}
 
 	#prp-load-more {
