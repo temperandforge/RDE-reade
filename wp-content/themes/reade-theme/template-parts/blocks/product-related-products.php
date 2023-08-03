@@ -38,7 +38,7 @@ if (!empty($terms)) {
 
 }
 
-if (!empty($related_products)) {
+if (!empty($related_products->posts)) {
   $count = count($related_products->posts);
   ?>
   <div class="product-related-products">
