@@ -125,7 +125,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: history-dsk
       with:
-        url: "https://reade.wpengine.com/history"
+        url: "https://reade.wpengine.com/about-us/history"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -133,7 +133,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: history-mbl
       with:
-        url: "https://reade.wpengine.com/history"
+        url: "https://reade.wpengine.com/about-us/history"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
@@ -144,7 +144,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: terms-conditions-of-sale-dsk
       with:
-        url: "https://reade.wpengine.com/terms-conditions-of-sale"
+        url: "https://reade.wpengine.com/about-us/terms-conditions-of-sale"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -152,7 +152,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: terms-conditions-of-sale-mbl
       with:
-        url: "https://reade.wpengine.com/terms-conditions-of-sale"
+        url: "https://reade.wpengine.com/about-us/terms-conditions-of-sale"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
@@ -163,7 +163,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: faqs-dsk
       with:
-        url: "https://reade.wpengine.com/faqs"
+        url: "https://reade.wpengine.com/about-us/faqs"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -171,7 +171,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: faqs-mbl
       with:
-        url: "https://reade.wpengine.com/faqs"
+        url: "https://reade.wpengine.com/about-us/faqs"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
