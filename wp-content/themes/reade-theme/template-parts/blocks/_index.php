@@ -1162,14 +1162,14 @@ function theme_register_blocks()
           * RFQ Form
           */
          acf_register_block([
-            'name'          => 'rfq-form',
-            'title'          => 'RFQ Form',
+            'name'          => 'custom-rfq',
+            'title'          => 'Custom RFQ',
             'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
             'category'       => 'theme-blocks',
             'icon'          => 'button',
-            'image'        => $img_root . '/rfq-form.webp',
+            'image'        => $img_root . '/custom-rfq.webp',
             'mode'          => $mode,
-            'keywords'       => ['rfq', 'form', 'reade', 'theme', TEXTDOMAIN],
+            'keywords'       => ['rfq', 'custom', 'form', 'reade', 'theme', TEXTDOMAIN],
             'supports'      => ['align' => false],
          ]);
 

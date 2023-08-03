@@ -136,7 +136,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/custom-rfq"
             }
         ]
     ],
@@ -149,5 +149,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691080557
+    "modified": 1691082464
 }
