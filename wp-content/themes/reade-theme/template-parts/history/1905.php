@@ -9,4 +9,5 @@
    <div class="history-content--info"><?php echo __($args['content'], TEXTDOMAIN);?></div>
    <h3 class=""><?php echo __($args['heading'], TEXTDOMAIN);?></h3>  
   </div>
+  <div id="historySVG3" aria-hidden="true"></div>
 </div>

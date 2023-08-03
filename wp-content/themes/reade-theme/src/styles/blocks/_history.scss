@@ -90,6 +90,12 @@ div.history {
 			object-position: top center;
 		}
 	}
+
+	p {
+		&:last-child {
+			margin-bottom: 2.5rem;
+		}
+	}
 }
 
 @include respond-above(xl) {
@@ -701,6 +707,7 @@ $finalWidth: 100vw; //3 * $finalHeight;
 	.historical-event {
 		@apply relative;
 		height: 100vh;
+		/* max-width: 1920px; */
 
 		.history-content {
 			@apply relative z-20;
@@ -708,16 +715,20 @@ $finalWidth: 100vw; //3 * $finalHeight;
 	}
 
 	figure {
+		opacity: 0;
+		transform: translateX(50px);
+		transition: all 0.3s ease-out;
+
+		&.active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
 		img {
 			@apply w-full h-full object-cover;
 			border-radius: 10px;
 		}
 	}
-}
-#history-1773 {
-	/* @apply pr-[136px]; */
-}
-#history-1873 {
 }
 
 .history-desktop--scroll-container {
@@ -814,3 +825,4 @@ $finalWidth: 100vw; //3 * $finalHeight;
 @import './history/_2020';
 @import './history/_2022';
 @import './history/_2023';
+@import './history/_svg-decor';

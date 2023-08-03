@@ -1,5 +1,4 @@
 <div id="history-1878" class="historical-event panel">
-   <!-- <div class="historical-event--1878"> -->
       <?php if(!empty($args['image'])) :?>
          <figure>
             <?php echo wp_get_attachment_image($args['image']['id'], 'full') ;?>
@@ -12,5 +11,6 @@
             <div class="max-w-full"><?php echo __($args['content'], TEXTDOMAIN);?></div>
          </div>
       </div>
-   <!-- </div> -->
+      <div id="historySVG1" aria-hidden="true"></div>
+      <div id="historySVG2" aria-hidden="true"></div>
 </div>
