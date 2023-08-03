@@ -1116,6 +1116,8 @@ function theme_register_blocks()
    ]);
 
 
+
+
          
 
 			/**
@@ -1134,21 +1136,6 @@ function theme_register_blocks()
 		   ]);
 
 
-
-         /**
-          * RFQ Form
-          */
-         acf_register_block([
-            'name'          => 'custom-rfq',
-            'title'          => 'Custom RFQ',
-            'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
-            'category'       => 'theme-blocks',
-            'icon'          => 'button',
-            'image'        => $img_root . '/custom-rfq.webp',
-            'mode'          => $mode,
-            'keywords'       => ['rfq', 'custom', 'form', 'reade', 'theme', TEXTDOMAIN],
-            'supports'      => ['align' => false],
-         ]);
 
    /** 
     * Secondary Hero
