@@ -49,7 +49,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: global-sourcing-dsk
       with:
-        url: "https://reade.wpengine.com/global-sourcing"
+        url: "https://reade.wpengine.com/services/global-sourcing"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -57,7 +57,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: global-sourcing-mbl
       with:
-        url: "https://reade.wpengine.com/global-sourcing"
+        url: "https://reade.wpengine.com/services/global-sourcing"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
@@ -68,7 +68,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: toll-processing-dsk
       with:
-        url: "https://reade.wpengine.com/toll-processing"
+        url: "https://reade.wpengine.com/services/toll-processing"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -76,7 +76,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: toll-processing-mbl
       with:
-        url: "https://reade.wpengine.com/toll-processing"
+        url: "https://reade.wpengine.com/services/toll-processing"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
@@ -87,7 +87,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: toll-packaging-dsk
       with:
-        url: "https://reade.wpengine.com/toll-packaging"
+        url: "https://reade.wpengine.com/services/toll-packaging"
         threshold: 80
         strategy: desktop
         key: ${{ secrets.PSI_APIKEY }}
@@ -95,7 +95,7 @@ jobs:
       uses: jakepartusch/psi-action@v1.3
       id: toll-packaging-mbl
       with:
-        url: "https://reade.wpengine.com/toll-packaging"
+        url: "https://reade.wpengine.com/services/toll-packaging"
         threshold: 80
         strategy: mobile
         key: ${{ secrets.PSI_APIKEY }}
