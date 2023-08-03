@@ -8,14 +8,15 @@ $events = $fields['events'];
    <div class="history--slider">
       <?php foreach($events as $idx => $event ):?>
          <div class="history--event event-<?php echo strval($idx); ?>">
-            <h2 class="title primary"><?php echo $event['year'];?></h2>
-            <h3 class="title secondary"><?php echo $event['heading'];?></h3>
-            <?php echo $event['content']; ?>
+            <h2 class="title primary"><?php echo (!empty($event['year_display'])) ? __($event['year_display'], TEXTDOMAIN) : __($event['year'], TEXTDOMAIN) ;?></h2>
+            <h3 class="title secondary"><?php echo __($event['heading'], TEXTDOMAIN);?></h3>
+            <?php echo __($event['content'], TEXTDOMAIN); ?>
 
-            <picture>
-               <?php echo wp_get_attachment_image($event['img']['ID'], 'large ', false, []); ?>
-               <!-- <img src="https://picsum.photos/1920/192<?php echo strval($idx);?>.webp" alt="" /> -->
-            </picture>
+            <?php if(!empty($event['image'])) :?>
+               <picture>
+                  <?php echo wp_get_attachment_image($event['image']['ID'], 'large ', false, []); ?>
+               </picture>
+            <?php endif ;?>
          </div>
       <?php endforeach;?>
    </div>

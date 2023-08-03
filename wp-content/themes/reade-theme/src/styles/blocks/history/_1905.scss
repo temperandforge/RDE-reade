@@ -1,20 +1,21 @@
 #history-1905 {
+	z-index: 10;
 	width: 54vw;
 
- .history-content {
-  @apply absolute;
-  bottom: 7%;
-  max-width: 70%;
+	.history-content {
+		@apply absolute;
+		bottom: 7%;
+		max-width: 70%;
 
-  h3 {
-   @apply mt-6;
-  }
- }
+		h3 {
+			@apply mt-6;
+		}
+	}
 
 	figure {
-		@apply absolute left-0;
+		@apply absolute left-0 z-10;
 		top: 6%;
 		width: 66%;
-  height: 53%;
+		height: 53%;
 	}
 }

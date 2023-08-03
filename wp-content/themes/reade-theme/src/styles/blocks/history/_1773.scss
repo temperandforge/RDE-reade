@@ -1,5 +1,8 @@
 #history-1773 {
+	/* @apply z-10; */
+	z-index: -1;
 	width: 100vw;
+	padding: 0;
 
 	.year {
 		@apply absolute;
@@ -27,12 +30,7 @@
 		left: 44%;
 		bottom: 13%;
 		height: 41%;
-
-		/* img {
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-			border-radius: 10px;
-		} */
 	}
 }
+
+/* width 1440 */

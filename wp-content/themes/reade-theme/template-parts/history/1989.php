@@ -9,4 +9,5 @@
    <?php echo wp_get_attachment_image($args['image']['id'], 'full', ) ;?>
   </figure>
 <?php endif ;?>
+<div id="historySVG4" aria-hidden="true"></div>
 </div>
