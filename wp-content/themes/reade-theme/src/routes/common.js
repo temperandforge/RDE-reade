@@ -412,9 +412,9 @@ export default {
 		function handleProductCustomField() {
 			$('.product-custom-fields-title').on('click', function() {
 				if ($(this).next().css('display') == 'none') {
-					$(this).find('svg').css('transform', 'rotate(180deg)');
-				} else {
 					$(this).find('svg').css('transform', 'unset');
+				} else {
+					$(this).find('svg').css('transform', 'rotate(180deg)');
 				}
 
 				$(this).next().slideToggle(250);
