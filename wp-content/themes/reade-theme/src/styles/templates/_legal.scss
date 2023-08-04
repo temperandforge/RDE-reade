@@ -113,6 +113,9 @@
    }
    h2 {
       @apply mb-8 mt-16 font-bold;
+      &:first-child {
+       @apply mt-0;  
+      }
       text-wrap: balance;
       scroll-margin-top: 3rem;
 
