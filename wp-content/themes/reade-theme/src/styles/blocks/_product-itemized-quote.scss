@@ -44,6 +44,23 @@
         }
     }
 
+    #piq-form-submit:disabled {
+        background-color: $gray300;
+        border: solid 1px $gray300;
+        cursor: not-allowed;
+    }
+
+    .rfq-error-message {
+        display: none;
+    }
+
+    .rfq-error-message p {
+        color: red;
+        font-weight: 600;
+    }
+
+
+
     .rfq-empty {
         display: none;
         padding: 50px;
@@ -254,7 +271,7 @@
             width: 100%;
         }
 
-        .btn-blue-dark-blue, .btn-dark-blue-blue {
+        .btn-blue-light-blue, .btn-dark-blue-blue {
             //font-family: "Inter";
             padding: 12px 20px;
             width: 100%;
@@ -338,7 +355,19 @@
                     border: 1px solid var(--primary-500-main, #009FC6);
                     outline: none;
                 }
+
+                &.rfq-error {
+                    border: 1px solid #F15252;
+                    background: var(--primary-50, #EFFBFF);
+                    color: #f15252;
+
+                    &::placeholder {
+                        color: #f15252;
+                    }
+                }
             }
+
+
         }
     }
 

@@ -1517,6 +1517,26 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_64cd3f3e2384b",
+            "label": "Empty Search Text",
+            "name": "empty_search_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -1537,5 +1557,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691006803
+    "modified": 1691172681
 }

@@ -29,6 +29,30 @@
 		}
 	}
 
+	.pab-search-empty {
+		display: none;
+	}
+	
+	.pab-search-empty-title {
+		color: var(--primary-900, #045);
+		font-size: clamp(2.25rem, 1.625rem + 1.667vw, 3.125rem);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -1.5px;
+		margin-bottom: 15px;
+	}
+
+	.pab-search-empty-text {
+		color: var(--primary-900, #045);
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.5;
+
+		@include respond-below(sm) {
+			font-size: 16px;
+		}
+	}
+
 	.pab-filters {
 		display: flex;
 		justify-content: space-between;

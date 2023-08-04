@@ -313,7 +313,10 @@ export default {
 		              if (responseText == 'success') {
 		              	$('#cart-item-' + cartKey).fadeOut(200, function() {
 		              		if (!$('.piq-cart-item:visible').length) {
-		              			$('.piq-additional-notes, .rfq-notes, .piq-container-right').css('display', 'none');
+		              			//$('.piq-additional-notes, .rfq-notes, .piq-container-right').css('display', 'none');
+		              			 $('#piq-form-submit').prop('disabled', true);
+		              			 $('.rfq-notes').css('display', 'none');
+		              			 $('.piq-additional-notes').css('display', 'none');
 		              			$('.rfq-empty').css('display', 'flex');
 		              		}
 		              	});
@@ -394,26 +397,7 @@ export default {
 			}, 500));
 		}
 
-		function handleRFQSubmit() {
-			$('.piq-container-right button').on('click', function() {
-				$.ajax({
-		            type: "POST",
-		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
-		            data: 'action=doSubmit&formData=x',
-		            success: function(responseText){
-		            	//alert(responseText);
-		              if (responseText == 'success') {
-		              	document.location.href = '/itemized-rfq-form-success/';
-		              }
-		            },
-		            error: function() {
-		            	//alert('there was an error');
-		            },
-		            complete: function() {
-		            }
-		          });
-			})
-		}
+		
 
 		function handleProductCustomField() {
 			$('.product-custom-fields-title').on('click', function() {
@@ -481,19 +465,40 @@ export default {
 						$('.pab-category').hide();
 
 						let allCats = $('.pab-category');
-
+						let count = 0;
 						for (let i = 0; i < allCats.length; i++) {
 							if ($(allCats[i]).data('searchTerms').indexOf(search) !== -1) {
 								$(allCats[i]).addClass('search-result');
+								count++;
 							} else {
 								$(allCats[i]).removeClass('search-result');
 							}
+						}
+						if (!count) {
+							$('.pab-search-empty').css('display', 'block');
+							$('#pab-search-term').html(search);
+
+							if ($('.pab-top-wrap').length) {
+								$('.pab-top-wrap').hide();
+							}
+						} else {
+							$('#pab-search-term').html('');
+							$('.pab-search-empty').css('display', 'none');
+
+							if ('.pab-top-wrap'.length) {
+								$('.pab-top-wrap').show();
+							}
+							
 						}
 
 						showElements(0, elementsPerPage);
 						updateDots(true);
 
 					} else {
+						$('.pab-search-empty').css('display', 'none');
+						if ($('.pab-top-wrap').length) {
+							$('.pab-top-wrap').show();
+						}
 						if (searchLoaded) {
 							categoryType = '.pab-category';
 							showElements(0, elementsPerPage);
@@ -587,7 +592,6 @@ export default {
 		handleRemoveFromQuote();
 		handleChangeUnits();
 		handleChangeQty();
-		handleRFQSubmit();
 		handleProductCustomField();
 
 

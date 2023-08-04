@@ -20,7 +20,8 @@ $cart_contents = $cart->get_cart_contents();
     }
 
     ?>
-
+    <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/itemized-rfq-form-success/" method="POST">
+    <input type="hidden" name="action" value="doSubmitRFQ">
     <div class="piq-container">
         <div class="piq-container-left">
             <div class="rfq-empty" <?php if (empty($cart_contents)) { echo 'style="display: flex;"'; } ?>>
@@ -210,31 +211,34 @@ $cart_contents = $cart->get_cart_contents();
         <div class="piq-container-right">
             <?php
 
-            if (!empty($cart_contents)) {
+            //if (!empty($cart_contents)) {
                 ?>
                 <div class="piq-container-right-form">
+                    <div class="rfq-error-message"></div>
                     <h2 class="piq-form-headline"><?php echo !empty($fields['form_headline']) ? $fields['form_headline'] : 'Customer Info'; ?></h2>
                     <div class="piq-form">
                         <div class="piq-form-container">
-                            <input type="hidden" name="action" value="doSubmitRFQForm">
-                            <input type="text" name="rfq-first-name" placeholder="First Name" value="">
-                            <input type="text" name="rfq-last-name" placeholder="Last Name" value="">
-                            <input type="text" name="rfq-company" placeholder="Company" value="">
-                            <input type="phone" name="rfq-phone" placeholder="Phone Number" value="">
-                            <input type="email" name="rfq-email" placeholder="Email" value="">
-                            <input type="text" name="rfq-address-line-1" placeholder="Address" value="">
-                            <input type="text" name="rfq-address-line-2" placeholder="Address Line 2" value="">
-                            <input type="text" name="rfq-city" placeholder="City" value="">
-                            <input type="text" name="rfq-state" placeholder="State" value="">
-                            <input type="text" name="rfq-zip" placeholder="Zip" value="">
+                            <input type="text" id="rfq-first-name" name="rfq-first-name" placeholder="First Name" value="">
+                            <input type="text" id="rfq-last-name" name="rfq-last-name" placeholder="Last Name" value="">
+                            <input type="text" id="rfq-company" name="rfq-company" placeholder="Company" value="">
+                            <input type="phone" id="rfq-phone" name="rfq-phone" placeholder="Phone Number" value="">
+                            <input type="email" id="rfq-email" name="rfq-email" placeholder="Email" value="">
+                            <input type="text" id="rfq-address-line-1" name="rfq-address-line-1" placeholder="Address" value="">
+                            <input type="text" id="rfq-address-line-2" name="rfq-address-line-2" placeholder="Address Line 2" value="">
+                            <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
+                            <input type="text" id="rfq-state" name="rfq-state" placeholder="State" value="">
+                            <input type="text" id="rfq-zip" name="rfq-zip" placeholder="Zip" value="">
                         </div>
                     </div>
                 </div>
-                    <button class="btn-blue-dark-blue btn-arrow">
+                    <button id="piq-form-submit" class="btn-blue-light-blue btn-arrow" <?php if (empty($cart_contents)) { ?>disabled<?php } ?>>
                         <?php echo !empty($fields['form_submit_button_text']) ? $fields['form_submit_button_text'] : 'Submit RFQ'; ?>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z" fill="#FAFAFA"/>
-    </svg></button>
+    </svg>
+<svg class="spinner" viewBox="0 0 50 50">
+                  <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                </svg></button>
 
                     <a href="/products/" class="btn-dark-blue-blue btn-arrow-reverse">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,10 +247,10 @@ $cart_contents = $cart->get_cart_contents();
                         <?php echo !empty($fields['back_to_products_text']) ? $fields['back_to_products_text'] : 'Back To Products'; ?>
                     </a>
                 <?php
-            }
+            //}
 
             ?>
         </div>
     </div>
-
+    </form>
 </div>
