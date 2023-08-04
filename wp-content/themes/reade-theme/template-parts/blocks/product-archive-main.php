@@ -57,6 +57,11 @@ $options = get_fields('options');
       </div>
    </div>
 
+   <div class="pab-search-empty">
+      <h3 class="pab-search-empty-title">Search: "<span id="pab-search-term"></span>"</h3>
+      <p class="pab-search-empty-text"><?php echo !empty($options['empty_search_text']) ? $options['empty_search_text'] : 'No results'; ?></p>
+   </div>
+
    <div class="pab-categories">
          <?php
 

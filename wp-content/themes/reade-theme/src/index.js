@@ -6,6 +6,7 @@ import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
 import history from './routes/history'
 import singleProduct from './routes/single-product';
+import itemizedRfq from './routes/itemized-rfq';
 
 /**
  * Populate Router instance with DOM routes
@@ -17,7 +18,8 @@ const routes = new Router({
   pageTemplateLegal,
   frontPage,
   history,
-  singleProduct
+  singleProduct,
+  itemizedRfq
 })
 
 /** Load Events */
