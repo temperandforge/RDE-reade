@@ -281,6 +281,9 @@ export default {
 		            url: "/wp-content/themes/reade-theme/_woo-ajax.php",
 		            data: 'action=doAddToQuote&data=' + JSON.stringify(product_data),
 		            success: function(responseText){
+		            	if (!$('#doc-count').length) {
+		            		$('.doc-notifications').prepend('<span id="doc-count" class="doc-count"></span>');
+		            	}
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
 		              if (responseText == 'success') {
@@ -318,6 +321,7 @@ export default {
 		              			 $('.rfq-notes').css('display', 'none');
 		              			 $('.piq-additional-notes').css('display', 'none');
 		              			$('.rfq-empty').css('display', 'flex');
+		              			$('#doc-count').hide();
 		              		}
 		              	});
 		              }
