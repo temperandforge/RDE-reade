@@ -178,58 +178,59 @@ $productAttrName = '';
             
             foreach ($cspattrs AS $pid => $pattrs) {
 
-                echo '<pre>'; print_r($pattrs); echo '</pre>'; 
-                $pattrName = array_values($pattrs)[0]->get_data()['name'];
-                $thisProduct = new WC_Product_Variable($pid);
-                $thisProductVariations = $thisProduct->get_available_variations();
+                if (!empty($pattrs)) {
+                    $pattrName = array_values($pattrs)[0]->get_data()['name'];
+                    $thisProduct = new WC_Product_Variable($pid);
+                    $thisProductVariations = $thisProduct->get_available_variations();
 
-                $soptions = array(
-                    'id' => 'product-rfq-select-' . $pid,
-                    'select_text' => 'Select',
-                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
-                    </svg>',
-                    'width' => '100%',
-                    'extra_classes' => array('product-rfq-select')
-                );
+                    $soptions = array(
+                        'id' => 'product-rfq-select-' . $pid,
+                        'select_text' => 'Select',
+                        'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                        </svg>',
+                        'width' => '100%',
+                        'extra_classes' => array('product-rfq-select')
+                    );
 
-                if (!$skipCrossSellSelect && !$productfields['multiple_attributes']) {
-                    $soptions['extra_classes'][] = 'tf-dropdown-hidden';
-                }
+                    if (!$skipCrossSellSelect && !$productfields['multiple_attributes']) {
+                        $soptions['extra_classes'][] = 'tf-dropdown-hidden';
+                    }
 
-                if ($skipCrossSellSelect) {
-                    $productAttrName = $pattrName;
-                    ?>
-                    <input type="hidden" id="product_1_attribute_name" value="<?php echo $productAttrName; ?>">
-                    <?php
-                }
+                    if ($skipCrossSellSelect) {
+                        $productAttrName = $pattrName;
+                        ?>
+                        <input type="hidden" id="product_1_attribute_name" value="<?php echo $productAttrName; ?>">
+                        <?php
+                    }
 
-                if ($productfields['multiple_attributes']) {
-                    $submittedProduct = $pid;
-                    ?>
-                    <input id="submitted_product_<?php echo $it; ?>" type="hidden" value="<?php echo $submittedProduct; ?>">
-                    <input id="product-<?php echo $submittedProduct; ?>-variant" type="hidden" value="">
-                    <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
-                    <?php
-                } else {
-                    ?>
-                    <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
-                    <?php
-                }
-                        
-                $soptions['select_text'] = 'Select ' . $pattrName;
+                    if ($productfields['multiple_attributes']) {
+                        $submittedProduct = $pid;
+                        ?>
+                        <input id="submitted_product_<?php echo $it; ?>" type="hidden" value="<?php echo $submittedProduct; ?>">
+                        <input id="product-<?php echo $submittedProduct; ?>-variant" type="hidden" value="">
+                        <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
+                        <?php
+                    } else {
+                        ?>
+                        <input type="hidden" id="product-<?php echo $pid; ?>-attribute-name" value="<?php echo $pattrName; ?>">
+                        <?php
+                    }
+                            
+                    $soptions['select_text'] = 'Select ' . $pattrName;
 
-                foreach ($thisProductVariations AS $tpv) {
-                    if (!empty($tpv['attributes'])) {
-                        foreach ($tpv['attributes'] AS $id => $option) {
-                            $soptions['values'][$tpv['variation_id']] = array_values($tpv['attributes'])[0];
+                    foreach ($thisProductVariations AS $tpv) {
+                        if (!empty($tpv['attributes'])) {
+                            foreach ($tpv['attributes'] AS $id => $option) {
+                                $soptions['values'][$tpv['variation_id']] = array_values($tpv['attributes'])[0];
+                            }
                         }
                     }
+
+                    tf_dropdown($soptions);
+
+                    $it++;
                 }
-
-                tf_dropdown($soptions);
-
-                $it++;
             }
  
 
