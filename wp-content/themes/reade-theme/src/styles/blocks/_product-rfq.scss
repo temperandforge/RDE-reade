@@ -83,6 +83,7 @@
         display: block;
     }
 
+
     .tf-dropdown {
         width: 100%;
         border-radius: 5px;
@@ -201,6 +202,13 @@
             overflow-y: hidden;
         }
     }
+
+    .tf-dropdown-hidden-with-value {
+        height: 0;
+        overflow: hidden;
+        border: none;
+    }
+
 }
 .spinner {
   animation: rotate 2s linear infinite;

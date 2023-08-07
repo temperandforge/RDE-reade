@@ -81,6 +81,8 @@ $cart_contents = $cart->get_cart_contents();
 
                     $attributes = $contents['data']->get_data()['attributes'];
 
+                    //echo '<pre>'; print_r($item); echo '</pre>';
+
                     ?>
                     <div class="piq-cart-item" id="cart-item-<?php echo $key; ?>" data-cart-key="<?php echo $key; ?>">
                         <div class="piq-product-info">
@@ -100,9 +102,49 @@ $cart_contents = $cart->get_cart_contents();
 
                                 if ($attributes) {
                                     foreach ($attributes AS $attribute) {
-                                        ?>
-                                        <div class="piq-product-details-attributes-attribute"><?php echo $attribute; ?></div>
-                                        <?php
+                                        if (strtolower($attribute) != 'no options') {
+                                            ?>
+
+                                            <div class="piq-product-details-attributes-attribute"><?php 
+                                            $display = str_replace(' -', '', str_ireplace(array('specifications available', $parentItem->get_name()), '', $item->get_name()));
+
+                                            if (substr($display, 0, 2) == ' -') {
+                                                $display = substr($display, 2, strlen($display));
+                                            }
+
+                                            if (trim($display) == '') {
+                                                echo $attribute;
+                                            } else {   
+                                                echo $display . ' - ' . $attribute;
+                                            }
+
+                                            ?></div>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <div class="piq-product-details-attributes-attribute">
+
+                                                <?php
+
+                                                $display = str_replace(' -', '', str_ireplace(array('specifications available', $parentItem->get_name()), '', $item->get_name()));
+
+                                                if (substr($display, 0, 2) == ' -') {
+                                                    $display = substr($display, 2, strlen($display));
+                                                }
+
+                                                if (trim($display) == '') {
+                                                    echo $attribute;
+                                                } else {   
+                                                    echo $display;
+                                                }
+
+                                                //echo $item->get_name();
+
+                                                ?>
+                                                
+                                            </div>
+                                            <?php
+                                        }
                                     }
 
                                     if (!empty($contents['product_2'])) {

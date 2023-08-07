@@ -152,15 +152,32 @@ export default {
 				// hide all
 				$('.product-rfq-select').addClass('tf-dropdown-hidden');
 
+
 				// show relevant select box
-				if ($('#product-rfq-select-' + $(this).data('key')).length) {
-					$('#product-rfq-select-' + $(this).data('key')).removeClass('tf-dropdown-hidden');
-				}
+				$('#product-rfq-select-' + $(this).data('key')).removeClass('tf-dropdown-hidden');
 
 				// update submitted product hidden input
 				if ($('#submitted_product_1').length) {
 					$('#submitted_product_1').val($(this).data('key'));
 					$('.submitted_product_1_variant').attr('id', 'product-' + $(this).data('key') + '-variant');
+				}
+
+				// show relevant select box
+				if ($('#product-rfq-select-' + $(this).data('key')).length) {
+					if (
+						$('#product-rfq-select-' + $(this).data('key')).find('dt p').html().toLowerCase() == 'select options'
+						&&
+						$('#product-rfq-select-' + $(this).data('key')).find('ul li').html().toLowerCase() == 'no options'
+					)
+					{
+						
+						// $(this).parent().parent().parent().parent().parent().click();
+						//$('#product-rfq-select-' + $(this).data('key')).find('p').click();
+						$('#product-rfq-select-' + $(this).data('key')).find('ul li').click();
+						$(this).focus();
+						$(this).click();
+						$('#product-rfq-select-' + $(this).data('key')).addClass('tf-dropdown-hidden-with-value');
+					}
 				}
 			});
 		}

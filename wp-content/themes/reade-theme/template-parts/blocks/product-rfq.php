@@ -223,7 +223,11 @@ $productAttrName = '';
                     foreach ($thisProductVariations AS $tpv) {
                         if (!empty($tpv['attributes'])) {
                             foreach ($tpv['attributes'] AS $id => $option) {
-                                $soptions['values'][$tpv['variation_id']] = array_values($tpv['attributes'])[0];
+                                if (strtolower($option) == 'no options') {
+                                    $soptions['values'][$tpv['variation_id']] = 'No Options';
+                                } else {
+                                    $soptions['values'][$tpv['variation_id']] = array_values($tpv['attributes'])[0];
+                                }
                             }
                         }
                     }
