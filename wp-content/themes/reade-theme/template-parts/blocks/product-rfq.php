@@ -176,7 +176,9 @@ $productAttrName = '';
             /** After initial select box, we need to have a select box for the attributes.  We have to have a select box for all possible attributes, so it can be shown after it's selected in box one.  It will be hidden by default, and onselect of select one, the correct attribute box will be shown **/
             $it = 1;
             
-            foreach ($cspattrs AS $pid => $pattrs) { 
+            foreach ($cspattrs AS $pid => $pattrs) {
+
+                echo '<pre>'; print_r($pattrs); echo '</pre>'; 
                 $pattrName = array_values($pattrs)[0]->get_data()['name'];
                 $thisProduct = new WC_Product_Variable($pid);
                 $thisProductVariations = $thisProduct->get_available_variations();
