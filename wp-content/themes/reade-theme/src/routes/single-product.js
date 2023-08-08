@@ -1,12 +1,16 @@
 import loadjs from 'loadjs'
+
 const { $ } = window
 const $body = $(document.body)
+
 
 export default {
   init() {
 
   },
   finalize() {
+
+    
 
     if ($('.prp-product').length) {
       // more than 3, enable load more functionality

@@ -421,7 +421,22 @@ export default {
 		
 
 		function handleProductCustomField() {
-			$('.product-custom-fields-title').on('click', function() {
+
+			let clickTimeout = false;
+
+			$('.product-custom-fields-title').on('click', function(e) {
+
+    
+			    if (!clickTimeout) {
+			        clickTimeout = true;
+			        setTimeout(function() {
+			          clickTimeout = false;
+			        }, 500);
+			    } else {
+			        e.preventDefault();
+			        return false;
+			    }
+
 				if ($(this).next().css('display') == 'none') {
 					$(this).find('svg').css('transform', 'unset');
 				} else {
