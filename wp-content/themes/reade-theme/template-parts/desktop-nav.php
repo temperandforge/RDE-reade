@@ -28,6 +28,7 @@ if(!defined('option_fields')) {
         </nav>
          <div class="flex items-center ml-auto lg:ml-0">
             <a href="/itemized-rfq/">
+              <span class="sr-only">RFQ</span>
               <div class="doc-notifications">
                <?php
 

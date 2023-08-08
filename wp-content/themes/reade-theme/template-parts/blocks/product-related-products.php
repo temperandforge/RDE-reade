@@ -42,7 +42,7 @@ if (!empty($related_products->posts)) {
   $count = count($related_products->posts);
   ?>
   <div class="product-related-products">
-    <h4 class="prp-title"><?php echo !empty($fields['related_products_text']) ? $fields['related_products_text'] : 'Related Products'; ?></h4>
+    <h3 class="prp-title"><?php echo !empty($fields['related_products_text']) ? $fields['related_products_text'] : 'Related Products'; ?></h3>
     <div class="prp-container">
       <?php
 
@@ -81,12 +81,12 @@ if (!empty($related_products->posts)) {
 
     if ($count > 3) {
       ?>
-      <a class="btn-blue-dark-blue" href="javascript: void(0);" id="prp-load-more"><?php
+      <button class="btn-blue-dark-blue" href="javascript: void(0);" id="prp-load-more"><?php
 
       echo !empty($fields['load_more_button_text']) ? $fields['load_more_button_text'] : 'Load More';
 
       ?>
-      </a>
+      </button>
       <?php
     }
 

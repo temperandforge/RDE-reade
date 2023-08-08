@@ -259,7 +259,7 @@ $productAttrName = '';
                 // tf_dropdown($qtyoptions);
 
                 ?>
-                <input id="product-qty" type="number" name="qty_number" value="1">
+                <input id="product-qty" type="number" name="qty_number" value="1" aria-label="Quantity">
                 <input id="product-qty-units" type="hidden" name="qty_unit" value="Units">
                 <?php
 
