@@ -418,6 +418,35 @@ export default {
 			}, 500));
 		}
 
+		if (document.body.classList.contains('custom-product-rfq-form')) {
+
+			function handleCustomProductSubmit() {
+				$('form').on('submit', function() {
+
+					let form = $(this);
+					
+					$(this).find('.wpcf7-submit svg.spinner').css('display', 'block');
+					$(this).find('.wpcf7-submit svg:not(.spinner)').css('display', 'none');
+
+					$(this).find('span').bind('DOMSubtreeModified', function(event) {
+			            // If an error has been appended to this input's parent span, do something
+			            if ( $(this).children('.wpcf7-not-valid-tip').length ) {
+			                // RUN YOUR FUNCTION HERE
+			                form.find('.wpcf7-submit svg.spinner').css('display', 'none');
+							form.find('.wpcf7-submit svg:not(.spinner)').css('display', 'block');
+
+			                // Prevent this function from running multiple times
+			                $(this).off(event);
+
+			                return false;
+			            }
+			        })
+				})
+			}
+
+			handleCustomProductSubmit();
+		}
+
 		
 
 		function handleProductCustomField() {

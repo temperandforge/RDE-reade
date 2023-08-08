@@ -468,7 +468,8 @@ ul.header-links {
 		margin-left: auto;
 	}
 	.doc-notifications {
-		@apply mr-0 w-20;
+		@apply w-20;
+		margin-right: 10px;
 	}
 	.toggle-nav {
 		@apply ml-3;

@@ -381,10 +381,12 @@
         position: relative;
         z-index: 20;
         padding-top: 2.5px;
+        transition-delay: 0.35s;
 
         @include respond-below(sm) {
         	width: 100%;
         }
+
 
         dt p, dd ul li {
             color: var(--primary-900, #045);
@@ -394,7 +396,10 @@
         }
 
         dd ul {
-            border-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
             border: 1px solid var(--primary-500-main, #009FC6);
             background: #FFF;
             max-height: 300px;
@@ -432,6 +437,7 @@
         border-bottom-right-radius: 0;
         position: relative;
         z-index: 30;
+        transition: z-index 0s linear;
 
         dd ul {
             border-top: 1px solid var(--primary-500-main, #009FC6);

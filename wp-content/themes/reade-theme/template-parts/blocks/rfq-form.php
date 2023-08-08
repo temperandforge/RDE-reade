@@ -27,7 +27,7 @@ $fields = get_fields();
     <?php if(!empty($fields['image'])) :?>
      <div class="rfq-form--image">
       <figure>
-       <?php echo wp_get_attachment_image( $fields['image']['ID'], 'full' );?>
+       <?php echo wp_get_attachment_image( $fields['image']['ID'], 'full', array('width' => '425', 'height' => '341') );?>
       </figure>
      </div>
     <?php endif ;?>
