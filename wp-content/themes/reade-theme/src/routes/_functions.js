@@ -36,7 +36,7 @@ function mobileMenu() {
 
 	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
 		$(this).toggleClass('item-open')
-		if(e.target.tagName.toLowerCase() == 'a') {
+		if(e.target.tagName.toLowerCase() == 'a' && e.target.getAttribute('href') == '#') {
 			e.preventDefault() //prevent triggering link
 			$(e.target).siblings('.sub-menu').slideToggle(250)
 		} else { //parent li

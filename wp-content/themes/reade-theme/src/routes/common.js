@@ -41,6 +41,12 @@ export default {
 			}, false );
 		}
 
+		$('.header-links li a').on('click', function(e) {
+			if ($(this).attr('href') == '#') {
+				e.preventDefault();
+			}
+		});
+
 
 		let elementsPerPage;
 		let categoryType = '.pab-category';
