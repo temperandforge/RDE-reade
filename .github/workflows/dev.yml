@@ -28,6 +28,6 @@ jobs:
       uses: wpengine/github-action-wpe-site-deploy@v3.0
       with:
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
-        WPE_ENV: ${{ secrets.WPE_ENV_DEV }} 
+        WPE_ENV: ${{ secrets.WPE_ENV_PRD }} 
         ## Deploy Options
         CACHE_CLEAR: TRUE
