@@ -71,6 +71,12 @@ export default {
 				  		
 			totalElements = $(categoryType).length;
 			updatePaginationButtons();
+
+			if (pages <= 1) {
+				$('.pab-pagination').hide();
+			} else {
+				$('.pab-pagination').show();
+			}
 		}
 
 

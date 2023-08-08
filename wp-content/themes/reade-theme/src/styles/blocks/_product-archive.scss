@@ -17,6 +17,8 @@
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 27px; /* 150% */
+		max-width: 750px;
+		margin: 0 auto;
 	}
 
 	.pab-top {
@@ -222,13 +224,13 @@
 			padding-top: 5px;
 		}
 
-		.btn-dark-blue-blue {
+		.btn-blue-dark-blue {
 			display: inline-flex;
 			padding: 10px 33px;
 			justify-content: center;
 			align-items: center;
 		}
-		.btn-dark-blue-blue:disabled {
+		.btn-blue-dark-blue:disabled {
 			background-color: var(--neutral-300, #D4D4D4);
 			border: solid 1px transparent;
 
