@@ -41,7 +41,7 @@ export default {
 			}, false );
 		}
 
-		$('.header-links li a').on('click', function(e) {
+		$('.header-links li a, .footer-links-list li a').on('click', function(e) {
 			if ($(this).attr('href') == '#') {
 				e.preventDefault();
 			}
