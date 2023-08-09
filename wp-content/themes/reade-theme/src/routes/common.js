@@ -53,6 +53,7 @@ export default {
 		let searchLoaded = false;
 		let currentPage = 1;
 		let totalElements = $(categoryType).length;
+		let initialLoad = true;
 
 		function showElements(startIndex, endIndex) {
 			$('.pab-category').hide();
@@ -83,6 +84,12 @@ export default {
 			} else {
 				$('.pab-pagination').show();
 			}
+			
+			if (!initialLoad) {
+				document.getElementsByClassName('pab-filters')[0].scrollIntoView(true);
+			}
+
+			initialLoad = false;
 		}
 
 
