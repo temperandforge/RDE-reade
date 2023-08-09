@@ -86,7 +86,9 @@ export default {
 			}
 			
 			if (!initialLoad) {
-				document.getElementsByClassName('pab-filters')[0].scrollIntoView(true);
+				if (document.getElementsByClassName('pab-categories')) {
+					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+				}
 			}
 
 			initialLoad = false;
@@ -266,6 +268,10 @@ export default {
 				}
 			}
 
+			if (product_data.product_qty <= 0) {
+				error_msg = 'Please enter a quantity greater than 0';
+			}
+
 			if (error_msg == '') {
 				$('#product-rfq-error-message').css('display', 'none');
 				return true;
@@ -282,6 +288,8 @@ export default {
 
 				$(this).find('.spinner').css('display', 'block');
 				$(this).find('svg:not(.spinner').css('display', 'none');
+				$(this).prop('disabled', true);
+
 				// gather data
 				let multiple_attributes = $('#multiple_attributes').length ? $('#multiple_attributes').val() : '0';
 				let product_1 = $('#submitted_product_1').length ? $('#submitted_product_1').val() : false;
@@ -309,6 +317,7 @@ export default {
 				if (!validateRFQForm(product_data)) {
 					$(this).find('.spinner').css('display', 'none');
 					$(this).find('svg:not(.spinner').css('display', 'block');
+					$(this).prop('disabled', false);
 					return;
 				}
 
@@ -322,6 +331,7 @@ export default {
 		            	}
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		              if (responseText == 'success') {
 		              	$('#hidden-lity-opener').click();
 		              }
@@ -329,10 +339,12 @@ export default {
 		            error: function() {
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		            },
 		            complete: function() {
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		            }
 		          });
 			});
