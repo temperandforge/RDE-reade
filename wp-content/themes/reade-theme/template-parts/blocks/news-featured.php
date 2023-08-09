@@ -65,6 +65,15 @@ $fallback = get_field('featured_news_fallback_image', 'options');
                     ?>
                     <p class="news-excerpt"><?php echo $fields['featured_article'][0]->post_excerpt; ?></p>
                     <?php
+                } else {
+
+                    $content = substr(strip_tags(get_the_content(null, null, $fields['featured_article'][0]->ID)), 0, 140);
+
+                    if (!empty($content)) {
+                        ?>
+                        <p class="news-excerpt"><?php echo $content; ?> ...</p>
+                        <?php
+                    }
                 }
 
                 ?>
