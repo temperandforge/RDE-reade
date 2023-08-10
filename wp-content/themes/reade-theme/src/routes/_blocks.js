@@ -227,7 +227,7 @@ function handleTileSlider() {
 					{
 						breakpoint: 768,
 						settings: {
-							rows: 20,
+							rows: 6,
 							slidesPerRow: 1,
 							adaptiveHeight: true,
 						},
@@ -243,6 +243,8 @@ function handleVerticalAccordions() {
 		return
 	}
 
+	//vertical-accordion--heading
+
 	const $accordions = $('.vertical-accordion--accordion')
 	const $images = $('.vertical-accordion--figure')
 	const $buttons = $('.vertical-accordion--btn')
@@ -257,7 +259,7 @@ function handleVerticalAccordions() {
 	function handleClicks() {
 		$accordions.each(function (idx) {
 			$(this)
-				.find('.vertical-accordion--btn')
+				.find('.vertical-accordion--heading')
 				.on('click', function () {
 					if ($(this).attr('aria-expanded') == 'true') {
 						return

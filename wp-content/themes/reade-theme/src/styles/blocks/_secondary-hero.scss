@@ -8,10 +8,10 @@
 	}
 
 	@apply relative bg-geometric;
-	padding: 30px 0;
+	padding: 30px 0 0;
 
 	@include respond-above(sm) {
-		padding: 100px 0 50px;
+		padding: 100px 0 0;
 	}
 
 	&:before,
@@ -96,11 +96,11 @@
 
 .secondary-hero--copy {
 	@apply flex flex-col justify-center items-start;
-	@include inner-wrap(744px);
-	padding: 40px;
+	padding: clamp(2.5rem, 0.5rem + 5vw, 5rem) clamp(2.5rem, -1.1rem + 9vw, 7rem);
 
 	@include respond-above(sm) {
-		padding: clamp(45px, 5vw, 80px) clamp(50px, 7.5vw, 112px);
+		//padding: clamp(45px, 5vw, 80px) clamp(50px, 7.5vw, 112px);
+		flex-grow: 1;
 	}
 
 	h1 {
@@ -133,6 +133,10 @@
 		@include respond-above(sm) {
 			font-size: 16px;
 			line-height: 24px;
+		}
+
+		@include respond-above(lg) {
+			max-width: 520px;
 		}
 	}
 }
@@ -205,6 +209,13 @@ body.global-sourcing .secondary-hero--copy h1 {
 
 		@include respond-above(xl) {
 			/* clip-path: ellipse(55% 100% at 55% 50%); */
+		}
+
+		@include respond-below(lg) {
+			max-height: 350px;
+		}
+		@include respond-below(md) {
+			max-height: 300px;
 		}
 	}
 }
