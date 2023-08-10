@@ -44,7 +44,7 @@ ul.header-links {
 
 		visibility: hidden;
 		opacity: 0;
-		max-height: 0;
+		// max-height: 0; //Safari Issues
 		pointer-events: none;
 		overflow: hidden;
 
