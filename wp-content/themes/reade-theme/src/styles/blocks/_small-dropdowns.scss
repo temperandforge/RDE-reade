@@ -23,6 +23,10 @@
       padding-bottom: 150px;
    }
 
+   .max-h-0 div {
+      padding-bottom: 25px;
+   }
+
    [data-collapse-target] > * {
       pointer-events: none;
    }
@@ -42,7 +46,7 @@
       
    padding-block: 10.31rem;
    padding-bottom: 282px;
-   
+
    @include respond-below(sm) {
       padding-block: 5rem;
       padding-bottom: 150px;
