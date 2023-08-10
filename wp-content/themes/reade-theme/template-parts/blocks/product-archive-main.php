@@ -134,7 +134,7 @@ $options = get_fields('options');
 
 
                ?>
-               <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); ?>">
+               <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags($prodinfo->get_short_description()); ?>">
                   <div class="pab-category-wrap">
                      <a class="fillall" href="<?php echo $permalink; ?>">
                         <span class="sr-only"><?php echo $prodinfo->get_name(); ?></span>

@@ -60,9 +60,9 @@ if(!$leadership_team) {
          </div>
          <?php if((!empty($post_fields['email'])) ||(!empty($post_fields['linkedin']))) :?>
             <div class="leadership-slider--contact" >
-               <?php if(!empty($post_fields['linkedin'])) :?>
+               <?php if(!empty($post_fields['linkedin'])) : ?>
                 <a 
-                href="<?php echo $post_fields['linkedin']['title'] ;?>"
+                href="<?php echo $post_fields['linkedin']['url'] ;?>"
                 target="<?php echo $post_fields['linkedin']['target'] ?: '_self';?>"
                 class="icon-btn linkedin">
                  <span class="sr-only"><?php echo $post_fields['linkedin']['title'] ;?> Profile</span>
@@ -127,13 +127,14 @@ if(!$leadership_team) {
          </div>
       <div class="leadership-slider-mobile--contacts">
          <?php foreach($leadership_team as $post) :
-            $post_fields = get_fields($postid);
+            
             $postid = $post->ID;
+            $post_fields = get_fields($postid);
             ?>
             <div class="leadership-slider-mobile-contact">
                <?php if(!empty($post_fields['linkedin'])) :?>
                   <a 
-                   href="<?php echo $post_fields['linkedin']['title'] ;?>"
+                   href="<?php echo $post_fields['linkedin']['url'] ;?>"
                    target="<?php echo $post_fields['linkedin']['target'] ?: '_self';?>"
                    class="icon-btn linkedin">
                     <span class="sr-only"><?php echo $post_fields['linkedin']['title'] ;?> Profile</span>

@@ -86,8 +86,8 @@ export default {
 			}
 			
 			if (!initialLoad) {
-				if (document.getElementsByClassName('pab-categories')) {
-					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+				if (document.getElementsByClassName('pab-filters')) {
+					document.getElementsByClassName('pab-filters')[0].scrollIntoView(true);
 				}
 			}
 

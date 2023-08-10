@@ -35,6 +35,7 @@
 		text-align: center;
 		font-size: 14px;
 		line-height: 23px;
+		text-align: left;
 
 		@include respond-above(md) {
 			font-size: 16px;
@@ -179,6 +180,9 @@
 			&:not(:first-child) {
 				.tile-slider--slide {
 					margin-top: 19px;
+					@include respond-below(md) {
+						margin-top: 10px;
+					}
 				}
 			}
 		}
@@ -246,6 +250,10 @@
 	.slick-dots {
 		@apply flex items-center justify-center;
 		gap: 6px;
+
+		@include respond-below(sm) {
+			display: none;
+		}
 
 		li {
 			border-radius: 50%;

@@ -227,7 +227,7 @@ function handleTileSlider() {
 					{
 						breakpoint: 768,
 						settings: {
-							rows: 6,
+							rows: 20,
 							slidesPerRow: 1,
 							adaptiveHeight: true,
 						},
