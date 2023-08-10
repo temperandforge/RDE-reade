@@ -39,6 +39,10 @@
 .career-block--slider {
 	margin-top: 70px;
 
+	.slick-track {
+		display: flex;
+	}
+
 	@include respond-above(md) {
 		margin-top: 100px;
 
@@ -75,6 +79,12 @@
 }
 
 .career-block--content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	height: 100%;
+
 	h3 {
 		font-size: 18px;
 		font-weight: 700;
@@ -94,8 +104,13 @@
 	}
 }
 
-.career-block--slide {
+.career-block--slide.slick-slide {
 	margin: 0 auto;
+	height: unset;
+
+	.career-block--job {
+		height: 100%;
+	}
 
 	&.solo-slide {
 		@include respond-above(lg) {
