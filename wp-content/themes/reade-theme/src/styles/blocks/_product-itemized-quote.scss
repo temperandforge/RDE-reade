@@ -246,6 +246,10 @@
                 align-items: flex-start;
                 justify-content: center;
                 gap: 8px;
+
+                .tf-dropdown {
+                    margin-right: 12px;
+                }
             }
             .product-qty {
                     max-width: 72px;

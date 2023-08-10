@@ -235,7 +235,10 @@ ul.header-links {
 }
 .doc-notifications {
 	//TODO dot? - woocommerce
-	@apply mr-[14px];
+	@include respond-above(lg) {
+		@apply mr-[14px];
+	}
+	
 	background: var(--primary-100, #cfeef6);
 	> * {
 		pointer-events: none;
@@ -268,6 +271,11 @@ ul.header-links {
 .search-wrap {
 	border: 1.5px solid var(--primary-500-main, #009fc6);
 	--search-width: 10rem;
+
+	@include respond-below(lg) {
+		display: none;
+	}
+
 	form {
 		@apply h-full inline-flex;
 		border-radius: inherit;
@@ -468,7 +476,8 @@ ul.header-links {
 		margin-left: auto;
 	}
 	.doc-notifications {
-		@apply mr-0 w-20;
+		@apply w-20;
+		//margin-right: 10px;
 	}
 	.toggle-nav {
 		@apply ml-3;

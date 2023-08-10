@@ -38,6 +38,9 @@
 	}
 
 	h1 {
+
+		text-wrap: balance;
+		
 		@include inner-wrap(992px);
 		font-size: 28px;
 		font-weight: 700;

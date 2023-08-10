@@ -27,15 +27,18 @@
 		letter-spacing: -1.44px;
 		max-width: 18ch;
 		margin: 0 auto;
+		text-wrap: balance;
 
 		@include respond-above(md) {
 			font-size: 50px;
 			font-weight: 700;
 			line-height: 60px; /* 120% */
 			letter-spacing: -1.5px;
+			text-wrap: balance;
 		}
 	}
 }
+
 
 .rfq-form--form {
 	@apply relative z-10;

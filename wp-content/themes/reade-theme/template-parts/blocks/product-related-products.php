@@ -65,7 +65,7 @@ if (!empty($related_products->posts)) {
 
             if (!empty($image)) {
               ?>
-              <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['medium_width']; ?>" height="<?php echo $image['sizes']['medium_height']; ?>">
+              <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['medium-width']; ?>" height="<?php echo $image['sizes']['medium-height']; ?>">
               <?php
             }
         }

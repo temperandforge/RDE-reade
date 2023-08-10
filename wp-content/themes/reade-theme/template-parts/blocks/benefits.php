@@ -49,31 +49,34 @@ if( !empty( $block['data']['_is_preview'] ) ) {
       <?php
 
       foreach ($fields['benefits'] AS $benefit) {
-        ?>
-        <div class="benefits-benefits-item">
-          <div class="benefits-benefits-item-left">
-            <?php echo $bicons[$benefit['icon']]; ?>
-          </div>
-          <div class="benefits-benefits-item-right">
-            <?php
 
-            if (!empty($benefit['headline'])) {
-              ?>
-              <h3 class="benefits-benefits-item-headline"><?php echo $benefit['headline']; ?></h3>
+        if (!empty($benefit['headline']) || !empty($benefit['text'])) {
+          ?>
+          <div class="benefits-benefits-item">
+            <div class="benefits-benefits-item-left">
+              <?php echo $bicons[$benefit['icon']]; ?>
+            </div>
+            <div class="benefits-benefits-item-right">
               <?php
-            }
 
-            if (!empty($benefit['text'])) {
+              if (!empty($benefit['headline'])) {
+               ?>
+                <h3 class="benefits-benefits-item-headline"><?php echo $benefit['headline']; ?></h3>
+                <?php
+              }
+
+              if (!empty($benefit['text'])) {
+                ?>
+                <p class="benefits-benefits-item-text"><?php echo $benefit['text']; ?></p>
+                <?php
+              }
+
               ?>
-              <p class="benefits-benefits-item-text"><?php echo $benefit['text']; ?></p>
-              <?php
-            }
-
-            ?>
+            </div>
+            <p class="benefits-benefits-item-text-mobile"><?php echo $benefit['text']; ?></p>
           </div>
-          <p class="benefits-benefits-item-text-mobile"><?php echo $benefit['text']; ?></p>
-        </div>
-        <?php
+          <?php
+        }
       }
 
       ?>
@@ -87,6 +90,17 @@ if( !empty( $block['data']['_is_preview'] ) ) {
     <div class="benefits-subtext">
       <p><?php echo $fields['subtext']; ?></p>
     </div>
+    <?php
+  }
+
+  if (!empty($fields['button'])) {
+    ?>
+    <a class="btn-blue-dark-blue btn-arrow" href="<?php echo $fields['button']['url']; ?>" <?php if ($fields['button']['target'] == '_blank') { ?>target="_blank"<?php } ?>><?php echo $fields['button']['title']; ?>
+      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.71136C12.348 6.36965 12.902 6.36965 13.2437 6.71136L16.7437 10.2114C17.0854 10.5531 17.0854 11.1071 16.7437 11.4488L13.2437 14.9488C12.902 15.2905 12.348 15.2905 12.0063 14.9488C11.6646 14.6071 11.6646 14.0531 12.0063 13.7114L14.0126 11.7051H3.875C3.39175 11.7051 3 11.3133 3 10.8301C3 10.3468 3.39175 9.95508 3.875 9.95508H14.0126L12.0063 7.9488C11.6646 7.60709 11.6646 7.05307 12.0063 6.71136Z" fill="#FAFAFA"/>
+</svg>
+
+    </a>
     <?php
   }
 

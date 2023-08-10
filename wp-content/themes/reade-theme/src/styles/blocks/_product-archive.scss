@@ -1,4 +1,5 @@
 .product-archive-block {
+	
 	padding: clamp(3.75rem, 1.25rem + 6.25vw, 6.875rem) 0;
 
 	.pab-headline {
@@ -17,6 +18,8 @@
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 27px; /* 150% */
+		max-width: 750px;
+		margin: 0 auto;
 	}
 
 	.pab-top {
@@ -222,13 +225,13 @@
 			padding-top: 5px;
 		}
 
-		.btn-dark-blue-blue {
+		.btn-blue-dark-blue {
 			display: inline-flex;
 			padding: 10px 33px;
 			justify-content: center;
 			align-items: center;
 		}
-		.btn-dark-blue-blue:disabled {
+		.btn-blue-dark-blue:disabled {
 			background-color: var(--neutral-300, #D4D4D4);
 			border: solid 1px transparent;
 
@@ -279,6 +282,7 @@
         position: relative;
         z-index: 20;
         padding-top: 2.5px;
+        transition-delay: 0.35s;
 
         @include respond-below(sm) {
         	width: 100%;
@@ -292,7 +296,10 @@
         }
 
         dd ul {
-            border-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
             border: 1px solid var(--primary-500-main, #009FC6);
             background: #FFF;
             max-height: 300px;
@@ -330,6 +337,7 @@
         border-bottom-right-radius: 0;
         position: relative;
         z-index: 30;
+        transition: z-index 0s linear;
 
         dd ul {
             border-top: 1px solid var(--primary-500-main, #009FC6);

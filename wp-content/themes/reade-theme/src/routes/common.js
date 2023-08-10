@@ -41,12 +41,19 @@ export default {
 			}, false );
 		}
 
+		$('.header-links li a, .footer-links-list li a').on('click', function(e) {
+			if ($(this).attr('href') == '#') {
+				e.preventDefault();
+			}
+		});
+
 
 		let elementsPerPage;
 		let categoryType = '.pab-category';
 		let searchLoaded = false;
 		let currentPage = 1;
 		let totalElements = $(categoryType).length;
+		let initialLoad = true;
 
 		function showElements(startIndex, endIndex) {
 			$('.pab-category').hide();
@@ -71,6 +78,20 @@ export default {
 				  		
 			totalElements = $(categoryType).length;
 			updatePaginationButtons();
+
+			if (pages <= 1) {
+				$('.pab-pagination').hide();
+			} else {
+				$('.pab-pagination').show();
+			}
+			
+			if (!initialLoad) {
+				if (document.getElementsByClassName('pab-categories')) {
+					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+				}
+			}
+
+			initialLoad = false;
 		}
 
 
@@ -247,6 +268,10 @@ export default {
 				}
 			}
 
+			if (product_data.product_qty <= 0) {
+				error_msg = 'Please enter a quantity greater than 0';
+			}
+
 			if (error_msg == '') {
 				$('#product-rfq-error-message').css('display', 'none');
 				return true;
@@ -263,6 +288,8 @@ export default {
 
 				$(this).find('.spinner').css('display', 'block');
 				$(this).find('svg:not(.spinner').css('display', 'none');
+				$(this).prop('disabled', true);
+
 				// gather data
 				let multiple_attributes = $('#multiple_attributes').length ? $('#multiple_attributes').val() : '0';
 				let product_1 = $('#submitted_product_1').length ? $('#submitted_product_1').val() : false;
@@ -290,6 +317,7 @@ export default {
 				if (!validateRFQForm(product_data)) {
 					$(this).find('.spinner').css('display', 'none');
 					$(this).find('svg:not(.spinner').css('display', 'block');
+					$(this).prop('disabled', false);
 					return;
 				}
 
@@ -303,6 +331,7 @@ export default {
 		            	}
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		              if (responseText == 'success') {
 		              	$('#hidden-lity-opener').click();
 		              }
@@ -310,10 +339,12 @@ export default {
 		            error: function() {
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		            },
 		            complete: function() {
 		            	$('#product-submit-button').find('.spinner').css('display', 'none');
 		            	$('#product-submit-button').find('svg:not(.spinner)').css('display', 'block');
+		            	$('#product-submit-button').prop('disabled', false);
 		            }
 		          });
 			});
@@ -416,6 +447,35 @@ export default {
 		          });
 
 			}, 500));
+		}
+
+		if (document.body.classList.contains('custom-product-rfq-form')) {
+
+			function handleCustomProductSubmit() {
+				$('form').on('submit', function() {
+
+					let form = $(this);
+					
+					$(this).find('.wpcf7-submit svg.spinner').css('display', 'block');
+					$(this).find('.wpcf7-submit svg:not(.spinner)').css('display', 'none');
+
+					$(this).find('span').bind('DOMSubtreeModified', function(event) {
+			            // If an error has been appended to this input's parent span, do something
+			            if ( $(this).children('.wpcf7-not-valid-tip').length ) {
+			                // RUN YOUR FUNCTION HERE
+			                form.find('.wpcf7-submit svg.spinner').css('display', 'none');
+							form.find('.wpcf7-submit svg:not(.spinner)').css('display', 'block');
+
+			                // Prevent this function from running multiple times
+			                $(this).off(event);
+
+			                return false;
+			            }
+			        })
+				})
+			}
+
+			handleCustomProductSubmit();
 		}
 
 		

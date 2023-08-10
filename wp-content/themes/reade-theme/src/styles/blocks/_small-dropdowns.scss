@@ -1,8 +1,16 @@
 .small-dropdowns + .dropshadow-cards {
-   margin-top: 0;
+   margin-top: -160px;
+   margin-bottom: 105px;
+
+   @include respond-below(md) {
+      margin-bottom: 75px;
+      margin-top: -50px;
+   }
 }
 
+
 .small-dropdowns {
+   padding-bottom: 282px;
    @apply flex flex-col relative z-10 mx-auto max-w-[64rem];
    @apply gap-x-12 gap-y-[4.74rem];
    &:before {
@@ -11,6 +19,13 @@
       background: var(--primary-50, #EFFBFF);
    }
    
+   @include respond-below(sm) {
+      padding-bottom: 150px;
+   }
+
+   .max-h-0 div {
+      padding-bottom: 25px;
+   }
 
    [data-collapse-target] > * {
       pointer-events: none;
@@ -30,8 +45,11 @@
    }
       
    padding-block: 10.31rem;
+   padding-bottom: 282px;
+
    @include respond-below(sm) {
       padding-block: 5rem;
+      padding-bottom: 150px;
    }
 
    // @media screen(md) 

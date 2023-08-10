@@ -50,7 +50,7 @@
         box-sizing: border-box;
         //min-height: 492px;
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1350px) {
             padding-right: min(104px, 7.22vw);
             padding-left: min(104px, 7.222vw);
             padding-top: min(77px, 5.347vw);
@@ -78,7 +78,6 @@
             @include respond-below(sm) {
                 border-radius: 0;
                 border: unset;
-                object-fit: fill;
             }
         }
     }
@@ -102,7 +101,7 @@
         position: relative;
         width: 68.67%;
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1350px) {
             width: 100%;
         }
 
@@ -126,7 +125,7 @@
             line-height: 1.5;
             max-width: 52ch;
 
-            @media (max-width: 1200px) {
+            @media (max-width: 1350px) {
                 max-width: 100%;
                 margin-bottom: 10px;
             }
@@ -146,7 +145,7 @@
             font-weight: 700;
             font-size: 16px;
 
-            @media (max-width: 1200px) {
+            @media (max-width: 1350px) {
                 position: relative;
                 right: 0;
                 top: 0;

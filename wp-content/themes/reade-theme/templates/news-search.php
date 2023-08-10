@@ -82,6 +82,9 @@ $view_more_button_text = get_field('view_more_button_text', 'options') ? get_fie
              include get_stylesheet_directory() . '/template-parts/blocks/partial/blog-hero.php';
          }
 
+         
+        the_content();
+
         
 
          ?>

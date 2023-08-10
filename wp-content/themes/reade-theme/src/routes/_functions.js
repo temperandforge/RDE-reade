@@ -40,8 +40,12 @@ function mobileMenu() {
 
 	$( '.mobile-menu .menu-item.menu-item-has-children > a').on('click', function(e) {
 		$(this).toggleClass('item-open')
-		e.preventDefault() //prevent triggering link
-		$(e.target).siblings('.sub-menu').slideToggle(250)
+		if(e.target.tagName.toLowerCase() == 'a' && e.target.getAttribute('href') == '#') {
+			e.preventDefault() //prevent triggering link
+			$(e.target).siblings('.sub-menu').slideToggle(250)
+		} else { //parent li
+			$(e.target).find('.sub-menu').slideToggle(250)
+		}
 	})
 
 	function closeOnDesktop( x ) {

@@ -2,6 +2,7 @@
 
 $fields = get_fields();
 $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card_button_text', 'options') : 'Read More';
+$fallback = get_field('featured_news_fallback_image', 'options');
 
 ?>
 <div class="news-featured">
@@ -64,6 +65,15 @@ $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card
                     ?>
                     <p class="news-excerpt"><?php echo $fields['featured_article'][0]->post_excerpt; ?></p>
                     <?php
+                } else {
+
+                    $content = substr(strip_tags(get_the_content(null, null, $fields['featured_article'][0]->ID)), 0, 140);
+
+                    if (!empty($content)) {
+                        ?>
+                        <p class="news-excerpt"><?php echo $content; ?> ...</p>
+                        <?php
+                    }
                 }
 
                 ?>
@@ -78,6 +88,17 @@ $btn_text = get_field('news_card_button_text', 'options') ? get_field('news_card
                 <?php
                 if ($farticleimg) {
                     echo $farticleimg;
+                } else {
+                    if ($fallback) {
+                        ?>
+                        <img
+                            src="<?php echo $fallback['sizes']['medium_large']; ?>"
+                            alt="<?php echo $fallback['alt']; ?>"
+                            width="<?php echo $fallback['sizes']['medium_large-width']; ?>"
+                            height="<?php echo $fallback['sizes']['medium_large-height']; ?>"
+                        >
+                        <?php
+                    }
                 }
                 ?>
             </div>
