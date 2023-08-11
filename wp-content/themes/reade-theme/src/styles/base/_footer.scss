@@ -15,7 +15,7 @@
 }
 ul.footer-links-list {
    @apply mb-12;
-   @apply grid gap-y-6;
+   @apply grid gap-y-6 gap-x-6 sm:gap-x-0;
    grid-template-areas: 
    "a b"
    "c b"
