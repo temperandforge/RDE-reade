@@ -35,7 +35,7 @@ global $product;
             }
 
             ?>
-            <h1 class="product-hero-title"><?php echo $product->get_name(); ?></h1>
+            <h1 class="product-hero-title"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $product->get_name()); ?></h1>
 
             <?php
 

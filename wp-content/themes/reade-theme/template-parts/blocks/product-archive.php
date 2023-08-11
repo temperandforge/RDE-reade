@@ -140,7 +140,7 @@ $options = get_fields('options');
                   </div>
                   <div class="pab-category-info">
                      <div class="pab-category-info-left">
-                        <?php echo $product_category->name; ?>
+                        <?php echo str_replace(array('®'), array('<sup>®</sup>'), $product_category->name); ?>
                      </div>
                      <div class="pab-category-info-right">
                         <span><?php echo $product_count; ?></span>

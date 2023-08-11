@@ -4,6 +4,30 @@
 	@include respond-above(md) {
 		padding-top: 105px;
 	}
+
+	.wpcf7-not-valid-tip {
+		display: none;
+	}
+
+	select.wpcf7-not-valid {
+		color: #f15252 !important;
+	}
+	.wpcf7-not-valid {
+		background: var(--primary-50,#effbff);
+    	border: 1px solid #f15252 !important;
+    	color: #f15252;
+
+    	 &::placeholder {
+            color: #f15252;
+         }
+	}
+
+	.wpcf7 form .wpcf7-response-output {
+		margin: 0;
+		padding: 0;
+		border: unset !important;
+		
+	}
 }
 
 .rfq-submit--main,
