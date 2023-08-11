@@ -13,7 +13,13 @@ $style = $fields['style'] ? $fields['style'] : $options['pfcta_style'];
 $heading = !empty($fields['heading']) ? $fields['heading'] : $options['pfcta_heading'];
 $content = !empty($fields['content']) ? $fields['content'] : $options['pfcta_content'];
 $link = !empty($fields['link']) ? $fields['link'] : $options['pfcta_link'];
-$icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
+
+if (!empty($options['pfcta_icon'])) {
+  $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
+} else {
+  $icon = $fields['icon'];
+}
+
 $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
 $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['pfcta_include_arrow'];
 
@@ -34,7 +40,7 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
      <?php endif ;?>
      <?php if(!empty($link)) :?>
       <a 
-      href="<?php echo $link['title'] ;?>"
+      href="<?php echo $link['url'] ;?>"
       target="<?php echo $link['target'] ?: '_self';?>"
       class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null ;?>">
        <span><?php echo $fields['link']['title'] ;?></span>

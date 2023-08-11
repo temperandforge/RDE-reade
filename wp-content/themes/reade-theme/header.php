@@ -140,7 +140,7 @@
 
               if (!empty($options['atqs_bottom_button'])) {
                 ?>
-                <a class="btn-green-light-green btn-arrow" href="<?php echo $options['atqs_bottom_button']['url']; ?>">
+                <a class="btn-green-black-text btn-arrow" href="<?php echo $options['atqs_bottom_button']['url']; ?>">
                   <?php echo $options['atqs_bottom_button']['title']; ?>
                   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.63128C12.348 6.28957 12.902 6.28957 13.2437 6.63128L16.7437 10.1313C17.0854 10.473 17.0854 11.027 16.7437 11.3687L13.2437 14.8687C12.902 15.2104 12.348 15.2104 12.0063 14.8687C11.6646 14.527 11.6646 13.973 12.0063 13.6313L14.0126 11.625H3.875C3.39175 11.625 3 11.2332 3 10.75C3 10.2668 3.39175 9.875 3.875 9.875H14.0126L12.0063 7.86872C11.6646 7.52701 11.6646 6.97299 12.0063 6.63128Z" fill="white"/>

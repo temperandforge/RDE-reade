@@ -49,6 +49,23 @@
 	}
 }
 
+body.toll-processing {
+	.tile-slider--wrapper {
+		.tile-slider--decor {
+			&:before {
+				@include respond-above(lg) {
+					width: 153px;
+					height: 160px;
+					left: -20px;
+					bottom: -80px;
+
+					@apply section-full;
+				}
+			}
+		}
+	}
+}
+
 .tile-slider--wrapper {
 	@apply relative;
 
@@ -251,10 +268,6 @@
 		@apply flex items-center justify-center;
 		gap: 6px;
 
-		@include respond-below(sm) {
-			display: none;
-		}
-
 		li {
 			border-radius: 50%;
 			width: 12px;
@@ -268,6 +281,16 @@
 
 		button {
 			color: transparent;
+		}
+	}
+}
+
+body.global-sourcing {
+	.tile-slider--dots {
+		.slick-dots {
+			@include respond-below(sm) {
+				display: none !important;
+			}
 		}
 	}
 }

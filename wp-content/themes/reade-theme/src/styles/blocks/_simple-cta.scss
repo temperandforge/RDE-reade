@@ -1,3 +1,14 @@
+body.faqs {
+	.simple-cta--section {
+		width: 72%;
+		margin: 0 auto;
+
+		@include respond-below(lg) {
+			width: 100%;
+		}
+	}
+}
+
 .simple-cta--section {
 	&.blue {
 		@apply bg-blue;
