@@ -34,7 +34,7 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
 
     <?php if(!empty($heading)) :?>
       <div class="primary-footer-cta--cta primary-cta">
-        <p class="primary-ptitle"><?php echo $heading ;?></h2>
+        <p class="primary-ptitle"><?php echo $heading ;?></p>
      <?php if(!empty($content)) :?>
       <p style="text-wrap: balance" ><?php echo $content;?></p>
      <?php endif ;?>
@@ -67,7 +67,7 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
           <div class="footer-cta-icon--wrap <?php echo $cta['icon'];?>" aria-hidden="true"></div>
         <?php endif ;?>
        <?php if(!empty($cta['heading'])) :?>
-        <p class="ptitle"><?php echo $cta['heading'] ;?></h3>
+        <p class="ptitle"><?php echo $cta['heading'] ;?></p>
        <?php endif ;?>
        <?php if(!empty($cta['content'])) :?>
         <p><?php echo $cta['content'] ;?></p>
