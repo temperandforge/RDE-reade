@@ -14,11 +14,11 @@ function handleFAQAccordion() {
 					return attr == 'true' ? 'false' : 'true'
 				})
 				$(this).parent().toggleClass('open')
-				$(this)
-					.siblings('.accordion-answer')
-					.attr('aria-hidden', function (i, attr) {
-						return attr == 'true' ? 'false' : 'true'
-					})
+				// $(this)
+				// 	.siblings('.accordion-answer')
+				// 	.attr('aria-hidden', function (i, attr) {
+				// 		return attr == 'true' ? 'false' : 'true'
+				// 	})
 			})
 	})
 }
@@ -209,9 +209,9 @@ function handleTileSlider() {
 				rows: 3,
 				dots: true,
 				nextArrow:
-					"<button type='button' class='slick-next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					"<button type='button' class='slick-next' aria-label='next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 				prevArrow:
-					"<button type='button' class='slick-prev'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					"<button type='button' class='slick-prev' aria-label='previous'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 				appendDots: $(this).find('.tile-slider--dots'),
 				appendArrows: $(this).find('.tile-slider--arrows'),
 				responsive: [
@@ -272,7 +272,7 @@ function handleVerticalAccordions() {
 								.attr('aria-expanded', 'true')
 							$(this)
 								.find('.vertical-accordion--content')
-								.attr('aria-hidden', 'false')
+								// .attr('aria-hidden', 'false')
 							$(this)
 								.find('.vertical-accordion--content')
 								.toggleClass('active inactive')
@@ -280,9 +280,9 @@ function handleVerticalAccordions() {
 							$(this)
 								.find('.vertical-accordion--btn')
 								.attr('aria-expanded', 'false')
-							$(this)
-								.find('.vertical-accordion--content')
-								.attr('aria-hidden', 'true')
+							// $(this)
+							// 	.find('.vertical-accordion--content')
+							// 	.attr('aria-hidden', 'true')
 							$(this).find('.vertical-accordion--content').addClass('inactive')
 							$(this).find('.vertical-accordion--content').removeClass('active')
 						}
@@ -312,7 +312,7 @@ function handleVerticalAccordions() {
 				$(this).attr('aria-expanded', 'true')
 			})
 			$content.each(function () {
-				$(this).attr('aria-hidden', 'false')
+				// $(this).attr('aria-hidden', 'false')
 				$(this).addClass('active')
 				$(this).removeClass('inactive')
 			})
@@ -324,11 +324,11 @@ function handleVerticalAccordions() {
 			})
 			$content.each(function (index) {
 				if (index == 0) {
-					$(this).attr('aria-hidden', 'false')
+					// $(this).attr('aria-hidden', 'false')
 					$(this).addClass('active')
 					$(this).removeClass('inactive')
 				} else {
-					$(this).attr('aria-hidden', 'true')
+					// $(this).attr('aria-hidden', 'true')
 					$(this).removeClass('active')
 					$(this).addClass('inactive')
 				}
@@ -371,9 +371,9 @@ function handleCareerSlider() {
 		arrows: true,
 		appendArrows: $('.career-block--arrows'),
 		nextArrow:
-			"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='next' type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 		prevArrow:
-			"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='previous' type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 	}
 	let desktopSettings = {
 		rows: 1,
@@ -384,9 +384,9 @@ function handleCareerSlider() {
 		arrows: true,
 		appendArrows: $('.career-block--arrows'),
 		nextArrow:
-			"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='next' type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 		prevArrow:
-			"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='previous' type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 	}
 
 	function initSlick() {
