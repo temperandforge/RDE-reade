@@ -141,7 +141,7 @@ $options = get_fields('options');
                      </a>
                      <div class="pab-prod-left">
                         <div class="pab-category-info-left">
-                           <?php echo $prodinfo->get_name(); ?>
+                           <?php echo str_replace(array('®'), array('<sup>®</sup>'), $prodinfo->get_name()); ?>
                         </div>
                      </div>
                      <div class="pab-prod-middle">

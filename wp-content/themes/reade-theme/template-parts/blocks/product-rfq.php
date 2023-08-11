@@ -62,7 +62,7 @@ $productAttrName = '';
 
         if (!empty($fields['headline'])) {
             ?>
-            <h2 class="product-rfq-headline"><?php echo $fields['headline']; ?></h2>
+            <h2 class="product-rfq-headline"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $fields['headline']); ?></h2>
             <?php
         }
 

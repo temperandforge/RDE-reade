@@ -86,7 +86,7 @@ $cart_contents = $cart->get_cart_contents();
                     ?>
                     <div class="piq-cart-item" id="cart-item-<?php echo $key; ?>" data-cart-key="<?php echo $key; ?>">
                         <div class="piq-product-info">
-                            <h2 class="piq-product-name"><?php echo $parentItem->get_name(); ?></h2>
+                            <h2 class="piq-product-name"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $parentItem->get_name()); ?></h2>
                             <div class="rfq-cas-number">
                                 <?php
 
