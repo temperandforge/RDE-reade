@@ -1,9 +1,9 @@
 <?php
 
 if (is_category() || is_archive()) {
-   $fields = $args;
+  $fields = $args;
 } else {
-   $fields = get_fields();
+  $fields = get_fields();
 }
 
 $options = get_fields('options');
@@ -15,9 +15,9 @@ $content = !empty($fields['content']) ? $fields['content'] : $options['pfcta_con
 $link = !empty($fields['link']) ? $fields['link'] : $options['pfcta_link'];
 
 if (!empty($options['pfcta_icon'])) {
-   $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
+  $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
 } else {
-   $icon = $fields['icon'];
+  $icon = $fields['icon'];
 }
 
 $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
@@ -27,16 +27,16 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
 ?>
 
 <div class="primary-footer-cta--section <?php echo $style; ?>">
-   <div class="primary-footer-cta--main">
-      <div class="primary-footer-cta--inner">
+ <div class="primary-footer-cta--main">
+  <div class="primary-footer-cta--inner">
 
-         <div class="primary-footer-cta--wrap">
+   <div class="primary-footer-cta--wrap">
 
     <?php if(!empty($heading)) :?>
       <div class="primary-footer-cta--cta primary-cta">
         <p class="primary-ptitle"><?php echo $heading ;?></h2>
      <?php if(!empty($content)) :?>
-      <p style=" text-wrap: balance; "><?php echo $content;?></p>
+      <p style="text-wrap: balance" ><?php echo $content;?></p>
      <?php endif ;?>
      <?php if(!empty($link)) :?>
       <a 
@@ -79,6 +79,10 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
         target="<?php echo $cta['link']['target'] ?: '_self' ;?>"><?php echo $cta['link']['title'] ;?></a>
        <?php endif ;?>
       </div>
-   </div>
+     <?php endforeach ;?>
+    </div>
+   <?php endif ;?>
+  </div>
+ </div>
 </div>
 
