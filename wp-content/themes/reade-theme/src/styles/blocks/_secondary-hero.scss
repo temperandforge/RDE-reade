@@ -9,6 +9,7 @@
 
 	@apply relative bg-geometric;
 	padding: 30px 0 0;
+	z-index: 20;
 
 	@include respond-above(sm) {
 		padding: 100px 0 0;

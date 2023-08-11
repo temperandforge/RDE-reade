@@ -237,7 +237,7 @@ $cart_contents = $cart->get_cart_contents();
 
                 if (!empty($fields['bottom_block_button'])) {
                     ?>
-                    <a class="btn-green-light-green btn-arrow" href="<?php echo $fields['bottom_block_button']['url']; ?>">
+                    <a class="btn-green-black-text btn-arrow" href="<?php echo $fields['bottom_block_button']['url']; ?>">
                         <?php echo $fields['bottom_block_button']['title']; ?>
                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.75823C12.848 6.41653 13.402 6.41653 13.7437 6.75823L17.2437 10.2582C17.5854 10.5999 17.5854 11.154 17.2437 11.4957L13.7437 14.9957C13.402 15.3374 12.848 15.3374 12.5063 14.9957C12.1646 14.654 12.1646 14.0999 12.5063 13.7582L14.5126 11.752H4.375C3.89175 11.752 3.5 11.3602 3.5 10.877C3.5 10.3937 3.89175 10.002 4.375 10.002H14.5126L12.5063 7.99567C12.1646 7.65396 12.1646 7.09994 12.5063 6.75823Z" fill="#FAFAFA"/>

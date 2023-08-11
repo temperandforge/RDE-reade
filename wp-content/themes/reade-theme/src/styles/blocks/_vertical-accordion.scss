@@ -3,6 +3,8 @@
 
 	&:before {
 		background-size: unset;
+		margin-top: -130px;
+		padding-top: 130px;
 	}
 }
 
@@ -21,6 +23,8 @@
 		height: min(20%, 100px);
 		content: '';
 		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+		margin-top: -130px;
+		padding-top: 130px;
 	}
 
 	&:after {

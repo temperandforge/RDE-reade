@@ -57,8 +57,8 @@ if ($cat) {
        <?php endif ;?>
       </div>
       
-     <?php if(!empty($fields['image'])) :?>
-      <figure class="secondary-hero--figure<?php echo $fields['include_image_curve'] == true ? ' clip' : null ;?>">
+     <?php if(!empty($fields['image'])) : ?>
+      <figure class="secondary-hero--figure<?php echo isset($fields['include_image_curve']) && $fields['include_image_curve'] == true ? ' clip' : '' ;?>">
        <?php echo wp_get_attachment_image( $fields['image']['ID'], 'full' ); ;?>
       </figure>
      <?php endif ;?>

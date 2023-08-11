@@ -1,6 +1,11 @@
 .faqs-accordion--section {
-	@include inner-wrap(1024px);
+	//@include inner-wrap(1024px);
+	width: 72%;
 	margin: 100px auto;
+
+	@include respond-below(lg) {
+		width: 100%;
+	}
 }
 
 .faq-accordion {

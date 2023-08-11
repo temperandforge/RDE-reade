@@ -14,7 +14,9 @@ if( !empty( $block['data']['_is_preview'] ) ) {
    </div>
    <div class="call-to-action-img">
       <picture>
-         <?php echo wp_get_attachment_image($fields['img']['ID'], [2048,2048], false, ['role'=>'presentation']); ?>
+         <?php if (isset($fields['img']) && isset($fields['img']['ID'])) {
+            echo wp_get_attachment_image($fields['img']['ID'], [2048,2048], false, ['role'=>'presentation']);
+         } ?>
       </picture>
    </div>
 </div>

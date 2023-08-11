@@ -200,3 +200,13 @@
 		}
 	}
 }
+
+body.services {
+	.primary-footer-secondary--wrap {
+		@include respond-below(sm) {
+			&:after {
+				background-color: $white;
+			}
+		}
+	}
+}

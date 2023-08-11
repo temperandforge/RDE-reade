@@ -20,22 +20,38 @@ $fields = get_fields();
     <?php endif ;?>
 
     <div class="industry-slider--slider">
-     <?php foreach($fields['items'] as $item) :?>
-      <div class="industry-slider--item">
-       <div class="industry-slider--content">
-        <?php if(!empty($item['heading'])) :?>
-         <h3><?php echo $item['heading'] ;?></h3>
-        <?php endif ;?>
-        <?php if(!empty($item['content'])) :?>
-         <p><?php echo $item['content'] ;?></p>
-        <?php endif ;?>
-       </div>
-      </div>
-     <?php endforeach ;?>
+    <?php foreach($fields['items'] as $item) :
+        if (!empty($item['heading']) && !empty($item['content'])) {
+            ?>
+            <div class="industry-slider--item">
+                <div class="industry-slider--content">
+                    <?php if(!empty($item['heading'])) :?>
+                        <h3><?php echo $item['heading'] ;?></h3>
+                    <?php endif ;?>
+                    <?php if(!empty($item['content'])) :?>
+                        <p><?php echo $item['content'] ;?></p>
+                    <?php endif ;?>
+                </div>
+            </div>
+            <?php
+        }
+    endforeach ;?>
+    
     </div>
-    <?php foreach($fields['items'] as $index=>$item) :
-     $totalItems = count($fields['items'])?>
-     <?php if($index === 0) :?>
+    <?php
+
+
+    $totalItems = 0;
+
+    foreach ($fields['items'] AS $index => $item) {
+        if (!empty($item['heading']) && !empty($item['content'])) {
+            $totalItems++;
+        }
+    }
+
+    foreach($fields['items'] as $index=>$item) :
+
+     if($index === 0) :?>
       <div class="industry-slider--nav" <?php if($totalItems <= 6) :?>
        style="display: none;" aria-hidden="true"
       <?php endif ;?>>

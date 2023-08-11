@@ -170,7 +170,7 @@
 		line-height: 1.3;
 		letter-spacing: -1.11px;
 	}
-	.btn-blue-dark-blue, .btn-green-light-green {
+	.btn-blue-dark-blue, .btn-green-black-text {
 		padding: 10px 16px;
 		display: flex;
 		align-self: flex-start;
@@ -181,7 +181,14 @@
 			align-self: center;
 		}
 	}
-	.btn-green-light-green {
-		color: $white;
+	.btn-green-black-text {
+		//color: $white;
+		font-weight: 700;
+
+		svg {
+			path {
+				fill: var(--footer-primary);
+			}
+		}
 	}
 }
