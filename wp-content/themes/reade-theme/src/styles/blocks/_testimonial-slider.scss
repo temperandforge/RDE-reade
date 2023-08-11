@@ -66,6 +66,9 @@
 	.slick-list {
 		overflow: visible !important;
 
+		.slick-slide {
+			height: unset;
+		}
 		.slick-track {
 			display: flex;
 			max-width: 100%;

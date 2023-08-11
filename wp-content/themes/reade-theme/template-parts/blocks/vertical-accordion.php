@@ -31,7 +31,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
                               </h2>
                            <?php endif; ?>
                         </div>
-                        <div class="vertical-accordion--content <?php echo ($index == 0) ? 'active' : 'inactive'; ?>" aria-hidden="<?php echo ($index == 0) ? 'false' : 'true'; ?>">
+                        <div class="vertical-accordion--content <?php echo ($index == 0) ? 'active' : 'inactive'; ?>">
                            <?php if (!empty($item['content'])) : ?>
                               <div>
                                  <?php echo $item['content']; ?>

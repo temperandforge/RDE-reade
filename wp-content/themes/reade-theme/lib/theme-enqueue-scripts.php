@@ -17,9 +17,9 @@ function theme_scripts() {
    wp_dequeue_style( 'wc-blocks-style' ); // WooCommerce
 
    //TODO just for build 
-   wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
-   //TODO just for build 
-   wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
+   // wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
+   // //TODO just for build 
+   // wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
    // wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
 
 	// Deregister the jquery version bundled with WordPress.
@@ -86,10 +86,10 @@ function prefix_add_footer_styles() {
 	$theme = wp_get_theme();
 	$theme_uri = get_template_directory_uri();
    
-   wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
+   // wp_enqueue_style('theme-css', $theme_uri . "/assets/css/bundle-twnd.css",  false, $theme->version);
    wp_enqueue_style('slick-styles', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', false, $theme->version);
    wp_enqueue_style('lity-styles', "https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css", false, $theme->version);
    add_filter( 'style_loader_tag',  'wpdocs_my_add_sri', 10, 2 );
    add_filter( 'script_loader_tag', 'wpdocs_my_add_sri', 10, 2 );
 };
-// add_action( 'get_footer', 'prefix_add_footer_styles' );
+add_action( 'get_footer', 'prefix_add_footer_styles' );

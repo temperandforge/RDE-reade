@@ -9,7 +9,14 @@ if( !empty( $block['data']['_is_preview'] ) ) {
 } else if( $fields = get_fields() ?: []) {
 
 ?>
-<div class="calculator">
+<div 
+   id="calculator-wrap"
+   data-fields='<?php echo data_attribute($fields); ?>'
+   >
+</div>
+
+
+<div class="calculator" style="display: none">
    <div class="calculator--content">
       <?php if (array_key_exists('heading', $fields) && $heading = $fields['heading'] ): ?>
          <h2 class="title"><?php echo $heading; ?></h2>
@@ -73,9 +80,9 @@ if( !empty( $block['data']['_is_preview'] ) ) {
          //       ]
          //    ]
          // ));
-         tf_dropdown([
-            'id'=>"test$idx"
-         ]);
+         // tf_dropdown([
+         //    'id'=>"test$idx"
+         // ]);
       } ?>
    </div>
 </div>
