@@ -12,6 +12,11 @@
 	@include respond-above(xl) {
 		padding: 100px 0;
 	}
+
+	@include respond-below(md) {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
 }
 
 .leadership-slider--inner {
@@ -113,6 +118,10 @@ figure {
 
 .leadership-slider--slide {
 	figure {
+		@include respond-below(sm) {
+			@apply section-full;
+		}
+
 		img {
 			aspect-ratio: 713 / 487;
 			object-fit: cover;
@@ -122,7 +131,9 @@ figure {
 				border-radius: 10px;
 			}
 
-			@apply section-full;
+			@include respond-below(sm) {
+				@apply section-full;
+			}
 		}
 	}
 }
