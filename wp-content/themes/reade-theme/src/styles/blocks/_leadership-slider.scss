@@ -108,6 +108,9 @@ figure {
 	@include respond-below(sm) {
 		//@apply section-full;
 		margin-top: 35px;
+		.slick-list {
+			overflow: visible;
+		}
 	}
 
 	@include respond-above(xl) {
