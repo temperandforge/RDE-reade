@@ -8,20 +8,17 @@ if (is_category() || is_archive()) {
 
 $options = get_fields('options');
 
-/* Pull in global options as a fallback */
-$style = $fields['style'] ? $fields['style'] : $options['pfcta_style'];
-$heading = !empty($fields['heading']) ? $fields['heading'] : $options['pfcta_heading'];
-$content = !empty($fields['content']) ? $fields['content'] : $options['pfcta_content'];
-$link = !empty($fields['link']) ? $fields['link'] : $options['pfcta_link'];
+// style, heading, content, link, icon, and include arrow are set on a per block basis if they are needed
+$style = $fields['style'] ? $fields['style'] : 'white';
+$heading = !empty($fields['heading']) ? $fields['heading'] : false;
+$content = !empty($fields['content']) ? $fields['content'] : false;
+$link = !empty($fields['link']) ? $fields['link'] : false;
+$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : false;
+$icon = !empty($fields['icon']) ? $fields['icon'] : false;
 
-if (!empty($options['pfcta_icon'])) {
-  $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
-} else {
-  $icon = $fields['icon'];
-}
 
+// if no cta's are set, we pull the default values from theme options
 $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
-$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['pfcta_include_arrow'];
 
 
 ?>
@@ -59,7 +56,9 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
     <?php endif ;?>
    </div>
    
-   <?php if(!empty($ctas)) :?>
+   <?php
+
+   if(!empty($ctas)) :?>
     <div class="primary-footer-secondary--wrap">
      <?php foreach($ctas as $index=>$cta) :?>
       <div class="primary-footer-cta--cta secondary-cta">
