@@ -82,7 +82,7 @@
 .leadership-slider--top {
 	@apply flex items-center justify-between;
 	@include respond-below(sm) {
-		@apply theme-main;
+		//@apply theme-main;
 	}
 }
 
@@ -91,7 +91,7 @@ figure {
 		margin-top: 40px;
 
 		@include respond-below(sm) {
-			@apply theme-main;
+			//@apply theme-main;
 			margin-top: 35px;
 		}
 	}
@@ -101,7 +101,7 @@ figure {
 	max-width: 100%;
 
 	@include respond-below(sm) {
-		@apply section-full;
+		//@apply section-full;
 		margin-top: 35px;
 	}
 
@@ -121,6 +121,8 @@ figure {
 			@include respond-above(sm) {
 				border-radius: 10px;
 			}
+
+			@apply section-full;
 		}
 	}
 }
@@ -193,7 +195,7 @@ figure {
 	}
 
 	@include respond-below(sm) {
-		@apply theme-main;
+		//@apply theme-main;
 		margin-top: 35px;
 	}
 }

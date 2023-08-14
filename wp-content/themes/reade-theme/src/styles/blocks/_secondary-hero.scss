@@ -253,5 +253,8 @@ body.global-sourcing .secondary-hero--copy h1 {
 
 	.btn-blue-dark-blue {
 		white-space: nowrap;
+		@include respond-below(md) {
+			padding: 12px 20px;
+		}
 	}
 }
