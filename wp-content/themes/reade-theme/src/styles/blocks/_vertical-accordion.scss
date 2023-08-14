@@ -1,10 +1,10 @@
+
+
 .vertical-accordion--section {
 	@apply bg-grid;
 
 	&:before {
 		background-size: unset;
-		margin-top: -130px;
-		padding-top: 130px;
 	}
 }
 
@@ -23,8 +23,6 @@
 		height: min(20%, 100px);
 		content: '';
 		background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
-		margin-top: -130px;
-		padding-top: 130px;
 	}
 
 	&:after {
@@ -178,6 +176,22 @@
 			border-radius: 10px;
 			aspect-ratio: 608 / 581;
 			object-fit: cover;
+		}
+	}
+}
+
+
+body.careers {
+	.vertical-accordion--section {
+		&:before {
+			margin-top: -130px;
+			padding-top: 130px;
+		}
+	}
+	.vertical-accordion--main {
+		&:before {
+			margin-top: -130px;
+			padding-top: 130px;
 		}
 	}
 }

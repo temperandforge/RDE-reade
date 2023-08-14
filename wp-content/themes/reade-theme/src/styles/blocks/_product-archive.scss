@@ -2,6 +2,10 @@
 	
 	padding: clamp(3.75rem, 1.25rem + 6.25vw, 6.875rem) 0;
 
+	@include respond-below(md) {
+		padding-top: 111px;
+	}
+
 	.pab-headline {
 		color: var(--primary-900, #045);
 		text-align: center;

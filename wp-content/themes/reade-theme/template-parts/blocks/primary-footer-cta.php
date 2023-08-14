@@ -8,11 +8,13 @@ if (is_category() || is_archive()) {
 
 $options = get_fields('options');
 
-/* Pull in global options as a fallback */
-$style = $fields['style'] ? $fields['style'] : $options['pfcta_style'];
-$heading = !empty($fields['heading']) ? $fields['heading'] : $options['pfcta_heading'];
-$content = !empty($fields['content']) ? $fields['content'] : $options['pfcta_content'];
-$link = !empty($fields['link']) ? $fields['link'] : $options['pfcta_link'];
+// style, heading, content, link, icon, and include arrow are set on a per block basis if they are needed
+$style = $fields['style'] ? $fields['style'] : 'white';
+$heading = !empty($fields['heading']) ? $fields['heading'] : false;
+$content = !empty($fields['content']) ? $fields['content'] : false;
+$link = !empty($fields['link']) ? $fields['link'] : false;
+$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : false;
+$icon = !empty($fields['icon']) ? $fields['icon'] : false;
 
 if (!empty($options['pfcta_icon'])) {
    $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
@@ -20,8 +22,8 @@ if (!empty($options['pfcta_icon'])) {
    $icon = $fields['icon'];
 }
 
+// if no cta's are set, we pull the default values from theme options
 $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
-$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['pfcta_include_arrow'];
 
 
 ?>
@@ -34,20 +36,20 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
 
             <?php if (!empty($heading)) : ?>
                <div class="primary-footer-cta--cta primary-cta">
-                  <p class="primary-ptitle"><?php echo $heading; ?></h2>
-                     <?php if (!empty($content)) : ?>
-                  <p style="text-wrap: balance"><?php echo $content; ?></p>
-               <?php endif; ?>
-               <?php if (!empty($link)) : ?>
-                  <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target'] ?: '_self'; ?>" class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null; ?>">
-                     <span><?php echo $fields['link']['title']; ?></span>
-                     <?php if ($includearrow) : ?>
-                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 5.88128C12.848 5.53957 13.402 5.53957 13.7437 5.88128L17.2437 9.38128C17.5854 9.72299 17.5854 10.277 17.2437 10.6187L13.7437 14.1187C13.402 14.4604 12.848 14.4604 12.5063 14.1187C12.1646 13.777 12.1646 13.223 12.5063 12.8813L14.5126 10.875H4.375C3.89175 10.875 3.5 10.4832 3.5 10C3.5 9.51675 3.89175 9.125 4.375 9.125H14.5126L12.5063 7.11872C12.1646 6.77701 12.1646 6.22299 12.5063 5.88128Z" fill="white" />
-                        </svg>
-                     <?php endif; ?>
-                  </a>
-               <?php endif; ?>
+                  <p class="primary-ptitle"><?php echo $heading; ?></p>
+                  <?php if (!empty($content)) : ?>
+                     <p style="text-wrap: balance"><?php echo $content; ?></p>
+                  <?php endif; ?>
+                  <?php if (!empty($link)) : ?>
+                     <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target'] ?: '_self'; ?>" class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null; ?>">
+                        <span><?php echo $fields['link']['title']; ?></span>
+                        <?php if ($includearrow) : ?>
+                           <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 5.88128C12.848 5.53957 13.402 5.53957 13.7437 5.88128L17.2437 9.38128C17.5854 9.72299 17.5854 10.277 17.2437 10.6187L13.7437 14.1187C13.402 14.4604 12.848 14.4604 12.5063 14.1187C12.1646 13.777 12.1646 13.223 12.5063 12.8813L14.5126 10.875H4.375C3.89175 10.875 3.5 10.4832 3.5 10C3.5 9.51675 3.89175 9.125 4.375 9.125H14.5126L12.5063 7.11872C12.1646 6.77701 12.1646 6.22299 12.5063 5.88128Z" fill="white" />
+                           </svg>
+                        <?php endif; ?>
+                     </a>
+                  <?php endif; ?>
                </div>
             <?php endif; ?>
 

@@ -12,18 +12,18 @@ if(is_single()) {
    }
 }
 
-if(!$career_posts) {
-   global $wp_query; 
-   $wp_query = new WP_Query([
-      'orderby'        => 'date',
-      'order'          => 'ASC',
-      'post_type'      => $post_type,
-      'posts_per_page' => -1,
-      'post_status'    => 'publish',
-      'posts__not_in'  => [get_the_ID()],
-   ]);
-   $career_posts = $wp_query->posts;
-}
+// if(!$career_posts) {
+//    global $wp_query; 
+//    $wp_query = new WP_Query([
+//       'orderby'        => 'date',
+//       'order'          => 'ASC',
+//       'post_type'      => $post_type,
+//       'posts_per_page' => -1,
+//       'post_status'    => 'publish',
+//       'posts__not_in'  => [get_the_ID()],
+//    ]);
+//    $career_posts = $wp_query->posts;
+// }
 
 ?>
 

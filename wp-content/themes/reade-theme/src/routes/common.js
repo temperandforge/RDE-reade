@@ -86,8 +86,8 @@ export default {
 			}
 			
 			if (!initialLoad) {
-				if (document.getElementsByClassName('pab-filters')) {
-					document.getElementsByClassName('pab-filters')[0].scrollIntoView(true);
+				if (document.getElementsByClassName('pab-categories')) {
+					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
 				}
 			}
 
@@ -691,24 +691,26 @@ export default {
 		handleProductCustomField();
 
 
-		window.addEventListener('resize', function handleResize() {
-			/* Per page elements for products */
-			if (window.innerWidth < 640) {
-				if (3 != elementsPerPage) {
-					elementsPerPage = 3;
-					showElements(0, elementsPerPage);
-			  		updatePaginationButtons();
-			  		updateDots();
-				};
-			} else {
-				if (6 != elementsPerPage) {
-					elementsPerPage = 6;
-					showElements(0, elementsPerPage);
-			  		updatePaginationButtons();
-			  		updateDots();
+		if ($('.pab-categories').length) {
+			window.addEventListener('resize', function handleResize() {
+				/* Per page elements for products */
+				if (window.innerWidth < 640) {
+					if (3 != elementsPerPage) {
+						elementsPerPage = 3;
+						showElements(0, elementsPerPage);
+				  		updatePaginationButtons();
+				  		updateDots();
+					};
+				} else {
+					if (6 != elementsPerPage) {
+						elementsPerPage = 6;
+						showElements(0, elementsPerPage);
+			  			updatePaginationButtons();
+			  			updateDots();
+					}
 				}
-			}
-		})
+			})
+		}
 
 		// window resize
 		window.addEventListener('resize', function() {

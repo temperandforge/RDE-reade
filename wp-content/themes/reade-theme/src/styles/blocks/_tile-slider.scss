@@ -209,6 +209,8 @@ body.toll-processing {
 			opacity: 1;
 		}
 	}
+
+	
 }
 
 .tile-slider--slide {
@@ -298,4 +300,19 @@ body.global-sourcing {
 .tile-slider--link {
 	@apply flex justify-center;
 	margin-top: 35px;
+}
+
+body.global-sourcing {
+	.tile-slider--slider {
+		@include respond-below(md) {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+	.tile-slider--link {
+		@include respond-below(md) {
+			display: none;
+		}
+	}
 }
