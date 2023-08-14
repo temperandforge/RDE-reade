@@ -36,24 +36,26 @@ if (!empty($block['data']['_is_preview'])) {
                <div class="tabbed-rotator--tabs">
                   <?php foreach ($fields['tabs'] as $tab) : ?>
                      <div class="tabbed-rotator--tab" data-title="<?php echo $tab['heading']; ?>">
-                        <div class="tabbed-rotator--content<?php echo empty($tab['image']) ? ' single' : null; ?>">
-                           <?php if (!empty($tab['heading'])) : ?>
-                              <h3><?php echo $tab['heading']; ?></h3>
-                           <?php endif; ?>
-                           <?php if (!empty($tab['content'])) : ?>
-                              <p><?php echo $tab['content']; ?></p>
-                           <?php endif; ?>
-                           <?php if (!empty($tab['link'])) : ?>
-                              <a href="<?php echo $tab['link']['url']; ?>" target="<?php echo $tab['link']['target'] ?: '_self'; ?>" class="btn">
-                                 <?php echo $tab['link']['title']; ?>
-                              </a>
+                        <div class="tabbed-rotator--tab-container">
+                           <div class="tabbed-rotator--content<?php echo empty($tab['image']) ? ' single' : null; ?>">
+                              <?php if (!empty($tab['heading'])) : ?>
+                                 <h3><?php echo $tab['heading']; ?></h3>
+                              <?php endif; ?>
+                              <?php if (!empty($tab['content'])) : ?>
+                                 <p><?php echo $tab['content']; ?></p>
+                              <?php endif; ?>
+                              <?php if (!empty($tab['link'])) : ?>
+                                 <a href="<?php echo $tab['link']['url']; ?>" target="<?php echo $tab['link']['target'] ?: '_self'; ?>" class="btn">
+                                    <?php echo $tab['link']['title']; ?>
+                                 </a>
+                              <?php endif; ?>
+                           </div>
+                           <?php if (!empty($tab['image'])) : ?>
+                              <figure class="tabbed-rotator--figure">
+                                 <?php echo wp_get_attachment_image($tab['image']['id'], 'full'); ?>
+                              </figure>
                            <?php endif; ?>
                         </div>
-                        <?php if (!empty($tab['image'])) : ?>
-                           <figure class="tabbed-rotator--figure">
-                              <?php echo wp_get_attachment_image($tab['image']['id'], 'full'); ?>
-                           </figure>
-                        <?php endif; ?>
                      </div>
                   <?php endforeach; ?>
                </div>

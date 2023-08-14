@@ -190,7 +190,7 @@
 }
 
 .tabbed-rotator--tab {
-	@apply flex flex-col-reverse	lg:flex-row;
+	//@apply flex flex-col-reverse	lg:flex-row;
 	margin-top: 25px;
 	gap: min(6vw, 100px);
 
@@ -204,6 +204,16 @@
 
 	&.slick-slide {
 		@apply flex flex-col-reverse	lg:flex-row;
+	}
+}
+
+.tabbed-rotator--tab-container {
+	display: flex;
+	@apply flex flex-col-reverse lg:flex-row;
+	column-gap: 92px;
+
+	@include respond-below(lg) {
+		row-gap: 48px;
 	}
 }
 
@@ -242,7 +252,7 @@
 
 .tabbed-rotator--figure {
 	@include respond-above(lg) {
-		flex: 0 0 60%;
+		flex: 0 0 54%;
 	}
 
 	img {
