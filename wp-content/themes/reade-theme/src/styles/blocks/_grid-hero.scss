@@ -5,6 +5,11 @@
 		background-size: unset;
 	}
 }
+body.about-us {
+	.grid-hero--section {
+		z-index: 20;
+	}
+}
 
 .grid-hero--wrap {
 	@apply relative z-10;
