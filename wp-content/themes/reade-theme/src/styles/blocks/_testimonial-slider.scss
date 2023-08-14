@@ -7,6 +7,10 @@
   top: unset;
   height: 75%;
  }
+
+ .slick-arrow:disabled {
+		background-color: var(--neutral-300, #D4D4D4);
+	}
 }
 
 
@@ -85,6 +89,8 @@
 			}
 		}
 	}
+
+	
 }
 
 .testimonial-slider--slide {

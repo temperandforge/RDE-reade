@@ -192,6 +192,18 @@ function handleTestimonialSlider() {
 				nextArrow: $(this).find('.slick-next-arrow'),
 			})
 	})
+
+	let numTestimonials = $('.testimonial-slider--slide').length;
+	numTestimonials = numTestimonials - 1;
+
+	$('.testimonial-slider--slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+	    
+	    if (currentSlide == (numTestimonials - 1)) {
+	    	$('.slick-next-arrow').prop('disabled', true);
+	    } else {
+	    	$('.slick-next-arrow').prop('disabled', false);
+	    }
+	});
 }
 
 function handleTileSlider() {
