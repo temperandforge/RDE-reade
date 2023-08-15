@@ -41,6 +41,7 @@
 		font-weight: 700;
 		line-height: 46px;
 		letter-spacing: -0.56px;
+		text-wrap: balance;
 
 		@include respond-above(md) {
 			font-size: 36px;

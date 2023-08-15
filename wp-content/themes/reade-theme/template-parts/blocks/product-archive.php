@@ -47,7 +47,10 @@ $options = get_fields('options');
          ?>
       </div>
       <div class="pab-filters-right">
+         <form id="pab-filters-form">
          <input class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>">
+         <span id="pab-filters-search-icon"></span>
+         </form>
          <hr>
       </div>
    </div>

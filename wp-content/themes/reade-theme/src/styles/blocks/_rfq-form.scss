@@ -323,7 +323,7 @@
 				margin-top: -10px;
 				margin-left: auto;
 				margin-right: -100px;
-				margin-bottom: -135px;
+				margin-bottom: 0px;
 			}
 		}
 	}
@@ -352,6 +352,10 @@
 			line-height: 60px; /* 120% */
 			letter-spacing: -1.5px;
 		}
+	}
+
+	.btn-blue-dark-blue {
+		padding: 12px 20px;
 	}
 
 	p {

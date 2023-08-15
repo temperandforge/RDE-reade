@@ -42,6 +42,12 @@
 		font-weight: 500;
 		max-width: 366px;
 		margin: 0 auto;
+
+		@include respond-below(sm) {
+			padding: 12px 20px;
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 
 }
