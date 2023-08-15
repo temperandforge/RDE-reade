@@ -40,6 +40,7 @@
 		@include respond-above(md) {
 			font-size: 16px;
 			line-height: 24px;
+			text-align: center;
 		}
 
 		@include respond-above(lg) {
@@ -48,7 +49,15 @@
 		}
 	}
 }
-
+body.toll-packaging {
+	.tile-slider--heading {
+		@include respond-below(md) {
+			p {
+				text-align: center;
+			}
+		}
+	}
+}
 body.toll-processing {
 	.tile-slider--wrapper {
 		.tile-slider--decor {
@@ -310,9 +319,9 @@ body.global-sourcing {
 			gap: 10px;
 		}
 	}
-	.tile-slider--link {
-		@include respond-below(md) {
-			display: none;
-		}
-	}
+	// .tile-slider--link {
+	// 	@include respond-below(md) {
+	// 		display: none;
+	// 	}
+	// }
 }

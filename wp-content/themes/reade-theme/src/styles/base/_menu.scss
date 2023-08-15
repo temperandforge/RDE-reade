@@ -73,6 +73,10 @@
    &--menu-list {
       @apply pt-2;
 
+      li a {
+         display: block;
+      }
+
       > li {
          @apply font-bold py-4;
          border-bottom: 1px solid var(--primary-200-light-blue, #BAE3E9);
@@ -103,7 +107,7 @@
          @apply font-semibold;
          color: var(--primary-500-main, #009FC6);
          font-size: 1rem;
-         line-height: 1.5;
+         line-height: 2;
       }
    }
    .menu-item-has-children {

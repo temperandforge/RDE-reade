@@ -109,6 +109,16 @@
 			cursor: pointer;
 		}
 
+		#pab-filters-search-icon {
+			width: 50px;
+			height: 46px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			z-index: 10;
+		}
+
 		@include respond-below(lg) {
 			flex-grow: 1;
 		}

@@ -118,11 +118,12 @@
 	}
 }
 
+
 .primary-footer-secondary--wrap {
 	@apply flex flex-wrap md:pt-8 lg:pt-16 relative z-20;
 	gap: 25px;
 	padding: 24px 0;
-	@apply bg-blue;
+	//@apply bg-blue;
 
 	@include respond-above(sm) {
 		&:after {
@@ -135,6 +136,7 @@
 
 		&:after {
 			@apply absolute section-full bottom-0 left-0 right-0;
+			bottom: -1px;
 			top: unset;
 			height: 110px;
 			background-color: var(--primary-footer-blue, #072d36);
@@ -211,4 +213,10 @@ body.services {
 			}
 		}
 	}
+}
+
+body.tax-product_cat .primary-footer-secondary--wrap {
+		&:after {
+			//background-color: $white;
+		}
 }

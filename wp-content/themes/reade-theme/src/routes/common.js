@@ -550,6 +550,14 @@ export default {
 
 
 			function handleSearch() {
+				$('#pab-filters-form').on('submit', function(e) {
+					e.preventDefault();
+				})
+
+				$('#pab-filters-search-icon').on('click', function(e) {
+					$('#pab-filters-form').submit();
+				});
+
 				$('.pab-filters-search').on('keyup', debounceSearch(() => {
 					let search = $('.pab-filters-search').val().toLowerCase();
 
