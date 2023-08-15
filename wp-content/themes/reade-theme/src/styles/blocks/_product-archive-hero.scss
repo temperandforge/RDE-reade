@@ -1,3 +1,14 @@
+.pah-top-decor {
+		position: absolute;
+		right: max(-1000px, -62.5vw);
+		top: 70px;
+		width: 1515px;
+		height: 489px;
+
+		@include respond-below(md) {
+			display: none;
+		}
+}
 .product-archive-hero {
 	position: relative;
 
@@ -34,13 +45,7 @@
 		flex-direction: column;
 		gap: 24px;
 	}
-	.pah-top-decor {
-		position: absolute;
-		right: -1045px;
-		top: 70px;
-		width: 1515px;
-		height: 489px;
-	}
+	
 	.pah-headline {
 		color: var(--primary-900, #045);
 		font-size: clamp(2.25rem, 1.55rem + 1.75vw, 3.125rem);
