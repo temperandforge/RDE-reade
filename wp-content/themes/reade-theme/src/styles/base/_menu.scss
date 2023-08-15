@@ -93,7 +93,7 @@
          }
       }
       .sub-menu {
-         @apply flex flex-col gap-y-1.5 mt-5 pl-10;
+         @apply flex flex-col gap-y-3 mt-5 pl-10;
 
          a {
             @apply font-semibold text-primary;
