@@ -93,7 +93,7 @@
          }
       }
       .sub-menu {
-         @apply flex flex-col gap-y-1.5 mt-5 pl-10;
+         @apply flex flex-col gap-y-3 mt-5 pl-10;
 
          a {
             @apply font-semibold text-primary;
@@ -107,7 +107,7 @@
          @apply font-semibold;
          color: var(--primary-500-main, #009FC6);
          font-size: 1rem;
-         line-height: 2;
+         line-height: 1.5;
       }
    }
    .menu-item-has-children {
