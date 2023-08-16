@@ -42,8 +42,8 @@ ul.header-links {
 		box-shadow: 0px 5px 30px 0px rgba(0, 68, 85, 0.18);
 		border-radius: 0.5rem;
 
-		visibility: hidden;
-		opacity: 0;
+		// visibility: hidden;
+		opacity: 1;
 		// max-height: 0; //Safari Issues
 		pointer-events: none;
 		overflow: hidden;
@@ -136,7 +136,7 @@ ul.header-links {
 				width: 100%;//calc(100% - 1.5rem);
 				content: '';
 				transition: inherit;
-				opacity: 0;
+				// opacity: 0;
 			}
 		}
 
