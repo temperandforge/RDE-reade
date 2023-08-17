@@ -4,6 +4,7 @@
 		top: 70px;
 		width: 1515px;
 		height: 489px;
+		z-index: 10;
 
 		@include respond-below(md) {
 			display: none;
