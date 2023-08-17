@@ -2,6 +2,11 @@
 
 $fields = get_fields();
 
+
+// empty cart
+global $woocommerce;
+$woocommerce->cart->empty_cart();
+
 ?>
 
 <div class="rfq-submit--section">
