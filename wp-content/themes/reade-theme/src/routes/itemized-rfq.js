@@ -105,6 +105,102 @@ export default {
           return false;
         }
 
+
+        // update salesforce form with values from this field
+        $('#sf-form #first_name').val($('#rfq-first-name').val());
+        $('#sf-form #last_name').val($('#rfq-last-name').val());
+        $('#sf-form #company').val($('#rfq-company').val());
+        $('#sf-form #phone').val($('#rfq-phone').val());
+        $('#sf-form #email').val($('#rfq-email').val());
+        $('#sf-form #street').text($('#rfq-address-line-1').val() + ($('#rfq-address-line-2').val() ? "\r\n" + $('#rfq-address-line-2').val() : ''));
+        $('#sf-form #city').val($('#rfq-city').val());
+        $('#sf-form #state').val($('#rfq-state').val());
+        $('#sf-form #zip').val($('#rfq-zip').val());
+        $('#00N3J000001mdyh').text($('#rfq-notes').val());
+
+        // product 1 name
+        if ($('#sf-product-1-name').length) {
+          if ($('#sf-product-1-name').text() != '') {
+            $('#00N3J000001mcrB').val($('#sf-product-1-name').text());
+
+            // product 1 details
+            $('#00N3J000001mcrG').text($('#sf-product-1-qty').val() + "\r\n" + $('dl#product-units-1 dt p').text() + "\r\n" + $('#sf-product-1-attributes').text());
+          } else {
+            $('#00N3J000001mcrB').val('');
+            $('#00N3J000001mcrG').text('');
+          }
+        } else {
+          $('#00N3J000001mcrB').val('');
+          $('#00N3J000001mcrG').text('');
+        }
+
+
+
+        // product 2 name
+        if ($('#sf-product-2-name').length) {
+          if ($('#sf-product-2-name').text() != '') {
+            $('#00N3J000001mcrL').val($('#sf-product-2-name').text());
+
+            // product 2 details
+            $('#00N3J000001mcrQ').text($('#sf-product-2-qty').val() + "\r\n" + $('dl#product-units-2 dt p').text() + "\r\n" + $('#sf-product-2-attributes').text());
+          } else {
+            $('#00N3J000001mcrL').val('');
+            $('#00N3J000001mcrQ').text('');
+          }
+        } else {
+          $('#00N3J000001mcrL').val('');
+          $('#00N3J000001mcrQ').text('');
+        }
+
+        // product 3 name
+        if ($('#sf-product-3-name').length) {
+          if ($('#sf-product-3-name').text() != '') {
+            $('#00N3J000001mcrV').val($('#sf-product-3-name').text());
+
+            // product 3 details
+            $('#00N3J000001mcra').text($('#sf-product-3-qty').val() + "\r\n" + $('dl#product-units-3 dt p').text() + "\r\n" + $('#sf-product-3-attributes').text());
+          }else {
+            $('#00N3J000001mcrV').val('');
+            $('#00N3J000001mcra').text('');
+          }
+        } else {
+          $('#00N3J000001mcrV').val('');
+          $('#00N3J000001mcra').text('');
+        }
+
+        // product 4 name
+        if ($('#sf-product-4-name').length) {
+          if ($('#sf-product-4-name').text() != '') {
+            $('#00N3J000001mdxo').val($('#sf-product-4-name').text());
+
+            // product 4 details
+            $('#00N3J000001mdxt').text($('#sf-product-4-qty').val() + "\r\n" + $('dl#product-units-4 dt p').text() + "\r\n" + $('#sf-product-4-attributes').text());
+          }else {
+            $('#00N3J000001mdxo').val('');
+            $('#00N3J000001mdxt').text('');
+          }
+        } else {
+          $('#00N3J000001mdxo').val('');
+          $('#00N3J000001mdxt').text('');
+        }
+
+        // product 5 name
+        if ($('#sf-product-5-name').length) {
+          if ($('#sf-product-5-name').text() != '') {
+            $('#00N3J000001mdxy').val($('#sf-product-5-name').text());
+
+            // product 5 details
+            $('#00N3J000001mdy8').text($('#sf-product-5-qty').val() + "\r\n" + $('dl#product-units-5 dt p').text() + "\r\n" + $('#sf-product-5-attributes').text());
+          }else {
+            $('#00N3J000001mdxy').val('');
+            $('#00N3J000001mdy8').text('');
+          }
+        } else {
+          $('#00N3J000001mdxy').val('');
+          $('#00N3J000001mdy8').text('');
+        }
+
+        
         return true;
 
 
@@ -123,28 +219,33 @@ export default {
           disableForm();
 
           if (validateRFQForm()) {
-            $('.rfq-error-message').hide();
-            $(this).find('.spinner').css('display', 'block');
-            $(this).find('svg:not(.spinner').css('display', 'none');
-            $.ajax({
-                type: "POST",
-                url: "/wp-content/themes/reade-theme/_woo-ajax.php",
-                data: 'action=doSubmit&formData=x',
-                success: function(responseText){
-                  //alert(responseText);
-                  if (responseText == 'success') {
-                    $(this).find('.spinner').css('display', 'none');
-                    $(this).find('svg:not(.spinner').css('display', 'block');
+            e.preventDefault();
+            
 
-                    document.location.href = '/itemized-rfq-form-success/';
-                  }
-                },
-                error: function() {
-                  //alert('there was an error');
-                },
-                complete: function() {
-                }
-              });
+            $('.rfq-error-message').hide();
+            
+            $('#sf-form-submit').click();
+            // $(this).find('.spinner').css('display', 'block');
+            // $(this).find('svg:not(.spinner').css('display', 'none');
+            // $.ajax({
+            //     type: "POST",
+            //     url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+            //     data: 'action=doSubmit&formData=x',
+            //     success: function(responseText){
+            //       //alert(responseText);
+            //       if (responseText == 'success') {
+            //         $(this).find('.spinner').css('display', 'none');
+            //         $(this).find('svg:not(.spinner').css('display', 'block');
+
+            //         document.location.href = '/itemized-rfq-form-success/';
+            //       }
+            //     },
+            //     error: function() {
+            //       //alert('there was an error');
+            //     },
+            //     complete: function() {
+            //     }
+            //   });
 
           } else {
             // do this

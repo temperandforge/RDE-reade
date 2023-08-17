@@ -20,6 +20,45 @@ $cart_contents = $cart->get_cart_contents();
     }
 
     ?>
+    <!-- salesforce form -->
+
+    <form id="sf-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    <input type=hidden name="oid" value="00D3J0000008rZJ">
+    <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
+    <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
+    <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
+    <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
+    <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
+    <input  id="email" maxlength="80" name="email" size="20" type="hidden" />
+    <textarea id="street" name="street"></textarea>
+    <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
+    <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
+    <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" /><br>
+    <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea><br>
+    <input  id="00N3J000001mcrL" maxlength="255" name="00N3J000001mcrL" size="20" type="hidden" /><br>
+    <textarea  id="00N3J000001mcrQ" name="00N3J000001mcrQ" type="text" wrap="soft" style="display: none;"></textarea><br>
+    <input  id="00N3J000001mcrV" maxlength="255" name="00N3J000001mcrV" size="20" type="hidden" /><br>
+    <textarea  id="00N3J000001mcra" name="00N3J000001mcra" type="text" wrap="soft" style="display: none;"></textarea><br>
+    <input  id="00N3J000001mdxo" maxlength="255" name="00N3J000001mdxo" size="20" type="hidden" /><br>
+    <textarea  id="00N3J000001mdxt" name="00N3J000001mdxt" type="text" wrap="soft" style="display: none;"></textarea><br>
+    <input  id="00N3J000001mdxy" maxlength="255" name="00N3J000001mdxy" size="20" type="hidden" /><br>
+    <textarea  id="00N3J000001mdy8" name="00N3J000001mdy8" type="text" wrap="soft" style="display: none;"></textarea><br>
+    <select  id="00N6g00000TtToG" name="00N6g00000TtToG" title="Find Us" style="display: none;"><option value="">--None--</option><option value="Online Advertising">Online Advertising</option>
+    <option value="Other">Other</option>
+    <option value="Particle Technolgy  Referral">Particle Technolgy  Referral</option>
+    <option value="Print Advertising">Print Advertising</option>
+    <option value="Referral">Referral</option>
+    <option value="Return Customer">Return Customer</option>
+    <option value="Search Engine">Search Engine</option>
+    <option value="Thomasnet">Thomasnet</option>
+    </select>
+    <textarea  id="00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+    <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
+    </form>
+    
+
+
     <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/itemized-rfq-form-success/" method="POST">
     <input type="hidden" name="action" value="doSubmitRFQ">
     <div class="piq-container">
@@ -87,6 +126,7 @@ $cart_contents = $cart->get_cart_contents();
                     <div class="piq-cart-item" id="cart-item-<?php echo $key; ?>" data-cart-key="<?php echo $key; ?>">
                         <div class="piq-product-info">
                             <h2 class="piq-product-name"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $parentItem->get_name()); ?></h2>
+                            <span class="sf-hidden" id="sf-product-<?php echo $it; ?>-name"><?php echo $parentItem->get_name(); ?></span>
                             <div class="rfq-cas-number">
                                 <?php
 
@@ -99,6 +139,7 @@ $cart_contents = $cart->get_cart_contents();
                         <div class="piq-product-details">
                             <div class="piq-product-details-attributes">
                                 <?php
+                                $sfattributes = [];
 
                                 if ($attributes) {
                                     foreach ($attributes AS $attribute) {
@@ -114,8 +155,10 @@ $cart_contents = $cart->get_cart_contents();
 
                                             if (trim($display) == '') {
                                                 echo $attribute;
+                                                $sfattributes[] = $attribute;
                                             } else {   
                                                 echo $display . ' - ' . $attribute;
+                                                $sfattributes[] = $display . ' - ' . $attribute;
                                             }
 
                                             ?></div>
@@ -134,8 +177,10 @@ $cart_contents = $cart->get_cart_contents();
 
                                                 if (trim($display) == '') {
                                                     echo $attribute;
+                                                    $sfattributes[] = $attribute;
                                                 } else {   
                                                     echo $display;
+                                                    $sfattributes[] = $display;
                                                 }
 
                                                 //echo $item->get_name();
@@ -145,25 +190,34 @@ $cart_contents = $cart->get_cart_contents();
                                             </div>
                                             <?php
                                         }
+
+
                                     }
 
                                     if (!empty($contents['product_2'])) {
                                         if (!empty($contents['product_2_variant'])) {
+                                            echo 'here';
                                             $product2Variant = new WC_Product_Variation($contents['product_2_variant']);
                                             $attributes = $product2Variant->get_data()['attributes'];
                                             foreach ($attributes AS $attribute) {
                                                 ?>
                                                 <div class="piq-product-details-attributes-attribute"><?php echo $attribute; ?></div>
                                                 <?php
+                                                $sfattributes[] = $attribute;
                                             }
                                         }
                                     }
+
+                                    ?>
+                                    <span id="sf-product-<?php echo $it; ?>-attributes" class="sf-hidden"><?php echo implode("\n", $sfattributes); ?></span>
+                                    <?php
                                 }
 
                                 ?>
                             </div>
                             <div class="piq-product-details-qty">
-                                <input type="number" class="product-qty" data-cart-key="<?php echo $key; ?>" value="<?php echo $contents['quantity']; ?>">
+                                <input id="sf-product-<?php echo $it; ?>-qty" type="number" class="product-qty" data-cart-key="<?php echo $key; ?>" value="<?php echo $contents['quantity']; ?>">
+
 
                                 <?php
 
@@ -215,7 +269,7 @@ $cart_contents = $cart->get_cart_contents();
             if (!empty($cart_contents)) {
                 ?>
                 <h2 class="piq-additional-notes"><?php echo !empty($fields['notes_text']) ? $fields['notes_text'] : 'Additional Quote Notes'; ?></h2>
-                <textarea class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
+                <textarea id="rfq-notes" class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
                 <?php
             }
 

@@ -7,6 +7,10 @@
     margin: clamp(2.375rem, -1.225rem + 9vw, 6.875rem) 0;
     position: relative;
 
+    .sf-hidden {
+        display: none;
+    }
+    
     .piq-decor {
         position: absolute;
         right: 0;
