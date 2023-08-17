@@ -30,7 +30,7 @@ $cart_contents = $cart->get_cart_contents();
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
     <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
     <input  id="email" maxlength="80" name="email" size="20" type="hidden" />
-    <textarea id="street" name="street"></textarea>
+    <textarea id="street" name="street" style="display: none;"></textarea>
     <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
     <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
