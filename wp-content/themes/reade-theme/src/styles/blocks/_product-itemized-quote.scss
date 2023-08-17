@@ -10,7 +10,57 @@
     .sf-hidden {
         display: none;
     }
-    
+    #find_us, #how-to-contact {
+        border: 1px solid var(--primary-300,#8bd4df);
+        height: 42px;
+
+        dt {
+            padding: 11px 23px;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--primary-300, #8BD4DF);
+        }
+    }
+    #find_us.rfq-error, #how-to-contact.rfq-error {
+        background-color: var(--primary-50,#effbff);
+        border: 1px solid #f15252;
+        p {
+            color: #f15252;
+        }
+    }
+    #rfq-find-us-other {
+        display: none;
+    }
+    #piq-product-info {
+        width: 100%;
+    }
+    #rfq-newsletter-p, #rfq-tos {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        padding-left: 24px;
+        text-indent: -21px;
+
+        input {
+            width: auto;
+            padding-right: 5px;
+        }
+
+        a {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+    }
+    #rfq-newsletter-p {
+        margin-top: 10px;
+    }
+    #rfq-tos.rfq-error {
+        color: #f15252;
+        font-weight: 600;
+    }
     .piq-decor {
         position: absolute;
         right: 0;

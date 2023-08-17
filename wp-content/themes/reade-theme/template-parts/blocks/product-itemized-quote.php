@@ -34,6 +34,7 @@ $cart_contents = $cart->get_cart_contents();
     <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
     <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
     <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" />
     <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea>
     <input  id="00N3J000001mcrL" maxlength="255" name="00N3J000001mcrL" size="20" type="hidden" />
@@ -44,16 +45,23 @@ $cart_contents = $cart->get_cart_contents();
     <textarea  id="00N3J000001mdxt" name="00N3J000001mdxt" type="text" wrap="soft" style="display: none;"></textarea>
     <input  id="00N3J000001mdxy" maxlength="255" name="00N3J000001mdxy" size="20" type="hidden" />
     <textarea  id="00N3J000001mdy8" name="00N3J000001mdy8" type="text" wrap="soft" style="display: none;"></textarea>
-    <select  id="00N6g00000TtToG" name="00N6g00000TtToG" title="Find Us" style="display: none;"><option value="">--None--</option><option value="Online Advertising">Online Advertising</option>
-    <option value="Other">Other</option>
-    <option value="Particle Technolgy  Referral">Particle Technolgy  Referral</option>
-    <option value="Print Advertising">Print Advertising</option>
-    <option value="Referral">Referral</option>
-    <option value="Return Customer">Return Customer</option>
-    <option value="Search Engine">Search Engine</option>
-    <option value="Thomasnet">Thomasnet</option>
-    </select>
     <textarea  id="00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- find us -->
+    <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
+
+    <!-- find us details -->
+    <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+
+    <!-- terms and conditions -->
+    <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+
     <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
     </form>
     
@@ -324,6 +332,53 @@ $cart_contents = $cart->get_cart_contents();
                             <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
                             <input type="text" id="rfq-state" name="rfq-state" placeholder="State" value="">
                             <input type="text" id="rfq-zip" name="rfq-zip" placeholder="Zip" value="">
+                            <?php
+
+                            $piqOptions = array(
+                                'id' => 'find_us',
+                                'width' => '100%',
+                                'select_text' => 'How did you find us?',
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                                    </svg>',
+                                'values' => array(
+                                    'Online Advertising' => 'Online Advertising',
+                                    'Other' => 'Other',
+                                    'Particle Technology Referral' => 'Particle Technology Referral',
+                                    'Print Advertising' => 'Print Advertising',
+                                    'Referral' => 'Referral',
+                                    'Return Customer' => 'Return Customer',
+                                    'Search Engine' => 'Search Engine',
+                                    'Thomasnet' => 'Thomasnet'
+                                )
+                            );
+
+                            tf_dropdown($piqOptions);
+
+                            ?>
+                            <input type="text" id="rfq-find-us-other" name="rfq-find-us-other" placeholder="Enter where you found us">
+                            <?php
+
+                            $pmcOptions = array(
+                                'id' => 'how-to-contact',
+                                'width' => '100%',
+                                'select_text' => 'Preferred method of contact?',
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                                    </svg>',
+                                'values' => array(
+                                    'Email' => 'Email',
+                                    'Phone' => 'Phone'
+                                )
+                            );
+
+                            tf_dropdown($pmcOptions);
+
+                            ?>
+                           
+
+                            <p id="rfq-newsletter-p"><input type="checkbox" name="rfq-newsletter" id="rfq-newsletter"> <label for="rfq-newsletter">Sign me up for the READE newsletter</label></p>
+                            <p id="rfq-tos"><input type="checkbox" name="rfq-accept-terms" id="rfq-accept-terms"> <label for="rfq-accept-terms">I have read and accepted the <a href="/about-us/terms-conditions-of-sale/">Terms and Conditions of Sale</a></label></p>
                         </div>
                     </div>
                 </div>
