@@ -34,7 +34,7 @@
     #rfq-find-us-other {
         display: none;
     }
-    #piq-product-info {
+    #piq-product-info, .piq-product-info {
         width: 100%;
     }
     #rfq-newsletter-p, #rfq-tos {
@@ -54,7 +54,7 @@
             font-weight: 600;
         }
     }
-    #rfq-newsletter-p {
+    #rfq-tos {
         margin-top: 10px;
     }
     #rfq-tos.rfq-error {
@@ -271,6 +271,83 @@
             }
         }
 
+        .piq-product-details-info {
+            display: flex;
+            gap: 20px;
+
+
+            background-color: var(--gray50);
+            border-radius: 10px;
+            padding: 17px;
+            width: 100%;
+
+            @include respond-below(md) {
+                flex-direction: column;
+            }
+
+            p, label {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.4;
+            }
+
+            p {
+                margin-bottom: 17px;
+
+                &.rfq-error {
+                    color: #f15252;
+                    font-weight: 600;
+
+                    + .rfq-using-yes.rfq-error + label {
+                        color: #f15252;
+                        font-weight: 600;
+                    }
+
+                    ~ .rfq-using-no.rfq-error + label {
+                        color: #f15252;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            textarea {
+                width: 100%;
+                height: 75px;
+                border-radius: 5px;
+                border: solid 1px rgb(0, 159, 198);
+                background-color: var(--gray50);
+                padding: 10px;
+                color: var(--primary-900,#045);
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1.4;
+
+                &::placeholder {
+                    font-size: 14px;
+                    line-height: 1.4;
+                    font-weight: 400;
+                    color: #999;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.rfq-error {
+                    border: solid 1px #f15252;
+                    color: #f15252;
+
+                    &::placeholder {
+                        color: #f15252;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .piq-product-details-info-left, .piq-product-details-info-right {
+                flex-basis: 50%;
+            }
+        }
         .piq-product-details {
             display: flex;
             align-items: center;

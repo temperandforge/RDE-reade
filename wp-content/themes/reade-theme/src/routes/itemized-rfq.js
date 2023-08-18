@@ -8,6 +8,68 @@ export default {
   },
   finalize() {
 
+    function handleCurrentlyUsing() {
+
+      function debounce(fn, duration) {
+        var timer;
+        return function(e){
+          clearTimeout(timer);
+          timer = setTimeout(fn, duration, e);
+        }
+      }
+
+      $('.general-application-textarea').on('input', debounce((e) => {
+        let $thistextarea = e.target;
+        let $thisitem = $(e.target).parent().parent().parent();
+        let $thiscartkey = $thisitem.data('cart-key');
+        let $thisvalue = $(e.target).val();
+
+        $.ajax({
+          type: "POST",
+          url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+          data: 'action=doUpdateGeneralApplication&cart-key=' + $thiscartkey + '&value=' + $thisvalue,
+          success: function(responseText){
+            if (responseText != 'success') {
+              console.log('something went wrong saving this response, please try again.');
+            }
+          },
+          error: function() {
+            //alert('there was an error');
+          },
+          complete: function() {
+          }
+        });
+
+      }, 500));
+
+      $('input[type="radio"]').on('change', function(e) {
+        let thisvalue = $(this).val();
+        let thisitem = $(this).parent().parent().parent().parent();
+        let thiscartkey = thisitem.data('cart-key');
+
+        $.ajax({
+          type: "POST",
+          url: "/wp-content/themes/reade-theme/_woo-ajax.php",
+          data: 'action=doChangeCurrentlyUsing&cart-key=' + thiscartkey + '&value=' + thisvalue,
+          success: function(responseText){
+            //alert(responseText);
+            if (responseText != 'success') {
+              console.log('something went wrong saving this response, please try again.');
+            }
+          },
+          error: function() {
+            //alert('there was an error');
+          },
+          complete: function() {
+          }
+        });
+      });
+    }
+
+    function handleGeneralApplication() {
+
+    }
+
     function handleRFQDropdown() {
       $('#find_us ul li').on('click', function() {
         let livalue = $(this).text();
@@ -149,6 +211,46 @@ export default {
           }
         }
 
+        let items = $('.piq-cart-item');
+
+        if (items.length) {
+
+          // check textarea info is there
+          items.each(function(index, element) {
+            let $thisitem = $(this);
+            let thiscartkey = $thisitem.data('cart-key');
+
+            if ($thisitem.find('#rfq-' + thiscartkey + '-general-application').val() == '') {
+              errors.push('Please enter general application details');
+              if (!errorFields.includes('rfq-' + thiscartkey + '-general-application')) {
+                errorFields.push('rfq-' + thiscartkey + '-general-application');
+              }
+              if (!errorFields.includes('general-application-' + thiscartkey)) {
+                errorFields.push('general-application-' + thiscartkey);
+              }
+            }
+          });
+
+          // check radio button has been selected
+          items.each(function(index, element) {
+            let $thisradio = $(this);
+            let thisradiocartkey = $thisradio.data('cart-key');
+            
+            if ($thisradio.find('input[type="radio"]:checked').length != 1) {
+              errors.push('Please select currently using status');
+              if (!errorFields.includes('currently-using-' + thisradiocartkey)) {
+                errorFields.push('currently-using-' + thisradiocartkey);
+              }
+              if (!errorFields.includes('rfq-' + thisradiocartkey + '-using-yes')) {
+                errorFields.push('rfq-' + thisradiocartkey + '-using-yes');
+              }
+              if (!errorFields.includes('rfq-' + thisradiocartkey + '-using-no')) {
+                errorFields.push('rfq-' + thisradiocartkey + '-using-no');
+              }
+            }
+          });
+        }
+
         if (errors.length) {
           return false;
         }
@@ -185,7 +287,8 @@ export default {
             $('#00N3J000001mcrB').val($('#sf-product-1-name').text());
 
             // product 1 details
-            $('#00N3J000001mcrG').text($('#sf-product-1-qty').val() + "\r\n" + $('dl#product-units-1 dt p').text() + "\r\n" + $('#sf-product-1-attributes').text());
+            //console.log($('#product-1-using input[type="radio"]:checked').val());
+            $('#00N3J000001mcrG').text($('#sf-product-1-qty').val() + "\r\n" + $('dl#product-units-1 dt p').text() + "\r\n" + $('#sf-product-1-attributes').text() + "\r\nCurrently Using: " + (($('#product-1-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-1-general-application').val());
           } else {
             $('#00N3J000001mcrB').val('');
             $('#00N3J000001mcrG').text('');
@@ -203,7 +306,7 @@ export default {
             $('#00N3J000001mcrL').val($('#sf-product-2-name').text());
 
             // product 2 details
-            $('#00N3J000001mcrQ').text($('#sf-product-2-qty').val() + "\r\n" + $('dl#product-units-2 dt p').text() + "\r\n" + $('#sf-product-2-attributes').text());
+            $('#00N3J000001mcrQ').text($('#sf-product-2-qty').val() + "\r\n" + $('dl#product-units-2 dt p').text() + "\r\n" + $('#sf-product-2-attributes').text() + "\r\nCurrently Using: " + (($('#product-2-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-2-general-application').val());
           } else {
             $('#00N3J000001mcrL').val('');
             $('#00N3J000001mcrQ').text('');
@@ -219,7 +322,7 @@ export default {
             $('#00N3J000001mcrV').val($('#sf-product-3-name').text());
 
             // product 3 details
-            $('#00N3J000001mcra').text($('#sf-product-3-qty').val() + "\r\n" + $('dl#product-units-3 dt p').text() + "\r\n" + $('#sf-product-3-attributes').text());
+            $('#00N3J000001mcra').text($('#sf-product-3-qty').val() + "\r\n" + $('dl#product-units-3 dt p').text() + "\r\n" + $('#sf-product-3-attributes').text() + "\r\nCurrently Using: " + (($('#product-3-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-3-general-application').val());
           }else {
             $('#00N3J000001mcrV').val('');
             $('#00N3J000001mcra').text('');
@@ -235,7 +338,7 @@ export default {
             $('#00N3J000001mdxo').val($('#sf-product-4-name').text());
 
             // product 4 details
-            $('#00N3J000001mdxt').text($('#sf-product-4-qty').val() + "\r\n" + $('dl#product-units-4 dt p').text() + "\r\n" + $('#sf-product-4-attributes').text());
+            $('#00N3J000001mdxt').text($('#sf-product-4-qty').val() + "\r\n" + $('dl#product-units-4 dt p').text() + "\r\n" + $('#sf-product-4-attributes').text() + "\r\nCurrently Using: " + (($('#product-4-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-4-general-application').val());
           }else {
             $('#00N3J000001mdxo').val('');
             $('#00N3J000001mdxt').text('');
@@ -251,7 +354,7 @@ export default {
             $('#00N3J000001mdxy').val($('#sf-product-5-name').text());
 
             // product 5 details
-            $('#00N3J000001mdy8').text($('#sf-product-5-qty').val() + "\r\n" + $('dl#product-units-5 dt p').text() + "\r\n" + $('#sf-product-5-attributes').text());
+            $('#00N3J000001mdy8').text($('#sf-product-5-qty').val() + "\r\n" + $('dl#product-units-5 dt p').text() + "\r\n" + $('#sf-product-5-attributes').text() + "\r\nCurrently Using: " + (($('#product-5-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-5-general-application').val());
           }else {
             $('#00N3J000001mdxy').val('');
             $('#00N3J000001mdy8').text('');
@@ -319,12 +422,23 @@ export default {
             });
             $('#find_us').removeClass('rfq-error');
             $('#rfq-tos').removeClass('rfq-error');
+            $('.general-application').removeClass('rfq-error');
+            $('.general-application-textarea').removeClass('rfq-error');
+            $('.rfq-using-yes').removeClass('rfq-error');
+            $('.rfq-using-no').removeClass('rfq-error');
+            $('.currently-using').removeClass('rfq-error');
 
             errorFields.forEach(function(id) {
               document.getElementById(id).classList.add('rfq-error');
             });
 
             enableForm();
+
+            if (window.innerWidth <= 768) {
+              if (document.getElementsByClassName('rfq-error').length) {
+                document.getElementsByClassName('rfq-error')[0].scrollIntoView();
+              }
+            }
           }
       });
       
@@ -332,5 +446,7 @@ export default {
 
     handleRFQSubmit();
     handleRFQDropdown();
-  },
+    handleCurrentlyUsing();
+    handleGeneralApplication();
+  }
 }

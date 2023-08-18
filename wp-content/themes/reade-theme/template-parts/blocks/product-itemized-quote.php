@@ -267,6 +267,44 @@ $cart_contents = $cart->get_cart_contents();
                                 </a>
                             </div>
                         </div>
+                        <div class="piq-product-details-info">
+                            <div class="piq-product-details-info-left">
+                                <div id="product-<?php echo $it; ?>-using">
+                                <p class="currently-using" id="currently-using-<?php echo $key; ?>"><?php
+
+                                echo !empty($fields['currently_using_text'])
+                                    ? $fields['currently_using_text']
+                                    : 'Are you currently using this product?';
+
+                                ?></p>
+
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-yes rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-yes" value="1" <?php if ($contents['currently_using'] == 'Yes') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-yes">Yes</label><br />
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-no rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-no" value="0" <?php if ($contents['currently_using'] == 'No') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-no">No</label>
+                                </div>
+                            </div>
+                            <div class="piq-product-details-info-right">
+                                <p class="general-application" id="general-application-<?php echo $key; ?>"><?php
+
+                                echo !empty($fields['general_application_text'])
+                                    ? $fields['general_application_text']
+                                    : 'General Application';
+
+                                ?></p>
+                                <textarea class="product-<?php echo $it; ?>-general-application general-application-textarea" id="rfq-<?php echo $key; ?>-general-application" name="rfq-<?php echo $key; ?>-general-application" placeholder="<?php
+
+                                echo !empty($fields['general_application_placeholder'])
+                                    ? $fields['general_application_placeholder']
+                                    : 'General application details...';
+
+                                ?>"><?php
+
+                                if (!empty($contents['general_application'])) {
+                                    echo htmlentities(stripslashes($contents['general_application']), ENT_QUOTES);
+                                }
+
+                                ?></textarea>
+                            </div>
+                        </div>
                         <hr>
                     </div>
                     <?php
@@ -277,7 +315,13 @@ $cart_contents = $cart->get_cart_contents();
             if (!empty($cart_contents)) {
                 ?>
                 <h2 class="piq-additional-notes"><?php echo !empty($fields['notes_text']) ? $fields['notes_text'] : 'Additional Quote Notes'; ?></h2>
-                <textarea id="rfq-notes" class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
+                <textarea id="rfq-notes" class="rfq-notes" name="rfq-notes" placeholder="<?php
+
+                echo !empty($fields['quote_notes_placeholder'])
+                    ? $fields['quote_notes_placeholder']
+                    : 'Add application details here...';
+
+                ?>"></textarea>
                 <?php
             }
 
@@ -377,8 +421,16 @@ $cart_contents = $cart->get_cart_contents();
                             ?>
                            
 
-                            <p id="rfq-newsletter-p"><input type="checkbox" name="rfq-newsletter" id="rfq-newsletter"> <label for="rfq-newsletter">Sign me up for the READE newsletter</label></p>
-                            <p id="rfq-tos"><input type="checkbox" name="rfq-accept-terms" id="rfq-accept-terms"> <label for="rfq-accept-terms">I have read and accepted the <a href="/about-us/terms-conditions-of-sale/">Terms and Conditions of Sale</a></label></p>
+                            <!--
+                                <p id="rfq-newsletter-p"><input type="checkbox" name="rfq-newsletter" id="rfq-newsletter"> <label for="rfq-newsletter">Sign me up for the READE newsletter</label></p>
+                            -->
+                            <p id="rfq-tos"><input type="checkbox" name="rfq-accept-terms" id="rfq-accept-terms"> <label for="rfq-accept-terms"><?php
+
+                            echo !empty($fields['terms_text']) 
+                                ? $fields['terms_text']
+                                : 'I agree to the terms and conditions of sale';
+
+                            ?></label></p>
                         </div>
                     </div>
                 </div>
