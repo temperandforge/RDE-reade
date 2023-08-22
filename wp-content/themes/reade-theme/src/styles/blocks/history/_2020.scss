@@ -1,10 +1,17 @@
 #history-2020 {
-	width: 31.8vw;
+	width: 63.75vw;
+
+	figure {
+		@apply absolute bottom-0 left-0;
+		width: 44.77%;
+		height: 56.44%;
+	}
 
 	.history-content {
-		@apply absolute left-0;
+		@apply absolute right-0;
 		top: 34%;
+		width: 51.31%;
 	}
 }
 
-/* width 458 */
+/* width 918 */
