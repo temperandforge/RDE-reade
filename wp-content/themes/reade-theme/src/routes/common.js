@@ -37,7 +37,7 @@ export default {
 
 		if (document.body.classList.contains('custom-product-rfq-form')) {
 			document.addEventListener( 'wpcf7mailsent', function( event ) {
-			  location = '/itemized-rfq-form-success/';
+			  //location = '/itemized-rfq-form-success/';
 			}, false );
 		}
 

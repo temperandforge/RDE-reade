@@ -28,6 +28,37 @@
 		border: unset !important;
 		
 	}
+
+	.all-fields, .all-fields-2 {
+		&::focus {
+			outline: none;
+		}
+	}
+}
+
+.rfq-form-slide-1, .rfq-form-slide-2 {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.rfq-form-slide.rfq-form-slide-hidden {
+	display: none;
+}
+#rfq-form-next, #rfq-form-previous, #rfq-form-submit {
+	padding: 12px 20px;
+	align-self: flex-start;
+	justify-content: flex-start;
+	min-width: unset;
+}
+#rfq-form-previous {
+	svg {
+		transform: rotate(180deg);
+	}
+}
+.rfq-form-controls {
+	display: flex;
+	column-gap: 25px;
 }
 
 .rfq-submit--main,
@@ -69,6 +100,11 @@
 	margin-top: clamp(25px, 5vw, 56px);
 
 	form {
+
+		label {
+			display: none;
+		}
+		
 		@apply flex flex-row flex-wrap items-center;
 		row-gap: 20px;
 		column-gap: 25px;
@@ -361,5 +397,51 @@
 
 	p {
 		text-wrap: balance;
+	}
+}
+
+body.custom-product-rfq-form {
+	.rfq-form--section {
+		.rfq-error {
+			border: solid 1px #f15252;
+			color: #f15252;
+        	font-weight: 600;
+
+        	&::placeholder {
+        		color: #f15252;
+        		font-weight: 600;
+        	}
+		}
+	}
+	.rfq-currently-using {
+		label {
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.4;
+		}
+		input {
+			width: auto;
+			margin-right: 5px;
+		}
+		&.rfq-error {
+			border: unset;
+		}
+	}
+	#p-accept-terms {
+		font-size: 14px;
+		line-height: 1.4;
+
+		input {
+			width: auto;
+			margin-right: 5px;
+		}
+		&.rfq-error {
+			border: unset;
+		}
+
+		a {
+			text-decoration: underline;
+			font-weight: 600;
+		}
 	}
 }

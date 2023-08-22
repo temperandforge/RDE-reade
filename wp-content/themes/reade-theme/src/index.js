@@ -1,6 +1,7 @@
 // match unique body_class
 import Router from './util/Router'
 import common from './routes/common'
+import customProductRfqForm from './routes/custom-product-rfq-form.js'
 import pageTemplateLegal from './routes/legal'
 import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
@@ -15,6 +16,7 @@ import pageId103 from './routes/particle-measurement';
  */
 const routes = new Router({
   common,
+  customProductRfqForm,
   single,
   pageTemplateLegal,
   frontPage,
