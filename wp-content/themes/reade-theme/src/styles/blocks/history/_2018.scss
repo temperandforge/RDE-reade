@@ -1,24 +1,16 @@
 #history-2018 {
-	width: 64.5vw;
+	width: 31.9vw;
 
-	.secondary-figure {
+	figure {
 		@apply absolute;
 		top: 10.4%;
 		left: 0;
-		width: 30%;
+		width: 60.76%;
 		height: 43.2%;
 
 		img {
-			border-radius: unset;
+			border-radius: 0;
 		}
-	}
-
-	.primary-figure {
-		@apply absolute;
-		bottom: 0;
-		left: 49.7%;
-		width: 44.2%;
-		height: 56.4%;
 	}
 
 	h3 {
@@ -29,8 +21,9 @@
 	.history-content {
 		@apply absolute;
 		top: 7.8%;
-		left: 36.3%;
+		left: 73.38%;
+		width: 101.3%;
 	}
 }
 
-/* width 929 */
+/* width 460 */
