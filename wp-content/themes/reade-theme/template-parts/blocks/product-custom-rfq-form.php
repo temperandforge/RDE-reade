@@ -64,14 +64,6 @@ $fields = get_fields();
                <input type=hidden name="oid" value="00D3J0000008rZJ">
                <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
 
-               <!--  ----------------------------------------------------------------------  -->
-               <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-               <!--  these lines if you wish to test in debug mode.                          -->
-               <!--  <input type="hidden" name="debug" value=1>                              -->
-               <!--  <input type="hidden" name="debugEmail"                                  -->
-               <!--  value="accounts@temperandforge.com">                                    -->
-               <!--  ----------------------------------------------------------------------  -->
-
                <input  id="lead_source" name="lead_source" value="Website" type="hidden"></select>
 
                <input  class="all-fields rfq-input-product" id="00N6g00000TUVFe" maxlength="255" name="00N6g00000TUVFe" size="20" type="text" placeholder="Material or Chemical Formula *" />
@@ -113,25 +105,6 @@ $fields = get_fields();
                tf_dropdown($suom);
 
                ?>
-
-               <!-- <select  class="all-fields rfq-input-size-measure" id="00N6g00000TtToL" name="00N6g00000TtToL" title="Size Unit of Measure">
-                    <option value="0">Size Unit of Measure *</option><option value="Angstroms">Angstroms</option>
-                    <option value="Centimeters">Centimeters</option>
-                    <option value="Chip">Chip</option>
-                    <option value="Feet">Feet</option>
-                    <option value="Grams">Grams</option>
-                    <option value="Grit">Grit</option>
-                    <option value="Inches">Inches</option>
-                    <option value="Mesh">Mesh</option>
-                    <option value="Meters">Meters</option>
-                    <option value="Microns">Microns</option>
-                    <option value="Millimeters">Millimeters</option>
-                    <option value="Nanometers">Nanometers</option>
-                    <option value="Ounces">Ounces</option>
-                    <option value="Parts">Parts</option>
-                    <option value="Pieces">Pieces</option>
-                    <option value="Troy Ounces">Troy Ounces</option>
-               </select> -->
 
                <input  class="all-fields rfq-input-purity" id="00N6g00000TUVFy" maxlength="255" name="00N6g00000TUVFy" size="20" type="text" placeholder="Min. Purity *" />
 
@@ -179,33 +152,6 @@ $fields = get_fields();
 
                ?>
 
-<!--                <select  class="all-fields rfq-input-quantity-measure" id="00N6g00000TUVFo" name="00N6g00000TUVFo" title="Unit of Measure"><option value="0">Quantity Unit of Measure *</option>
-                    <option value="Bag">Bag</option>
-                    <option value="Bottle">Bottle</option>
-                    <option value="Box">Box</option>
-                    <option value="Can">Can</option>
-                    <option value="Centimeters">Centimeters</option>
-                    <option value="Drum">Drum</option>
-                    <option value="Each">Each</option>
-                    <option value="Feet">Feet</option>
-                    <option value="Gallon">Gallon</option>
-                    <option value="Grams">Grams</option>
-                    <option value="Inches">Inches</option>
-                    <option value="Jar">Jar</option>
-                    <option value="Kilograms">Kilograms</option>
-                    <option value="Meters">Meters</option>
-                    <option value="Metric Tons">Metric Tons</option>
-                    <option value="Millimeters">Millimeters</option>
-                    <option value="N/A">N/A</option>
-                    <option value="Net Tons">Net Tons</option>
-                    <option value="Ounces">Ounces</option>
-                    <option value="Pieces">Pieces</option>
-                    <option value="Pouches">Pouches</option>
-                    <option value="Pounds">Pounds</option>
-                    <option value="Super Sack">Super Sack</option>
-                    <option value="Troy Ounces">Troy Ounces</option>
-               </select> -->
-
                <textarea  class="all-fields rfq-input-general-application" id="00N6g00000TUVG8" name="00N6g00000TUVG8" rows="3" type="text" wrap="soft" placeholder="General Application *"></textarea>
 
                <div class="all-fields rfq-currently-using">
@@ -222,7 +168,7 @@ $fields = get_fields();
 
                </button>
           </div>
-          <div class="rfq-form-slide-2 rfq-form-slide">
+          <div class="rfq-form-slide-2 rfq-form-slide rfq-form-slide-hidden">
 
                <input  class="all-fields-2" id="r-first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="First Name *" />
 
@@ -262,10 +208,6 @@ $fields = get_fields();
                tf_dropdown($pmoc);
 
                ?>
-               <!-- <select class="all-fields-2"  id="r-00N6g00000TtToJ" name="00N6g00000TtToJ" title="Preferred Method of Contact">
-                    <option value="0">Preferred Method of Contact *</option><option value="Email">Email</option>
-                    <option value="Phone">Phone</option>
-               </select> -->
 
                <textarea class="all-fields-2"  id="r-00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" placeholder="Notes"></textarea>
 
@@ -275,7 +217,7 @@ $fields = get_fields();
                $hdyfu = [
                     'id' => 'r-00N6g00000TtToG',
                     'class' => ['all-fields-2'],
-                    'select_text' => 'How did you find us?',
+                    'select_text' => 'How did you find us? *',
                     'width' => '100%',
                     'values' => [
                          'Online Advetising' => 'Online Advertising',
@@ -296,16 +238,6 @@ $fields = get_fields();
 
                ?>
 
-               <!-- <select class="all-fields-2"  id="r-00N6g00000TtToG" name="00N6g00000TtToG" title="Find Us"><option value="0">How did you find us? *</option>
-                    <option value="Online Advertising">Online Advertising</option>
-                    <option value="Other">Other</option>
-                    <option value="Particle Technolgy  Referral">Particle Technolgy  Referral</option>
-                    <option value="Print Advertising">Print Advertising</option>
-                    <option value="Referral">Referral</option>
-                    <option value="Return Customer">Return Customer</option>
-                    <option value="Search Engine">Search Engine</option>
-                    <option value="Thomasnet">Thomasnet</option>
-               </select> -->
 
                <input  class="all-fields-2" id="r-00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="text" placeholder="Enter how you found us *" style="display: none;" value="" />
 
@@ -320,6 +252,9 @@ $fields = get_fields();
                     </button>
                     <button id="rfq-form-submit" class="btn-blue-dark-blue" type="submit" name="submit">
                          Submit
+                         <svg class="spinner" viewBox="0 0 50 50">
+                              <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                         </svg>
                     </button>
                </div>
           </div>

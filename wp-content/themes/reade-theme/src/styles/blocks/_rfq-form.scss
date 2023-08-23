@@ -108,6 +108,17 @@
         transition-delay: 0.35s;
     }
 
+    .tf-dropdown.rfq-error {
+    	border: unset;
+    	dt {
+    		border: 1px solid #f15252;
+    	}
+    	dt p {
+    		color: #f15252;
+    		font-weight: 600;
+    	}
+    }
+
     .tf-dropdown-open {
         //border-bottom: 1px solid var(--primary-500-main, #009FC6);
         //border-bottom-left-radius: 0;
@@ -143,6 +154,19 @@
 	align-self: flex-start;
 	justify-content: flex-start;
 	min-width: unset;
+}
+#rfq-form-submit {
+	&:disabled {
+		background-color: #d4d4d4;
+    	border: 1px solid #d4d4d4;
+    	cursor: not-allowed;
+    	display: flex;
+    	align-items: center;
+
+    	svg {
+    		margin-left: 10px;
+    	}
+	}
 }
 #rfq-form-previous {
 	svg {
@@ -504,6 +528,9 @@ body.custom-product-rfq-form {
         		color: #f15252;
         		font-weight: 600;
         	}
+		}
+		.tf-dropdown.rfq-error {
+			border: unset;
 		}
 	}
 	.rfq-currently-using {

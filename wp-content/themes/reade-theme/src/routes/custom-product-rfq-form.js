@@ -10,8 +10,18 @@ export default {
   },
   finalize() {
 
+    function disableForm() {
+      $('#rfq-form-submit').prop('disabled', true);
+      $('#rfq-form-submit svg').show();
+    }
+
+    function enableForm() {
+      $('#rfq-form-submit').prop('disabled', false);
+      $('#rfq-form-submit svg').hide();
+    }
+
     let fieldsnotempty = ['rfq-input-product', 'rfq-input-size', 'rfq-input-size-measure', 'rfq-input-purity', 'rfq-input-quantity', 'rfq-input-quantity-measure', 'rfq-input-general-application'];
-    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-state', 'r-zip', 'r-country', 'r-phone', 'r-email', 'r-00N6g00000TtToJ', 'r-00N6g00000TtToG'];
+    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-state', 'r-zip', 'r-country', 'r-phone', 'r-email'];
     let errorfields = [];
     let errorfields2 = [];
 
@@ -27,18 +37,29 @@ export default {
       } else {
         //console.log(errorfields);
         $('.all-fields').removeClass('rfq-error');
+        $('#00N6g00000TtToL, #00N6g00000TUVFo').removeClass('rfq-error');
 
         for (let i = 0; i < errorfields.length; i++) {
-          document.getElementsByClassName(errorfields[i])[0].classList.add('rfq-error');
+          if (document.getElementsByClassName(errorfields[i]).length) {
+            document.getElementsByClassName(errorfields[i])[0].classList.add('rfq-error');
+          } else {
+            if (document.getElementById(errorfields[i])) {
+              document.getElementById(errorfields[i]).classList.add('rfq-error');
+            }
+          }
         }
 
       }
     })
 
+
+
     $('#rfq-form-submit').on('click', function(e) {
+      disableForm();
       e.preventDefault();
       if (validateFormPart2()) {
         $('.all-fields-2').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG').removeClass('rfq-error');
         
 
          // update salesforce form with values from this field
@@ -54,13 +75,13 @@ export default {
         $('#00N3J000001mdyh').text($('#r-00N3J000001mdyh').val());
 
         // how they found us
-        $('#00N6g00000TtToG').val($('#r-00N6g00000TtToG').val());
+        $('#00N6g00000TtToG').val($('#r-00N6g00000TtToG dt p').text());
 
         // found us details - if "other" is selected
         $('#00N6g00000U3avS').val($('#r-00N6g00000U3avS').val());
 
         // preferred method of contact
-        $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ').val());
+        $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ dt p').text());
 
         // product 1 name
         $('#00N3J000001mcrB').val($('#00N6g00000TUVFe').val());
@@ -69,21 +90,23 @@ export default {
         $('#00N3J000001mcrG').text(
             'Size: ' + $('#00N6g00000Tj7ls').val() + "\r\n" + 
             'Shape: ' + $('#00N6g00000TBLtL').val() + "\r\n" + 
-            'Size Unit: ' + $('#00N6g00000TtToL').val() + "\r\n" + 
+            'Size Unit: ' + $('#00N6g00000TtToL dt p').text() + "\r\n" + 
             'Min. Purity: ' + $('#00N6g00000TUVFy').val() + "\r\n" + 
             'Quantity: ' + $('#00N6g00000TUVG3').val() + "\r\n" + 
-            'Quantity Unit: ' + $('#00N6g00000TUVFo').val() + "\r\n" + 
-            'Currently Using: ' + ($('#00N6g00000TtToF:checked').val() == '1' ? 'Yes' : 'No') + "\r\n" + 
+            'Quantity Unit: ' + $('#00N6g00000TUVFo dt p').text() + "\r\n" + 
+            'Currently Using: ' + ($('#r-currently-using-yes').is(':checked') ? 'Yes' : 'No') + "\r\n" + 
             'General Application: ' + $('#00N6g00000TUVG8').val()
         );
-
+ 
         $('#sf-form-submit').click();
 
 
 
       } else {
+        enableForm();
         $('.all-fields-2').removeClass('rfq-error');
-
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG').removeClass('rfq-error');
+        
         for (let i = 0; i < errorfields2.length; i++) {
           document.getElementById(errorfields2[i]).classList.add('rfq-error');
         }
@@ -126,13 +149,33 @@ export default {
         }
       }
 
-      if ($('#r-00N6g00000TtToG').val() == 'Other') {
-        if ($('#r-00N6g00000U3avS').val() == '') {
-          if (!errorfields2.includes('r-00N6g00000U3avS')) {
-            errorfields2.push('r-00N6g00000U3avS');
-          }
+      if ($('#r-00N6g00000TtToJ dt p').text() == 'Preferred Method of Contact *') {
+        if (!errorfields2.includes('r-00N6g00000TtToJ')) {
+          errorfields2.push('r-00N6g00000TtToJ');
         }
       }
+
+      if ($('#r-00N6g00000TtToG dt p').text() == 'How did you find us? *') {
+        if (!errorfields2.includes('r-00N6g00000TtToG')) {
+          errorfields2.push('r-00N6g00000TtToG');
+        }
+      }
+
+      if ($('#r-00N6g00000TtToG dt p').text() == 'Other') {
+        if ($('#r-00N6g00000U3avS').val() == '') {
+           if (!errorfields2.includes('r-00N6g00000U3avS')) {
+             errorfields2.push('r-00N6g00000U3avS');
+           }
+         }
+      }
+
+      // if ($('#r-00N6g00000TtToG').val() == 'Other') {
+      //   if ($('#r-00N6g00000U3avS').val() == '') {
+      //     if (!errorfields2.includes('r-00N6g00000U3avS')) {
+      //       errorfields2.push('r-00N6g00000U3avS');
+      //     }
+      //   }
+      // }
 
       if ($('#p-accept-terms input:checked').length != 1) {
         if (!errorfields2.push('p-accept-terms')) {
@@ -147,8 +190,8 @@ export default {
       return true;
     }
 
-    $('#r-00N6g00000TtToG').on('change', function() {
-      if ($(this).val() == 'Other') {
+    $('#r-00N6g00000TtToG ul li').on('click', function() {
+      if ($(this).text() == 'Other') {
         $('#r-00N6g00000U3avS').css('display', 'block');
       } else {
         $('#r-00N6g00000U3avS').css('display', 'none');
@@ -163,6 +206,18 @@ export default {
           if (!errorfields.includes(fieldsnotempty[i])) {
             errorfields.push(fieldsnotempty[i]);
           }
+        }
+      }
+
+      if ($('#00N6g00000TtToL dt p').text() == 'Size Unit of Measure *') {
+        if (!errorfields.includes('00N6g00000TtToL')) {
+          errorfields.push('00N6g00000TtToL');
+        }
+      }
+
+      if ($('#00N6g00000TUVFo dt p').text() == 'Quantity Unit of Measure *') {
+        if (!errorfields.includes('00N6g00000TUVFo')) {
+          errorfields.push('00N6g00000TUVFo');
         }
       }
       
