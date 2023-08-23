@@ -80,7 +80,41 @@ $fields = get_fields();
 
                <input  class="all-fields rfq-input-shape" id="00N6g00000TBLtL" maxlength="255" name="00N6g00000TBLtL" size="20" type="text" placeholder="Shape" />
 
-               <select  class="all-fields rfq-input-size-measure" id="00N6g00000TtToL" name="00N6g00000TtToL" title="Size Unit of Measure">
+               <?php
+
+               $suom = [
+                    'id' => '00N6g00000TtToL',
+                    'class' => ['all-fields', 'rfq-input-size-measure'],
+                    'select_text' => 'Size Unit of Measure *',
+                    'width' => '100%',
+                    'values' => [
+                         'Angstroms' => 'Angstroms',
+                         'Centimeters' => 'Centimeters',
+                         'Chip' => 'Chip',
+                         'Feet' => 'Feet',
+                         'Grams' => 'Grams',
+                         'Grit' => 'Grit',
+                         'Inches' => 'Inches',
+                         'Mesh' => 'Mesh',
+                         'Meters' => 'Meters',
+                         'Microns' => 'Microns',
+                         'Millimeters' => 'Millimeters',
+                         'Nanometers' => 'Nanometers',
+                         'Ounces' => 'Ounces',
+                         'Parts' => 'Parts',
+                         'Pieces' => 'Pieces',
+                         'Troy Ounces' => 'Troy Ounces'
+                    ],
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                    </svg>'
+               ];
+
+               tf_dropdown($suom);
+
+               ?>
+
+               <!-- <select  class="all-fields rfq-input-size-measure" id="00N6g00000TtToL" name="00N6g00000TtToL" title="Size Unit of Measure">
                     <option value="0">Size Unit of Measure *</option><option value="Angstroms">Angstroms</option>
                     <option value="Centimeters">Centimeters</option>
                     <option value="Chip">Chip</option>
@@ -97,13 +131,55 @@ $fields = get_fields();
                     <option value="Parts">Parts</option>
                     <option value="Pieces">Pieces</option>
                     <option value="Troy Ounces">Troy Ounces</option>
-               </select>
+               </select> -->
 
                <input  class="all-fields rfq-input-purity" id="00N6g00000TUVFy" maxlength="255" name="00N6g00000TUVFy" size="20" type="text" placeholder="Min. Purity *" />
 
                <input  class="all-fields rfq-input-quantity" id="00N6g00000TUVG3" name="00N6g00000TUVG3" size="20" type="text" placeholder="Quantity *" />
 
-               <select  class="all-fields rfq-input-quantity-measure" id="00N6g00000TUVFo" name="00N6g00000TUVFo" title="Unit of Measure"><option value="0">Quantity Unit of Measure *</option>
+               <?php
+
+               $quom = [
+                    'id' => '00N6g00000TUVFo',
+                    'class' => ['all-fields', 'rfq-input-quantity-measure'],
+                    'select_text' => 'Quantity Unit of Measure *',
+                    'width' => '100%',
+                    'values' => [
+                         'Bag' => 'Bag',
+                         'Bottle' => 'Bottle',
+                         'Box' => 'Box',
+                         'Can' => 'Can',
+                         'Centimeters' => 'Centimeters',
+                         'Drum' => 'Drum',
+                         'Each' => 'Each',
+                         'Feet' => 'Feet',
+                         'Gallon' => 'Gallon',
+                         'Grams' => 'Grams',
+                         'Inches' => 'Inches',
+                         'Jar' => 'Jar',
+                         'Kilograms' => 'Kilograms',
+                         'Meters' => 'Meters',
+                         'Metric Tons' => 'Metric Tons',
+                         'Millimeters' => 'Millimeters',
+                         'N/A' => 'N/A',
+                         'Net Tons' => 'Net Tons',
+                         'Ounces' => 'Ounces',
+                         'Pieces' => 'Pieces',
+                         'Pouches' => 'Pouches',
+                         'Pounds' => 'Pounds',
+                         'Super Sack' => 'Super Sack',
+                         'Troy Ounces' => 'Troy Ounces'
+                    ],
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                    </svg>'
+               ];
+
+               tf_dropdown($quom);
+
+               ?>
+
+<!--                <select  class="all-fields rfq-input-quantity-measure" id="00N6g00000TUVFo" name="00N6g00000TUVFo" title="Unit of Measure"><option value="0">Quantity Unit of Measure *</option>
                     <option value="Bag">Bag</option>
                     <option value="Bottle">Bottle</option>
                     <option value="Box">Box</option>
@@ -128,14 +204,14 @@ $fields = get_fields();
                     <option value="Pounds">Pounds</option>
                     <option value="Super Sack">Super Sack</option>
                     <option value="Troy Ounces">Troy Ounces</option>
-               </select>
+               </select> -->
 
                <textarea  class="all-fields rfq-input-general-application" id="00N6g00000TUVG8" name="00N6g00000TUVG8" rows="3" type="text" wrap="soft" placeholder="General Application *"></textarea>
 
                <div class="all-fields rfq-currently-using">
-                    <p><input  id="00N6g00000TtToF" name="00N6g00000TtToF" type="checkbox" value="1" /><label for="00N6g00000TtToF">Currently using this product</label></p>
+                    <p><input  id="r-currently-using-yes" name="r-currently-using" type="radio" value="1" /><label for="r-currently-using-yes">Currently using this product</label></p>
 
-                    <p><input  id="00N6g00000TtToH" name="00N6g00000TtToH" type="checkbox" value="1" /><label for="00N6g00000TtToH">  Not currently using this product</label></p>
+                    <p><input  id="r-currently-using-no" name="r-currently-using" type="radio" value="0" /><label for="r-currently-using-no">  Not currently using this product</label></p>
                </div>
 
                <button id="rfq-form-next" class="btn-blue-dark-blue btn-arrow">
@@ -146,7 +222,7 @@ $fields = get_fields();
 
                </button>
           </div>
-          <div class="rfq-form-slide-2 rfq-form-slide rfq-form-slide-hidden">
+          <div class="rfq-form-slide-2 rfq-form-slide">
 
                <input  class="all-fields-2" id="r-first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="First Name *" />
 
@@ -167,15 +243,60 @@ $fields = get_fields();
                <input  class="all-fields-2" id="r-phone" maxlength="40" name="phone" size="20" type="text" placeholder="Phone *" />
 
                <input  class="all-fields-2" id="r-email" maxlength="80" name="email" size="20" type="text" placeholder="Email *"/>
+               <?php
 
-               <select class="all-fields-2"  id="r-00N6g00000TtToJ" name="00N6g00000TtToJ" title="Preferred Method of Contact">
+               $pmoc = [
+                    'id' => 'r-00N6g00000TtToJ',
+                    'class' => ['all-fields-2'],
+                    'select_text' => 'Preferred Method of Contact *',
+                    'width' => '100%',
+                    'values' => [
+                         'Email' => 'Email',
+                         'Phone' => 'Phone'
+                    ],
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                    </svg>'
+               ];
+
+               tf_dropdown($pmoc);
+
+               ?>
+               <!-- <select class="all-fields-2"  id="r-00N6g00000TtToJ" name="00N6g00000TtToJ" title="Preferred Method of Contact">
                     <option value="0">Preferred Method of Contact *</option><option value="Email">Email</option>
                     <option value="Phone">Phone</option>
-               </select>
+               </select> -->
 
                <textarea class="all-fields-2"  id="r-00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" placeholder="Notes"></textarea>
 
-               <select class="all-fields-2"  id="r-00N6g00000TtToG" name="00N6g00000TtToG" title="Find Us"><option value="0">How did you find us? *</option>
+
+               <?php
+
+               $hdyfu = [
+                    'id' => 'r-00N6g00000TtToG',
+                    'class' => ['all-fields-2'],
+                    'select_text' => 'How did you find us?',
+                    'width' => '100%',
+                    'values' => [
+                         'Online Advetising' => 'Online Advertising',
+                         'Other' => 'Other',
+                         'Particle Technology Referral' => 'Particle Technology Referral',
+                         'Print Advertising' => 'Print Advertising',
+                         'Referral' => 'Referral',
+                         'Return Customer' => 'Return Customer',
+                         'Search Engine' => 'Search Engine',
+                         'Thomasnet' => 'Thomasnet'
+                    ],
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                    </svg>'
+               ];
+
+               tf_dropdown($hdyfu);
+
+               ?>
+
+               <!-- <select class="all-fields-2"  id="r-00N6g00000TtToG" name="00N6g00000TtToG" title="Find Us"><option value="0">How did you find us? *</option>
                     <option value="Online Advertising">Online Advertising</option>
                     <option value="Other">Other</option>
                     <option value="Particle Technolgy  Referral">Particle Technolgy  Referral</option>
@@ -184,7 +305,7 @@ $fields = get_fields();
                     <option value="Return Customer">Return Customer</option>
                     <option value="Search Engine">Search Engine</option>
                     <option value="Thomasnet">Thomasnet</option>
-               </select>
+               </select> -->
 
                <input  class="all-fields-2" id="r-00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="text" placeholder="Enter how you found us *" style="display: none;" value="" />
 

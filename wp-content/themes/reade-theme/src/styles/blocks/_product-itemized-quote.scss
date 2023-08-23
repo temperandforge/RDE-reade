@@ -12,7 +12,7 @@
     }
     #find_us, #how-to-contact {
         border: 1px solid var(--primary-300,#8bd4df);
-        height: 42px;
+        height: auto;
 
         dt {
             padding: 11px 23px;
@@ -420,13 +420,22 @@
             font-weight: 500;
 
             @include respond-below(lg) {
-                max-width: 50%;
+                max-width: 55%;
                 margin: 0 auto;
             }
 
             @include respond-below(sm) {
                 max-width: 100%;
             }
+        }
+
+        .tf-dropdown ul {
+            max-height: unset;
+        }
+        .tf-dropdown ul li {
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 11px 23px;
         }
     }
 
@@ -585,6 +594,9 @@
             }
         }
     }
+    .tf-dropdown {
+        transition-delay: 0.35s;
+    }
 
     .tf-dropdown-open {
         //border-bottom: 1px solid var(--primary-500-main, #009FC6);
@@ -592,11 +604,17 @@
         //border-bottom-right-radius: 0;
         position: relative;
         z-index: 30;
+         transition: z-index 0s linear;
 
         dd ul {
             //border-top: 1px solid var(--primary-500-main, #009FC6);
             //border-top-left-radius: 0;
             //border-top-right-radius: 0;
         }
+    }
+}
+body.itemized-rfq {
+    .site-footer {
+        z-index: 9;
     }
 }
