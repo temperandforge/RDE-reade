@@ -9,9 +9,10 @@ if (is_archive()) {
 $options = get_fields('options');
 
 ?>
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/reade-logo.svg" class="pah-top-decor" alt="Reade Logo" width="1515" height="500">
+    
 <div class="product-archive-hero">
   <div class="pah-top bg-light-blue">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/reade-logo.svg" class="pah-top-decor" alt="Reade Logo" width="1515" height="500">
     <div class="pah-top-container">
       <a href="/products/" class="btn-light-blue-blue-alt btn-arrow-reverse">
           <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">

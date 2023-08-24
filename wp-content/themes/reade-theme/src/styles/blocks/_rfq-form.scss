@@ -28,6 +28,154 @@
 		border: unset !important;
 		
 	}
+
+	.all-fields, .all-fields-2 {
+		&::focus {
+			outline: none;
+		}
+	}
+
+	.tf-dropdown {
+        width: 100%;
+        border-radius: 5px;
+        background: $white;
+        border: none;
+        position: relative;
+        z-index: 20;
+
+        dt p, dd ul li {
+            color: var(--primary-500-main, #009FC6);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4; /* 166.667% */
+        }
+        dt p {
+        	color: var(--primary-300, #8bd4df);
+        }
+
+        dd ul {
+            border-radius: 6px;
+            //border: 1px solid var(--primary-500-main, #009FC6);
+            background: #FFF;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+
+        dt, dd ul li {
+            padding: unset;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        dd ul li {
+            width: 100%;
+            &:hover {
+                background-color: var(--primary-100, #CFEEF6);
+                font-weight: 600;
+            }
+        }
+        dd {
+            width: calc(100% + 2px);
+            border: solid 1px var(--primary-500-main, #009FC6);
+            border-radius: 5px;
+            margin-top: 6px;
+        }
+
+        dt, dd ul {
+            min-width: 140px;
+        }
+
+        dt {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid var(--primary-300,#8bd4df);
+            border-radius: 6px;
+            min-height: 44px;
+        }
+
+        dt svg {
+            padding-right: unset;
+
+            path {
+                fill: var(--primary-500-main, #009FC6);;
+            }
+        }
+    }
+    .tf-dropdown {
+        transition-delay: 0.35s;
+    }
+
+    .tf-dropdown.rfq-error {
+    	border: unset;
+    	dt {
+    		border: 1px solid #f15252;
+    	}
+    	dt p {
+    		color: #f15252;
+    		font-weight: 600;
+    	}
+    }
+
+    .tf-dropdown-open {
+        //border-bottom: 1px solid var(--primary-500-main, #009FC6);
+        //border-bottom-left-radius: 0;
+        //border-bottom-right-radius: 0;
+        position: relative;
+        z-index: 30;
+         transition: z-index 0s linear;
+
+        dd ul {
+            //border-top: 1px solid var(--primary-500-main, #009FC6);
+            //border-top-left-radius: 0;
+            //border-top-right-radius: 0;
+        }
+    }
+
+    #r-00N6g00000TtToJ dd ul {
+    	max-height: unset;
+    	overflow-y: hidden;
+    }
+}
+
+.rfq-form-slide-1, .rfq-form-slide-2 {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.rfq-form-slide.rfq-form-slide-hidden {
+	display: none;
+}
+#rfq-form-next, #rfq-form-previous, #rfq-form-submit {
+	padding: 12px 20px;
+	align-self: flex-start;
+	justify-content: flex-start;
+	min-width: unset;
+}
+#rfq-form-submit {
+	&:disabled {
+		background-color: #d4d4d4;
+    	border: 1px solid #d4d4d4;
+    	cursor: not-allowed;
+    	display: flex;
+    	align-items: center;
+
+    	svg {
+    		margin-left: 10px;
+    	}
+	}
+}
+#rfq-form-previous {
+	svg {
+		transform: rotate(180deg);
+	}
+}
+.rfq-form-controls {
+	display: flex;
+	column-gap: 25px;
 }
 
 .rfq-submit--main,
@@ -69,6 +217,11 @@
 	margin-top: clamp(25px, 5vw, 56px);
 
 	form {
+
+		label {
+			display: none;
+		}
+		
 		@apply flex flex-row flex-wrap items-center;
 		row-gap: 20px;
 		column-gap: 25px;
@@ -141,6 +294,7 @@
 			background-repeat: no-repeat;
 			background-position: right 1rem center;
 			background-size: 1em;
+			background-color: $white;
 		}
 
 		.btn-blue-dark-blue {
@@ -360,5 +514,59 @@
 
 	p {
 		text-wrap: balance;
+	}
+}
+
+body.custom-product-rfq-form {
+	.rfq-form--section {
+		.rfq-error {
+			border: solid 1px #f15252;
+			color: #f15252;
+        	font-weight: 600;
+
+        	&::placeholder {
+        		color: #f15252;
+        		font-weight: 600;
+        	}
+		}
+		.tf-dropdown.rfq-error {
+			border: unset;
+		}
+	}
+	.rfq-currently-using {
+		label {
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.4;
+		}
+		input {
+			width: auto;
+			margin-right: 5px;
+		}
+		&.rfq-error {
+			border: unset;
+		}
+	}
+	#p-accept-terms {
+		font-size: 14px;
+		line-height: 1.4;
+
+		input {
+			width: auto;
+			margin-right: 5px;
+		}
+		&.rfq-error {
+			border: unset;
+		}
+
+		a {
+			text-decoration: underline;
+			font-weight: 600;
+		}
+	}
+}
+body.custom-product-rfq-form {
+	.site-footer {
+		z-index: 9;
 	}
 }
