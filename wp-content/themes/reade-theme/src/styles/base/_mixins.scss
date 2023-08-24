@@ -98,6 +98,11 @@ $grid-breakpoints: (
 		display: none;
 	}
 }
+@include respond-below(sm) {
+	body {
+		@include hide-sb();
+	}
+}
 @mixin fillall() {
 	position: absolute;
 	top: 0;

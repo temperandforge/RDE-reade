@@ -71,3 +71,11 @@
         letter-spacing: -0.4px;
     }
 }
+
+body.page-id-95 {
+    .icon-block {
+        @include respond-below(md) {
+            padding-top: 0;
+        }
+    }
+}

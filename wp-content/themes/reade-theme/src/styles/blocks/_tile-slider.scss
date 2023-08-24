@@ -40,6 +40,7 @@
 		@include respond-above(md) {
 			font-size: 16px;
 			line-height: 24px;
+			text-align: center;
 		}
 
 		@include respond-above(lg) {
@@ -48,7 +49,15 @@
 		}
 	}
 }
-
+body.toll-packaging {
+	.tile-slider--heading {
+		@include respond-below(md) {
+			p {
+				text-align: center;
+			}
+		}
+	}
+}
 body.toll-processing {
 	.tile-slider--wrapper {
 		.tile-slider--decor {
@@ -209,6 +218,8 @@ body.toll-processing {
 			opacity: 1;
 		}
 	}
+
+	
 }
 
 .tile-slider--slide {
@@ -298,4 +309,19 @@ body.global-sourcing {
 .tile-slider--link {
 	@apply flex justify-center;
 	margin-top: 35px;
+}
+
+body.global-sourcing {
+	.tile-slider--slider {
+		@include respond-below(md) {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+	// .tile-slider--link {
+	// 	@include respond-below(md) {
+	// 		display: none;
+	// 	}
+	// }
 }

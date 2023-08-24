@@ -139,6 +139,24 @@
             "endpoint": 0
         },
         {
+            "key": "field_64da4df9251cd",
+            "label": "Info",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "The supplemental CTA's are set globally in theme options under \"Primary Footer CTA\".  You can also override the global settings on a per-page basis here.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_649df99023837",
             "label": "Secondary CTAs",
             "name": "ctas",
@@ -387,5 +405,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1690990249
+    "modified": 1692028579
 }

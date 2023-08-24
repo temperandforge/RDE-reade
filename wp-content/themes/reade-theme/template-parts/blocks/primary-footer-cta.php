@@ -8,20 +8,17 @@ if (is_category() || is_archive()) {
 
 $options = get_fields('options');
 
-/* Pull in global options as a fallback */
-$style = $fields['style'] ? $fields['style'] : $options['pfcta_style'];
-$heading = !empty($fields['heading']) ? $fields['heading'] : $options['pfcta_heading'];
-$content = !empty($fields['content']) ? $fields['content'] : $options['pfcta_content'];
-$link = !empty($fields['link']) ? $fields['link'] : $options['pfcta_link'];
+// style, heading, content, link, icon, and include arrow are set on a per block basis if they are needed
+$style = $fields['style'] ? $fields['style'] : 'white';
+$heading = !empty($fields['heading']) ? $fields['heading'] : false;
+$content = !empty($fields['content']) ? $fields['content'] : false;
+$link = !empty($fields['link']) ? $fields['link'] : false;
+$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : false;
+$icon = !empty($fields['icon']) ? $fields['icon'] : false;
 
-if (!empty($options['pfcta_icon'])) {
-   $icon = !empty($fields['icon']) ? $fields['icon'] : $options['pfcta_icon'];
-} else {
-   $icon = $fields['icon'];
-}
 
+// if no cta's are set, we pull the default values from theme options
 $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
-$includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['pfcta_include_arrow'];
 
 
 ?>
@@ -34,9 +31,9 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
 
             <?php if (!empty($heading)) : ?>
                <div class="primary-footer-cta--cta primary-cta">
-                  <h2><?php echo $heading; ?></h2>
+                  <p class="primary-ptitle"><?php echo $heading; ?></p>
                   <?php if (!empty($content)) : ?>
-                     <p style=" text-wrap: balance; "><?php echo $content; ?></p>
+                     <p style="text-wrap: balance"><?php echo $content; ?></p>
                   <?php endif; ?>
                   <?php if (!empty($link)) : ?>
                      <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target'] ?: '_self'; ?>" class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null; ?>">
@@ -56,7 +53,9 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
             <?php endif; ?>
          </div>
 
-         <?php if (!empty($ctas)) : ?>
+         <?php
+
+         if (!empty($ctas)) : ?>
             <div class="primary-footer-secondary--wrap">
                <?php foreach ($ctas as $index => $cta) : ?>
                   <div class="primary-footer-cta--cta secondary-cta">
@@ -64,7 +63,7 @@ $includearrow = $fields['include_arrow'] ? $fields['include_arrow'] : $options['
                         <div class="footer-cta-icon--wrap <?php echo $cta['icon']; ?>" aria-hidden="true"></div>
                      <?php endif; ?>
                      <?php if (!empty($cta['heading'])) : ?>
-                        <h3><?php echo $cta['heading']; ?></h3>
+                        <p class="ptitle"><?php echo $cta['heading']; ?></p>
                      <?php endif; ?>
                      <?php if (!empty($cta['content'])) : ?>
                         <p><?php echo $cta['content']; ?></p>

@@ -47,7 +47,10 @@ $options = get_fields('options');
          ?>
       </div>
       <div class="pab-filters-right">
+         <form id="pab-filters-form">
          <input class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>">
+         <span id="pab-filters-search-icon"></span>
+         </form>
          <hr>
       </div>
    </div>
@@ -140,7 +143,7 @@ $options = get_fields('options');
                   </div>
                   <div class="pab-category-info">
                      <div class="pab-category-info-left">
-                        <?php echo $product_category->name; ?>
+                        <?php echo str_replace(array('®'), array('<sup>®</sup>'), $product_category->name); ?>
                      </div>
                      <div class="pab-category-info-right">
                         <span><?php echo $product_count; ?></span>

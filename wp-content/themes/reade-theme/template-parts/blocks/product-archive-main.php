@@ -52,7 +52,10 @@ $options = get_fields('options');
          ?>
       </div>
       <div class="pab-filters-right">
+         <form id="pab-filters-form">
          <input class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>">
+         <span id="pab-filters-search-icon"></span>
+         </form>
          <hr>
       </div>
    </div>
@@ -134,18 +137,18 @@ $options = get_fields('options');
 
 
                ?>
-               <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags($prodinfo->get_short_description()); ?>">
+               <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags(str_replace(array('<', '>', '"', "'"), ' ', $prodinfo->get_short_description())); ?>">
                   <div class="pab-category-wrap">
                      <a class="fillall" href="<?php echo $permalink; ?>">
                         <span class="sr-only"><?php echo $prodinfo->get_name(); ?></span>
                      </a>
                      <div class="pab-prod-left">
                         <div class="pab-category-info-left">
-                           <?php echo $prodinfo->get_name(); ?>
+                           <?php echo str_replace(array('®'), array('<sup>®</sup>'), $prodinfo->get_name()); ?>
                         </div>
                      </div>
                      <div class="pab-prod-middle">
-                        <?php echo $prodinfo->get_short_description(); ?>
+                        <?php echo str_replace(array('®'), array('<sup>®</sup>'), $prodinfo->get_short_description()); ?>
                      </div>
                      <div class="pab-prod-right">
                         <a class="btn-light-blue-blue btn-arrow">

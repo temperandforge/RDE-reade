@@ -18,10 +18,11 @@ ul.footer-links-list {
    @apply grid gap-y-6 gap-x-6 sm:gap-x-0;
    grid-template-areas: 
    "a b"
-   "c b"
    "d b"
-   "d e"
-   "f e"
+   "d b"
+   "e b"
+   "e c"
+   "f c"
    ;
 
    > li {
@@ -51,9 +52,9 @@ ul.footer-links-list {
       }
    }
    //.current-menu-ancestor,
-   > li.current-menu-item {
-      > a:before { opacity: 1!important; }
-   }
+   // > li.current-menu-item {
+   //    > a:before { opacity: 1!important; }
+   // }
 
    // home
    .menu-item-104 {
@@ -203,15 +204,25 @@ a.footer-logo-link {
    }
 }
 .footer-form-msg { 
-   @apply max-w-[266px] mx-auto text-center;
+   // @apply max-w-[266px] mx-auto text-center;
+   @apply mx-auto text-center;
    small {
       @include body-xs;
    }
    p {
       @apply font-semibold mb-2 mx-auto;
-      @include body;
+      //@include body;
       @apply text-white; //override body
       //max-width: 14em;
+      color: #FFF;
+      text-wrap: balance;
+
+      /* Paragraph/Medium/Semibold */
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5rem; /* 150% */
    }
 }
 .wpcf7-spinner { @apply hidden; }

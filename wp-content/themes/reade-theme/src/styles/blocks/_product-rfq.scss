@@ -68,6 +68,11 @@
     .product-rfq-bottom a {
         padding: 12px 20px;
         font-size: 14px;
+
+        @include respond-below(sm) {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 
     .product-rfq-options {

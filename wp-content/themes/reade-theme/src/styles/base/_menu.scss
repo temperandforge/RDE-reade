@@ -41,7 +41,7 @@
       }
    }
    &--footer {
-      @apply fixed bottom-0 flex flex-col 3xs:flex-row justify-between gap-3 left-0 py-6;
+      @apply fixed bottom-0 flex flex-col 3xs:flex-row justify-between gap-3 left-0 py-6 z-50;
       //non-functional on physical mobile 
       // width: calc(100vw - var(--scrollbar-width)); // set width of scrollbar - variable
       width: 100vw;
@@ -63,6 +63,7 @@
       // .gtranslate_wrapper {
       .gt_selected {
          @apply btn;
+         padding: 0.75rem 1rem;
          display: inline-flex;
          &:hover {
             @apply bg-white text-primary;
@@ -71,6 +72,10 @@
    }
    &--menu-list {
       @apply pt-2;
+
+      li a {
+         display: block;
+      }
 
       > li {
          @apply font-bold py-4;
@@ -88,7 +93,7 @@
          }
       }
       .sub-menu {
-         @apply flex flex-col gap-y-1.5 mt-5 pl-10;
+         @apply flex flex-col gap-y-3 mt-5 pl-10;
 
          a {
             @apply font-semibold text-primary;
