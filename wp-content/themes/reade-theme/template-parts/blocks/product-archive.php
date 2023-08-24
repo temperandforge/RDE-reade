@@ -68,7 +68,10 @@ $options = get_fields('options');
          $product_categories = get_terms(array(
            'taxonomy'   => 'product_cat',
            'hide_empty' => false,
-           'exclude'    => array(get_option('default_product_cat'))
+           'exclude'    => array(get_option('default_product_cat')),
+           'parent' => 0,
+           'orderby' => 'name',
+           'order' => 'ASC'
          ));
 
          if (!empty($product_categories)) {

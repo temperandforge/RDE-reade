@@ -20,6 +20,53 @@ $cart_contents = $cart->get_cart_contents();
     }
 
     ?>
+    <!-- salesforce form -->
+
+    <form id="sf-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    <input type=hidden name="oid" value="00D3J0000008rZJ">
+    <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
+    <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
+    <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
+    <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
+    <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
+    <input  id="email" maxlength="80" name="email" size="20" type="hidden" />
+    <textarea id="street" name="street" style="display: none;"></textarea>
+    <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
+    <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
+    <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
+    <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" />
+    <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea>
+    <input  id="00N3J000001mcrL" maxlength="255" name="00N3J000001mcrL" size="20" type="hidden" />
+    <textarea  id="00N3J000001mcrQ" name="00N3J000001mcrQ" type="text" wrap="soft" style="display: none;"></textarea>
+    <input  id="00N3J000001mcrV" maxlength="255" name="00N3J000001mcrV" size="20" type="hidden" />
+    <textarea  id="00N3J000001mcra" name="00N3J000001mcra" type="text" wrap="soft" style="display: none;"></textarea>
+    <input  id="00N3J000001mdxo" maxlength="255" name="00N3J000001mdxo" size="20" type="hidden" />
+    <textarea  id="00N3J000001mdxt" name="00N3J000001mdxt" type="text" wrap="soft" style="display: none;"></textarea>
+    <input  id="00N3J000001mdxy" maxlength="255" name="00N3J000001mdxy" size="20" type="hidden" />
+    <textarea  id="00N3J000001mdy8" name="00N3J000001mdy8" type="text" wrap="soft" style="display: none;"></textarea>
+    <textarea  id="00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- find us -->
+    <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
+
+    <!-- find us details -->
+    <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+
+    <!-- terms and conditions -->
+    <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+
+    <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
+    </form>
+    
+
+
     <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/itemized-rfq-form-success/" method="POST">
     <input type="hidden" name="action" value="doSubmitRFQ">
     <div class="piq-container">
@@ -87,6 +134,7 @@ $cart_contents = $cart->get_cart_contents();
                     <div class="piq-cart-item" id="cart-item-<?php echo $key; ?>" data-cart-key="<?php echo $key; ?>">
                         <div class="piq-product-info">
                             <h2 class="piq-product-name"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $parentItem->get_name()); ?></h2>
+                            <span class="sf-hidden" id="sf-product-<?php echo $it; ?>-name"><?php echo $parentItem->get_name(); ?></span>
                             <div class="rfq-cas-number">
                                 <?php
 
@@ -99,6 +147,7 @@ $cart_contents = $cart->get_cart_contents();
                         <div class="piq-product-details">
                             <div class="piq-product-details-attributes">
                                 <?php
+                                $sfattributes = [];
 
                                 if ($attributes) {
                                     foreach ($attributes AS $attribute) {
@@ -114,8 +163,10 @@ $cart_contents = $cart->get_cart_contents();
 
                                             if (trim($display) == '') {
                                                 echo $attribute;
+                                                $sfattributes[] = $attribute;
                                             } else {   
                                                 echo $display . ' - ' . $attribute;
+                                                $sfattributes[] = $display . ' - ' . $attribute;
                                             }
 
                                             ?></div>
@@ -134,8 +185,10 @@ $cart_contents = $cart->get_cart_contents();
 
                                                 if (trim($display) == '') {
                                                     echo $attribute;
+                                                    $sfattributes[] = $attribute;
                                                 } else {   
                                                     echo $display;
+                                                    $sfattributes[] = $display;
                                                 }
 
                                                 //echo $item->get_name();
@@ -145,25 +198,34 @@ $cart_contents = $cart->get_cart_contents();
                                             </div>
                                             <?php
                                         }
+
+
                                     }
 
                                     if (!empty($contents['product_2'])) {
                                         if (!empty($contents['product_2_variant'])) {
+                                            echo 'here';
                                             $product2Variant = new WC_Product_Variation($contents['product_2_variant']);
                                             $attributes = $product2Variant->get_data()['attributes'];
                                             foreach ($attributes AS $attribute) {
                                                 ?>
                                                 <div class="piq-product-details-attributes-attribute"><?php echo $attribute; ?></div>
                                                 <?php
+                                                $sfattributes[] = $attribute;
                                             }
                                         }
                                     }
+
+                                    ?>
+                                    <span id="sf-product-<?php echo $it; ?>-attributes" class="sf-hidden"><?php echo implode("\n", $sfattributes); ?></span>
+                                    <?php
                                 }
 
                                 ?>
                             </div>
                             <div class="piq-product-details-qty">
-                                <input type="number" class="product-qty" data-cart-key="<?php echo $key; ?>" value="<?php echo $contents['quantity']; ?>">
+                                <input id="sf-product-<?php echo $it; ?>-qty" type="number" class="product-qty" data-cart-key="<?php echo $key; ?>" value="<?php echo $contents['quantity']; ?>">
+
 
                                 <?php
 
@@ -205,6 +267,44 @@ $cart_contents = $cart->get_cart_contents();
                                 </a>
                             </div>
                         </div>
+                        <div class="piq-product-details-info">
+                            <div class="piq-product-details-info-left">
+                                <div id="product-<?php echo $it; ?>-using">
+                                <p class="currently-using" id="currently-using-<?php echo $key; ?>"><?php
+
+                                echo !empty($fields['currently_using_text'])
+                                    ? $fields['currently_using_text']
+                                    : 'Are you currently using this product?';
+
+                                ?></p>
+
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-yes rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-yes" value="1" <?php if ($contents['currently_using'] == 'Yes') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-yes">Yes</label><br />
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-no rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-no" value="0" <?php if ($contents['currently_using'] == 'No') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-no">No</label>
+                                </div>
+                            </div>
+                            <div class="piq-product-details-info-right">
+                                <p class="general-application" id="general-application-<?php echo $key; ?>"><?php
+
+                                echo !empty($fields['general_application_text'])
+                                    ? $fields['general_application_text']
+                                    : 'General Application';
+
+                                ?></p>
+                                <textarea class="product-<?php echo $it; ?>-general-application general-application-textarea" id="rfq-<?php echo $key; ?>-general-application" name="rfq-<?php echo $key; ?>-general-application" placeholder="<?php
+
+                                echo !empty($fields['general_application_placeholder'])
+                                    ? $fields['general_application_placeholder']
+                                    : 'General application details...';
+
+                                ?>"><?php
+
+                                if (!empty($contents['general_application'])) {
+                                    echo htmlentities(stripslashes($contents['general_application']), ENT_QUOTES);
+                                }
+
+                                ?></textarea>
+                            </div>
+                        </div>
                         <hr>
                     </div>
                     <?php
@@ -215,7 +315,13 @@ $cart_contents = $cart->get_cart_contents();
             if (!empty($cart_contents)) {
                 ?>
                 <h2 class="piq-additional-notes"><?php echo !empty($fields['notes_text']) ? $fields['notes_text'] : 'Additional Quote Notes'; ?></h2>
-                <textarea class="rfq-notes" name="rfq-notes" placeholder="Add application details here..."></textarea>
+                <textarea id="rfq-notes" class="rfq-notes" name="rfq-notes" placeholder="<?php
+
+                echo !empty($fields['quote_notes_placeholder'])
+                    ? $fields['quote_notes_placeholder']
+                    : 'Add application details here...';
+
+                ?>"></textarea>
                 <?php
             }
 
@@ -270,6 +376,61 @@ $cart_contents = $cart->get_cart_contents();
                             <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
                             <input type="text" id="rfq-state" name="rfq-state" placeholder="State" value="">
                             <input type="text" id="rfq-zip" name="rfq-zip" placeholder="Zip" value="">
+                            <?php
+
+                            $piqOptions = array(
+                                'id' => 'find_us',
+                                'width' => '100%',
+                                'select_text' => 'How did you find us?',
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                                    </svg>',
+                                'values' => array(
+                                    'Online Advertising' => 'Online Advertising',
+                                    'Other' => 'Other',
+                                    'Particle Technology Referral' => 'Particle Technology Referral',
+                                    'Print Advertising' => 'Print Advertising',
+                                    'Referral' => 'Referral',
+                                    'Return Customer' => 'Return Customer',
+                                    'Search Engine' => 'Search Engine',
+                                    'Thomasnet' => 'Thomasnet'
+                                )
+                            );
+
+                            tf_dropdown($piqOptions);
+
+                            ?>
+                            <input type="text" id="rfq-find-us-other" name="rfq-find-us-other" placeholder="Enter where you found us">
+                            <?php
+
+                            $pmcOptions = array(
+                                'id' => 'how-to-contact',
+                                'width' => '100%',
+                                'select_text' => 'Preferred method of contact?',
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
+                                    </svg>',
+                                'values' => array(
+                                    'Email' => 'Email',
+                                    'Phone' => 'Phone'
+                                )
+                            );
+
+                            tf_dropdown($pmcOptions);
+
+                            ?>
+                           
+
+                            <!--
+                                <p id="rfq-newsletter-p"><input type="checkbox" name="rfq-newsletter" id="rfq-newsletter"> <label for="rfq-newsletter">Sign me up for the READE newsletter</label></p>
+                            -->
+                            <p id="rfq-tos"><input type="checkbox" name="rfq-accept-terms" id="rfq-accept-terms"> <label for="rfq-accept-terms"><?php
+
+                            echo !empty($fields['terms_text']) 
+                                ? $fields['terms_text']
+                                : 'I agree to the terms and conditions of sale';
+
+                            ?></label></p>
                         </div>
                     </div>
                 </div>

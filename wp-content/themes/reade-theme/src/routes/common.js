@@ -37,7 +37,7 @@ export default {
 
 		if (document.body.classList.contains('custom-product-rfq-form')) {
 			document.addEventListener( 'wpcf7mailsent', function( event ) {
-			  location = '/itemized-rfq-form-success/';
+			  //location = '/itemized-rfq-form-success/';
 			}, false );
 		}
 
@@ -362,16 +362,19 @@ export default {
 		            data: 'action=doRemoveFromQuote&key=' + JSON.stringify(cartKey),
 		            success: function(responseText){
 		              if (responseText == 'success') {
-		              	$('#cart-item-' + cartKey).fadeOut(200, function() {
-		              		if (!$('.piq-cart-item:visible').length) {
-		              			//$('.piq-additional-notes, .rfq-notes, .piq-container-right').css('display', 'none');
-		              			 $('#piq-form-submit').prop('disabled', true);
-		              			 $('.rfq-notes').css('display', 'none');
-		              			 $('.piq-additional-notes').css('display', 'none');
-		              			$('.rfq-empty').css('display', 'flex');
-		              			$('#doc-count').hide();
-		              		}
-		              	});
+		              	document.location.href = '/itemized-rfq';
+		              	// $('#cart-item-' + cartKey).fadeOut(200, function() {
+		              	// 	if (!$('.piq-cart-item:visible').length) {
+		              	// 		//$('.piq-additional-notes, .rfq-notes, .piq-container-right').css('display', 'none');
+		              	// 		 $('#piq-form-submit').prop('disabled', true);
+		              	// 		 $('.rfq-notes').css('display', 'none');
+		              	// 		 $('.piq-additional-notes').css('display', 'none');
+		              	// 		$('.rfq-empty').css('display', 'flex');
+		              	// 		$('#doc-count').hide();
+		              	// 	}
+		              	// });
+		              	
+		              	return;
 		              }
 		            },
 		            error: function() {
