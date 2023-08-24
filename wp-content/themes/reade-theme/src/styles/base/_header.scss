@@ -43,7 +43,7 @@ ul.header-links {
 		border-radius: 0.5rem;
 
 		// visibility: hidden;
-		opacity: 1;
+		opacity: 0;
 		// max-height: 0; //Safari Issues
 		pointer-events: none;
 		overflow: hidden;
@@ -136,7 +136,7 @@ ul.header-links {
 				width: 100%;//calc(100% - 1.5rem);
 				content: '';
 				transition: inherit;
-				// opacity: 0;
+				opacity: 0;
 			}
 		}
 

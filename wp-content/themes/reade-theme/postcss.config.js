@@ -13,7 +13,7 @@ module.exports = {
     //   ? cssnano({ preset: 'default' })
     //   : null,
     cssnano({ preset: 'advanced' }),
-    purgecss({
+    purgecss({ //TODO
       content: [ //match tailwind
         '**/*.php', './src/**/*.{html,js,scss,svelte}'
       ],
