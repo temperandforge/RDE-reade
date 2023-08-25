@@ -68,7 +68,7 @@ export default {
 			$('.next-btn').prop('disabled', currentPage === Math.ceil(totalElements / elementsPerPage));
 		}
 
-		function updateDots(create=false) {
+		function updateDots(create=false, noSearchResults) {
 			let pages = Math.ceil($(categoryType).length / elementsPerPage);
 			$('.pab-pagination-dots').html('');
 
@@ -87,7 +87,9 @@ export default {
 			
 			if (!initialLoad) {
 				if (document.getElementsByClassName('pab-categories')) {
-					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+					if (noSearchResults) {
+						document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+					}
 				}
 			}
 
@@ -571,6 +573,7 @@ export default {
 
 				$('.pab-filters-search').on('keyup', debounceSearch(() => {
 					let search = $('.pab-filters-search').val().toLowerCase();
+					let searchresultsfound = false;
 
 					if (search.length >= 3) {
 						// set category type to search
@@ -596,6 +599,7 @@ export default {
 							if ($('.pab-top-wrap').length) {
 								$('.pab-top-wrap').hide();
 							}
+							searchresultsfound = false;
 						} else {
 							$('#pab-search-term').html('');
 							$('.pab-search-empty').css('display', 'none');
@@ -603,11 +607,12 @@ export default {
 							if ('.pab-top-wrap'.length) {
 								$('.pab-top-wrap').show();
 							}
+							searchresultsfound = true;
 							
 						}
 
 						showElements(0, elementsPerPage);
-						updateDots(true);
+						updateDots(true, searchresultsfound);
 
 					} else {
 						$('.pab-search-empty').css('display', 'none');
