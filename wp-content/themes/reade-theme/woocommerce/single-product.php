@@ -19,7 +19,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-get_header();
 
 // get fields
 $productfields = get_fields();
@@ -30,6 +29,20 @@ $product = new WC_Product($qo->ID);
 
 // use "global $product" in blocks to get product info
 
+// if a sub product is being accessed, redirect to the main product (identified in cross-sell), otherwise 
+// go to homepage
+if (!get_field('is_main_product', $product->get_id())) {
+   $cs = $product->get_cross_sell_ids();
+   if (!empty($cs)) {
+      wp_redirect(get_permalink($cs[0]), 301);
+      exit;
+   } else {
+      wp_redirect(get_site_url());
+      exit;
+   }
+}
+
+get_header();
 
 
 ?>
@@ -39,14 +52,7 @@ $product = new WC_Product($qo->ID);
       <div class="theme-inner-wrap">
          <article class="single-product">
          	<?php
-
-         	// only simple products should be shown.  others should 404.  all products base types are simple
-         	// the variants should never be shown on a top level product page
-
-         	if ($product->get_type() != 'simple') {
-         		die();
-         	}
-
+            
          	the_content($product->get_description());
 
          	/* temp */
