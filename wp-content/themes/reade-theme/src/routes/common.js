@@ -546,7 +546,7 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updateDots();
+			      updateDots(false, true);
 			    }
 			  });
 
@@ -556,7 +556,7 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updateDots();
+			      updateDots(false, true);
 			    }
 			  });
 
@@ -615,6 +615,7 @@ export default {
 						updateDots(true, searchresultsfound);
 
 					} else {
+						searchresultsfound = true;
 						$('.pab-search-empty').css('display', 'none');
 						if ($('.pab-top-wrap').length) {
 							$('.pab-top-wrap').show();
@@ -622,7 +623,7 @@ export default {
 						if (searchLoaded) {
 							categoryType = '.pab-category';
 							showElements(0, elementsPerPage);
-							updateDots();
+							updateDots(false, searchresultsfound);
 							updatePaginationButtons();
 							searchLoaded = false;
 
