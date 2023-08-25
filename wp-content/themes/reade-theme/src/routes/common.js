@@ -170,6 +170,15 @@ export default {
 		/** WOOCOMMERCE JS **/
 		function handleSingleProductDropdown() {
 			$('body.single-product #select1 ul li, body.single-product #select2 ul li').on('click', function() {
+
+
+				// see if we are processing select 1, if so, reset "variant" attribute
+				if ($(this).parent().parent().parent().parent().attr('id') == 'select1') {
+					$('.submitted_product_1_variant').val('');
+					$('#product-rfq-select-' + $(this).data('key') + ' p').text('Select ' + $('#product-' + $(this).data('key') + '-attribute-name').val());
+					//$('#product-rfq-select-' + $(this).data('key') + ' p').text('SELECT MEEE');
+				}
+
 				// hide all
 				$('.product-rfq-select').addClass('tf-dropdown-hidden');
 
