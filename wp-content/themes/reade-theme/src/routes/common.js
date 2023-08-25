@@ -183,21 +183,21 @@ export default {
 					$('.submitted_product_1_variant').attr('id', 'product-' + $(this).data('key') + '-variant');
 				}
 
+
 				// show relevant select box
 				if ($('#product-rfq-select-' + $(this).data('key')).length) {
 					if (
-						$('#product-rfq-select-' + $(this).data('key')).find('dt p').html().toLowerCase() == 'select options'
+
+						$('#product-rfq-select-' + $(this).data('key')).find('dt p').html().toLowerCase() != ''
 						&&
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').html().toLowerCase() == 'no options'
 					)
 					{
-						
-						// $(this).parent().parent().parent().parent().parent().click();
-						//$('#product-rfq-select-' + $(this).data('key')).find('p').click();
+						console.log($(this));
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').click();
-						$(this).focus();
-						$(this).click();
 						$('#product-rfq-select-' + $(this).data('key')).addClass('tf-dropdown-hidden-with-value');
+						$(this).focus();
+						$(this).parent().click();
 					}
 				}
 			});
