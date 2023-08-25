@@ -193,7 +193,6 @@ export default {
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').html().toLowerCase() == 'no options'
 					)
 					{
-						console.log($(this));
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').click();
 						$('#product-rfq-select-' + $(this).data('key')).addClass('tf-dropdown-hidden-with-value');
 						$(this).focus();
