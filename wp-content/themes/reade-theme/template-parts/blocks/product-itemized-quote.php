@@ -204,7 +204,6 @@ $cart_contents = $cart->get_cart_contents();
 
                                     if (!empty($contents['product_2'])) {
                                         if (!empty($contents['product_2_variant'])) {
-                                            echo 'here';
                                             $product2Variant = new WC_Product_Variation($contents['product_2_variant']);
                                             $attributes = $product2Variant->get_data()['attributes'];
                                             foreach ($attributes AS $attribute) {

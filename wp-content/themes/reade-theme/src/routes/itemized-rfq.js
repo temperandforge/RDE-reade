@@ -204,6 +204,13 @@ export default {
           }
         }
         
+        if ($('#how-to-contact p').text() == 'Preferred method of contact?') {
+          errors.push('Please select your preferred method of contact');
+          if (!errorFields.includes('how-to-contact')) {
+            errorFields.push('how-to-contact');
+          }
+        }
+
         if (!$('#rfq-accept-terms').is(':checked')) {
           errors.push('Please accept the terms and conditions of sale');
           if (!errorFields.includes('rfq-tos')) {
@@ -422,6 +429,7 @@ export default {
             });
             $('#find_us').removeClass('rfq-error');
             $('#rfq-tos').removeClass('rfq-error');
+            $('#how-to-contact').removeClass('rfq-error');
             $('.general-application').removeClass('rfq-error');
             $('.general-application-textarea').removeClass('rfq-error');
             $('.rfq-using-yes').removeClass('rfq-error');
