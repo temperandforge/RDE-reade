@@ -1453,6 +1453,26 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_64e8ce4b40b74",
+            "label": "Max 5 Products In Cart",
+            "name": "max_5_products_in_cart",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -1473,5 +1493,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692027315
+    "modified": 1692978781
 }

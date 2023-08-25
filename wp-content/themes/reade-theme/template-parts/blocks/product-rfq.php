@@ -298,11 +298,14 @@ $productAttrName = '';
 
         </div>
         <?php
+
+        global $woocommerce;
         
         $buttontext = !empty($options['add_to_quote_button_text']) ? $options['add_to_quote_button_text'] : 'Add To Quote';
+        $buttondisabled = count($woocommerce->cart->get_cart()) >= 5 ? ' disabled' : '';
 
         ?>
-        <button id="product-submit-button" class="btn-blue-dark-blue btn-arrow">
+        <button id="product-submit-button" class="btn-blue-dark-blue btn-arrow"<?php echo $buttondisabled; ?>>
             <?php echo $buttontext; ?>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.83734C12.848 6.49563 13.402 6.49563 13.7437 6.83734L17.2437 10.3373C17.5854 10.679 17.5854 11.2331 17.2437 11.5748L13.7437 15.0748C13.402 15.4165 12.848 15.4165 12.5063 15.0748C12.1646 14.7331 12.1646 14.179 12.5063 13.8373L14.5126 11.8311H4.375C3.89175 11.8311 3.5 11.4393 3.5 10.9561C3.5 10.4728 3.89175 10.0811 4.375 10.0811H14.5126L12.5063 8.07477C12.1646 7.73306 12.1646 7.17904 12.5063 6.83734Z" fill="#FAFAFA"/>
@@ -312,6 +315,17 @@ $productAttrName = '';
                 </svg>
         </button>
         <a id="hidden-lity-opener" style="display: none;" href="#add-to-quote-success" data-lity>&nbsp;</a>
+        <?php
+
+        if (count($woocommerce->cart->get_cart()) >= 5) {
+            if (!empty($options['max_5_products_in_cart'])) {
+                ?>
+                <p class="product-rfq-max"><?php echo $options['max_5_products_in_cart']; ?></p>
+                <?php
+            }
+        }
+
+        ?>
 
     </div>
     <div class="product-rfq-bottom">
