@@ -302,7 +302,7 @@ $productAttrName = '';
         global $woocommerce;
         
         $buttontext = !empty($options['add_to_quote_button_text']) ? $options['add_to_quote_button_text'] : 'Add To Quote';
-        if (!is_null($woocommerce->cart) {
+        if (!is_null($woocommerce->cart)) {
             $buttondisabled = count($woocommerce->cart->get_cart()) >= 5 ? ' disabled' : '';
         } else {
             $buttondisabled = '';
