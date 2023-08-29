@@ -652,7 +652,7 @@ function runBlocks() {
 	handleCareerSlider()
 	disableFirstDropdownOptionRFQ()
 
-	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat')) {
+	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
 		handleAutoComplete();
 	}
 }

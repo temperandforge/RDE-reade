@@ -189,26 +189,50 @@ $options = get_fields('options');
 </div>
 
 <?php
+if (is_archive()) {
+            
 
-$productNamesArgs = array(
-   'post_type'      => 'product',
-   'post_status'    => 'publish',
-   'posts_per_page' => -1,
-   'tax_query'      => array(
-      array(
-         'taxonomy' => 'product_cat',
-         'field'    => 'term_id',
-         'terms'    => $term->term_id,
+   $productNamesArgs = array(
+      'post_type'      => 'product',
+      'post_status'    => 'publish',
+      'posts_per_page' => -1,
+      'tax_query'      => array(
+         array(
+            'taxonomy' => 'product_cat',
+            'field'    => 'term_id',
+            'terms'    => $term->term_id,
+         ),
       ),
-   ),
-   'meta_query'     => array(
-      array(
-         'key'     => 'is_main_product',
-         'value'   => true,
-         'compare' => '='
+      'meta_query'     => array(
+         array(
+            'key'     => 'is_main_product',
+            'value'   => true,
+            'compare' => '='
+         ),
       ),
-   ),
-);
+   );
+} else {
+   $term = get_term_by('name', 'Sustainable Products', 'product_cat');
+   $productNamesArgs = array(
+         'post_type'      => 'product',
+         'post_status'    => 'publish',
+         'posts_per_page' => -1,
+         'tax_query'      => array(
+            array(
+               'taxonomy' => 'product_cat',
+               'field'    => 'term_id',
+               'terms'    => $term->term_id,
+            ),
+         ),
+         'meta_query'     => array(
+            array(
+               'key'     => 'is_main_product',
+               'value'   => true,
+               'compare' => '='
+            ),
+         ),
+      );
+}
 
 $productNames = new WP_Query($productNamesArgs);
 $productsnames = array();

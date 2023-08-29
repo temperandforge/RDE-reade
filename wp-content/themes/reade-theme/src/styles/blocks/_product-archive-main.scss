@@ -170,7 +170,7 @@
 		margin-bottom: 19px;
 
 		@include respond-below(lg) {
-			display: none;
+			display: none !important;
 		}
 	}
 	.pab-top-wrap-left {
