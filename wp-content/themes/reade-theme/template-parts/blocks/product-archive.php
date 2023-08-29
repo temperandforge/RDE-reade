@@ -48,7 +48,7 @@ $options = get_fields('options');
       </div>
       <div class="pab-filters-right">
          <form id="pab-filters-form">
-         <input class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>">
+         <input id="pab-filters-search" class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>" autocomplete="off">
          <span id="pab-filters-search-icon"></span>
          </form>
          <hr>
@@ -178,3 +178,44 @@ $options = get_fields('options');
 
 
 </div>
+
+<?php
+
+$productNamesArgs = array(
+   'post_type' => 'product',
+   'status' => 'publish',
+   'posts_per_page' => -1,
+   'meta_query' => array(
+        array(
+            'key' => 'is_main_product',
+            'value' => 1,
+            'compare' => '='
+        )
+    )
+);
+
+$productNames = new WP_Query($productNamesArgs);
+$productsnames = array();
+
+if (!empty($productNames->posts)) {
+   foreach ($productNames->posts AS $pn) {
+      $productsnames[] = $pn->post_title;
+   }
+}
+
+$categoryNames = get_terms(array('taxonomy' => 'product_cat', 'parent' => '0'));
+$categoriesnames = array();
+
+if (!empty($categoryNames)) {
+   foreach ($categoryNames AS $cn) {
+      $categoriesnames[] = $cn->name;
+   }
+}
+
+// merge together
+$productsnames = array_merge($productsnames, $categoriesnames);
+
+?>
+<script>
+   let products = <?php echo json_encode($productsnames); ?>;
+</script>

@@ -571,7 +571,7 @@ export default {
 					$('#pab-filters-form').submit();
 				});
 
-				$('.pab-filters-search').on('keyup', debounceSearch(() => {
+				$('.pab-filters-search').on('keyup change', debounceSearch(() => {
 					let search = $('.pab-filters-search').val().toLowerCase();
 					let searchresultsfound = false;
 
@@ -612,7 +612,7 @@ export default {
 						}
 
 						showElements(0, elementsPerPage);
-						updateDots(true, searchresultsfound);
+						updateDots(true, false);
 
 					} else {
 						searchresultsfound = true;
@@ -623,7 +623,7 @@ export default {
 						if (searchLoaded) {
 							categoryType = '.pab-category';
 							showElements(0, elementsPerPage);
-							updateDots(false, searchresultsfound);
+							updateDots(false, false);
 							updatePaginationButtons();
 							searchLoaded = false;
 

@@ -53,7 +53,7 @@ $options = get_fields('options');
       </div>
       <div class="pab-filters-right">
          <form id="pab-filters-form">
-         <input class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>">
+         <input id="pab-filters-search" class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>" autocomplete="off" >
          <span id="pab-filters-search-icon"></span>
          </form>
          <hr>
@@ -187,3 +187,39 @@ $options = get_fields('options');
 
 
 </div>
+
+<?php
+
+$productNamesArgs = array(
+   'post_type'      => 'product',
+   'post_status'    => 'publish',
+   'posts_per_page' => -1,
+   'tax_query'      => array(
+      array(
+         'taxonomy' => 'product_cat',
+         'field'    => 'term_id',
+         'terms'    => $term->term_id,
+      ),
+   ),
+   'meta_query'     => array(
+      array(
+         'key'     => 'is_main_product',
+         'value'   => true,
+         'compare' => '='
+      ),
+   ),
+);
+
+$productNames = new WP_Query($productNamesArgs);
+$productsnames = array();
+
+if (!empty($productNames->posts)) {
+   foreach ($productNames->posts AS $pn) {
+      $productsnames[] = $pn->post_title;
+   }
+}
+
+?>
+<script>
+   let products = <?php echo json_encode($productsnames); ?>;
+</script>
