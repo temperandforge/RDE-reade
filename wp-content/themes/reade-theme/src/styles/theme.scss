@@ -37,3 +37,8 @@ body {
 //       }
    }
 }
+
+
+.hs-dropdown-menu:not(.hs-dropdown-open) {
+   pointer-events: none;
+}

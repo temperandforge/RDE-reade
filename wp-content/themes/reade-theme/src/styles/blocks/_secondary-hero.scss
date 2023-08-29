@@ -180,9 +180,24 @@ body.global-sourcing .secondary-hero--copy h1 {
 }
 
 .secondary-hero--figure {
+	// display: block;
+	// overflow: hidden;
+	// position: relative;
 	@include respond-above(lg) {
 		flex: 0 0 40%;
+
+		// img {
+		// 	height: 100%;
+		// 	width: 100%;
+		// 	position: absolute;
+		// 	// object-position: top center;
+		// 	top: 0;
+		// 	left: 0;
+		// }
 	}
+	// @media (min-width: 120rem) {
+	// 	flex: 0 0 50%;
+	// }
 
 	&.clip {
 		img {
@@ -199,13 +214,13 @@ body.global-sourcing .secondary-hero--copy h1 {
 	}
 
 	img {
-		//aspect-ratio: 342 / 257;
+		aspect-ratio: 342 / 257;
 		@apply object-cover w-full;
 
 		@include respond-above(lg) {
 			/* clip-path: ellipse(60% 75% at 63% 50%); */
 			@apply h-full;//
-			//aspect-ratio: 496 / 440;
+			aspect-ratio: 496 / 440;
 		}
 
 		@include respond-above(xl) {

@@ -7,11 +7,13 @@ if( !empty( $block['data']['_is_preview'] ) ) {
    </figure>
 <?php 
 } else if( $fields = get_fields() ?: []) {
-
+   add_action('wp_footer', function() use ($fields) {
+      wp_localize_script('theme-js', 'calculatorData', $fields);
+   });
 ?>
 <div 
    id="calculator-wrap"
-   data-fields='<?php echo data_attribute($fields); ?>'
+   data-fields='<?php //echo data_attribute($fields); ?>'
    >
 </div>
 

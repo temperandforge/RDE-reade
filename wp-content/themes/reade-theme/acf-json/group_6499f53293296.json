@@ -90,7 +90,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -98,6 +98,27 @@
             "button_label": "Add Row",
             "rows_per_page": 20,
             "sub_fields": [
+                {
+                    "key": "field_64ee194b07703",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6499f89dc1023"
+                },
                 {
                     "key": "field_6499f8a9c1024",
                     "label": "Dropdowns",
@@ -118,6 +139,7 @@
                     "collapsed": "",
                     "button_label": "Add Row",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_6499f89dc1023",
                     "sub_fields": [
                         {
                             "key": "field_6499f8b4c1025",
@@ -161,6 +183,7 @@
                             "collapsed": "",
                             "button_label": "Add Row",
                             "rows_per_page": 20,
+                            "parent_repeater": "field_6499f8a9c1024",
                             "sub_fields": [
                                 {
                                     "key": "field_6499f8c8c1027",
@@ -183,11 +206,9 @@
                                     "append": "",
                                     "parent_repeater": "field_6499f8c0c1026"
                                 }
-                            ],
-                            "parent_repeater": "field_6499f8a9c1024"
+                            ]
                         }
-                    ],
-                    "parent_repeater": "field_6499f89dc1023"
+                    ]
                 }
             ]
         }
@@ -210,5 +231,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687812511
+    "modified": 1693325726
 }
