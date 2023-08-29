@@ -321,7 +321,7 @@ $productAttrName = '';
         <a id="hidden-lity-opener" style="display: none;" href="#add-to-quote-success" data-lity>&nbsp;</a>
         <?php
 
-        if (count($woocommerce->cart->get_cart()) >= 5) {
+        if (!is_null($woocommerce->cart) && count($woocommerce->cart->get_cart()) >= 5) {
             if (!empty($options['max_5_products_in_cart'])) {
                 ?>
                 <p class="product-rfq-max"><?php echo $options['max_5_products_in_cart']; ?></p>
