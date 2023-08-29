@@ -9,6 +9,7 @@ import history from './routes/history'
 import singleProduct from './routes/single-product';
 import itemizedRfq from './routes/itemized-rfq';
 import pageId103 from './routes/particle-measurement';
+import search from './routes/search';
 
 /**
  * Populate Router instance with DOM routes
@@ -23,7 +24,8 @@ const routes = new Router({
   history,
   singleProduct,
   itemizedRfq,
-  pageId103
+  pageId103,
+  search
 })
 
 /** Load Events */

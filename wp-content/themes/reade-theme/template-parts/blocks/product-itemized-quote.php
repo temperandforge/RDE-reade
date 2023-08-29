@@ -133,7 +133,7 @@ $cart_contents = $cart->get_cart_contents();
                     ?>
                     <div class="piq-cart-item" id="cart-item-<?php echo $key; ?>" data-cart-key="<?php echo $key; ?>">
                         <div class="piq-product-info">
-                            <h2 class="piq-product-name"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $parentItem->get_name()); ?></h2>
+                            <h2 class="piq-product-name"><a href="<?php echo get_permalink($parentItem->get_id()); ?>"><?php echo str_replace(array('®'), array('<sup>®</sup>'), $parentItem->get_name()); ?></a></h2>
                             <span class="sf-hidden" id="sf-product-<?php echo $it; ?>-name"><?php echo $parentItem->get_name(); ?></span>
                             <div class="rfq-cas-number">
                                 <?php
@@ -204,7 +204,6 @@ $cart_contents = $cart->get_cart_contents();
 
                                     if (!empty($contents['product_2'])) {
                                         if (!empty($contents['product_2_variant'])) {
-                                            echo 'here';
                                             $product2Variant = new WC_Product_Variation($contents['product_2_variant']);
                                             $attributes = $product2Variant->get_data()['attributes'];
                                             foreach ($attributes AS $attribute) {

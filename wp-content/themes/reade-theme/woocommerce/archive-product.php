@@ -27,7 +27,6 @@ get_header();
 $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
 ?>
-
 <main id="main-content" class="main-content-wrap">
    <div class="theme-main">
    

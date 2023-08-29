@@ -54,3 +54,25 @@ add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
 add_filter('woocommerce_resize_images', static function() {
     return false;
 });
+
+/* redirect single team member to /about-us/leadership/#team-member */
+function custom_rewrite_rule() {
+    add_rewrite_rule('^team/([^/]+)/?', 'index.php?team_member=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule');
+
+function custom_query_vars($vars) {
+    $vars[] = 'team_member';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars');
+
+function custom_team_member_redirect() {
+    if (get_query_var('team_member')) {
+        $team_member = get_query_var('team_member');
+        wp_redirect('/about-us/leadership/#' . $team_member, 301);
+        exit();
+    }
+}
+add_action('template_redirect', 'custom_team_member_redirect');
+

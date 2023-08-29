@@ -205,7 +205,7 @@ $productAttrName = '';
                         <?php
                     }
 
-                    if ($productfields['multiple_attributes']) {
+                    if (!is_null($productfields) && $productfields['multiple_attributes']) {
                         $submittedProduct = $pid;
                         ?>
                         <input id="submitted_product_<?php echo $it; ?>" type="hidden" value="<?php echo $submittedProduct; ?>">
@@ -298,11 +298,18 @@ $productAttrName = '';
 
         </div>
         <?php
+
+        global $woocommerce;
         
         $buttontext = !empty($options['add_to_quote_button_text']) ? $options['add_to_quote_button_text'] : 'Add To Quote';
+        if (!is_null($woocommerce->cart)) {
+            $buttondisabled = count($woocommerce->cart->get_cart()) >= 5 ? ' disabled' : '';
+        } else {
+            $buttondisabled = '';
+        }
 
         ?>
-        <button id="product-submit-button" class="btn-blue-dark-blue btn-arrow">
+        <button id="product-submit-button" class="btn-blue-dark-blue btn-arrow"<?php echo $buttondisabled; ?>>
             <?php echo $buttontext; ?>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5063 6.83734C12.848 6.49563 13.402 6.49563 13.7437 6.83734L17.2437 10.3373C17.5854 10.679 17.5854 11.2331 17.2437 11.5748L13.7437 15.0748C13.402 15.4165 12.848 15.4165 12.5063 15.0748C12.1646 14.7331 12.1646 14.179 12.5063 13.8373L14.5126 11.8311H4.375C3.89175 11.8311 3.5 11.4393 3.5 10.9561C3.5 10.4728 3.89175 10.0811 4.375 10.0811H14.5126L12.5063 8.07477C12.1646 7.73306 12.1646 7.17904 12.5063 6.83734Z" fill="#FAFAFA"/>
@@ -312,6 +319,17 @@ $productAttrName = '';
                 </svg>
         </button>
         <a id="hidden-lity-opener" style="display: none;" href="#add-to-quote-success" data-lity>&nbsp;</a>
+        <?php
+
+        if (!is_null($woocommerce->cart) && count($woocommerce->cart->get_cart()) >= 5) {
+            if (!empty($options['max_5_products_in_cart'])) {
+                ?>
+                <p class="product-rfq-max"><?php echo $options['max_5_products_in_cart']; ?></p>
+                <?php
+            }
+        }
+
+        ?>
 
     </div>
     <div class="product-rfq-bottom">
@@ -324,7 +342,7 @@ $productAttrName = '';
 
         if (!empty($options['rfq_bottom_button'])) {
             ?>
-            <a href="<?php echo $options['rfq_bottom_button']['url']; ?>" class="btn-white-light-blue btn-arrow" <?php if ($options['rfq_botton_button']['target'] == '_blank') { ?>target="_blank"<?php } ?>>
+            <a href="<?php echo !empty($options) && !empty($options['rfq_bottom_button']) && !empty($options['rfq_bottom_button']['url']) ? $options['rfq_bottom_button']['url'] : ''; ?>" class="btn-white-light-blue btn-arrow" <?php if (!empty($options) && !empty($options['rfq_bottom_button']) && !empty($options['rfq_bottom_button']['target']) && $options['rfq_bottom_button']['target'] == '_blank') { ?>target="_blank"<?php } ?>>
                 <?php echo $options['rfq_bottom_button']['title']; ?>
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 6.14642C12.348 5.80471 12.902 5.80471 13.2437 6.14642L16.7437 9.64642C17.0854 9.98813 17.0854 10.5421 16.7437 10.8839L13.2437 14.3839C12.902 14.7256 12.348 14.7256 12.0063 14.3839C11.6646 14.0421 11.6646 13.4881 12.0063 13.1464L14.0126 11.1401H3.875C3.39175 11.1401 3 10.7484 3 10.2651C3 9.78189 3.39175 9.39014 3.875 9.39014H14.0126L12.0063 7.38386C11.6646 7.04215 11.6646 6.48813 12.0063 6.14642Z" fill="#009FC6"/>

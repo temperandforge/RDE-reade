@@ -68,7 +68,7 @@ export default {
 			$('.next-btn').prop('disabled', currentPage === Math.ceil(totalElements / elementsPerPage));
 		}
 
-		function updateDots(create=false) {
+		function updateDots(create=false, noSearchResults) {
 			let pages = Math.ceil($(categoryType).length / elementsPerPage);
 			$('.pab-pagination-dots').html('');
 
@@ -87,7 +87,9 @@ export default {
 			
 			if (!initialLoad) {
 				if (document.getElementsByClassName('pab-categories')) {
-					document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+					if (noSearchResults) {
+						document.getElementsByClassName('pab-categories')[0].scrollIntoView(true);
+					}
 				}
 			}
 
@@ -170,6 +172,15 @@ export default {
 		/** WOOCOMMERCE JS **/
 		function handleSingleProductDropdown() {
 			$('body.single-product #select1 ul li, body.single-product #select2 ul li').on('click', function() {
+
+
+				// see if we are processing select 1, if so, reset "variant" attribute
+				if ($(this).parent().parent().parent().parent().attr('id') == 'select1') {
+					$('.submitted_product_1_variant').val('');
+					$('#product-rfq-select-' + $(this).data('key') + ' p').text('Select ' + $('#product-' + $(this).data('key') + '-attribute-name').val());
+					//$('#product-rfq-select-' + $(this).data('key') + ' p').text('SELECT MEEE');
+				}
+
 				// hide all
 				$('.product-rfq-select').addClass('tf-dropdown-hidden');
 
@@ -183,21 +194,20 @@ export default {
 					$('.submitted_product_1_variant').attr('id', 'product-' + $(this).data('key') + '-variant');
 				}
 
+
 				// show relevant select box
 				if ($('#product-rfq-select-' + $(this).data('key')).length) {
 					if (
-						$('#product-rfq-select-' + $(this).data('key')).find('dt p').html().toLowerCase() == 'select options'
+
+						$('#product-rfq-select-' + $(this).data('key')).find('dt p').html().toLowerCase() != ''
 						&&
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').html().toLowerCase() == 'no options'
 					)
 					{
-						
-						// $(this).parent().parent().parent().parent().parent().click();
-						//$('#product-rfq-select-' + $(this).data('key')).find('p').click();
 						$('#product-rfq-select-' + $(this).data('key')).find('ul li').click();
-						$(this).focus();
-						$(this).click();
 						$('#product-rfq-select-' + $(this).data('key')).addClass('tf-dropdown-hidden-with-value');
+						$(this).focus();
+						$(this).parent().click();
 					}
 				}
 			});
@@ -536,7 +546,7 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updateDots();
+			      updateDots(false, true);
 			    }
 			  });
 
@@ -546,7 +556,7 @@ export default {
 			      const startIndex = (currentPage - 1) * elementsPerPage;
 			      const endIndex = startIndex + elementsPerPage;
 			      showElements(startIndex, endIndex);
-			      updateDots();
+			      updateDots(false, true);
 			    }
 			  });
 
@@ -561,8 +571,9 @@ export default {
 					$('#pab-filters-form').submit();
 				});
 
-				$('.pab-filters-search').on('keyup', debounceSearch(() => {
+				$('.pab-filters-search').on('keyup change', debounceSearch(() => {
 					let search = $('.pab-filters-search').val().toLowerCase();
+					let searchresultsfound = false;
 
 					if (search.length >= 3) {
 						// set category type to search
@@ -588,6 +599,7 @@ export default {
 							if ($('.pab-top-wrap').length) {
 								$('.pab-top-wrap').hide();
 							}
+							searchresultsfound = false;
 						} else {
 							$('#pab-search-term').html('');
 							$('.pab-search-empty').css('display', 'none');
@@ -595,13 +607,15 @@ export default {
 							if ('.pab-top-wrap'.length) {
 								$('.pab-top-wrap').show();
 							}
+							searchresultsfound = true;
 							
 						}
 
 						showElements(0, elementsPerPage);
-						updateDots(true);
+						updateDots(true, false);
 
 					} else {
+						searchresultsfound = true;
 						$('.pab-search-empty').css('display', 'none');
 						if ($('.pab-top-wrap').length) {
 							$('.pab-top-wrap').show();
@@ -609,7 +623,7 @@ export default {
 						if (searchLoaded) {
 							categoryType = '.pab-category';
 							showElements(0, elementsPerPage);
-							updateDots();
+							updateDots(false, false);
 							updatePaginationButtons();
 							searchLoaded = false;
 
