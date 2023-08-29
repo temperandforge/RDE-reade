@@ -42,7 +42,7 @@ if(!$leadership_team) {
      $content_post = get_post($postid);
      $content = $content_post->post_content;
      ?>
-     <div class="leadership-slider--slide" data-title="<?php echo $title ;?>" 
+     <div class="leadership-slider--slide" data-team-member="<?php echo $post->post_name; ?>" data-title="<?php echo $title ;?>" 
      <?php if(!empty($post_fields['position'])) :?>
       data-position="<?php echo $post_fields['position'] ;?>"
      <?php endif ;?>>

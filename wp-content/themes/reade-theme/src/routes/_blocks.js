@@ -73,7 +73,8 @@ function handleLeadershipSlider() {
 		customPaging: function (slider, i) {
 			var title = $(slider.$slides[i]).data('title')
 			var position = $(slider.$slides[i]).data('position')
-			return `<button class="team-member--btn"><span>${title}</span> ${
+			var team_member = $(slider.$slides[i]).data('team-member');
+			return `<button class="team-member--btn ${team_member}"><span>${title}</span> ${
 				position ? position : ''
 			}</button>`
 		},
@@ -91,6 +92,14 @@ function handleLeadershipSlider() {
 		prevArrow: $('.slick-prev-arrow'),
 		nextArrow: $('.slick-next-arrow'),
 	})
+
+	$(document).ready(function() {
+		if (window.location.hash && window.location.hash != '') {
+			if ($('.' + window.location.hash.replace('#', '')).length) {
+				$('.' + window.location.hash.replace('#', '')).click();
+			}
+		}
+	});
 }
 
 function handleTabbedRotator() {

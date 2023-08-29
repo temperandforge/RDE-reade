@@ -309,7 +309,7 @@ function setup_custom_post_types() {
          ]
 		],
 		false, //$has_archive
-		false //$publicly_queryable
+		true //$publicly_queryable
    );
 
    /** 
