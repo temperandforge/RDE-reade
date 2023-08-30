@@ -8,6 +8,21 @@ if (is_archive()) {
 
 $options = get_fields('options');
 
+if (is_null($qobj)) {
+   $qobj = get_queried_object();
+   if (!is_null($qobj) && !empty($qobj->ID) && ($qobj->ID == 970)) {
+      $fromId = 30;
+   } else {
+      $fromId = false;
+   }
+} else {
+   if (!empty($qobj->term_id)) {
+      $fromId = $qobj->term_id;
+   } else {
+      $fromId = false;
+   }
+}
+
 ?>
 <div class="product-archive-main">
    <div class="pab-top">
@@ -139,7 +154,7 @@ $options = get_fields('options');
                ?>
                <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags(str_replace(array('<', '>', '"', "'"), ' ', $prodinfo->get_short_description())); ?>">
                   <div class="pab-category-wrap">
-                     <a class="fillall" href="<?php echo $permalink; ?>?from=<?php echo $qobj->term_id; ?>">
+                     <a class="fillall" href="<?php echo $permalink; ?><?php if (!empty($fromId)) { echo '?from=' . $fromId; } ?>">
                         <span class="sr-only"><?php echo $prodinfo->get_name(); ?></span>
                      </a>
                      <div class="pab-prod-left">
