@@ -157,6 +157,7 @@ export default {
 				}
 
 				setTimeout(() => {
+					handleImgTransition()
 					document.addEventListener(
 						'scroll',
 						function () {
