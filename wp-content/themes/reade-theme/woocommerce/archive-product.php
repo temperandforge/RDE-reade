@@ -24,15 +24,6 @@ if (stripos($_SERVER['REQUEST_URI'], 'product-category/sustainable-products') !=
 
 $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
-// if we're on a category page, store the category in a session variable so we can use 
-// this value for the "back to category" button on the single product page
-if (!$page_id) {
-   session_start();
-   if ($currentCategory = get_queried_object()) {
-      $_SESSION['last_category'] = $currentCategory;
-   }
-}
-
 get_header();
 
 ?>

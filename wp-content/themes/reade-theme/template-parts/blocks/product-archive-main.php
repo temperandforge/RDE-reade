@@ -139,7 +139,7 @@ $options = get_fields('options');
                ?>
                <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags(str_replace(array('<', '>', '"', "'"), ' ', $prodinfo->get_short_description())); ?>">
                   <div class="pab-category-wrap">
-                     <a class="fillall" href="<?php echo $permalink; ?>">
+                     <a class="fillall" href="<?php echo $permalink; ?>?from=<?php echo $qobj->term_id; ?>">
                         <span class="sr-only"><?php echo $prodinfo->get_name(); ?></span>
                      </a>
                      <div class="pab-prod-left">

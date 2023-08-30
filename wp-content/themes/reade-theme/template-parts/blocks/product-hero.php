@@ -4,9 +4,17 @@ $fields = get_fields();
 global $product;
 
 
-if (!is_null($_SESSION) && !empty($_SESSION['last_category'])) {
-   $back_button_text = 'Back to ' . $_SESSION['last_category']->name;
-   $back_button_link = get_term_link(get_term($_SESSION['last_category']->term_id, 'product_cat'), 'product_cat');
+if (!empty($_GET['from'])) {
+   $from = (int) $_GET['from'];
+   $fromObj = get_term($from, 'product_cat');
+
+   if ($fromObj) {
+      $back_button_text = 'Back to ' . $fromObj->name;
+      $back_button_link = get_term_link(get_term($fromObj->term_id, 'product_cat'), 'product_cat');
+   } else {
+      $back_button_text = 'Back to All Products';
+      $back_button_link = get_site_url() . '/products/';
+   }
 } else {
    $back_button_text = 'Back to All Products';
    $back_button_link = get_site_url() . '/products/';
