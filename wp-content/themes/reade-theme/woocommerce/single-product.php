@@ -21,9 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-// start session to retrieve "last_category" value in product-hero.php
-session_start();
-
 // get fields
 $productfields = get_fields();
 
