@@ -21,7 +21,7 @@
         display: flex;
         row-gap: 21px;
         flex-direction: column;
-        flex-grow: 1;
+        /* flex-grow: 1; */
 
         .document-library-card-headline {
             color: var(--primary-900, #045);
