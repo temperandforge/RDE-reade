@@ -1,4 +1,10 @@
 .primary-footer-cta--section {
+
+.primary-cta {
+			@include inner-wrap(1536px);
+			text-wrap: balance;
+}
+
 	&.white {
 		.primary-footer-cta--wrap {
 			+ .primary-footer-secondary--wrap {
