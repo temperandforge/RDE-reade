@@ -5,6 +5,7 @@ global $product;
 
 
 if (!empty($_GET['from'])) {
+
    $from = (int) $_GET['from'];
    $fromObj = get_term($from, 'product_cat');
 
@@ -16,6 +17,7 @@ if (!empty($_GET['from'])) {
       $back_button_link = get_site_url() . '/products/';
    }
 } else {
+
    $back_button_text = 'Back to All Products';
    $back_button_link = get_site_url() . '/products/';
 }
