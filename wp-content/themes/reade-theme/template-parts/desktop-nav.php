@@ -42,7 +42,7 @@ if(!defined('option_fields')) {
               </div>
             </a>
             <div class="search-wrap mr-6">
-               <form role="search" method="get" action="<?php echo get_site_url() ?>">
+               <form role="search" id="header-site-search" method="get" action="<?php echo get_site_url() ?>">
                   <!-- //TODO <span aria-hidden="true" class="focus-detection fillall"></span> -->
                   <label for="mobile_search" class="sr-only">Search</label>
                   <input type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" id="mobile_search" spellcheck="false" name="s" />

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Template for displaying all single products
  *
@@ -19,6 +20,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+// start session to retrieve "last_category" value in product-hero.php
+session_start();
 
 // get fields
 $productfields = get_fields();
@@ -51,7 +55,8 @@ get_header();
    
       <div class="theme-inner-wrap">
          <article class="single-product">
-         	<?php
+
+            <?php
             
          	the_content($product->get_description());
 

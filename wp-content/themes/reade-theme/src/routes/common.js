@@ -48,6 +48,21 @@ export default {
 		});
 
 
+		function handleSiteSearch() {
+			if ($('#header-site-search').length) {
+				$('#header-site-search').on('submit', function() {
+					if ($('#mobile_search').length) {
+						if ($('#mobile_search').val().trim() == '') {
+							return false;
+						}
+					}
+				})
+			}
+		}
+
+		handleSiteSearch();
+
+
 		let elementsPerPage;
 		let categoryType = '.pab-category';
 		let searchLoaded = false;
