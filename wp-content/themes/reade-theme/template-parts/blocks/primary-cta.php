@@ -5,6 +5,7 @@ $fields = get_fields();
 ?>
 
 <div class="primary-cta bg-geometric">
+  <div class="cta-decor-bg" aria-hidden="true"></div>
   <div class="primary-cta-main">
     <?php
 

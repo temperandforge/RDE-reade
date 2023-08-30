@@ -256,7 +256,7 @@ function handleVerticalAccordions() {
 		$accordions.each(function (idx) {
 			$(this)
 				.find('.vertical-accordion--btn')
-				.on('click', function () {
+				.on('mouseover', function () {
 					if ($(this).attr('aria-expanded') == 'true') {
 						return
 					}
