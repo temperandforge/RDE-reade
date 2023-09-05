@@ -199,7 +199,7 @@ $productsnames = array();
 
 if (!empty($productNames->posts)) {
    foreach ($productNames->posts AS $pn) {
-      $productsnames[] = $pn->post_title;
+      $productsnames[] = array($pn->post_title, 'Product', get_permalink($pn->ID));
    }
 }
 
@@ -208,7 +208,15 @@ $categoriesnames = array();
 
 if (!empty($categoryNames)) {
    foreach ($categoryNames AS $cn) {
-      $categoriesnames[] = $cn->name;
+      $term = get_term($cn->term_id, 'product_cat');
+      
+      if (is_a($term, 'WP_Term')) {
+         $clink = get_term_link($term, 'product_cat');
+      } else {
+         $clink = '';
+      }
+
+      $categoriesnames[] = array($cn->name, 'Category', $clink);
    }
 }
 

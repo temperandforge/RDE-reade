@@ -551,23 +551,31 @@ function handleAutoComplete() {
 	      for (i = 0; i < arr.length; i++) {
 	      	//if (i < limit) {
 	        /*check if the item starts with the same letters as the text field value:*/
-	        if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+	        if (arr[i][0].toUpperCase().includes(val.toUpperCase())) {
 	        //if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 	          /*create a DIV element for each matching element:*/
 	          b = document.createElement("DIV");
 	          /*make the matching letters bold:*/
 	          //b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-	          b.innerHTML = boldQuery(arr[i], val);
+	          b.innerHTML = '';
+	          if (arr[i][1] == 'Product') {
+	          	b.innerHTML = '<span class="product-pill">Product</span> ';
+	          }
+
+	          b.innerHTML += boldQuery(arr[i][0], val);
 	          //b.innerHTML = arr[i].replace(pattern, '<strong>' + val + '</strong>');
 	          /*insert a input field that will hold the current array item's value:*/
-	          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+	          b.innerHTML += "<input type='hidden' value='" + arr[i][0] + "'><input type='hidden' value='" + arr[i][2] + "'>";
 	          /*execute a function when someone clicks on the item value (DIV element):*/
 	              b.addEventListener("click", function(e) {
+	              	document.location.href = this.getElementsByTagName("input")[1].value;
 	              /*insert the value for the autocomplete text field:*/
 	              inp.value = this.getElementsByTagName("input")[0].value;
 	              /*close the list of autocompleted values,
 	              (or any other open lists of autocompleted values:*/
 	              closeAllLists();
+
+	              
 	          });
 	          a.appendChild(b);
 	        }

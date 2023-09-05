@@ -432,15 +432,15 @@
 	  line-height: 1.2;
 
 
-	  &:first-of-type {
-	  	border-top-left-radius: 6px;
-	  	border-top-right-radius: 6px;
-	  }
+	  // &:first-of-type {
+	  // 	border-top-left-radius: 6px;
+	  // 	border-top-right-radius: 6px;
+	  // }
 
-	  &:last-of-type {
-	  	border-bottom-left-radius: 6px;
-	  	border-bottom-right-radius: 6px;
-	  }
+	  // &:last-of-type {
+	  // 	border-bottom-left-radius: 6px;
+	  // 	border-bottom-right-radius: 6px;
+	  // }
 	}
 
 	.autocomplete-items div:hover {
