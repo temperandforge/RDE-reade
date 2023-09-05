@@ -35,6 +35,13 @@
 		}
 	}
 
+	.rfq-currently-using {
+		p {
+			display: flex;
+			align-items: center;
+		}
+	}
+
 	.tf-dropdown {
         width: 100%;
         border-radius: 5px;

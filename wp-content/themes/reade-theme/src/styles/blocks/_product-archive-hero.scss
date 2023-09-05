@@ -129,3 +129,17 @@ body.sustainable-products {
 		}
 	}
 }
+
+.product-archive-hero .pah-top-container .btn-light-blue-blue-alt {
+		&:hover {
+			color: $white;
+
+			&:hover {
+				svg {
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}

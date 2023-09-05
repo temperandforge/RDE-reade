@@ -336,6 +336,28 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Dual Column CTA
+    * */
+   acf_register_block([
+      'name'         => 'dual-column-cta',
+      'title'         => 'Dual Column CTA',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/dual-column-cta.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/dual-column-cta.webp',
+      'mode'         => $mode,
+      'keywords'      => ['dual', 'column', 'cta', 'reade', 'theme', TEXTDOMAIN],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
     * FAQS Accordions
     * */
    acf_register_block([
