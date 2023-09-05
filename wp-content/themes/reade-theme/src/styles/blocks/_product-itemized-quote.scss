@@ -56,6 +56,11 @@
     }
     #rfq-tos {
         margin-top: 10px;
+
+        input {
+            position: relative;
+            top: 1px;
+        }
     }
     #rfq-tos.rfq-error {
         color: #f15252;
