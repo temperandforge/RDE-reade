@@ -3,7 +3,13 @@
 $fields = get_fields();
 global $woocommerce;
 $cart = $woocommerce->cart;
-$cart_contents = $cart->get_cart_contents();
+
+if (!is_null($cart)) {
+    $cart_contents = $cart->get_cart_contents();
+} else {
+    $cart_contents = null;
+}
+
 ?>
 <div class="product-itemized-quote">
     <svg class="piq-decor" width="133" height="224" viewBox="0 0 133 224" fill="none" xmlns="http://www.w3.org/2000/svg">
