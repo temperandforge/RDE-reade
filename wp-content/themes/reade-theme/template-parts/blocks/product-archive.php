@@ -70,8 +70,8 @@ $options = get_fields('options');
            'hide_empty' => false,
            'exclude'    => array(get_option('default_product_cat')),
            'parent' => 0,
-           'orderby' => 'name',
-           'order' => 'ASC'
+           // 'orderby' => 'name',
+           // 'order' => 'ASC'
          ));
 
          if (!empty($product_categories)) {
