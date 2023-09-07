@@ -35,7 +35,7 @@ $fields = get_fields();
 
             if (!empty($fields['weight_btn'])) {
                ?>
-               <a class="btn-blue-dark-blue" href="<?php echo $fields['weight_btn']['url']; ?>" <?php if (!empty($fields['weight_btn']['target'])) { ?>target="_blank"><?php } ?>><?php echo $fields['weight_btn']['title']; ?></a>
+               <a class="btn-blue-dark-blue" href="<?php echo $fields['weight_btn']['url']; ?>" <?php if (!empty($fields['weight_btn']['target'])) { ?>target="_blank"<?php } ?>><?php echo $fields['weight_btn']['title']; ?></a>
                         <?php
             }
 
@@ -120,7 +120,7 @@ $fields = get_fields();
 
                      if (!empty($calc['btn'])) {
                         ?>
-                        <a class="btn-blue-dark-blue" href="<?php echo $calc['btn']['url']; ?>" <?php if (!empty($calc['btn']['target'])) { ?>target="_blank"><?php } ?>><?php echo $calc['btn']['title']; ?></a>
+                        <a class="btn-blue-dark-blue" href="<?php echo $calc['btn']['url']; ?>" <?php if (!empty($calc['btn']['target'])) { ?>target="_blank"<?php } ?>><?php echo $calc['btn']['title']; ?></a>
                         <?php
                      }
 
