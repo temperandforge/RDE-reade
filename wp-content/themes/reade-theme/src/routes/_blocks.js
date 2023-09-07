@@ -647,6 +647,17 @@ function handleAutoComplete() {
 
 }
 
+function handleCalc() {
+	$('.calc .tf-dropdown ul li').on('click', function() {
+		let thiscalc = $(this).closest('.calc-main').data('calc');
+		let thisIndex = $(this).data('key');
+
+		$('.calc .' + thiscalc + ' .tf-dropdown').each(function() {
+			$(this).find('dt p').text($(this).find('li[data-key=' + thisIndex + ']').text());
+		})
+	})
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -659,6 +670,8 @@ function runBlocks() {
 	handleVerticalAccordions()
 	handleCareerSlider()
 	disableFirstDropdownOptionRFQ()
+
+	handleCalc();
 
 	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
 		handleAutoComplete();
