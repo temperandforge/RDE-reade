@@ -116,9 +116,14 @@
     @apply cursor-pointer;
 			}
 		}
+		@include respond-below(lg) {
+			width: 100%;
+		}
 		@include respond-above(lg) {
 			border: unset;
 			border-radius: unset;
+			width: 84%;
+			margin-left: auto;
 
 			.slick-dots {
 				@apply flex;

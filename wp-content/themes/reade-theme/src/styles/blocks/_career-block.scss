@@ -38,9 +38,31 @@
 
 .career-block--slider {
 	margin-top: 70px;
-
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	@include respond-below(lg) {
+		width: 100%;
+	}
 	.slick-track {
 		display: flex;
+	}
+
+	.solo-slide {
+		display: flex;
+		justify-content: center;
+
+		.career-block--content {
+			align-items: center;
+		}
+
+		@include respond-below(sm) {
+			justify-content: flex-start;
+
+			.career-block--content {
+				align-items: flex-start;
+			}
+		}
 	}
 
 	@include respond-above(md) {
