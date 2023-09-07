@@ -28,6 +28,12 @@ body:not(.home) {
 }
 
 .primary-cta {
+
+	.primary-cta-bg-image {
+		@include respond-below(sm) {
+			display: none;
+		}
+	}
 	&:not(.primary-footer-cta--cta) {
 		margin-top: 300px;
 		position: relative;
