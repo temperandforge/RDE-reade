@@ -119,7 +119,13 @@
                   endif;
                   if($footer_form_shortcode = $option_fields['footer_form_shortcode']) {
                      echo do_shortcode($footer_form_shortcode);
-                  } ?>
+                  }
+
+                  if ($footer_form_code = $option_fields['footer_form']) {
+                    echo $footer_form_code;
+                  }
+
+                  ?>
                </div>
             </div>
          </div>
