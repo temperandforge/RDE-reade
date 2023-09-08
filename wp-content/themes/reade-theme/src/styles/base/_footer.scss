@@ -46,8 +46,11 @@ ul.footer-links-list {
    }
    @media (hover:hover) {
       //about
-      // li:not(.menu-item-has-children):hover > a:before {
-      > li > a:hover:before {
+      // > li > a:hover:before {
+      li.menu-item-has-children:hover a {
+         cursor: default;
+      }
+      li:not(.menu-item-has-children):hover > a:before {
          opacity:1;
       }
    }

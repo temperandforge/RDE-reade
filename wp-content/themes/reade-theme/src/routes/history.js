@@ -107,7 +107,7 @@ export default {
 								// base vertical scrolling on how wide the container is
 								// so it feels more natural.
 								// a.k.a adjust rate of change relative to scroll quantity
-								end: '+=3500',
+								end: '+=15000', //scroll spped control
 								invalidateOnResize: true,
 								invalidateOnRefresh: true
 							},
