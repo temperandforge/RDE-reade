@@ -60,7 +60,7 @@ if(!$leadership_team) {
          </div>
          <?php if((!empty($post_fields['email'])) ||(!empty($post_fields['linkedin']))) :?>
             <div class="leadership-slider--contact" >
-               <?php if(!empty($post_fields['linkedin'])) : ?>
+               <?php if(!empty($post_fields['linkedin']) && ($post_fields['linkedin']['url'] != '#')) : ?>
                 <a 
                 href="<?php echo $post_fields['linkedin']['url'] ;?>"
                 target="<?php echo $post_fields['linkedin']['target'] ?: '_self';?>"
