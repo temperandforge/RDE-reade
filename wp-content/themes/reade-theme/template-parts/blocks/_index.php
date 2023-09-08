@@ -74,12 +74,12 @@ function theme_register_blocks()
    acf_register_block([
       'name'         => 'calculator',
       'title'         => 'Calculator',
-      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/calc.php",
       'category'      => 'theme-blocks',
       'icon'         => 'button',
       'image'        => $img_root . '/calculator.webp',
       'mode'         => $mode,
-      'keywords'      => ['hero', 'reade', 'theme', TEXTDOMAIN],
+      'keywords'      => ['calculator', 'reade', 'theme', TEXTDOMAIN],
       'supports'     => ['align' => false],
       'example'  => array(
          'attributes' => array(
@@ -325,6 +325,28 @@ function theme_register_blocks()
       'image'        => $img_root . '/dual-block.webp',
       'mode'         => $mode,
       'keywords'      => ['dual', 'block', 'reade', 'theme', TEXTDOMAIN],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
+    * Dual Column CTA
+    * */
+   acf_register_block([
+      'name'         => 'dual-column-cta',
+      'title'         => 'Dual Column CTA',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/dual-column-cta.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/dual-column-cta.webp',
+      'mode'         => $mode,
+      'keywords'      => ['dual', 'column', 'cta', 'reade', 'theme', TEXTDOMAIN],
       'example'  => array(
          'attributes' => array(
             'mode' => 'preview',

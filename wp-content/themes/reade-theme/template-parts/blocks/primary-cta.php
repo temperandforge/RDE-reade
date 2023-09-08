@@ -1,7 +1,22 @@
 <?php
 
 $fields = get_fields();
-echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
+
+
+if (!empty($fields['mobile_background_image'])) {
+  ?>
+  <style>
+    @media (max-width: 640px) {
+      .primary-cta-main {
+        background-image: url('<?php echo $fields['mobile_background_image']['url']; ?>');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  </style>
+  <?php
+}
 
 ?>
 
@@ -12,7 +27,7 @@ echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>
 
     if (!empty($fields['background_image'])) {
       ?>
-      <img src="<?php echo $fields['background_image']['url']; ?>"
+      <img class="primary-cta-bg-image" src="<?php echo $fields['background_image']['url']; ?>"
         alt="<?php echo $fields['background_image']['alt']; ?>"
         width="<?php echo $fields['background_image']['width']; ?>"
         height="<?php echo $fields['background_image']['height']; ?>"

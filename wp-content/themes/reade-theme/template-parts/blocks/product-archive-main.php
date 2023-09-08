@@ -254,7 +254,7 @@ $productsnames = array();
 
 if (!empty($productNames->posts)) {
    foreach ($productNames->posts AS $pn) {
-      $productsnames[] = $pn->post_title;
+      $productsnames[] = array($pn->post_title, 'Product', get_permalink($pn->ID));
    }
 }
 

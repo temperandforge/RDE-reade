@@ -1,10 +1,10 @@
 {
-    "key": "group_64ad883d13ffd",
-    "title": "Primary CTA",
+    "key": "group_64f75dd40eb38",
+    "title": "Dual Column CTA",
     "fields": [
         {
-            "key": "field_64ad883e306be",
-            "label": "Primary CTA",
+            "key": "field_64f75dd6f5e3f",
+            "label": "Dual Column CTA",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -21,59 +21,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_64ad885d306bf",
-            "label": "Background Image",
-            "name": "background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_64fa03b47f77e",
-            "label": "Mobile Background Image",
-            "name": "mobile_background_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_64ad8875306c0",
-            "label": "Headline",
-            "name": "headline",
+            "key": "field_64f75de4f5e40",
+            "label": "Left Column Heading",
+            "name": "left_column_heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -91,9 +41,9 @@
             "append": ""
         },
         {
-            "key": "field_64ad887b306c1",
-            "label": "Sub Text",
-            "name": "sub_text",
+            "key": "field_64f75df3f5e41",
+            "label": "Left Column Text",
+            "name": "left_column_text",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -111,9 +61,65 @@
             "new_lines": "br"
         },
         {
-            "key": "field_64ad8897306c2",
-            "label": "Button",
-            "name": "button",
+            "key": "field_64f75e04f5e42",
+            "label": "Left Column Button",
+            "name": "left_column_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_64f75e12f5e43",
+            "label": "Right Column Heading",
+            "name": "right_column_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64f75e18f5e44",
+            "label": "Right Column Text",
+            "name": "right_column_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_64f75e30f5e45",
+            "label": "Right Column Button",
+            "name": "right_column_button",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -132,7 +138,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/primary-cta"
+                "value": "acf\/dual-column-cta"
             }
         ]
     ],
@@ -145,5 +151,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1694106568
+    "modified": 1693933135
 }

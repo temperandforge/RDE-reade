@@ -8,6 +8,13 @@
 	@include respond-above(xl) {
 		padding-bottom: 145px;
 	}
+
+	.btn-blue-dark-blue {
+		&:hover {
+			background-color: rgb(0 159 198/var(--tw-bg-opacity));
+			border: solid 1px rgb(0 159 198/var(--tw-bg-opacity));
+		}
+	}
 }
 
 .contact-information--locations {
