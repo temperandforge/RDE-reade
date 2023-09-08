@@ -132,7 +132,7 @@ if(!$leadership_team) {
             $post_fields = get_fields($postid);
             ?>
             <div class="leadership-slider-mobile-contact">
-               <?php if(!empty($post_fields['linkedin'])) :?>
+               <?php if(!empty($post_fields['linkedin'])  && ($post_fields['linkedin']['url'] != '#')) :?>
                   <a 
                    href="<?php echo $post_fields['linkedin']['url'] ;?>"
                    target="<?php echo $post_fields['linkedin']['target'] ?: '_self';?>"
