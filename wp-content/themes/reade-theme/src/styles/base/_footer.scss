@@ -90,6 +90,11 @@ ul.footer-links-list {
       grid-area: f;
       order: 6;
    }
+
+   // prevent hover state and clickability on menu items that have submenus
+   & > li.menu-item-has-children > a {
+      pointer-events: none;
+   }
    
    
    li {
