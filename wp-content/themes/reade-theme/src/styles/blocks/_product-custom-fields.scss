@@ -50,5 +50,13 @@
             font-weight: 600;
             text-decoration: underline;
         }
+
+        p {
+            margin-bottom: 12px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
     }
 }
