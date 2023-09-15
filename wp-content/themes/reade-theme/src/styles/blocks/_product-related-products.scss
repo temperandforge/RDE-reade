@@ -1,7 +1,5 @@
 .product-related-products {
 	padding: clamp(4rem, 1.7rem + 5.75vw, 6.875rem) 0;
-	width: 83%;
-	margin: 0 auto;
 	text-align: center;
 
 	@include respond-below(lg) {
@@ -20,8 +18,87 @@
 
 	.prp-container {
 		display: flex;
-		gap: 24px;
-		flex-wrap: wrap;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.prp-product-name {
+		flex-basis: 239px;
+		text-align: left;
+		color: var(--primary-900, #045);
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.33; /* 133.333% */
+		letter-spacing: -0.36px;
+
+		@include respond-below(sm) {
+			font-size: 20px;
+		}
+
+		@include respond-below(lg) {
+			flex-basis: unset;
+		}
+	}
+	.prp-product-container {
+		display: flex;
+		column-gap: 40px;
+		border-radius: 15px;
+		background: $white;
+		box-shadow: 0px 10px 40px 0px rgba(16, 24, 40, 0.09);
+		padding: 45px 55px;
+		align-items: center;
+
+		@include respond-below(lg) {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 30px 32px;
+			row-gap: 20px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				  .btn-light-blue-blue {
+					background-color: var(--primary500);
+					@apply text-white;
+
+					svg path {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+
+	.prp-product-desc {
+		flex-grow: 1;
+		flex-basis: 50%;
+		text-align: left;
+		color: var(--primary-900, #045);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5; /* 150% */
+		letter-spacing: -0.32px;
+
+		@include respond-below(sm) {
+			font-size: 14px;
+		}
+	}
+	.prp-product-view {
+		flex-basis: 239px;
+		flex-shrink: 0;
+		flex-grow: 0;
+
+		button {
+			padding: 12px 20px;
+			width: 100%;
+		}
+
+		@include respond-below(lg) {
+			flex-basis: unset;
+		}
+		@include respond-below(sm) {
+			width: 100%;
+		}
 	}
 
 	.prp-product {
