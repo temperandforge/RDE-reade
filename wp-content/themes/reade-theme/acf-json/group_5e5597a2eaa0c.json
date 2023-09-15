@@ -910,7 +910,7 @@
             "label": "Newsletter Subscribe Form",
             "name": "newsletter_subscribe_form",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -920,10 +920,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_649db3be04652",
@@ -1670,5 +1670,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1694796863
+    "modified": 1694797402
 }
