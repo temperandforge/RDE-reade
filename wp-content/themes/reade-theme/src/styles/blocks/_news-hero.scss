@@ -81,6 +81,8 @@
         }
 
         img {
+            height: 100%;
+            width: auto;
             margin: 0 auto;
             @include respond-below(md) {
                 max-height: 329px;
