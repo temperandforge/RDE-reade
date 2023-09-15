@@ -658,6 +658,17 @@ function handleCalc() {
 	})
 }
 
+function handleContactLoc() {
+	if (window.innerWidth <= 768) {
+		$('#location1id').on('click', function() {
+			$('#location1')[0].scrollIntoView();
+		});
+		$('#location2id').on('click', function() {
+		$('#location2')[0].scrollIntoView();
+		});
+	}
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -670,8 +681,8 @@ function runBlocks() {
 	handleVerticalAccordions()
 	handleCareerSlider()
 	disableFirstDropdownOptionRFQ()
-
 	handleCalc();
+	handleContactLoc();
 
 	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
 		handleAutoComplete();
