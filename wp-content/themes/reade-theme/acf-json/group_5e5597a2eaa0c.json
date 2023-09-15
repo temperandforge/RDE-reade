@@ -579,46 +579,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_647d5f4ffa408",
-            "label": "Footer Form Message",
-            "name": "footer_form_msg",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_647d543b9e144",
-            "label": "Footer Form Shortcode",
-            "name": "footer_form_shortcode",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_64fb527e2fa4e",
             "label": "Footer Form",
             "name": "footer_form",
@@ -1710,5 +1670,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1694192296
+    "modified": 1694796863
 }
