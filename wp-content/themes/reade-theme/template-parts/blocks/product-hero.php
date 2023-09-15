@@ -57,11 +57,11 @@ if (!empty($_GET['from'])) {
 
                   foreach ($categories AS $cat) {
                      ?>
-                     <div class="product-hero-category">
+                     <a class="product-hero-category" href="<?php echo get_term_link($cat->term_id, 'product_cat'); ?>">
                         <?php
                         echo $cat->name;
                         ?>
-                     </div>
+                     </a>
                      <?php
                   }
 

@@ -33,7 +33,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
 
           if (!empty($card['button'])) {
             ?>
-            <a class="btn-blue-dark-blue" href="<?php echo $card['button']['url']; ?>"><?php echo $card['button']['title']; ?></a>
+            <a class="btn-blue-dark-blue" href="<?php echo $card['button']['url']; ?>" <?php if (!empty($card['button']['target'])) { ?>target="_blank"<?php } ?>><?php echo $card['button']['title']; ?></a>
             <?php
           }
 
