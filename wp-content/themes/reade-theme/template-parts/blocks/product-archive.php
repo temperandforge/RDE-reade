@@ -129,7 +129,7 @@ $options = get_fields('options');
                      <?php
 
                      if ($thumbnail_id) {
-                        if ($image_attributes = wp_get_attachment_image_src($thumbnail_id, 'medium')) {
+                        if ($image_attributes = wp_get_attachment_image_src($thumbnail_id, 'large')) {
                            ?>
                            <img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo $product_category->name; ?> Category" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
                            <?php
