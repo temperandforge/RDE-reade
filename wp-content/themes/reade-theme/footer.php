@@ -112,14 +112,7 @@
                   <?php //} ?>
                </a>
                <div class="footer-subscribe">
-                  <?php 
-                  if($footer_form_msg = $option_fields['footer_form_msg']): ?>
-                     <div class="footer-form-msg"><?php echo $footer_form_msg; ?></div>
-                  <?php 
-                  endif;
-                  if($footer_form_shortcode = $option_fields['footer_form_shortcode']) {
-                     echo do_shortcode($footer_form_shortcode);
-                  }
+                  <?php
 
                   if ($footer_form_code = $option_fields['footer_form']) {
                     echo $footer_form_code;
