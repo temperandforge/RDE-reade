@@ -49,28 +49,31 @@ if (!empty($related_products->posts)) {
       foreach ($related_products->posts AS $product) {
         $product = new WC_Product($product->ID);
         $permalink = $product->get_permalink();
-        $image = get_the_post_thumbnail($product->get_id(), 'medium');
+        $desc = $product->get_short_description();
 
         ?>
         <div class="prp-product">
-          <a class="fillall" href="<?php echo $permalink; ?>">
-            <span class="sr-only">View <?php echo $product->get_name(); ?></span>
-          </a>
-          <?php
+          <div class="prp-product-container">
+            <a class="fillall" href="<?php echo $permalink; ?>">
+              <span class="sr-only">View <?php echo $product->get_name(); ?></span>
+            </a>
+            <div class="prp-product-name">
+              <?php echo $product->get_name(); ?>
+            </div>
+            <div class="prp-product-desc">
+              <?php echo $desc; ?>
+            </div>
+            <div class="prp-product-view">
+              <button class="btn-light-blue-blue btn-arrow">
+                View Product
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z" fill="#009FC6"/>
+                </svg>
 
-          if ($image) {
-            echo $image;
-          } else {
-            $image = get_field('default_product_image', 'options');
-
-            if (!empty($image)) {
-              ?>
-              <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['medium-width']; ?>" height="<?php echo $image['sizes']['medium-height']; ?>">
-              <?php
-            }
-        }
-        
-        echo $product->get_name(); ?>
+              </button>
+            </div>
+            
+          </div>
         </div>
         <?php
       }
