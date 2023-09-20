@@ -273,14 +273,10 @@ figure {
 	}
 }
 
-.leadership-slider--slide {
-	&:not(.slick-active) {
-		display: none;
-	}
-}
-
 .leadership-slider--slider {
 	.leadership-slider--slide {
-		height: auto;
+		&.slick-slide {
+			height: auto;
+		}
 	}
 }
