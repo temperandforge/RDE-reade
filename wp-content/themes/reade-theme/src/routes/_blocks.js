@@ -68,6 +68,7 @@ function handleLeadershipSlider() {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		dots: true,
+		fade: true,
 		appendDots: $('.leadership-slider--nav'),
 		customPaging: function (slider, i) {
 			var title = $(slider.$slides[i]).data('title')
