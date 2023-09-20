@@ -302,6 +302,10 @@ figure {
 	.leadership-slider--slide {
 		&.slick-slide {
 			height: auto;
+
+			&:not(.slick-active) {
+				max-height: 1px;
+			}
 		}
 	}
 }
