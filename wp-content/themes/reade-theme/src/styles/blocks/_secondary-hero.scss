@@ -221,6 +221,7 @@ body.global-sourcing .secondary-hero--copy h1 {
 			/* clip-path: ellipse(60% 75% at 63% 50%); */
 			@apply h-full;//
 			aspect-ratio: 496 / 440;
+			max-height: 515px;
 		}
 
 		@include respond-above(xl) {
