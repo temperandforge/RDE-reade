@@ -198,11 +198,18 @@ figure {
 	@apply w-full xl:hidden;
 }
 
+.leadership-slider-mobile-contacts {
+	.slick-track {
+		width: 100%;
+	}
+}
+
 .leadership-slider-mobile-contact {
 	&.slick-slide {
 		@apply flex justify-center;
 		gap: 7.5px;
 		margin-top: 25px;
+		width: 100%;
 
 		.icon-btn {
 			height: 43px;
