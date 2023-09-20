@@ -297,3 +297,9 @@ figure {
 		}
 	}
 }
+
+.leadership-slider--slide {
+	&:not(.slick-active) {
+		display: none;
+	}
+}
