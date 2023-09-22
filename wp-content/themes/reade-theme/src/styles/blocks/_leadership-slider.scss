@@ -218,12 +218,19 @@ figure {
 	@apply w-full xl:hidden;
 }
 
+.leadership-slider-mobile-contacts {
+	.slick-track {
+		width: 100%;
+	}
+}
+
 .leadership-slider-mobile-contact {
 	&.slick-slide {
 		@apply flex justify-center;
 		display: flex !important;
 		gap: 7.5px;
 		margin-top: 25px;
+		width: 100%;
 
 		.icon-btn {
 			height: 43px;
@@ -286,6 +293,18 @@ figure {
 				svg {
 					transform: translate(6px);
 				}
+			}
+		}
+	}
+}
+
+.leadership-slider--slider {
+	.leadership-slider--slide {
+		&.slick-slide {
+			height: auto;
+
+			&:not(.slick-active) {
+				max-height: 1px;
 			}
 		}
 	}
