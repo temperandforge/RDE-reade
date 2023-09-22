@@ -137,6 +137,9 @@
 
         dd ul li {
             width: 100%;
+            &:last-of-type {
+                border-bottom-right-radius: 0;
+            }
             &:hover {
                 background-color: var(--primary-100, #CFEEF6);
                 font-weight: 600;
@@ -145,6 +148,25 @@
         dd {
             width: calc(100% + 2px);
             border: none;
+
+            /* Customize the scrollbar track */
+            &::-webkit-scrollbar {
+              width: 6px; /* Width of the scrollbar */
+            }
+
+            /* Customize the scrollbar thumb (the draggable part) */
+            &::-webkit-scrollbar-thumb {
+                background: #808080; /* Color of the thumb */
+                border-radius: 5px; /* Rounded corners for the thumb */
+                background: var(--primary-500-main, #009FC6);
+                margin: 1px auto;
+                width: 4px;
+            }
+
+            /* Customize the scrollbar track on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: var(--primary-500-main, #009FC6); /* Color of the thumb on hover */
+            }
         }
 
         dt svg {
