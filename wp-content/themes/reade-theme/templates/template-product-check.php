@@ -96,10 +96,47 @@ if (!empty($mainProducts->posts)) {
 	}
 }
 
-?>
+echo '<br><br><br><h3 style="font-weight: 800;">"Sub-Products Check"</h3><br><br><br>
+<p style="font-color: red; font-weight: 600;">Please note, there is no way to check that product variations have prices set to 0.00.  Please go through the woocommerce backend and make sure every variation has a price set.</p>';
 
+$subProductArgs = array(
+	'post_type' => 'product',
+	'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        array(
+            'key' => 'is_main_product',
+            'value' => true,
+            'compare' => '!=',
+        )
+    )
+);
 
-<?php
+$subProducts = new WP_Query($subProductArgs);
+
+if (!empty($subProducts->posts)) {
+	foreach ($subProducts->posts AS $prod) {
+		$product = wc_get_product($prod->ID);
+		
+		if (empty($product->get_cross_sell_ids()) || !$product->get_cross_sell_ids()) {
+			echo '<p>Product ' . $product->get_name() . ' does not have a cross sell linking to parent product</p>';
+		}
+
+		if (strtolower($product->get_type()) != 'variable') {
+			echo '<p>Product ' . $product->get_name() . ' is not a variable product</p>';
+		}
+
+		if (strtolower($product->get_type()) == 'variable') {
+			$variations = $product->get_available_variations();
+
+			if (empty($variations)) {
+				echo '<p>Product ' . $product->get_name() . ' does not have any variations</p>';
+			} else {
+				
+			}
+		}
+	}
+}
 
 echo '<br><br><br><h3 style="font-weight: 800;">Product URLs</h3><br><br><br>';
 
