@@ -93,6 +93,12 @@ if (!empty($mainProducts->posts)) {
 		if (trim($yoast_description) == '') {
 			echo '<p>Product: ' . $product->get_name() . ' has no yoast page description</p>';
 		}
+
+		$product_tags = wc_get_product_term_ids($product_id, 'product_tag');
+
+		if (empty($product_tags) || count($product_tags) == 0) {
+			echo '<p>Product: ' . $product->get_name() . ' doesn\'t have any vendor tags</p>';
+		}
 	}
 }
 
