@@ -61,8 +61,10 @@ if (!empty($mainProducts->posts)) {
 				}
 
 				if ($v['blockName'] == 'acf/product-rfq') {
-					if (stripos($v['attrs']['data']['headline'], $product->get_name()) === false) {
-						echo '<p>Product ' . $product->get_name() . ': product name not found in Product RFQ block Headline field</p>';
+					if (!stripos($v['attrs']['data']['headline'], '&')) {
+						if (stripos($v['attrs']['data']['headline'], $product->get_name()) === false) {
+							echo '<p>Product ' . $product->get_name() . ': product name not found in Product RFQ block Headline field</p>';
+						}
 					}
 				}
 			}
