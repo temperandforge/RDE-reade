@@ -409,3 +409,11 @@ ul.footer-nav-bottom-list, #menu-footer-nav-bottom ul {
       @apply text-right;
    }
 }
+
+
+@media (max-width: 425px) {
+   .footer-copyright p {
+      margin-top: 0.5rem;
+      text-align: center;
+   }
+}

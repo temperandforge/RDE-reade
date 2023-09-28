@@ -15,6 +15,35 @@
    }
 }
 
+.mobile-search {
+   form {
+      border-radius: 0.3125rem;
+      background: #fff;
+      display: flex;
+      align-items: center;
+   }
+   input {
+      outline: none;
+      outline-color: none;
+      flex: 1;
+      padding: 0.5rem 1rem;
+
+      color: var(--primary-500-main, #009FC6);
+      &::placeholder {
+         color: var(--primary-500-main, #009FC6);
+         opacity: 0.75;
+      }
+      // font-family: Open Sans;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.25rem; /* 142.857% */
+   }
+   button {
+      padding-inline: 1rem;
+   }
+}
+
 .mobile-menu {
    @apply fixed h-screen;
    

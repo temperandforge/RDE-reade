@@ -17,6 +17,15 @@ $option_fields = get_fields('option'); ?>
          <svg aria-hidden="true" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.84171 3.34171C4.29732 2.8861 5.03601 2.8861 5.49162 3.34171L10.5 8.35008L15.5084 3.34171C15.964 2.8861 16.7027 2.8861 17.1583 3.34171C17.6139 3.79732 17.6139 4.53601 17.1583 4.99162L12.1499 10L17.1583 15.0084C17.6139 15.464 17.6139 16.2027 17.1583 16.6583C16.7027 17.1139 15.964 17.1139 15.5084 16.6583L10.5 11.6499L5.49162 16.6583C5.03601 17.1139 4.29732 17.1139 3.84171 16.6583C3.3861 16.2027 3.3861 15.464 3.84171 15.0084L8.85008 10L3.84171 4.99162C3.3861 4.53601 3.3861 3.79732 3.84171 3.34171Z" fill="white"/> </svg>
       </button>
    </div>
+   <div class="mobile-search">
+      <form role="search" method="get" action="<?php echo get_site_url() ?>">
+        <label for="mobile_search" class="sr-only">Search</label>
+        <input type="search" placeholder="Search Here..." autocomplete="off" autocorrect="off" autocapitalize="off" id="mobile_search" spellcheck="false" name="s" />
+        <button type="submit" aria-label="submit" role="button">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M17.002 16.626L11.918 11.542M13.6126 7.30534C13.6126 10.5811 10.9571 13.2367 7.68132 13.2367C4.40554 13.2367 1.75 10.5811 1.75 7.30534C1.75 4.02956 4.40554 1.37402 7.68132 1.37402C10.9571 1.37402 13.6126 4.02956 13.6126 7.30534Z" stroke="#009FC6" stroke-width="1.81934" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+        </button>
+      </form>
+    </div>
    <nav class="mobile-menu--menu">
       <?php
          wp_nav_menu( array(
