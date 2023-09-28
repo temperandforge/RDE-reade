@@ -27,10 +27,10 @@ $fields = get_fields();
         if (!empty($fields['image']['url'])) {
             ?>
             <div class="split-content-block-image">
-                <img src="<?php echo $fields['image']['sizes']['medium_large']; ?>"
+                <img src="<?php echo $fields['image']['sizes']['large']; ?>"
                     alt="<?php echo $fields['image']['alt']; ?>"
-                    width="<?php echo $fields['image']['sizes']['medium_large-width']; ?>"
-                    height="<?php echo $fields['image']['sizes']['medium_large-height']; ?>"
+                    width="<?php echo $fields['image']['sizes']['large-width']; ?>"
+                    height="<?php echo $fields['image']['sizes']['large-height']; ?>"
                 >
             </div>
             <?php

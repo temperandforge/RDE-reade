@@ -56,14 +56,34 @@ function handleContactLocationInformation() {
 }
 
 function handleLeadershipSlider() {
-	const $slide = $('.leadership-slider--slider')
+	const $slider = $('.leadership-slider--slider')
 	const $contact = $('.leadership-slider-mobile--contacts')
 
-	if (!$slide.length) {
+	if (!$slider.length) {
 		return
 	}
 
-	$slide.slick({
+	let maxMedia = window.matchMedia('(max-width: 1279px)')
+
+	function handleContactSlider(x) {
+		if (x.matches && !$contact.hasClass('slick-initialized')) {
+			$contact.slick({
+				dots: false,
+				slidesToScroll: 1,
+				slidesToShow: 1,
+				infinite: false,
+				asNavFor: $slider,
+				prevArrow: $('.slick-prev-arrow'),
+				nextArrow: $('.slick-next-arrow'),
+				adaptiveHeight: true,
+				fade: true,
+			})
+		} else if (!x.matches && $contact.hasClass('slick-initialized')) {
+			$contact.slick('unslick')
+		}
+	}
+
+	$slider.slick({
 		infinite: false,
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -83,14 +103,10 @@ function handleLeadershipSlider() {
 		adaptiveHeight: true,
 	})
 
-	$contact.slick({
-		dots: false,
-		slidesToScroll: 1,
-		slidesToShow: 1,
-		infinite: false,
-		asNavFor: $slide,
-		prevArrow: $('.slick-prev-arrow'),
-		nextArrow: $('.slick-next-arrow'),
+	handleContactSlider(maxMedia)
+
+	$(window).on('resize', function () {
+		handleContactSlider(maxMedia)
 	})
 
 	$(document).ready(function() {
@@ -658,6 +674,17 @@ function handleCalc() {
 	})
 }
 
+function handleContactLoc() {
+	if (window.innerWidth <= 768) {
+		$('#location1id').on('click', function() {
+			$('#location1')[0].scrollIntoView();
+		});
+		$('#location2id').on('click', function() {
+		$('#location2')[0].scrollIntoView();
+		});
+	}
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -670,8 +697,8 @@ function runBlocks() {
 	handleVerticalAccordions()
 	handleCareerSlider()
 	disableFirstDropdownOptionRFQ()
-
 	handleCalc();
+	handleContactLoc();
 
 	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
 		handleAutoComplete();

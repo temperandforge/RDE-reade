@@ -47,21 +47,29 @@ if (!empty($_GET['from'])) {
             </a>
 
             <?php
-
+            $cats = array();
             $categories = get_the_terms($product->get_id(), 'product_cat');
 
             if (!empty($categories)) {
+               foreach ($categories AS $cat) {
+                  if ($cat->parent == 0) {
+                     $cats[] = $cat;
+                  }
+               }
+            }
+
+            if (!empty($cats)) {
                ?>
                <div class="product-hero-categories">
                   <?php
 
-                  foreach ($categories AS $cat) {
+                  foreach ($cats AS $cat) {
                      ?>
-                     <div class="product-hero-category">
+                     <a class="product-hero-category" href="<?php echo get_term_link($cat->term_id, 'product_cat'); ?>">
                         <?php
                         echo $cat->name;
                         ?>
-                     </div>
+                     </a>
                      <?php
                   }
 
