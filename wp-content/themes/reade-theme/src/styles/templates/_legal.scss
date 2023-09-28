@@ -219,6 +219,27 @@
       @apply px-10 py-6;
       top: calc(2rem + var(--navbar-height));
       top: var(--navbar-height);
+      max-height: calc(100vh - 2 * var(--navbar-height));
+      overflow: auto;
+
+      /* Works on Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) #fff;
+      
+      /* Works on Chrome, Edge, and Safari */
+      &::-webkit-scrollbar {
+         width: 12px;
+      }
+       
+      &::-webkit-scrollbar-track {
+         background: #fff;
+      }
+       
+      &::-webkit-scrollbar-thumb {
+         background-color: var(--primary);
+         border-radius: 20px;
+         border: 3px solid #fff;
+      }
 
       nav {
          @apply bg-[#0000] mt-0 relative; // mx-8 my-6 relative;
