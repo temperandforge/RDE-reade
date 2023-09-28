@@ -57,7 +57,7 @@
             line-height: 1.4; /* 166.667% */
         }
         dt p {
-        	color: var(--primary-300, #8bd4df);
+        	color: var(--primary, #8bd4df);
         }
 
         dd ul {
@@ -249,7 +249,8 @@
 				border: 1px solid var(--primary-300, #8bd4df);
 				padding: 12px 20px;
 				width: 100%;
-				color: var(--primary-300, #8bd4df);
+				// color: var(--primary-300, #8bd4df);
+				color: var(--primary-500-main, #009fc6);
 				font-size: 14px;
 				font-weight: 600;
 				line-height: 20px; /* 142.857% */
@@ -273,25 +274,25 @@
 			}
 
 			&:focus {
-				color: var(--primary-500-main, #009fc6);
+				// color: var(--primary-500-main, #009fc6);
 				border: 1px solid var(--primary-500-main, #009fc6);
 
-				&::-webkit-input-placeholder {
-					/* Chrome/Opera/Safari */
-					color: var(--primary-500-main, #009fc6);
-				}
-				&::-moz-placeholder {
-					/* Firefox 19+ */
-					color: var(--primary-500-main, #009fc6);
-				}
-				&:-ms-input-placeholder {
-					/* IE 10+ */
-					color: var(--primary-500-main, #009fc6);
-				}
-				&:-moz-placeholder {
-					/* Firefox 18- */
-					color: var(--primary-500-main, #009fc6);
-				}
+				// &::-webkit-input-placeholder {
+				// 	/* Chrome/Opera/Safari */
+				// 	color: var(--primary-500-main, #009fc6);
+				// }
+				// &::-moz-placeholder {
+				// 	/* Firefox 19+ */
+				// 	color: var(--primary-500-main, #009fc6);
+				// }
+				// &:-ms-input-placeholder {
+				// 	/* IE 10+ */
+				// 	color: var(--primary-500-main, #009fc6);
+				// }
+				// &:-moz-placeholder {
+				// 	/* Firefox 18- */
+				// 	color: var(--primary-500-main, #009fc6);
+				// }
 			}
 		}
 

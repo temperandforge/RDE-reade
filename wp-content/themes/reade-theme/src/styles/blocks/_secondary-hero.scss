@@ -136,9 +136,9 @@
 			line-height: 24px;
 		}
 
-		@include respond-above(lg) {
-			max-width: 520px;
-		}
+		// @include respond-above(lg) {
+		// 	max-width: 520px;
+		// }
 	}
 }
 
@@ -214,13 +214,13 @@ body.global-sourcing .secondary-hero--copy h1 {
 	}
 
 	img {
-		aspect-ratio: 342 / 257;
+		// aspect-ratio: 342 / 257;
 		@apply object-cover w-full;
 
 		@include respond-above(lg) {
 			/* clip-path: ellipse(60% 75% at 63% 50%); */
 			@apply h-full;//
-			aspect-ratio: 496 / 440;
+			// aspect-ratio: 496 / 440;
 			max-height: 515px;
 		}
 
