@@ -21,7 +21,7 @@ if (!empty($block['data']['_is_preview'])) {
                <h1><?php echo $fields['heading']; ?></h1>
             <?php endif; ?>
             <?php if (!empty($fields['content'])) : ?>
-               <p><?php echo $fields['content']; ?></p>
+               <?php echo $fields['content']; ?>
             <?php endif; ?>
          </div>
 
