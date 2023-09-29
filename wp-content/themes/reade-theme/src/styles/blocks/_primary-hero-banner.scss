@@ -26,7 +26,12 @@
 	padding: max(1.5rem, min(9.2vw, 135px)) max(1.5rem, min(7vw, 100px));
 
 	@include respond-above(5xl) {
-		padding: max(1.5rem, min(9.2vw, 135px)) 8.4% max(1.5rem, min(9.2vw, 135px)) 7.2%;
+		padding: max(1.5rem, min(9.2vw, 135px)) 5% max(1.5rem, min(9.2vw, 135px)) 7.2%;
+
+		h1 {
+			padding-right: 25px;
+			max-width: 650px;
+		}
 	}
 
 	@include respond-below(sm) {
@@ -69,21 +74,22 @@
 		aspect-ratio: 390 / 241;
 
 		@include respond-above(lg) {
-			aspect-ratio: 840 / 670;
-			clip-path: ellipse(55% 95% at 55% 50%);
-		}
-
-		@include respond-above(xl) {
-			clip-path: ellipse(55% 97.5% at 55% 50%);
-			max-height: 750px;
-		}
-
-		@include respond-above(2xl) {
-			clip-path: ellipse(55% 85% at 55% 50%);
-		}
-
-		@include respond-above(4xl) {
-			clip-path: ellipse(55% 140% at 55% 50%);
+			aspect-ratio: 733 / 670;
+			clip-path: ellipse(55% 75% at 55% 50%);
+			}
+			
+			@include respond-above(xl) {
+				clip-path: ellipse(55% 80% at 55% 50%);
+				max-height: 893px;
+				}
+				
+				@include respond-above(2xl) {
+					clip-path: ellipse(55% 85% at 55% 50%);
+					}
+					
+					@include respond-above(4xl) {
+						clip-path: ellipse(55% 100% at 55% 50%);
+						aspect-ratio: 973 / 893;
 		}
 	}
 }
@@ -138,6 +144,18 @@
 			height: unset;
 			right: -90px;
 		}
+		
+		@include respond-above(5xl) {
+			height: 520px;
+			width: auto;
+			right: -90px;
+			top: -190px;
+		}
+		
+		@include respond-above(7xl) {
+			right: -180px;
+			top: -190px;
+		}
 	}
 
 	.medium-box {
@@ -153,6 +171,10 @@
 
 		@include respond-above(lg) {
 			bottom: 25px;
+		}
+
+		@include respond-above(5xl) {
+			right: -105px;
 		}
 	}
 }

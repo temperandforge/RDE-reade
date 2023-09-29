@@ -28,12 +28,13 @@
 	}
 
 	img {
+		width: 558px;
 		max-width: 60%;
 		margin: 0 auto;
 		aspect-ratio: 1 / 1;
-
+		
 		@include respond-above(xl) {
-			max-width: 558px;
+			max-width: unset;
 			margin: unset;
 		}
 	}
