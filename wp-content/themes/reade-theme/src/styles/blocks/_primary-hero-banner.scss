@@ -77,7 +77,7 @@
 		}
 
 		@include respond-above(2xl) {
-			clip-path: ellipse(55% 110% at 55% 50%);
+			clip-path: ellipse(55% 85% at 55% 50%);
 		}
 
 		@include respond-above(4xl) {

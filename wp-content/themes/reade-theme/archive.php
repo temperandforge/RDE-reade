@@ -52,21 +52,6 @@ get_header(); ?>
 
 
          <?php include( locate_template( 'template-parts/blocks/primary-footer-cta.php', false, false, $args = get_fields($qobj) ?: array()) );  ?>
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
          </article>
       </div>
    </div>
