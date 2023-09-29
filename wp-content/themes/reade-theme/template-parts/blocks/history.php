@@ -6,7 +6,8 @@ $events = $fields['events'];
 <!-- MOBILE -->
 <div id="history" class="xl:hidden history">
    <div class="history--slider">
-      <?php foreach($events as $idx => $event ):?>
+      <?php foreach($events as $idx => $event ):
+         ?>
          <div class="history--event event-<?php echo strval($idx); ?>">
             <h2 class="title primary"><?php echo (!empty($event['year_display'])) ? __($event['year_display'], TEXTDOMAIN) : __($event['year'], TEXTDOMAIN) ;?></h2>
             <h3 class="title secondary"><?php echo __($event['heading'], TEXTDOMAIN);?></h3>
@@ -38,7 +39,6 @@ foreach($events as $idx => $event ) {
    $events_map[$event['year']] = $event;
 }
 ?>
-<?php echo '<script>console.log('.json_encode($events_map, JSON_PRETTY_PRINT).');</script>';//debug?>
 <!-- DESKTOP -->
 <div id="history-desktop" class="history-desktop hidden xl:block">
    <div class="history-desktop--scroll-container">

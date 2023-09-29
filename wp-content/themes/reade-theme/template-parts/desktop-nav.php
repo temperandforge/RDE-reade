@@ -7,7 +7,7 @@ if(!defined('option_fields')) {
   <div class="theme-main">
     <div class="_theme-inner-wrap-wide">
        <div class="navbar">
-        <a href="<?php echo get_site_url() ?>" class="logo-link">
+        <a href="<?php echo get_site_url() ?>" class="logo-link" aria-label="<?php echo __("Home - ".get_bloginfo(), TEXTDOMAIN); ?>">
           <?php //if($option_fields && array_key_exists('logo', $option_fields) && $logo = $option_fields['logo']) { 
             //echo wp_get_attachment_image($logo['ID'], 'thumbnail', false, ['role' => 'presentation']); 
           //} else { ?>
@@ -26,13 +26,23 @@ if(!defined('option_fields')) {
             ) );
           ?>
         </nav>
-         <div class="flex items-center ml-auto lg:ml-0" aria-label="search / change language / view notifications">
-            <div class="doc-notifications">
-               <span class="doc-count"></span>
+         <div class="flex items-center ml-auto lg:ml-0">
+            <a href="/itemized-rfq/">
+              <span class="sr-only">RFQ</span>
+              <div class="doc-notifications">
+               <?php
+
+               global $woocommerce;
+               if ($woocommerce->cart->get_cart_contents_count() > 0) {
+                ?><span id="doc-count" class="doc-count"></span><?php
+                }
+              
+              ?>
                <svg aria-hidden="true" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <mask id="mask0_3744_12010" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25"> <rect y="0.684326" width="24" height="24" fill="#D9D9D9"/> </mask> <g mask="url(#mask0_3744_12010)"> <path d="M8 18.6843H16V16.6843H8V18.6843ZM8 14.6843H16V12.6843H8V14.6843ZM6 22.6843C5.45 22.6843 4.97917 22.4885 4.5875 22.0968C4.19583 21.7052 4 21.2343 4 20.6843V4.68433C4 4.13433 4.19583 3.66349 4.5875 3.27183C4.97917 2.88016 5.45 2.68433 6 2.68433H14L20 8.68433V20.6843C20 21.2343 19.8042 21.7052 19.4125 22.0968C19.0208 22.4885 18.55 22.6843 18 22.6843H6ZM13 9.68433V4.68433H6V20.6843H18V9.68433H13Z" fill="#009FC6"/> </g> </svg>
-            </div>
+              </div>
+            </a>
             <div class="search-wrap mr-6">
-               <form role="search" method="get" action="<?php echo get_site_url() ?>">
+               <form role="search" id="header-site-search" method="get" action="<?php echo get_site_url() ?>">
                   <!-- //TODO <span aria-hidden="true" class="focus-detection fillall"></span> -->
                   <label for="mobile_search" class="sr-only">Search</label>
                   <input type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" id="mobile_search" spellcheck="false" name="s" />

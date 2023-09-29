@@ -22,23 +22,23 @@ if( !empty( $block['data']['_is_preview'] ) ) {
                            </figure>
                         </div>
                         <div class="vertical-accordion--heading">
-                           <p class="vertical-accordion--number"><?php echo $index + 1; ?></p>
+                           <p class="vertical-accordion--number">0<?php echo  $index + 1; ?></p>
                            <?php if (!empty($item['heading'])) : ?>
                               <h2>
-                                 <button class="vertical-accordion--btn" aria-expanded="<?php echo ($index == 0) ? 'true' : 'false'; ?>" aria-controls="accordion<?php echo $index + 1; ?>" id="accordion<?php echo $index + 1; ?>id">
+                                 <button class="vertical-accordion--btn" aria-expanded="<?php echo ($index == 0) ? 'true' : 'false'; ?>" data-aria-controls="accordion<?php echo $index + 1; ?>" id="accordion<?php echo $index + 1; ?>id">
                                     <?php echo $item['heading']; ?>
                                  </button>
                               </h2>
                            <?php endif; ?>
                         </div>
-                        <div class="vertical-accordion--content <?php echo ($index == 0) ? 'active' : 'inactive'; ?>" aria-hidden="<?php echo ($index == 0) ? 'false' : 'true'; ?>">
+                        <div class="vertical-accordion--content <?php echo ($index == 0) ? 'active' : 'inactive'; ?>">
                            <?php if (!empty($item['content'])) : ?>
                               <div>
                                  <?php echo $item['content']; ?>
                               </div>
                            <?php endif; ?>
                            <?php if (!empty($item['link'])) : ?>
-                              <a href="<?php echo $item['link']['title']; ?>" target="<?php echo $item['link']['target'] ?: '_self'; ?>" class="btn">
+                              <a href="<?php echo $item['link']['url']; ?>" target="<?php echo $item['link']['target'] ?: '_self'; ?>" class="btn">
                                  <?php echo $item['link']['title']; ?>
                               </a>
                            <?php endif; ?>

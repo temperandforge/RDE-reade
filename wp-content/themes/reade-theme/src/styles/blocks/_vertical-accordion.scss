@@ -1,3 +1,5 @@
+
+
 .vertical-accordion--section {
 	@apply bg-grid;
 
@@ -67,6 +69,7 @@
 
 	@include respond-above(lg) {
 		margin-top: unset;
+		cursor: pointer;
 	}
 
 	h2 {
@@ -173,6 +176,22 @@
 			border-radius: 10px;
 			aspect-ratio: 608 / 581;
 			object-fit: cover;
+		}
+	}
+}
+
+
+body.careers {
+	.vertical-accordion--section {
+		&:before {
+			margin-top: -130px;
+			padding-top: 130px;
+		}
+	}
+	.vertical-accordion--main {
+		&:before {
+			margin-top: -130px;
+			padding-top: 130px;
 		}
 	}
 }

@@ -12,11 +12,20 @@
 	@include respond-above(xl) {
 		padding: 100px 0;
 	}
+
+	@include respond-below(md) {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
 }
 
 .leadership-slider--inner {
 	@apply flex flex-wrap;
 	gap: 25px;
+
+	@media (max-width: 1280px) {
+		gap: 40px;
+	}
 }
 
 .leadership-slider--nav {
@@ -78,7 +87,7 @@
 .leadership-slider--top {
 	@apply flex items-center justify-between;
 	@include respond-below(sm) {
-		@apply theme-main;
+		//@apply theme-main;
 	}
 }
 
@@ -87,7 +96,7 @@ figure {
 		margin-top: 40px;
 
 		@include respond-below(sm) {
-			@apply theme-main;
+			//@apply theme-main;
 			margin-top: 35px;
 		}
 	}
@@ -97,8 +106,11 @@ figure {
 	max-width: 100%;
 
 	@include respond-below(sm) {
-		@apply section-full;
+		//@apply section-full;
 		margin-top: 35px;
+		.slick-list {
+			overflow: visible;
+		}
 	}
 
 	@include respond-above(xl) {
@@ -109,6 +121,10 @@ figure {
 
 .leadership-slider--slide {
 	figure {
+		@include respond-below(sm) {
+			@apply section-full;
+		}
+
 		img {
 			aspect-ratio: 713 / 487;
 			object-fit: cover;
@@ -116,6 +132,10 @@ figure {
 
 			@include respond-above(sm) {
 				border-radius: 10px;
+			}
+
+			@include respond-below(sm) {
+				@apply section-full;
 			}
 		}
 	}
@@ -189,7 +209,7 @@ figure {
 	}
 
 	@include respond-below(sm) {
-		@apply theme-main;
+		//@apply theme-main;
 		margin-top: 35px;
 	}
 }
@@ -207,6 +227,7 @@ figure {
 .leadership-slider-mobile-contact {
 	&.slick-slide {
 		@apply flex justify-center;
+		display: flex !important;
 		gap: 7.5px;
 		margin-top: 25px;
 		width: 100%;
@@ -233,6 +254,10 @@ figure {
 		border-color: var(--primary-100, #cfeef6);
 		flex-grow: 1;
 		transition: all 0.2s ease-out;
+
+		@media (max-width: 1280px) {
+			padding: 8px 23px;
+		}
 
 		.sr-only {
 			@apply absolute;

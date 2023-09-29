@@ -1,7 +1,5 @@
 <?php
 
-echo '<script>console.log('.json_encode($block, JSON_PRETTY_PRINT).');</script>';//debug
-
 // Block preview
 if( !empty( $block['data']['_is_preview'] ) ) { 
    ?>
@@ -10,16 +8,15 @@ if( !empty( $block['data']['_is_preview'] ) ) {
    </figure>
 <?php 
 } else if( $fields = get_fields() ?: []) {
-   echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
 ?>
 
 <section class="basic-content" 
    style="
       <?php if( $pt = $fields['padding-row']['padding-top'] ): ?>
-         padding-top: <?php echo $fields['padding-row']['padding-top'].'em;'; ?>
+         --padding-top: <?php echo $fields['padding-row']['padding-top'].'em;'; ?>
       <?php endif; ?>
       <?php if( $pb = $fields['padding-row']['padding-bottom'] ): ?>
-         padding-bottom: <?php echo $fields['padding-row']['padding-bottom'].'em;'; ?>
+         --padding-bottom: <?php echo $fields['padding-row']['padding-bottom'].'em;'; ?>
       <?php endif; ?>
    ">
    <div class="basic-content--wrap">

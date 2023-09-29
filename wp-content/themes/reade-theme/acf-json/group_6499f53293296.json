@@ -21,9 +21,335 @@
             "endpoint": 0
         },
         {
-            "key": "field_6499f833c1021",
+            "key": "field_64f9e7ce9518c",
+            "label": "General",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64f77cac73ed0",
+            "label": "Calculator Type To Show",
+            "name": "calculator_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Particle Size Conversion Table": "Particle Size Conversion Table",
+                "ANSI Particle Size Conversion Chart": "ANSI Particle Size Conversion Chart",
+                "FEPA Particle Size Conversion Chart": "FEPA Particle Size Conversion Chart",
+                "Weight Conversion Table": "Weight Conversion Table"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_64f9e7f29518d",
+            "label": "Calculators",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64f77d666c30b",
+            "label": "Calculator",
+            "name": "calculator_data",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_64f77e526427b",
+                    "label": "Calculator Type",
+                    "name": "calculator_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Particle Size Conversion Table": "Particle Size Conversion Table",
+                        "ANSI Particle Size Conversion Chart": "ANSI Particle Size Conversion Chart",
+                        "FEPA Particle Size Conversion Chart": "FEPA Particle Size Conversion Chart"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_64f77d666c30b"
+                },
+                {
+                    "key": "field_6499f833c1021",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f77d666c30b"
+                },
+                {
+                    "key": "field_6499f877c1022",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f77d666c30b"
+                },
+                {
+                    "key": "field_6499f997f7d7d",
+                    "label": "Button",
+                    "name": "btn",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_64f77d666c30b"
+                },
+                {
+                    "key": "field_6499f89dc1023",
+                    "label": "Dropdown Groups",
+                    "name": "dropdown_groups",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_64f8836d7e55e",
+                            "label": "Dropdown Group Label",
+                            "name": "dropdown_group_label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6499f89dc1023"
+                        },
+                        {
+                            "key": "field_6499f8a9c1024",
+                            "label": "Dropdowns",
+                            "name": "dropdowns",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "parent_repeater": "field_6499f89dc1023",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6499f8b4c1025",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6499f8a9c1024"
+                                },
+                                {
+                                    "key": "field_6499f8c0c1026",
+                                    "label": "Values",
+                                    "name": "values",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_6499f8a9c1024",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6499f8c8c1027",
+                                            "label": "Value",
+                                            "name": "value",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_6499f8c0c1026"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "parent_repeater": "field_64f77d666c30b"
+                }
+            ]
+        },
+        {
+            "key": "field_64f9e39dfcf21",
+            "label": "Weight Table",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64f9e21ea375b",
             "label": "Heading",
-            "name": "heading",
+            "name": "weight_heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -41,11 +367,11 @@
             "append": ""
         },
         {
-            "key": "field_6499f877c1022",
+            "key": "field_64f9e24ea375c",
             "label": "Content",
-            "name": "content",
+            "name": "weight_content",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -56,14 +382,14 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": "",
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
-            "key": "field_6499f997f7d7d",
+            "key": "field_64f9e26ca375d",
             "label": "Button",
-            "name": "btn",
+            "name": "weight_btn",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -77,9 +403,9 @@
             "return_format": "array"
         },
         {
-            "key": "field_6499f89dc1023",
-            "label": "Dropdown Groups",
-            "name": "dropdown_groups",
+            "key": "field_64f9e288a375e",
+            "label": "Values",
+            "name": "values",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -99,11 +425,11 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6499f8a9c1024",
-                    "label": "Dropdowns",
-                    "name": "dropdowns",
+                    "key": "field_64f9e2b5a375f",
+                    "label": "From\/To",
+                    "name": "fromto",
                     "aria-label": "",
-                    "type": "repeater",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -112,82 +438,138 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Row",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_6499f8b4c1025",
-                            "label": "Label",
-                            "name": "label",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_6499f8a9c1024"
-                        },
-                        {
-                            "key": "field_6499f8c0c1026",
-                            "label": "Values",
-                            "name": "values",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "table",
-                            "pagination": 0,
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Row",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_6499f8c8c1027",
-                                    "label": "Value",
-                                    "name": "value",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_6499f8c0c1026"
-                                }
-                            ],
-                            "parent_repeater": "field_6499f8a9c1024"
-                        }
-                    ],
-                    "parent_repeater": "field_6499f89dc1023"
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2c3a3760",
+                    "label": "g",
+                    "name": "g",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2d3a3761",
+                    "label": "kg",
+                    "name": "kg",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2d8a3762",
+                    "label": "metric ton",
+                    "name": "metric_ton",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2dea3763",
+                    "label": "grain",
+                    "name": "grain",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2eba3764",
+                    "label": "oz",
+                    "name": "oz",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
+                },
+                {
+                    "key": "field_64f9e2efa3765",
+                    "label": "lb",
+                    "name": "lb",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64f9e288a375e"
                 }
             ]
         }
@@ -210,5 +592,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687812511
+    "modified": 1694099508
 }

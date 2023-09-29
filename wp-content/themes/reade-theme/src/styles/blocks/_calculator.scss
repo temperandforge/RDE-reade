@@ -4,34 +4,96 @@
    
 // }
 
+.hs-dropdown-menu {
+   opacity: 0;
+   transition: 0.3s;
+   margin-top: 1rem;
+}
+.hs-dropdown-menu.hs-dropdown-open {
+   opacity: 1;
+   margin-top: 0.5rem;
+}
 .calculator {
-   //@apply box-shadow;
+   svg {
+      pointer-events: none;
+   }
+   background: var(--bw-white, #FFF);
+   border-radius: 1.875em;
    box-shadow: 
       0px 15px 100px 0px rgba(0, 0, 0, 0.08), 
       0px 8px 15px 0px rgba(0, 0, 0, 0.04)
    ;
-   padding: 5.25rem 6.75rem;
+   font-size: 1.1111111111111112vw;
+   margin-top: 5em; 
+   margin-bottom: 6em; 
+   padding: 5.25em 6.75em;
 
-   &--content {
-      @apply flex flex-col gap-y-8 items-start mb-11 sm:mb-20;
-   }
-
-   /* Heading/H2/Bold/Desktop */ //REFACTOR
-   .title {
-      @apply font-bold text-primary500;
-      font-family: $font-open-sans;
-      
-      // color: var(--primary-500-main, #009FC6);
-      font-size: 2.25rem;
+   /* Heading/H2/Bold/Desktop */
+   h2 {
+      color: var(--primary-500-main, #009FC6);
+      //TODO font-family: var(--font-open-sans);
+      font-size: 2.25em;
+      font-style: normal;
+      font-weight: 700;
       line-height: 1.2222222222222223;
       letter-spacing: -0.04em;
-
-      ~ p {
-         @apply max-w-md;
-      }
+      margin-bottom: max(1rem, 0.8311111111111111em);
    }
 
-   .btn-blue-dark-blue {
-      @apply inline-block;
+   /* Paragraph/Small/Medium */
+   p {
+      max-width: 25em;
+      color: var(--primary-900, #045);
+      // font-family: Open Sans;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.64286;
+      margin-bottom: max(1rem, 2.1485714285714286em);
+   }
+
+   a.btn {
+      border-radius: 0.375rem;
+      background: var(--primary-500-main, #009FC6)!important;
+
+      color: var(--generic-white, #FFF);
+      text-align: center;
+      // font-family: Open Sans;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5rem; /* 150% */
    }
 }
+
+// .calculator {
+//    //@apply box-shadow;
+//    box-shadow: 
+//       0px 15px 100px 0px rgba(0, 0, 0, 0.08), 
+//       0px 8px 15px 0px rgba(0, 0, 0, 0.04)
+//    ;
+//    padding: 5.25rem 6.75rem;
+
+//    &--content {
+//       @apply flex flex-col gap-y-8 items-start mb-11 sm:mb-20;
+//    }
+
+//    /* Heading/H2/Bold/Desktop */ //REFACTOR
+//    .title {
+//       @apply font-bold text-primary500;
+//       font-family: $font-open-sans;
+      
+//       // color: var(--primary-500-main, #009FC6);
+//       font-size: 2.25rem;
+//       line-height: 1.2222222222222223;
+//       letter-spacing: -0.04em;
+
+//       ~ p {
+//          @apply max-w-md;
+//       }
+//    }
+
+//    .btn-blue-dark-blue {
+//       @apply inline-block;
+//    }
+// }

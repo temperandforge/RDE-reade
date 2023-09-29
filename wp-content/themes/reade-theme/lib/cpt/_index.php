@@ -309,7 +309,7 @@ function setup_custom_post_types() {
          ]
 		],
 		false, //$has_archive
-		false //$publicly_queryable
+		true //$publicly_queryable
    );
 
    /** 
@@ -358,16 +358,16 @@ function setup_custom_post_types() {
       return $messages;
    }
 	
-   add_filter( 'term_updated_messages', 'product_category_updated_messages' );
-   function product_category_updated_messages( $messages ) {
+   // add_filter( 'term_updated_messages', 'product_category_updated_messages' );
+   // function product_category_updated_messages( $messages ) {
 
-      $slug          = "product_categories"; 
-      $singular_name = "Product Category";
-      $plural_name   = "Product Categories";
+   //    $slug          = "product_categories"; 
+   //    $singular_name = "Product Category";
+   //    $plural_name   = "Product Categories";
       
-      cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
-      return $messages;
-   }
+   //    cpt_updated_messages($messages, $slug, $singular_name, $plural_name);
+   //    return $messages;
+   // }
 
 	add_filter( 'term_updated_messages', 'service_category_updated_messages' );
    function service_category_updated_messages( $messages ) {

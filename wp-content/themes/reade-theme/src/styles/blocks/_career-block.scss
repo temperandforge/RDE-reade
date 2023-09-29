@@ -38,6 +38,32 @@
 
 .career-block--slider {
 	margin-top: 70px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	@include respond-below(lg) {
+		width: 100%;
+	}
+	.slick-track {
+		display: flex;
+	}
+
+	.solo-slide {
+		display: flex;
+		justify-content: center;
+
+		.career-block--content {
+			align-items: center;
+		}
+
+		@include respond-below(sm) {
+			justify-content: flex-start;
+
+			.career-block--content {
+				align-items: flex-start;
+			}
+		}
+	}
 
 	@include respond-above(md) {
 		margin-top: 100px;
@@ -75,6 +101,12 @@
 }
 
 .career-block--content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	height: 100%;
+
 	h3 {
 		font-size: 18px;
 		font-weight: 700;
@@ -94,8 +126,14 @@
 	}
 }
 
-.career-block--slide {
+.career-block--slide.slick-slide {
 	margin: 0 auto;
+	height: unset;
+	max-width: 600px;
+
+	.career-block--job {
+		height: 100%;
+	}
 
 	&.solo-slide {
 		@include respond-above(lg) {

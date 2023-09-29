@@ -2,7 +2,7 @@
 $option_fields = get_fields('options') ?: [];
 get_header(); 
 ?>
-<main id="main-content" class="main-content-wrap">
+<main tabindex="-1" id="main-content" class="main-content-wrap">
    <div class="theme-main">
       <div class="theme-inner-wrap">
          <article class="error-404-content grid place-items-center">

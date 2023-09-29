@@ -74,20 +74,6 @@
 				}
 			}
 
-			h2 {
-				color: #fafafa;
-				font-size: 28px;
-				font-weight: 700;
-				line-height: 36px;
-				letter-spacing: -0.56px;
-
-				@include respond-above(md) {
-					font-size: 36px;
-					line-height: 44px;
-					letter-spacing: -1.44px;
-				}
-			}
-
 			.primary-cta-btn {
 				@apply btn-dark-blue-blue;
 
@@ -97,6 +83,22 @@
 			}
 		}
 	}
+
+	// upgrade specificity
+	p.primary-ptitle {
+				//color: #fafafa;
+				font-size: 28px !important;
+				font-weight: 700;
+				line-height: 36px !important;
+				letter-spacing: -0.56px !important;
+				margin-top: 0 !important;
+
+				@include respond-above(md) {
+					font-size: 36px;
+					line-height: 44px;
+					letter-spacing: -1.44px;
+				}
+			}
 
 	.primary-footer-secondary--wrap {
 		@include respond-above(md) {
@@ -116,11 +118,12 @@
 	}
 }
 
+
 .primary-footer-secondary--wrap {
 	@apply flex flex-wrap md:pt-8 lg:pt-16 relative z-20;
 	gap: 25px;
 	padding: 24px 0;
-	@apply bg-blue;
+	//@apply bg-blue;
 
 	@include respond-above(sm) {
 		&:after {
@@ -133,6 +136,7 @@
 
 		&:after {
 			@apply absolute section-full bottom-0 left-0 right-0;
+			bottom: -1px;
 			top: unset;
 			height: 110px;
 			background-color: var(--primary-footer-blue, #072d36);
@@ -157,7 +161,7 @@
 			flex: 1 0 calc(50% - calc(25px / 2));
 		}
 
-		h3 {
+		.ptitle {
 			@apply mt-4;
 			color: var(--primary-900, #045);
 			font-size: 22px;
@@ -167,6 +171,7 @@
 
 		p {
 			@apply mt-4;
+			max-width: 524px;
 		}
 
 		.secondary-cta-btn {
@@ -198,4 +203,20 @@
 			content: url("data:image/svg+xml,%3Csvg width='19' height='19' viewBox='0 0 19 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.2 18.4064C15.05 18.4064 12.9542 17.9273 10.9125 16.9689C8.87083 16.0106 7.0625 14.7439 5.4875 13.1689C3.9125 11.5939 2.64583 9.7856 1.6875 7.74393C0.729167 5.70227 0.25 3.60643 0.25 1.45643C0.25 1.15643 0.35 0.906433 0.55 0.706433C0.75 0.506433 1 0.406433 1.3 0.406433H5.35C5.58333 0.406433 5.79167 0.481433 5.975 0.631433C6.15833 0.781433 6.26667 0.9731 6.3 1.20643L6.95 4.70643C6.98333 4.93977 6.97917 5.15227 6.9375 5.34393C6.89583 5.5356 6.8 5.70643 6.65 5.85643L4.225 8.30643C4.925 9.50643 5.80417 10.6314 6.8625 11.6814C7.92083 12.7314 9.08333 13.6398 10.35 14.4064L12.7 12.0564C12.85 11.9064 13.0458 11.7939 13.2875 11.7189C13.5292 11.6439 13.7667 11.6231 14 11.6564L17.45 12.3564C17.6833 12.4064 17.875 12.5189 18.025 12.6939C18.175 12.8689 18.25 13.0731 18.25 13.3064V17.3564C18.25 17.6564 18.15 17.9064 17.95 18.1064C17.75 18.3064 17.5 18.4064 17.2 18.4064ZM3.275 6.40643L4.925 4.75643L4.5 2.40643H2.275C2.35833 3.08977 2.475 3.76477 2.625 4.43143C2.775 5.0981 2.99167 5.75643 3.275 6.40643ZM12.225 15.3564C12.875 15.6398 13.5375 15.8648 14.2125 16.0314C14.8875 16.1981 15.5667 16.3064 16.25 16.3564V14.1564L13.9 13.6814L12.225 15.3564Z' fill='%23BAE3E9'/%3E%3C/svg%3E%0A");
 		}
 	}
+}
+
+body.services {
+	.primary-footer-secondary--wrap {
+		@include respond-below(sm) {
+			&:after {
+				background-color: $white;
+			}
+		}
+	}
+}
+
+body.tax-product_cat .primary-footer-secondary--wrap {
+		&:after {
+			//background-color: $white;
+		}
 }

@@ -30,13 +30,17 @@ function mobileMenu() {
 		$menu.fadeIn();
 		$('.mobile-menu').css('padding-bottom', $('.mobile-menu--footer').outerHeight())
 	} );
-	$( '.mobile-menu .menu-item:not(.menu-item-has-children), .mobile-menu .sub-menu .menu-item, .mobile-menu--close-btn' ).on( 'click', function( e ) {
+	$( `
+		.mobile-menu .menu-item:not(.menu-item-has-children), 
+		.mobile-menu .sub-menu .menu-item, 
+		.mobile-menu--close-btn
+	` ).on( 'click', function( e ) {
 		$menu.fadeOut().find('.sub-menu').slideUp().parent().removeClass('item-open');
 	} );
 
-	$( '.mobile-menu .menu-item.menu-item-has-children').on('click', function(e) {
+	$( '.mobile-menu .menu-item.menu-item-has-children > a').on('click', function(e) {
 		$(this).toggleClass('item-open')
-		if(e.target.tagName.toLowerCase() == 'a') {
+		if(e.target.tagName.toLowerCase() == 'a' && e.target.getAttribute('href') == '#') {
 			e.preventDefault() //prevent triggering link
 			$(e.target).siblings('.sub-menu').slideToggle(250)
 		} else { //parent li

@@ -7,7 +7,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
    </figure>
 <?php 
 } else if( $fields = get_fields() ?: []) {
-
+   
 ?>
 
 <div class="grid-hero--section">

@@ -52,6 +52,9 @@
 
    // Miscellaneous
    --border-1: 1px solid #009FC6;
+
+   --button-green: #8bc535;
+   --button-green-hover: #A5D962;
 }
 
 
@@ -77,7 +80,7 @@ $gray900: #171717;
 
 /** Theme **/
 $primary: purple;
-$accent:  orange;
+// $accent:  orange;
 
 
 
@@ -107,6 +110,8 @@ $btn-bg: $primary;
 $btn-text: white;
 $primary50: var (--primary50);
 $green: var(--secondary-green, #8BC53F);
+$primary500: var(--primary500);
+$primary400: var(--primary400);
 
 
 

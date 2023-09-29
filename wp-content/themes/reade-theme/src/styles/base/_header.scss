@@ -42,9 +42,9 @@ ul.header-links {
 		box-shadow: 0px 5px 30px 0px rgba(0, 68, 85, 0.18);
 		border-radius: 0.5rem;
 
-		visibility: hidden;
+		// visibility: hidden;
 		opacity: 0;
-		max-height: 0;
+		// max-height: 0; //Safari Issues
 		pointer-events: none;
 		overflow: hidden;
 
@@ -104,14 +104,14 @@ ul.header-links {
 			//TODO margin-left: -1em;
 			margin-right: auto;
 		}
-
-		&:hover,
-		&:focus-within {
+		
+		&:focus-within,
+		&:hover {
 			//TODO
 			.sub-menu {
 				opacity: 1;
 				pointer-events: initial;
-				max-height: unset;
+				max-height: unset!important; //safari //STARTER
 				visibility: visible;
 				transition: 0.2s;
 			}
@@ -152,7 +152,7 @@ ul.header-links {
 
 	//about
 	//TODO changes on save 
-	.menu-item-251 {
+	.menu-item-1019 {
 		.sub-menu {
 			overflow: hidden;
 			column-count: 2;
@@ -235,7 +235,10 @@ ul.header-links {
 }
 .doc-notifications {
 	//TODO dot? - woocommerce
-	@apply mr-[14px];
+	@include respond-above(lg) {
+		@apply mr-[14px];
+	}
+	
 	background: var(--primary-100, #cfeef6);
 	> * {
 		pointer-events: none;
@@ -268,6 +271,11 @@ ul.header-links {
 .search-wrap {
 	border: 1.5px solid var(--primary-500-main, #009fc6);
 	--search-width: 10rem;
+
+	@include respond-below(lg) {
+		display: none;
+	}
+
 	form {
 		@apply h-full inline-flex;
 		border-radius: inherit;
@@ -315,6 +323,7 @@ ul.header-links {
 			// display: initial;
 			padding: 0.75rem; //TODO font-size
 			max-width: var(--search-width);
+			outline-color: transparent !important;
 		}
 		button {
 			pointer-events: initial;
@@ -468,7 +477,8 @@ ul.header-links {
 		margin-left: auto;
 	}
 	.doc-notifications {
-		@apply mr-0 w-20;
+		@apply w-20;
+		//margin-right: 10px;
 	}
 	.toggle-nav {
 		@apply ml-3;

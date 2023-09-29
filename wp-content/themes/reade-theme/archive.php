@@ -1,6 +1,14 @@
 <?php 
-$cat_ID = get_queried_object()->term_id;
-$qobj = get_queried_object();
+
+$qo = get_queried_object();
+
+if ($qo) {
+   $cat_ID = get_queried_object()->term_id;
+} else {
+   $cat_ID = false;
+}
+
+$qobj = $qo;
 $view_more_button_text = get_field('view_more_button_text', 'options') ? get_field('view_more_button_text', 'options') : 'View More';
 get_header(); ?>
 

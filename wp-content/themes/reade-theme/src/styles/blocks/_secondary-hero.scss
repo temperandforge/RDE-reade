@@ -8,10 +8,11 @@
 	}
 
 	@apply relative bg-geometric;
-	padding: 30px 0;
+	padding: 30px 0 0;
+	z-index: 20;
 
 	@include respond-above(sm) {
-		padding: 100px 0 50px;
+		padding: 100px 0 0;
 	}
 
 	&:before,
@@ -72,6 +73,15 @@
 	.document-decor {
 		left: -60px;
 	}
+
+	.globe-decor {
+		@include respond-below(md) {
+			width: 96px;
+		    height: 80px;
+		    bottom: -68px;
+		    left: -36px;
+		}
+	}
 }
 
 .secondary-hero--shadow {
@@ -87,11 +97,11 @@
 
 .secondary-hero--copy {
 	@apply flex flex-col justify-center items-start;
-	@include inner-wrap(744px);
-	padding: 40px;
+	padding: clamp(2.5rem, 0.5rem + 5vw, 5rem) clamp(2.5rem, -1.1rem + 9vw, 7rem);
 
 	@include respond-above(sm) {
-		padding: clamp(45px, 5vw, 80px) clamp(50px, 7.5vw, 112px);
+		//padding: clamp(45px, 5vw, 80px) clamp(50px, 7.5vw, 112px);
+		flex-grow: 1;
 	}
 
 	h1 {
@@ -125,6 +135,10 @@
 			font-size: 16px;
 			line-height: 24px;
 		}
+
+		// @include respond-above(lg) {
+		// 	max-width: 520px;
+		// }
 	}
 }
 
@@ -132,7 +146,15 @@
 	@apply btn-blue-dark-blue;
 }
 
+body.global-sourcing .secondary-hero--copy h1 {
+	font-size: clamp(2rem, 0.844rem + 5vw, 2.25rem);
+}
+
 .secondary-hero--copy {
+
+	.btn-blue-dark-blue {
+		padding: 12px 20px;
+	}
 	.btn-blue-dark-blue,
 	.secondary-back--btn {
 		margin-top: 30px;
@@ -158,9 +180,24 @@
 }
 
 .secondary-hero--figure {
+	// display: block;
+	// overflow: hidden;
+	// position: relative;
 	@include respond-above(lg) {
 		flex: 0 0 40%;
+
+		// img {
+		// 	height: 100%;
+		// 	width: 100%;
+		// 	position: absolute;
+		// 	// object-position: top center;
+		// 	top: 0;
+		// 	left: 0;
+		// }
 	}
+	// @media (min-width: 120rem) {
+	// 	flex: 0 0 50%;
+	// }
 
 	&.clip {
 		img {
@@ -182,13 +219,20 @@
 
 		@include respond-above(lg) {
 			/* clip-path: ellipse(60% 75% at 63% 50%); */
-			@apply h-full;
+			@apply h-full;//
 			aspect-ratio: 496 / 440;
 			max-height: 515px;
 		}
 
 		@include respond-above(xl) {
 			/* clip-path: ellipse(55% 100% at 55% 50%); */
+		}
+
+		@include respond-below(lg) {
+			max-height: 350px;
+		}
+		@include respond-below(md) {
+			max-height: 300px;
 		}
 	}
 }
@@ -225,5 +269,13 @@
 
 	.btn-blue-dark-blue {
 		white-space: nowrap;
+		@include respond-below(md) {
+			padding: 12px 20px;
+		}
 	}
+}
+
+// materials science page image positioning
+body.page-id-248 .secondary-hero--figure img {
+	object-position: top center;
 }

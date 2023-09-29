@@ -28,10 +28,25 @@
 	&.white {
 		@apply bg-grid;
 		
-  .faqs-hero-content--wrap {
-   @include inner-wrap(1056px);
+  	.faqs-hero-content--wrap {
+   		@include inner-wrap(1056px);
+	}
+	}
+
+	.faq-hero-icon {
+		position: absolute;
+		z-index: 10;
+		bottom: -21px;
+		right: 0;
+		transform: translateY(15%);
+		width: clamp(3.125rem, -1.525rem + 11.625vw, 8.938rem);
+		height: auto;
+
+		@include respond-below(sm) {
+			bottom: -30px;
 		}
 	}
+
 }
 
 .faqs-hero-content--wrap {

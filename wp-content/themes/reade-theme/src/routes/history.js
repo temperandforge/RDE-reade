@@ -27,11 +27,9 @@ export default {
 		})
 	},
 	finalize() {
-		//TODO include script integrity security checks
 		loadjs(
 			[
 				//mobile-first
-				//TODO cash-dom instead of jQuery
 				'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
 				//desktop
 				'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js',
@@ -85,6 +83,7 @@ export default {
 				x.addListener(renderHistoryLayout) // Attach listener function on state changes
 
 				let initHistoryScrollerRan = false
+				let tween
 				function initHistoryScroller() {
 					if (!x.matches) {
 						gsap.registerPlugin(ScrollTrigger)
@@ -93,9 +92,11 @@ export default {
 						let sections = gsap.utils.toArray('.panel')
 						let widths = sections.map((el) => el.getBoundingClientRect().width)
 						widths.map((val) => (x += val))
+						// .reduce((accumulator, currentValue) => accumulator + currentValue, initialValue)
 
-						gsap.to(sections, {
-							x: -x + document.body.clientWidth,
+						console.log(gsap.utils.toArray('.panel').map((el) => el.getBoundingClientRect().width).reduce((accumulator, currentValue) => accumulator + currentValue, 0))
+						tween = gsap.to(sections, {
+							x: document.body.clientWidth - gsap.utils.toArray('.panel').map((el) => el.getBoundingClientRect().width).reduce((accumulator, currentValue) => accumulator + currentValue, 0),//initialValue),
 							ease: 'none',
 							scrollTrigger: {
 								trigger: '.history-desktop--scroll-container',
@@ -106,7 +107,9 @@ export default {
 								// base vertical scrolling on how wide the container is
 								// so it feels more natural.
 								// a.k.a adjust rate of change relative to scroll quantity
-								end: '+=3500',
+								end: '+=15000', //scroll spped control
+								invalidateOnResize: true,
+								invalidateOnRefresh: true
 							},
 						})
 
@@ -117,11 +120,21 @@ export default {
 				// runs initHistoryScroller if page loads desktop size
 				initHistoryScroller()
 
+				let t = null
 				window.addEventListener('resize', function () {
-					// runs initHistoryScroller is page loads mobile and resizes to desktop
-					if (!initHistoryScrollerRan) {
+					// // runs initHistoryScroller is page loads mobile and resizes to desktop
+					// if (!initHistoryScrollerRan) {
+						// 	initHistoryScroller()
+						// }
+						
+					clearTimeout(t)
+					t = setTimeout(function () {
+						console.log('History')
+						if( !! tween.scrollTrigger ) {
+							tween.scrollTrigger.kill(true)
+						}
 						initHistoryScroller()
-					}
+					}, 350)
 				})
 
 				function handleImgTransition() {
@@ -138,7 +151,7 @@ export default {
 				function handleLineAnimation() {
 					const line = document.getElementById('historySVG1')
 
-					console.log(line.getBoundingClientRect())
+					// console.log(line.getBoundingClientRect())
 					window.innerWidth - 150 >= line.getBoundingClientRect().left &&
 						line.classList.add('active')
 				}

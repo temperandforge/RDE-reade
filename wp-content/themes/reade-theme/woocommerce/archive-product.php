@@ -17,90 +17,81 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header();
-
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
-
-?>
-<header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-	<?php endif; ?>
-
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
-</header>
-<h3 style="font-weight: 800; font-size: 30px;">ignore for now</h3>
-<?php
-if ( woocommerce_product_loop() ) {
-
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action( 'woocommerce_before_shop_loop' );
-
-	woocommerce_product_loop_start();
-
-	if ( wc_get_loop_prop( 'total' ) ) {
-		while ( have_posts() ) {
-			the_post();
-
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
-			do_action( 'woocommerce_shop_loop' );
-
-			wc_get_template_part( 'content', 'product' );
-		}
-	}
-
-	woocommerce_product_loop_end();
-
-	/**
-	 * Hook: woocommerce_after_shop_loop.
-	 *
-	 * @hooked woocommerce_pagination - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop' );
-} else {
-	/**
-	 * Hook: woocommerce_no_products_found.
-	 *
-	 * @hooked wc_no_products_found - 10
-	 */
-	do_action( 'woocommerce_no_products_found' );
+if (stripos($_SERVER['REQUEST_URI'], 'product-category/sustainable-products') !== false) {
+   wp_redirect(get_site_url() . '/sustainable-products/', 301);
+   exit;
 }
 
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action( 'woocommerce_after_main_content' );
+$page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
+get_header();
+
+?>
+<main id="main-content" class="main-content-wrap">
+   <div class="theme-main">
+   
+      <div class="theme-inner-wrap">
+         <article class="product-archive">
+         	<?php
+
+            if ($page_id) {
+               
+               /*
+               * product post type archive page
+               */
+               
+               $post = get_post($page_id);
+               echo the_content(null, false, $post);
+
+            } else {
+
+               /*
+               * product category archive page
+               */
+               $qobj = get_queried_object();
+               
+                
+               // product archive hero
+               $pah_fields = array(
+                  'headline' => $qobj->name,
+                  'text' => $qobj->description,
+                  'applications' => get_field('applications', $qobj)
+               );
+
+               $thumbnail_id = get_term_meta($qobj->term_id, 'thumbnail_id', true);
+               if ($thumbnail_id) {
+                  if($img = wp_get_attachment_image_src($thumbnail_id, 'full')) {
+                     $pah_fields['image']['sizes']['large'] = $img[0];
+                     $pah_fields['image']['alt'] = $qobj->name . ' Category Image';
+                     $pah_fields['image']['sizes']['large_width'] = $img[1];
+                     $pah_fields['image']['sizes']['large_height'] = $img[2];
+                  }
+               }
+
+               include( locate_template( 'template-parts/blocks/product-archive-hero.php', false, false, $args = $pah_fields ?: array()) );
+
+
+
+               // product archive main
+               $pam_fields = array(
+                  'column_1_text' => '',
+                  'column_2_text' => '',
+                  'term_id' => $qobj->term_id
+               );
+
+               include( locate_template( 'template-parts/blocks/product-archive-main.php', false, false, $args = $pam_fields ?: array()) );
+
+
+
+               // cta
+               include( locate_template( 'template-parts/blocks/primary-footer-cta.php', false, false, $args = get_fields($qobj) ?: array()) );
+            }
+
+         	?>
+         </article>
+     </div>
+ </div>
+</main>
+<?php
 
 get_footer( );

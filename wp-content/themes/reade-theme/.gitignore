@@ -1,6 +1,7 @@
 # package-lock.json
-# /**/*/node_modules
 node_modules
+/**/*/node_modules
+/**/*/env
 /vendor
 .unlighthouse
 composer.lock
@@ -15,13 +16,13 @@ pnpm-lock.yaml
 build/
 assets/js/bundle.js.map
 assets/js/bundle.js
-assets/css/bundle.css.map
-assets/css/bundle.css
-assets/css/bundle-twnd.css
-assets/css/editor.css.map
-assets/css/editor.css
-assets/css/bundle-twnd.css.map
-assets/css/bundle-twnd.css
+! assets/css/critical.css
+! assets/js/dragscroll-custom.js
+! assets/js/dragscroll.js
+! assets/js/passive.js
+assets/css/*.css.map
+assets/css/*.css
+! assets/css/critical.css
 
 # composer dependencies
 vendor

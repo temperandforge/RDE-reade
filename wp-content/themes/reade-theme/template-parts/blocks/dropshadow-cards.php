@@ -57,7 +57,7 @@ if (!empty($block['data']['_is_preview'])) {
                }
 
                if (!empty($card['headline'])) {
-               ?><h3 class="dropshadow-cards-card-headline"><?php echo $card['headline']; ?></h3><?php
+               ?><p class="dropshadow-cards-card-headline"><?php echo $card['headline']; ?></p><?php
                                                                                                    }
 
                                                                                                    if (!empty($card['text'])) {

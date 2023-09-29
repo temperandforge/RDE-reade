@@ -4,6 +4,15 @@
     border-radius: 10px;
     box-shadow: 0px 17px 50px 0px rgba(16, 24, 40, 0.12);
 
+    .product-rfq-max {
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 600;
+        color: red;
+    }
+
+    
+
     #product-rfq-error-message {
         color: red;
         font-weight: 600;
@@ -68,6 +77,11 @@
     .product-rfq-bottom a {
         padding: 12px 20px;
         font-size: 14px;
+
+        @include respond-below(sm) {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 
     .product-rfq-options {
@@ -83,6 +97,7 @@
         display: block;
     }
 
+
     .tf-dropdown {
         width: 100%;
         border-radius: 5px;
@@ -90,6 +105,8 @@
         background: #FFF;
         position: relative;
         z-index: 20;
+        transition-delay: 0.35s;
+        transition-property: border-bottom-left-radius, border-bottom-right-radius, z-index;
 
         dt p, dd ul li {
             color: var(--primary-900, #045);
@@ -99,7 +116,10 @@
         }
 
         dd ul {
-            border-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
             border: 1px solid var(--primary-500-main, #009FC6);
             background: #FFF;
             max-height: 300px;
@@ -117,6 +137,9 @@
 
         dd ul li {
             width: 100%;
+            &:last-of-type {
+                border-bottom-right-radius: 0;
+            }
             &:hover {
                 background-color: var(--primary-100, #CFEEF6);
                 font-weight: 600;
@@ -125,6 +148,25 @@
         dd {
             width: calc(100% + 2px);
             border: none;
+
+            /* Customize the scrollbar track */
+            &::-webkit-scrollbar {
+              width: 6px; /* Width of the scrollbar */
+            }
+
+            /* Customize the scrollbar thumb (the draggable part) */
+            &::-webkit-scrollbar-thumb {
+                background: #808080; /* Color of the thumb */
+                border-radius: 5px; /* Rounded corners for the thumb */
+                background: var(--primary-500-main, #009FC6);
+                margin: 1px auto;
+                width: 4px;
+            }
+
+            /* Customize the scrollbar track on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: var(--primary-500-main, #009FC6); /* Color of the thumb on hover */
+            }
         }
 
         dt svg {
@@ -138,6 +180,7 @@
         border-bottom-right-radius: 0;
         position: relative;
         z-index: 30;
+        transition: z-index 0s linear;
 
         dd ul {
             border-top: 1px solid var(--primary-500-main, #009FC6);
@@ -201,6 +244,19 @@
             overflow-y: hidden;
         }
     }
+
+    .tf-dropdown-hidden-with-value {
+        height: 0;
+        overflow: hidden;
+        border: none;
+    }
+
+    #product-submit-button:disabled {
+        background-color: var(--neutral-300,#d4d4d4);
+        border: 1px solid transparent;
+        cursor: not-allowed;
+    }
+
 }
 .spinner {
   animation: rotate 2s linear infinite;

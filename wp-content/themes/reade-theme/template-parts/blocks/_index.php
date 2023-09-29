@@ -74,12 +74,12 @@ function theme_register_blocks()
    acf_register_block([
       'name'         => 'calculator',
       'title'         => 'Calculator',
-      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/calculator.php",
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/calc.php",
       'category'      => 'theme-blocks',
       'icon'         => 'button',
       'image'        => $img_root . '/calculator.webp',
       'mode'         => $mode,
-      'keywords'      => ['hero', 'reade', 'theme', TEXTDOMAIN],
+      'keywords'      => ['calculator', 'reade', 'theme', TEXTDOMAIN],
       'supports'     => ['align' => false],
       'example'  => array(
          'attributes' => array(
@@ -336,6 +336,28 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Dual Column CTA
+    * */
+   acf_register_block([
+      'name'         => 'dual-column-cta',
+      'title'         => 'Dual Column CTA',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/dual-column-cta.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/dual-column-cta.webp',
+      'mode'         => $mode,
+      'keywords'      => ['dual', 'column', 'cta', 'reade', 'theme', TEXTDOMAIN],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
     * FAQS Accordions
     * */
    acf_register_block([
@@ -376,6 +398,75 @@ function theme_register_blocks()
             )
          )
       ),
+   ]);
+
+   /** 
+    * Product Archive Hero
+    * */
+   acf_register_block([
+      'name'         => 'product-archive-hero',
+      'title'        => 'Product Archive Hero',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-archive-hero.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-archive-hero.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'archive', 'hero', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
+
+   /** 
+    * Product Archive
+    * */
+   acf_register_block([
+      'name'         => 'product-archive',
+      'title'        => 'Product Archive',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-archive.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-archive.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'archive', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
+
+   /** 
+    * Product Archive Main
+    * */
+   acf_register_block([
+      'name'         => 'product-archive-main',
+      'title'        => 'Product Archive Main',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-archive-main.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-archive-main.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'archive', 'main', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
    ]);
 
 
@@ -448,6 +539,29 @@ function theme_register_blocks()
          )
       ),
 	]);
+
+   /** 
+    * Product Related Products
+    * */
+   acf_register_block([
+      'name'         => 'product-related-products',
+      'title'        => 'Product Related Products',
+      'render_template' => get_stylesheet_directory() . "/template-parts/blocks/product-related-products.php",
+      'category'     => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/product-related-products.webp',
+      'mode'         => $mode,
+      'keywords'     => ['product', 'related', 'products', 'reade', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+//      'example'  => array(
+//         'attributes' => array(
+//            'mode' => 'preview',
+//            'data' => array(
+//               '_is_preview'   => 'true'
+//            )
+//         )
+//      ),
+   ]);
 
 
 	/** 
@@ -1023,29 +1137,24 @@ function theme_register_blocks()
       ),
    ]);
 
-   /** 
-    * Product RFQ Form
-    * */
-   acf_register_block([
-      'name'          => 'rfq-form',
-      'title'          => 'Product RFQ Form',
-      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/rfq-form.php",
-      'category'       => 'theme-blocks',
-      'icon'          => 'button',
-      // 'image'        => $img_root . '/primary-hero.webp',
-      'mode'          => $mode,
-      'keywords'       => ['rfq', 'form', 'reade', 'product', 'theme', TEXTDOMAIN],
-      'supports'      => ['align' => false],
-      'example'  => array(
-         'attributes' => array(
-            'mode' => 'preview',
-            'data' => array(
-               '_is_preview'   => 'true'
-            )
-         )
-      ),
-   ]);
 
+
+         /**
+          * Product Custom RFQ Form
+          */
+         acf_register_block([
+            'name'          => 'product-custom-rfq-form',
+            'title'          => 'Product Custom RFQ Form',
+            'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/product-custom-rfq-form.php",
+            'category'       => 'theme-blocks',
+            'icon'          => 'button',
+            'image'        => $img_root . '/product-custom-rfq-form.webp',
+            'mode'          => $mode,
+            'keywords'       => ['rfq', 'form', 'success', 'reade', 'theme', TEXTDOMAIN],
+            'supports'      => ['align' => false],
+         ]);
+
+         
 
 			/**
 			 * RFQ Form Success
@@ -1061,6 +1170,8 @@ function theme_register_blocks()
 		      'keywords'       => ['rfq', 'form', 'success', 'reade', 'theme', TEXTDOMAIN],
 		      'supports'      => ['align' => false],
 		   ]);
+
+
 
    /** 
     * Secondary Hero
@@ -1119,6 +1230,28 @@ function theme_register_blocks()
       'icon'          => 'button',
       'mode'          => $mode,
       'keywords'       => ['split', 'content', 'block', 'reade', 'theme', TEXTDOMAIN],
+      'supports'      => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
+    * Small Dropdowns
+    * */
+   acf_register_block([
+      'name'          => 'small-dropdowns',
+      'title'          => 'Small Dropdowns',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/small-dropdowns.php",
+      'category'       => 'theme-blocks',
+      'icon'          => 'button',
+      'mode'          => $mode,
+      'keywords'       => ['small', 'dropdowns', 'reade', 'theme', TEXTDOMAIN],
       'supports'      => ['align' => false],
       'example'  => array(
          'attributes' => array(

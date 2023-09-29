@@ -14,11 +14,11 @@ function handleFAQAccordion() {
 					return attr == 'true' ? 'false' : 'true'
 				})
 				$(this).parent().toggleClass('open')
-				$(this)
-					.siblings('.accordion-answer')
-					.attr('aria-hidden', function (i, attr) {
-						return attr == 'true' ? 'false' : 'true'
-					})
+				// $(this)
+				// 	.siblings('.accordion-answer')
+				// 	.attr('aria-hidden', function (i, attr) {
+				// 		return attr == 'true' ? 'false' : 'true'
+				// 	})
 			})
 	})
 }
@@ -93,7 +93,8 @@ function handleLeadershipSlider() {
 		customPaging: function (slider, i) {
 			var title = $(slider.$slides[i]).data('title')
 			var position = $(slider.$slides[i]).data('position')
-			return `<button class="team-member--btn"><span>${title}</span> ${
+			var team_member = $(slider.$slides[i]).data('team-member');
+			return `<button class="team-member--btn ${team_member}"><span>${title}</span> ${
 				position ? position : ''
 			}</button>`
 		},
@@ -107,6 +108,14 @@ function handleLeadershipSlider() {
 	$(window).on('resize', function () {
 		handleContactSlider(maxMedia)
 	})
+
+	$(document).ready(function() {
+		if (window.location.hash && window.location.hash != '') {
+			if ($('.' + window.location.hash.replace('#', '')).length) {
+				$('.' + window.location.hash.replace('#', '')).click();
+			}
+		}
+	});
 }
 
 function handleTabbedRotator() {
@@ -132,6 +141,7 @@ function handleTabbedRotator() {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		dots: true,
+		fade: true,
 		adaptiveHeight: true,
 		appendDots: $('.tabbed-rotator--nav'),
 		customPaging: function (slider, i) {
@@ -207,6 +217,18 @@ function handleTestimonialSlider() {
 				nextArrow: $(this).find('.slick-next-arrow'),
 			})
 	})
+
+	let numTestimonials = $('.testimonial-slider--slide').length;
+	numTestimonials = numTestimonials - 1;
+
+	$('.testimonial-slider--slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+	    
+	    if (currentSlide == (numTestimonials - 1)) {
+	    	$('.slick-next-arrow').prop('disabled', true);
+	    } else {
+	    	$('.slick-next-arrow').prop('disabled', false);
+	    }
+	});
 }
 
 function handleTileSlider() {
@@ -216,40 +238,110 @@ function handleTileSlider() {
 		return
 	}
 
-	$section.each(function () {
-		$(this)
-			.find('.tile-slider--slider')
-			.slick({
-				slidesPerRow: 3,
-				rows: 3,
-				dots: true,
-				nextArrow:
-					"<button type='button' class='slick-next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
-				prevArrow:
-					"<button type='button' class='slick-prev'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
-				appendDots: $(this).find('.tile-slider--dots'),
-				appendArrows: $(this).find('.tile-slider--arrows'),
-				responsive: [
-					{
-						breakpoint: 1024,
-						settings: {
-							rows: 3,
-							adaptiveHeight: true,
-							slidesPerRow: 2,
-							adaptiveHeight: true,
+	if (document.body.classList.contains('global-sourcing')) {
+		$section.each(function () {
+			$(this)
+				.find('.tile-slider--slider')
+				.slick({
+					slidesPerRow: 3,
+					rows: 3,
+					dots: true,
+					nextArrow:
+						"<button type='button' class='slick-next' aria-label='next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					prevArrow:
+						"<button type='button' class='slick-prev' aria-label='previous'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					appendDots: $(this).find('.tile-slider--dots'),
+					appendArrows: $(this).find('.tile-slider--arrows'),
+					responsive: [
+						{
+							breakpoint: 1024,
+							settings: {
+								rows: 3,
+								adaptiveHeight: true,
+								slidesPerRow: 2,
+								adaptiveHeight: true,
+							},
 						},
-					},
-					{
-						breakpoint: 768,
-						settings: {
-							rows: 6,
-							slidesPerRow: 1,
-							adaptiveHeight: true,
+						{
+							breakpoint: 768,
+							settings: "unslick"
 						},
-					},
-				],
-			})
-	})
+					],
+				})
+		})
+
+		$(window).on('resize', function () {
+			if (window.innerWidth >= 768) {
+				if (!$('.tile-slider--slider').hasClass('slick-initialized')) {
+					$section.each(function () {
+						$(this)
+							.find('.tile-slider--slider')
+							.slick({
+								slidesPerRow: 3,
+								rows: 3,
+								dots: true,
+								nextArrow:
+									"<button type='button' class='slick-next' aria-label='next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+								prevArrow:
+									"<button type='button' class='slick-prev' aria-label='previous'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+								appendDots: $(this).find('.tile-slider--dots'),
+								appendArrows: $(this).find('.tile-slider--arrows'),
+								responsive: [
+									{
+										breakpoint: 1024,
+										settings: {
+											rows: 3,
+											adaptiveHeight: true,
+											slidesPerRow: 2,
+											adaptiveHeight: true,
+										},
+									},
+									{
+										breakpoint: 768,
+										settings: "unslick"
+									},
+								],
+							})
+						});
+					}
+				}
+		})
+	} else { 
+		$section.each(function () {
+			$(this)
+				.find('.tile-slider--slider')
+				.slick({
+					slidesPerRow: 3,
+					rows: 3,
+					dots: true,
+					nextArrow:
+						"<button type='button' class='slick-next' aria-label='next'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					prevArrow:
+						"<button type='button' class='slick-prev' aria-label='previous'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+					appendDots: $(this).find('.tile-slider--dots'),
+					appendArrows: $(this).find('.tile-slider--arrows'),
+					responsive: [
+						{
+							breakpoint: 1024,
+							settings: {
+								rows: 3,
+								adaptiveHeight: true,
+								slidesPerRow: 2,
+								adaptiveHeight: true,
+							},
+						},
+						{
+							breakpoint: 768,
+							settings: {
+								rows: 6,
+								slidesPerRow: 1,
+								adaptiveHeight: true,
+							},
+						},
+					],
+				})
+		})
+	}
 }
 
 function handleVerticalAccordions() {
@@ -257,6 +349,8 @@ function handleVerticalAccordions() {
 	if (!$sections.length) {
 		return
 	}
+
+	//vertical-accordion--heading
 
 	const $accordions = $('.vertical-accordion--accordion')
 	const $images = $('.vertical-accordion--figure')
@@ -273,7 +367,7 @@ function handleVerticalAccordions() {
 		$accordions.each(function (idx) {
 			$(this)
 				.find('.vertical-accordion--btn')
-				.on('mouseover', function () {
+				.on('click', function () {
 					if ($(this).attr('aria-expanded') == 'true') {
 						return
 					}
@@ -285,7 +379,7 @@ function handleVerticalAccordions() {
 								.attr('aria-expanded', 'true')
 							$(this)
 								.find('.vertical-accordion--content')
-								.attr('aria-hidden', 'false')
+								// .attr('aria-hidden', 'false')
 							$(this)
 								.find('.vertical-accordion--content')
 								.toggleClass('active inactive')
@@ -293,9 +387,9 @@ function handleVerticalAccordions() {
 							$(this)
 								.find('.vertical-accordion--btn')
 								.attr('aria-expanded', 'false')
-							$(this)
-								.find('.vertical-accordion--content')
-								.attr('aria-hidden', 'true')
+							// $(this)
+							// 	.find('.vertical-accordion--content')
+							// 	.attr('aria-hidden', 'true')
 							$(this).find('.vertical-accordion--content').addClass('inactive')
 							$(this).find('.vertical-accordion--content').removeClass('active')
 						}
@@ -325,7 +419,7 @@ function handleVerticalAccordions() {
 				$(this).attr('aria-expanded', 'true')
 			})
 			$content.each(function () {
-				$(this).attr('aria-hidden', 'false')
+				// $(this).attr('aria-hidden', 'false')
 				$(this).addClass('active')
 				$(this).removeClass('inactive')
 			})
@@ -337,11 +431,11 @@ function handleVerticalAccordions() {
 			})
 			$content.each(function (index) {
 				if (index == 0) {
-					$(this).attr('aria-hidden', 'false')
+					// $(this).attr('aria-hidden', 'false')
 					$(this).addClass('active')
 					$(this).removeClass('inactive')
 				} else {
-					$(this).attr('aria-hidden', 'true')
+					// $(this).attr('aria-hidden', 'true')
 					$(this).removeClass('active')
 					$(this).addClass('inactive')
 				}
@@ -384,9 +478,9 @@ function handleCareerSlider() {
 		arrows: true,
 		appendArrows: $('.career-block--arrows'),
 		nextArrow:
-			"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='next' type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 		prevArrow:
-			"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='previous' type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 	}
 	let desktopSettings = {
 		rows: 1,
@@ -397,9 +491,9 @@ function handleCareerSlider() {
 		arrows: true,
 		appendArrows: $('.career-block--arrows'),
 		nextArrow:
-			"<button type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='next' type='button' class='slick-next btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M12.5477 5.35596L17.9922 10.8004M17.9922 10.8004L12.5477 16.2448M17.9922 10.8004L3.99219 10.8004' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 		prevArrow:
-			"<button type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+			"<button aria-label='previous' type='button' class='slick-prev btn-blue-dark-blue'><svg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'><path d='M9.37413 16.2446L3.92969 10.8002M3.92969 10.8002L9.37413 5.35574M3.92969 10.8002L17.9297 10.8002' stroke='white' stroke-width='1.67' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
 	}
 
 	function initSlick() {
@@ -436,6 +530,161 @@ function disableFirstDropdownOptionRFQ() {
 	})
 }
 
+function handleAutoComplete() {
+
+	function autocomplete(inp, arr) {
+
+	  /*the autocomplete function takes two arguments,
+	  the text field element and an array of possible autocompleted values:*/
+	  var currentFocus;
+	  /*execute a function when someone writes in the text field:*/
+	  inp.addEventListener("input", function(e) {
+	      var a, b, i, val = this.value;
+	      /*close any already open lists of autocompleted values*/
+	      closeAllLists();
+	      if (!val) { return false;}
+	      if (val.trim() == '') { return false; }
+	      currentFocus = -1;
+	      /*create a DIV element that will contain the items (values):*/
+	      a = document.createElement("DIV");
+	      a.setAttribute("id", this.id + "autocomplete-list");
+	      a.setAttribute("class", "autocomplete-items");
+	      /*append the DIV element as a child of the autocomplete container:*/
+	      this.parentNode.appendChild(a);
+	      /*for each item in the array...*/
+	      //var pattern = new RegExp(val, 'gi');
+	      const boldQuery = (str, query) => {
+			    const n = str.toUpperCase();
+			    const q = query.toUpperCase();
+			    const x = n.indexOf(q);
+			    if (!q || x === -1) {
+			        return str; // bail early
+			    }
+			    const l = q.length;
+			    return str.substr(0, x) + '<strong>' + str.substr(x, l) + '</strong>' + str.substr(x + l);
+			}
+			//let limit = 15;
+	      for (i = 0; i < arr.length; i++) {
+	      	//if (i < limit) {
+	        /*check if the item starts with the same letters as the text field value:*/
+	        if (arr[i][0].toUpperCase().includes(val.toUpperCase())) {
+	        //if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+	          /*create a DIV element for each matching element:*/
+	          b = document.createElement("DIV");
+	          /*make the matching letters bold:*/
+	          //b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+	          b.innerHTML = '';
+	          if (arr[i][1] == 'Product') {
+	          	b.innerHTML = '<span class="product-pill">Product</span> ';
+	          }
+
+	          b.innerHTML += boldQuery(arr[i][0], val);
+	          //b.innerHTML = arr[i].replace(pattern, '<strong>' + val + '</strong>');
+	          /*insert a input field that will hold the current array item's value:*/
+	          b.innerHTML += "<input type='hidden' value='" + arr[i][0] + "'><input type='hidden' value='" + arr[i][2] + "'>";
+	          /*execute a function when someone clicks on the item value (DIV element):*/
+	              b.addEventListener("click", function(e) {
+	              	document.location.href = this.getElementsByTagName("input")[1].value;
+	              /*insert the value for the autocomplete text field:*/
+	              inp.value = this.getElementsByTagName("input")[0].value;
+	              /*close the list of autocompleted values,
+	              (or any other open lists of autocompleted values:*/
+	              closeAllLists();
+
+	              
+	          });
+	          a.appendChild(b);
+	        }
+	      //}
+	  	}
+	  });
+	  /*execute a function presses a key on the keyboard:*/
+	  inp.addEventListener("keydown", function(e) {
+	      var x = document.getElementById(this.id + "autocomplete-list");
+	      if (x) x = x.getElementsByTagName("div");
+	      if (e.keyCode == 40) {
+	        /*If the arrow DOWN key is pressed,
+	        increase the currentFocus variable:*/
+	        currentFocus++;
+	        /*and and make the current item more visible:*/
+	        addActive(x);
+	      } else if (e.keyCode == 38) { //up
+	        /*If the arrow UP key is pressed,
+	        decrease the currentFocus variable:*/
+	        currentFocus--;
+	        /*and and make the current item more visible:*/
+	        addActive(x);
+	      } else if (e.keyCode == 13) {
+	        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+	        e.preventDefault();
+	        if (currentFocus > -1) {
+	          /*and simulate a click on the "active" item:*/
+	          if (x) x[currentFocus].click();
+	        }
+	      }
+	  });
+
+	  function addActive(x) {
+	    /*a function to classify an item as "active":*/
+	    if (!x) return false;
+	    /*start by removing the "active" class on all items:*/
+	    removeActive(x);
+	    if (currentFocus >= x.length) currentFocus = 0;
+	    if (currentFocus < 0) currentFocus = (x.length - 1);
+	    /*add class "autocomplete-active":*/
+	    x[currentFocus].classList.add("autocomplete-active");
+	  }
+
+	  function removeActive(x) {
+	    /*a function to remove the "active" class from all autocomplete items:*/
+	    for (var i = 0; i < x.length; i++) {
+	      x[i].classList.remove("autocomplete-active");
+	    }
+	  }
+  
+	}
+
+	function closeAllLists(elmnt=false, inp=false) {
+	    /*close all autocomplete lists in the document,
+	    except the one passed as an argument:*/
+	    var x = document.getElementsByClassName("autocomplete-items");
+	    for (var i = 0; i < x.length; i++) {
+	         x[i].parentNode.removeChild(x[i]);
+	    }
+	  }
+
+	document.addEventListener("click", function (e) {
+	    closeAllLists(e.target, document.getElementById('pab-filters-search'));
+	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+		autocomplete(document.getElementById("pab-filters-search"), products);
+	});
+
+}
+
+function handleCalc() {
+	$('.calc .tf-dropdown ul li').on('click', function() {
+		let thiscalc = $(this).closest('.calc-main').data('calc');
+		let thisIndex = $(this).data('key');
+
+		$('.calc .' + thiscalc + ' .tf-dropdown').each(function() {
+			$(this).find('dt p').text($(this).find('li[data-key=' + thisIndex + ']').text());
+		})
+	})
+}
+
+function handleContactLoc() {
+	if (window.innerWidth <= 768) {
+		$('#location1id').on('click', function() {
+			$('#location1')[0].scrollIntoView();
+		});
+		$('#location2id').on('click', function() {
+		$('#location2')[0].scrollIntoView();
+		});
+	}
+}
+
 function runBlocks() {
 	placeholder()
 	handleFAQAccordion()
@@ -448,6 +697,12 @@ function runBlocks() {
 	handleVerticalAccordions()
 	handleCareerSlider()
 	disableFirstDropdownOptionRFQ()
+	handleCalc();
+	handleContactLoc();
+
+	if (document.body.classList.contains('products') || document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
+		handleAutoComplete();
+	}
 }
 
 export { runBlocks }

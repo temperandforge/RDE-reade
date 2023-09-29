@@ -22,14 +22,14 @@ if (!empty($block['data']['_is_preview'])) {
                      <p><?php echo $fields['content']; ?></p>
                   <?php endif; ?>
                   <?php if (!empty($fields['link'])) : ?>
-                     <a href="<?php echo $fields['link']['title']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
+                     <a href="<?php echo $fields['link']['url']; ?>" target="<?php echo $fields['link']['target'] ?: '_self'; ?>" class="btn-blue-dark-blue">
                         <?php echo $fields['link']['title']; ?>
                      </a>
                   <?php endif; ?>
                </div>
                <div class="dual-block--second">
                   <figure>
-                     <?php echo wp_get_attachment_image($fields['image']['id'], 'full'); ?>
+                     <?php echo wp_get_attachment_image($fields['image']['id'], 'large', false, ['loading' => 'eager']); ?>
                   </figure>
                </div>
             </div>

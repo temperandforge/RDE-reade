@@ -1,5 +1,5 @@
 .basic-content {
-   @apply mx-auto text-center py-[7.84rem];
+   @apply mx-auto text-center py-[3.75rem] sm:py-[7.84rem];
    
    color: var(--primary-900, #045);
    font-size: 1.125rem;

@@ -5,6 +5,11 @@
 		background-size: unset;
 	}
 }
+body.about-us {
+	.grid-hero--section {
+		z-index: 20;
+	}
+}
 
 .grid-hero--wrap {
 	@apply relative z-10;
@@ -38,6 +43,9 @@
 	}
 
 	h1 {
+
+		text-wrap: balance;
+		
 		@include inner-wrap(992px);
 		font-size: 28px;
 		font-weight: 700;
@@ -61,6 +69,7 @@
 		}
 	}
 }
+
 
 .grid-hero--decor {
 	@apply absolute section-full;
@@ -145,6 +154,21 @@
 	&.pestle-svg {
 		&:after {
 			background-image: url("data:image/svg+xml,%3Csvg width='134' height='140' viewBox='0 0 134 140' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_4346_64534)'%3E%3Cpath d='M55.6134 35.9617C59.3116 35.6593 63.1161 35.5017 66.9989 35.5017C103.378 35.5017 132.868 49.3425 132.868 66.4166C132.868 83.4907 103.378 97.3315 66.9989 97.3315C30.6199 97.3315 1.12939 83.4907 1.12939 66.4166C1.12939 56.6317 10.8146 47.9091 25.9315 42.2442' stroke='%23BAE3E9' stroke-width='3' stroke-miterlimit='10'/%3E%3Cpath d='M132.868 66.4165C132.868 106.431 113.349 138.869 66.9989 138.869C20.6491 138.869 1.12939 106.431 1.12939 66.4165' stroke='%23BAE3E9' stroke-width='3' stroke-miterlimit='10'/%3E%3Cpath d='M64.2016 43.6121C65.1278 43.5887 66.0609 43.5767 66.9999 43.5767C95.0804 43.5767 117.845 54.2604 117.845 67.4399C117.845 80.6195 95.0804 91.3032 66.9999 91.3032C38.9194 91.3032 16.1553 80.6195 16.1553 67.4399C16.1553 60.6191 22.2523 54.4662 32.0288 50.1178' stroke='%23BAE3E9' stroke-width='3' stroke-miterlimit='10'/%3E%3Cpath d='M63.8848 91.2586L7.3252 18.2135C3.52 13.2996 3.59009 6.84135 7.48649 3.36079C11.3038 -0.048144 17.5606 0.506816 22.0147 4.64866L91.5689 69.3241C96.5588 73.9644 99.1921 80.0946 99.3104 85.8659' stroke='%23BAE3E9' stroke-width='3' stroke-miterlimit='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_4346_64534'%3E%3Crect width='134' height='140' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+		}
+	}
+}
+
+body.history {
+	.grid-hero--decor {
+		&:after {
+			@include respond-above(xl) {
+				top: 40%;
+			}
+
+			@include respond-below(xl) {
+				top: unset;
+				bottom: 25px;
+			}
 		}
 	}
 }

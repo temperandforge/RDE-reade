@@ -4,7 +4,9 @@
     display: flex;
     padding-top: 110px;
     padding-bottom: 110px;
+    margin: 0 auto;
     margin-bottom: 55px;
+    max-width: 1300px;
 
     @include respond-below(md) {
         flex-direction: column;
@@ -79,6 +81,8 @@
         }
 
         img {
+            height: 100%;
+            width: auto;
             margin: 0 auto;
             @include respond-below(md) {
                 max-height: 329px;

@@ -98,6 +98,11 @@ $grid-breakpoints: (
 		display: none;
 	}
 }
+@include respond-below(sm) {
+	body {
+		@include hide-sb();
+	}
+}
 @mixin fillall() {
 	position: absolute;
 	top: 0;
@@ -118,7 +123,8 @@ $grid-breakpoints: (
 	@include main-content-wrap;
 }
 @mixin padding-main() {
-	padding-inline: max(1.5rem, min(7vw, 100px)); // 24px, 100/1440
+	// padding-inline: max(1.5rem, min(7vw, 100px)); // 24px, 100/1440
+	padding-inline: max(1.5rem, 7vw);
 	@include respond-below(sm) {
 		//mobile
 		padding-inline: 1rem;

@@ -3,7 +3,9 @@ define('TEXTDOMAIN', 'acl-theme');
 define("IS_LOCAL", wp_get_environment_type() == "local");
 define("REMOTE_URL", "https://reade.wpengine.com");
 
-ini_set("error_log", get_stylesheet_directory() . "/debug.txt");
+if( IS_LOCAL ) {
+   ini_set("error_log", get_stylesheet_directory() . "/debug.txt");
+}
 
 require_once( get_stylesheet_directory() . '/lib/theme-setup.php' );
 require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
@@ -49,8 +51,28 @@ add_filter( 'woocommerce_taxonomy_args_product_cat', 'enable_taxonomy_rest' );
 add_filter( 'woocommerce_taxonomy_args_product_tag', 'enable_taxonomy_rest' );
 
 //rid of resize warnings for woocommerce being outputted on the page
-if( IS_LOCAL ) {
-   add_filter('woocommerce_resize_images', static function() {
-      return false;
-   });
+add_filter('woocommerce_resize_images', static function() {
+    return false;
+});
+
+/* redirect single team member to /about-us/leadership/#team-member */
+function custom_rewrite_rule() {
+    add_rewrite_rule('^team/([^/]+)/?', 'index.php?team_member=$matches[1]', 'top');
 }
+add_action('init', 'custom_rewrite_rule');
+
+function custom_query_vars($vars) {
+    $vars[] = 'team_member';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars');
+
+function custom_team_member_redirect() {
+    if (get_query_var('team_member')) {
+        $team_member = get_query_var('team_member');
+        wp_redirect('/about-us/leadership/#' . $team_member, 301);
+        exit();
+    }
+}
+add_action('template_redirect', 'custom_team_member_redirect');
+

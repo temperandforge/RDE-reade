@@ -113,6 +113,9 @@
    }
    h2 {
       @apply mb-8 mt-16 font-bold;
+      &:first-child {
+       @apply mt-0;  
+      }
       text-wrap: balance;
       scroll-margin-top: 3rem;
 
@@ -208,6 +211,9 @@
       margin-top: 0;
       border-radius: 0 0 0.3125rem 0.3125rem;
    }
+   aside.in-page-nav {
+      margin-bottom: 4rem;
+   }
 }
 @include respond-above(xl) {
    .in-page-nav {
@@ -216,6 +222,28 @@
       @apply px-10 py-6;
       top: calc(2rem + var(--navbar-height));
       top: var(--navbar-height);
+      max-height: calc(100vh - 2 * var(--navbar-height));
+      overflow: auto;
+      overscroll-behavior: contain;
+
+      /* Works on Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) #fff;
+      
+      /* Works on Chrome, Edge, and Safari */
+      &::-webkit-scrollbar {
+         width: 12px;
+      }
+       
+      &::-webkit-scrollbar-track {
+         background: #fff;
+      }
+       
+      &::-webkit-scrollbar-thumb {
+         background-color: var(--primary);
+         border-radius: 20px;
+         border: 3px solid #fff;
+      }
 
       nav {
          @apply bg-[#0000] mt-0 relative; // mx-8 my-6 relative;

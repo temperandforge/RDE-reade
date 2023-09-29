@@ -97,8 +97,7 @@ get_header(); ?>
                   'numberposts' => 3,
                   'category'    => $single_cat[0]->term_id,
                   'post_status' => 'publish',
-                  'orderby'     => 'date',
-                  'order'       => 'DESC',
+                  'orderby'       => 'rand',
                   'post__not_in' => array(get_the_ID()),
                );
 

@@ -1,0 +1,33 @@
+name: Deploy to WP Engine
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest  
+    defaults:
+      run:
+        working-directory: "./wp-content/themes/reade-theme"
+    steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: 'npm'
+        cache-dependency-path: "**/package-lock.json"
+    - run: npm install --frozen-lockfile
+    - run: npm run build
+    - run: rm -rf node_modules package-lock.json
+
+    - name: GitHub Action Deploy to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v3.0
+      with:
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
+        WPE_ENV: ${{ secrets.WPE_ENV_PRD }} 
+        ## Deploy Options
+        CACHE_CLEAR: TRUE

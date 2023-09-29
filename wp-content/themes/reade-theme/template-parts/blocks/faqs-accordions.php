@@ -38,7 +38,7 @@ if(!$recommended_posts) {
    <button class="accordion-btn" aria-expanded="false">
     <strong><?php echo $question; ?></strong>
    </button>
-   <div class="accordion-answer" aria-hidden="true" >
+   <div class="accordion-answer">
     <?php echo $answer; ?>
     <?php if(!empty($link)) :?>
      <a 

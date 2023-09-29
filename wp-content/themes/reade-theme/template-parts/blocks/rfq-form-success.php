@@ -2,6 +2,11 @@
 
 $fields = get_fields();
 
+
+// empty cart
+global $woocommerce;
+$woocommerce->cart->empty_cart();
+
 ?>
 
 <div class="rfq-submit--section">
@@ -23,7 +28,7 @@ $fields = get_fields();
       <?php endif ;?>
       <?php if(!empty($fields['submit_link'])) :?>
        <a 
-       href="<?php echo $fields['submit_link']['title'] ;?>"
+       href="<?php echo $fields['submit_link']['url'] ;?>"
        target="<?php echo $fields['submit_link']['target'] ?: '_self';?>"
        class="btn-blue-dark-blue btn-arrow">
         <span><?php echo $fields['submit_link']['title'] ;?></span>

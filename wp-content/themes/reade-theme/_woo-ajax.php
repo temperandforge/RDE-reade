@@ -156,3 +156,29 @@ if (!empty($_POST['action']) && ($_POST['action'] == 'doChangeQty')) {
 if (!empty($_POST['action']) && ($_POST['action'] == 'doSubmit')) {
 	die('success');
 }
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doChangeCurrentlyUsing')) {
+	if (!empty($_POST['cart-key']) && isset($_POST['value'])) {
+		foreach ($cart->get_cart_contents() AS $key => $item) {
+			if ($_POST['cart-key'] == $key) {
+				$item['currently_using'] = ($_POST['value'] == '1') ? 'Yes' : 'No';
+				$cart->cart_contents[ $key ] = $item;
+				$cart->set_session();
+				die('success');
+			}
+		}
+	}
+}
+
+if (!empty($_POST['action']) && ($_POST['action'] == 'doUpdateGeneralApplication')) {
+	if (!empty($_POST['cart-key']) && isset($_POST['value'])) {
+		foreach ($cart->get_cart_contents() AS $key => $item) {
+			if ($_POST['cart-key'] == $key) {
+				$item['general_application'] = (trim($_POST['value']) == '') ? '' : $_POST['value'];
+				$cart->cart_contents[ $key ] = $item;
+				$cart->set_session();
+				die('success');
+			}
+		}
+	}
+}
