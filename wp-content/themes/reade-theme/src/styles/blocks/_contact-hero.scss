@@ -10,21 +10,19 @@
 .contact-hero--wrap {
 	@apply flex flex-col items-center;
 	@include inner-wrap(700px);
+
+	@include respond-above(xl) {
+		@apply relative;
+	}
+
+
 }
 
 .contact-hero--figure {
 	@include respond-above(xl) {
 		@apply absolute;
-		top: 48px;
-		right: -15%;
-	}
-
-	@include respond-above(3xl) {
-		right: -7.5%;
-	}
-
-	@include respond-above(4xl) {
-		right: 0;
+		top: -20%;
+		right: -66%;
 	}
 
 	img {
