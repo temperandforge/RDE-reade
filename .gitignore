@@ -84,6 +84,7 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 /wp-content/themes/temperandforge*
 /wp-content/themes/index.php
 /wp-content/plugins/index.php
+/wp-content/plugins/*
 /wp-content/plugins/akismet*
 /wp-content/plugins/amp*
 # /wp-content/plugins/contact-form-7*
