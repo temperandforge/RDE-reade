@@ -32,17 +32,17 @@
 				// console.log(e.target.parentNode.querySelector('.hs-dropdown-menu'))
 				// console.log(e.target.parentNode.querySelector('.hs-dropdown-menu').classList.contains('.hs-dropdown-open'))
 				window.$('.hs-dropdown-menu').removeClass('hs-dropdown-open')
-				console.log(
-					e.target.parentNode //.querySelector('.hs-dropdown-menu').classList
-				)
+				// console.log(
+				// 	e.target.parentNode //.querySelector('.hs-dropdown-menu').classList
+				// )
 				e.target.parentNode
 					.querySelector('.hs-dropdown-menu')
 					.classList.toggle('hs-dropdown-open')
-				console.log(
-					e.target.parentNode
-						.querySelector('.hs-dropdown-menu')
-						.classList.contains('.hs-dropdown-open')
-				)
+				// console.log(
+				// 	e.target.parentNode
+				// 		.querySelector('.hs-dropdown-menu')
+				// 		.classList.contains('.hs-dropdown-open')
+				// )
 			})
 		)
 

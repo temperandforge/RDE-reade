@@ -13,7 +13,7 @@ async function scrapeLinks(url, depth) {
   });
   
   // Print the links found on the current page
-  console.log( url );
+  // console.log( url );
 //   console.log('Links on', url);
 //   links.forEach(link => console.log(link));
 

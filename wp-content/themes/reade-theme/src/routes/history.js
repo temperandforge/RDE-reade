@@ -94,7 +94,7 @@ export default {
 						widths.map((val) => (x += val))
 						// .reduce((accumulator, currentValue) => accumulator + currentValue, initialValue)
 
-						console.log(gsap.utils.toArray('.panel').map((el) => el.getBoundingClientRect().width).reduce((accumulator, currentValue) => accumulator + currentValue, 0))
+						// console.log(gsap.utils.toArray('.panel').map((el) => el.getBoundingClientRect().width).reduce((accumulator, currentValue) => accumulator + currentValue, 0))
 						tween = gsap.to(sections, {
 							x: document.body.clientWidth - gsap.utils.toArray('.panel').map((el) => el.getBoundingClientRect().width).reduce((accumulator, currentValue) => accumulator + currentValue, 0),//initialValue),
 							ease: 'none',
@@ -129,7 +129,7 @@ export default {
 						
 					clearTimeout(t)
 					t = setTimeout(function () {
-						console.log('History')
+						// console.log('History')
 						if( !! tween.scrollTrigger ) {
 							tween.scrollTrigger.kill(true)
 						}

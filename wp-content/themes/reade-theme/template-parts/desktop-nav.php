@@ -45,7 +45,7 @@ if(!defined('option_fields')) {
                <form role="search" id="header-site-search" method="get" action="<?php echo get_site_url() ?>">
                   <!-- //TODO <span aria-hidden="true" class="focus-detection fillall"></span> -->
                   <label for="mobile_search" class="sr-only">Search</label>
-                  <input type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" id="mobile_search" spellcheck="false" name="s" />
+                  <input type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" id="desktop_search" spellcheck="false" name="s" />
                   <button type="submit" aria-label="search"> <!-- TODO -->
                   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.627 16.3103L11.543 11.2263M13.2376 6.98967C13.2376 10.2654 10.5821 12.921 7.30632 12.921C4.03054 12.921 1.375 10.2654 1.375 6.98967C1.375 3.71389 4.03054 1.05835 7.30632 1.05835C10.5821 1.05835 13.2376 3.71389 13.2376 6.98967Z" stroke="#009FC6" stroke-width="1.81934" stroke-linecap="round" stroke-linejoin="round"/> </svg>
                   </button>

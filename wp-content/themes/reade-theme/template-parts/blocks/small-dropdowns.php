@@ -7,7 +7,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
    </figure>
 <?php 
 } else if( $fields = get_fields() ?: []) {
-   echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
+   // echo '<script>console.log('.json_encode($fields, JSON_PRETTY_PRINT).');</script>';//debug
 ?>
 
 <div class="small-dropdowns">
