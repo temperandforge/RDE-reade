@@ -1,5 +1,7 @@
 # READE ( WPEngine )
 
+- back link on /sustainable-rpoducts is static
+- product sort is hard coded as each need internal ajax sortign functionality setup
 
 
 ## TAGS
