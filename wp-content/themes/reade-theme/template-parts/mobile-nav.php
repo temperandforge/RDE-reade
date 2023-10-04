@@ -18,7 +18,7 @@ $option_fields = get_fields('option'); ?>
       </button>
    </div>
    <div class="mobile-search">
-      <form role="search" method="get" action="<?php echo get_site_url() ?>">
+      <form role="search" method="get" id="mobile-header-site-search" action="<?php echo get_site_url() ?>">
         <label for="mobile_search" class="sr-only">Search</label>
         <input type="search" placeholder="Search Here..." autocomplete="off" autocorrect="off" autocapitalize="off" id="mobile_search" spellcheck="false" name="s" />
         <button type="submit" aria-label="submit" role="button">
