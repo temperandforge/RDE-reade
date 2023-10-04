@@ -179,3 +179,11 @@ body:not(.home) {
 		}
 	}
 }
+
+body.about-us {
+	.primary-cta {
+		@include respond-above(lg) {
+			margin-top: 340px;
+		}
+	}
+}

@@ -112,7 +112,10 @@ function handleLeadershipSlider() {
 	$(document).ready(function() {
 		if (window.location.hash && window.location.hash != '') {
 			if ($('.' + window.location.hash.replace('#', '')).length) {
-				$('.' + window.location.hash.replace('#', '')).click();
+				console.log(window.location.hash.replace('#', ''));
+				let tm = $('.' + window.location.hash.replace('#', ''));
+				console.log(tm);
+				tm.click();
 			}
 		}
 	});
