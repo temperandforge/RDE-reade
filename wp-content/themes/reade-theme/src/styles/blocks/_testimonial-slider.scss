@@ -1,18 +1,27 @@
 .testimonial-slider--section {
- @apply bg-light-blue; 
+	@apply bg-light-blue;
 
- &:after {
-  background: linear-gradient(180deg, rgba(0, 159, 198, 0.00) 0%, rgba(0, 159, 198, 0.08) 100%);
-  bottom: 0;
-  top: unset;
-  height: 75%;
- }
+	&:after {
+		background: linear-gradient(
+			180deg,
+			rgba(0, 159, 198, 0) 0%,
+			rgba(0, 159, 198, 0.08) 100%
+		);
+		bottom: 0;
+		top: unset;
+		height: 75%;
+	}
 
- .slick-arrow:disabled {
-		background-color: var(--neutral-300, #D4D4D4);
+	.slick-arrow {
+		&:disabled {
+			background-color: var(--neutral-300, #d4d4d4);
+		}
+
+		&.slick-disabled {
+			background-color: var(--neutral-300, #d4d4d4);
+		}
 	}
 }
-
 
 .testimonial-slider--main {
 	@apply relative;
@@ -89,8 +98,6 @@
 			}
 		}
 	}
-
-	
 }
 
 .testimonial-slider--slide {
@@ -108,11 +115,10 @@
 		//aspect-ratio: 342/271;
 	}
 
- @include respond-above(xl) {
+	@include respond-above(xl) {
 		//height: 100%;
 		min-height: fit-content;
 	}
-
 
 	@include respond-above(lg) {
 		flex: 0 0 calc(50% - calc(25px / 2));
