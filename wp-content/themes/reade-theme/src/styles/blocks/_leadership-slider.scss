@@ -129,6 +129,7 @@ figure {
 			aspect-ratio: 713 / 487;
 			object-fit: cover;
 			width: 100%;
+			filter: grayscale(100%);
 
 			@include respond-above(sm) {
 				border-radius: 10px;

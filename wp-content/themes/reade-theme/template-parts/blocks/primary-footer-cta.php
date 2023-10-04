@@ -36,7 +36,7 @@ $ctas = !empty($fields['ctas']) ? $fields['ctas'] : $options['pfcta_ctas'];
                      <p style="text-wrap: balance"><?php echo $content; ?></p>
                   <?php endif; ?>
                   <?php if (!empty($link)) : ?>
-                     <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target'] ?: '_self'; ?>" class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null; ?>">
+                     <a href="<?php echo $link['url']; ?>" target="<?php echo $link['target'] ?: '_self'; ?>" class="primary-cta-btn<?php echo $fields['include_arrow'] ? ' btn-arrow' : null; ?>" aria-label="Learn More">
                         <span><?php echo $fields['link']['title']; ?></span>
                         <?php if ($includearrow) : ?>
                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
