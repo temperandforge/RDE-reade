@@ -59,6 +59,18 @@ body.toll-packaging {
 	}
 }
 body.toll-processing {
+	.tile-slider--heading {
+		p {
+			@include respond-below(md) {
+				text-align: center;
+			}
+		}
+	}
+	.tile-slider--slide {
+		strong {
+			font-weight: 600;
+		}
+	}
 	.tile-slider--wrapper {
 		.tile-slider--decor {
 			&:before {
@@ -72,6 +84,19 @@ body.toll-processing {
 				}
 			}
 		}
+	}
+}
+body.global-sourcing {
+	.tile-slider--section {
+		@include respond-below(lg) {
+			padding-top: 6rem;
+		}
+	}
+	.tile-slider--slide {
+		text-align: center;
+	}
+	.tile-slider--slide strong {
+		font-weight: 600;
 	}
 }
 
