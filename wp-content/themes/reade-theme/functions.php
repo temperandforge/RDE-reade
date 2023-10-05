@@ -11,10 +11,6 @@ require_once( get_stylesheet_directory() . '/lib/theme-setup.php' );
 require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
 require_once( get_stylesheet_directory() . '/template-parts/blocks/_index.php' );
 
-//PRE_LAUNCH
-require_once (get_stylesheet_directory() . '/lib/woocommerce-product-checker.php');
-require_once (get_stylesheet_directory() . '/lib/tf-db-sync.php');
-
 /** Language Switching -> handled by gtranslate */
 // add_action( 'after_setup_theme', 'reade_load_theme_textdomain' );
 // function reade_load_theme_textdomain() {
@@ -77,3 +73,62 @@ function custom_team_member_redirect() {
 }
 add_action('template_redirect', 'custom_team_member_redirect');
 
+
+/* Disable tag pages, author page, user page, attachment page, media page */
+function disable_sections() {
+    if (is_tag()) {
+        global $wp_query;
+        wp_redirect(home_url(), 301);
+        exit();
+    }
+    if (is_author()) {
+        global $wp_query;
+        wp_redirect(home_url(), 301);
+        exit();
+    }
+
+    // attachment pages already redirect to the /wp-content/uploads/2023/x/x.ext
+}
+
+add_action('template_redirect', 'disable_sections');
+
+/* Remove wc-all-blocks-style-css stylesheet */
+function remove_wc_all_blocks_style_css() {
+  wp_deregister_style( 'wc-all-blocks-style' );
+}
+add_action( 'enqueue_block_assets', 'remove_wc_all_blocks_style_css', 1, 1 );
+
+/* Custom menu walker to add svg to menu-primary-navigation-1 */
+class Custom_Menu_Walker extends Walker_Nav_Menu {
+    // Override the start_el method
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $indent = ($depth) ? str_repeat("\t", $depth) : '';
+
+        // Check if the current menu item has children
+        $has_children = in_array('menu-item-has-children', $item->classes);
+
+        // Add an SVG icon if the item has children
+        if ($has_children) {
+            $svg_icon = '<svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.677253 0.716315C0.91359 0.479978 1.29677 0.479978 1.5331 0.716315L4.729 3.91221L7.9249 0.716315C8.16124 0.479978 8.54442 0.479978 8.78076 0.716315C9.01709 0.952652 9.01709 1.33583 8.78076 1.57217L5.15693 5.19599C4.92059 5.43233 4.53742 5.43233 4.30108 5.19599L0.677253 1.57217C0.440916 1.33583 0.440916 0.952652 0.677253 0.716315Z" fill="#004455"/>
+</svg>
+'; // You can replace this with your SVG code
+        } else {
+            $svg_icon = '';
+        }
+
+        $output .= $indent . '<li id="menu-item-' . $item->ID . '" class="' . implode(' ', $item->classes) . '">';
+
+        $attributes  = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+        $item_output .= $svg_icon . '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+}

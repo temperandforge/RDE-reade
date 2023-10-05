@@ -21,6 +21,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
 <div class="calculator" style="display: none">
    <div class="calculator--content">
       <?php if (array_key_exists('heading', $fields) && $heading = $fields['heading'] ): ?>
+
          <h2 class="title"><?php echo $heading; ?></h2>
       <?php endif;?>
       <p><?php echo __($fields['content'], TEXTDOMAIN); ?></p>

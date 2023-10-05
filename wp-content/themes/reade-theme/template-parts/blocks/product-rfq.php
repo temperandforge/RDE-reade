@@ -66,12 +66,6 @@ $productAttrName = '';
             <?php
         }
 
-        if (!empty($fields['text'])) {
-            ?>
-            <p class="product-rfq-text"><?php echo $fields['text']; ?></p>
-            <?php
-        }
-
         ?>
         <div class="product-rfq-options">
             <?php

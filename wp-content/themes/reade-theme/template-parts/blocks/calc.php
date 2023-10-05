@@ -23,6 +23,7 @@ $fields = get_fields();
 
             if (!empty($fields['weight_heading'])) {
                ?>
+               <h1 class="sr-only"><?php echo $fields['weight_heading']; ?></h1>
                <h2 class="calc-info-heading"><?php echo $fields['weight_heading']; ?></h2>
                <?php
             }
@@ -108,6 +109,7 @@ $fields = get_fields();
 
                      if (!empty($calc['heading'])) {
                         ?>
+                        <h1 class="sr-only"><?php echo $calc['heading']; ?></h1>
                         <h2 class="calc-info-heading"><?php echo $calc['heading']; ?></h2>
                         <?php
                      }

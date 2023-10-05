@@ -17,6 +17,26 @@ function responsiveNavbar() {
 	window.onload = window.onresize;
 }
 
+/**
+ * This function prevents clicking a main menu item with children from leaving a menu open 
+ * while another can be hovered
+ */
+function desktopMenu() {
+	let dm = $('#menu-primary-navigation-1 > li');
+	dm.on('click mouseover', function(e) {
+		dm.find('.sub-menu').css('opacity', '0').css('pointer-events', 'none');
+		dm.removeClass('sub-menu-open');
+
+		$(this).find('.sub-menu').css('opacity', '1').css('pointer-events', 'auto');
+		$(this).addClass('sub-menu-open');
+
+		$(this).find('.sub-menu').on('mouseleave', function() {
+			$(this).css('opacity', '0').css('pointer-events', 'none');
+			$(this).parent().removeClass('sub-menu-open');
+		})
+	});
+}
+
 function mobileMenu() {
 	// assumes existence
 	const $menu = $( '.mobile-menu' );
@@ -62,6 +82,7 @@ function mobileMenu() {
 function runFunctions() {
 	responsiveNavbar();
 	mobileMenu()
+	desktopMenu()
 }
 
 export {

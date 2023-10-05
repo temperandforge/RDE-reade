@@ -48,10 +48,12 @@ if( !empty( $block['data']['_is_preview'] ) ) {
             const target = document.querySelector(`.small-dropdowns [data-collapse="${dropdown.dataset.collapseTarget}"]`);
             if( target.classList.contains('open')) {
                target.classList.remove('open')
+               dropdown.classList.remove('active')
             } else {
                // document.querySelectorAll(`.small-dropdowns [data-collapse]`).forEach( el =>el.classList.remove('open') );
                setTimeout(() => {
                   target.classList.add('open');
+                  dropdown.classList.add('active')
                }, 50);
             }
          }

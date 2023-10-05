@@ -51,6 +51,13 @@ body:not(.home) {
 				content: unset;
 			}
 		}
+
+		&.bg-geometric {
+			&:before {
+				top: unset;
+				bottom: 320px;
+			}
+		}
 	}
 
 	.primary-cta-main {
@@ -176,6 +183,14 @@ body:not(.home) {
 				padding-left: unset;
 				padding-right: unset;
 			}
+		}
+	}
+}
+
+body.about-us {
+	.primary-cta {
+		@include respond-above(lg) {
+			margin-top: 340px;
 		}
 	}
 }

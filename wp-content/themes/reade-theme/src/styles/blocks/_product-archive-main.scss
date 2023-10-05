@@ -45,6 +45,8 @@
 			flex-direction: column-reverse;
 			margin-bottom: 45px;
 		}
+
+		scroll-margin-top: 20px;
 	}
 
 	.pab-filters-left {
@@ -165,8 +167,11 @@
 	}
 	.pab-top-wrap {
 		display: flex;
-		padding-left: 40px;
-		padding-right: 40px;
+		column-gap: 40px;
+		/* padding-left: 40px;
+		padding-right: 40px; */
+		padding-left: 55px;
+		padding-right: 55px;
 		margin-bottom: 19px;
 
 		@include respond-below(lg) {
@@ -174,7 +179,8 @@
 		}
 	}
 	.pab-top-wrap-left {
-		flex-basis: 25%;
+		/* flex-basis: 25%; */
+		flex-basis: 239px;
 		color: var(--primary-900, #045);
 		font-size: 18px;
 		font-weight: 600;
@@ -182,7 +188,6 @@
 		letter-spacing: -0.36px;
 	}
 	.pab-top-wrap-right {
-		padding-left: 28px;
 		color: var(--primary-900, #045);
 		font-size: 18px;
 		font-weight: 600;
@@ -365,6 +370,7 @@
 		display: flex;
 		gap: 6.4px;
 		justify-content: center;
+		flex-wrap: wrap;
 
 		svg {
 			transition: ease 0.2s;

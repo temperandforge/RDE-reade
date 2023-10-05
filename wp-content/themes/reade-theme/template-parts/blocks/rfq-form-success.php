@@ -20,6 +20,7 @@ $woocommerce->cart->empty_cart();
     <?php endif ;?>
     <?php if((!empty($fields['submit_heading'])) || (!empty($fields['submit_content']))) :?>
      <div class="rfq-submit--content">
+        <h1 class="sr-only">Your RFQ Has Been Received</h1>
       <?php if(!empty($fields['submit_heading'])) :?>
        <h2><?php echo $fields['submit_heading'] ;?></h2>
       <?php endif ;?>
