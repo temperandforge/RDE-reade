@@ -178,6 +178,7 @@ function handleIndustrySlider() {
 			.slick({
 				slidesToScroll: 1,
 				rows: 3,
+				fade: true,
 				slidesPerRow: 2,
 				adaptiveHeight: true,
 				dots: true,

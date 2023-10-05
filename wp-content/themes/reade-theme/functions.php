@@ -12,6 +12,7 @@ require_once( get_stylesheet_directory() . '/lib/theme-enqueue-scripts.php' );
 require_once( get_stylesheet_directory() . '/template-parts/blocks/_index.php' );
 
 //PRE_LAUNCH
+require_once (get_stylesheet_directory() . '/lib/woocommerce-product-checker.php');
 require_once (get_stylesheet_directory() . '/lib/tf-db-sync.php');
 
 /** Language Switching -> handled by gtranslate */
