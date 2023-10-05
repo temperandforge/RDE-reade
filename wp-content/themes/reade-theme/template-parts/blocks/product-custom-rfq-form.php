@@ -8,6 +8,7 @@ $fields = get_fields();
  <div class="rfq-form--main">
   <div class="rfq-form--inner">
    <div class="rfq-form--wrap">
+     <h1 class="sr-only">Request A Custom Product</h1>
     <?php if((!empty($fields['heading'])) || (!empty($fields['content']))) :?>
      <div class="rfq-form--heading">
       <?php if(!empty($fields['heading'])) :?>

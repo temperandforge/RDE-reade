@@ -19,6 +19,7 @@ $fields = get_fields();
              alt="<?php echo !empty($fields['image']['alt']) ? $fields['image']['alt'] : ''; ?>"
              width="<?php echo $fields['image']['sizes']['medium_large-width']; ?>"
              height="<?php echo $fields['image']['sizes']['medium_large-height']; ?>"
+             loading="eager"
             >
             <?php
         }

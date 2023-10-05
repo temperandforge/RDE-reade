@@ -21,6 +21,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
                     alt="<?php echo $fields['main_image']['alt']; ?>"
                     width="<?php echo $fields['main_image']['sizes']['medium_large-width']; ?>"
                     height="<?php echo $fields['main_image']['sizes']['medium_large-height']; ?>"
+                    loading="eager"
                 >
                 <?php
             }
