@@ -110,10 +110,10 @@ export default {
 			}
 
 			if (!initialLoad) {
-				if (document.getElementsByClassName('pab-categories')) {
+				if (document.getElementsByClassName('pab-filters')) {
 					if (noSearchResults) {
 						document
-							.getElementsByClassName('pab-categories')[0]
+							.getElementsByClassName('pab-filters')[0]
 							.scrollIntoView(true)
 					}
 				}
