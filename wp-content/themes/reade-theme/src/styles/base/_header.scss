@@ -36,6 +36,12 @@
 ul.header-links {
 	@apply flex items-center justify-end pl-0 list-none mx-0 -my-3;
 
+	>li>a {
+		display: flex;
+		align-items: center;
+		column-gap: 5px;
+	}
+
 	.sub-menu {
 		@apply absolute bg-white top-full;
 		border-radius: 10px;
@@ -118,7 +124,7 @@ ul.header-links {
 		}
 
 		> a {
-			display: inline-block;
+			display: flex;
 			position: relative;
 			white-space: nowrap;
 			transition: 0.1s;
@@ -159,6 +165,20 @@ ul.header-links {
 			column-gap: 2rem; //items are all of longest item length
 			//  row-gap: 0.9375rem; -> margins
 		}
+	}
+
+	>li.menu-item-has-children {
+		&:hover {
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+	>li svg {
+		transition: transform ease 0.25s;
+	}
+	>li.sub-menu-open svg {
+		transform: scaleY(-1);
 	}
 }
 

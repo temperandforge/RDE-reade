@@ -162,6 +162,14 @@ a.footer-logo-link {
       @apply text-center w-full;
       max-width: 28rem;
    }
+
+   .btn-green-light-green {
+      @include respond-below(sm) {
+         max-width: 100%;
+         width: 100%;
+         text-align: center;
+      }
+   }
 }
 .footer-contact-phone,
 .footer-contact-email {
