@@ -50,7 +50,8 @@ if( !empty( $block['data']['_is_preview'] ) ) {
                target.classList.remove('open')
                dropdown.classList.remove('active')
             } else {
-               // document.querySelectorAll(`.small-dropdowns [data-collapse]`).forEach( el =>el.classList.remove('open') );
+               document.querySelectorAll(`.small-dropdowns [data-collapse]`).forEach( el =>el.classList.remove('open') );
+               document.querySelectorAll(`.small-dropdowns button`).forEach(el => el.classList.remove('active'));
                setTimeout(() => {
                   target.classList.add('open');
                   dropdown.classList.add('active')
