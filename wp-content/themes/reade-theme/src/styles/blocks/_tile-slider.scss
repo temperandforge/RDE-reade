@@ -303,6 +303,7 @@ body.global-sourcing {
 	.slick-dots {
 		@apply flex items-center justify-center;
 		gap: 6px;
+		width: 100%;
 
 		li {
 			border-radius: 50%;
