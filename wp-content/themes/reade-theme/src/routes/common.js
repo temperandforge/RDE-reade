@@ -611,11 +611,20 @@ export default {
 			document.body.classList.contains('sustainable-products') ||
 			document.body.classList.contains('tax-product_cat')
 		) {
-			if (window.innerWidth < 640) {
-				elementsPerPage = 9
+			if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
+				if (window.innerWidth < 640) {
+					elementsPerPage = 9
+				} else {
+					elementsPerPage = 9
+				}
 			} else {
-				elementsPerPage = 9
+				if (window.innerWidth < 640) {
+					elementsPerPage = 3;
+				} else {
+					elementsPerPage = 6;
+				}
 			}
+			
 			showElements(0, elementsPerPage)
 			updateDots()
 
