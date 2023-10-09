@@ -814,15 +814,15 @@ export default {
 			window.addEventListener('resize', function handleResize() {
 				/* Per page elements for products */
 				if (window.innerWidth < 640) {
-					if (3 != elementsPerPage) {
-						elementsPerPage = 3
+					if (9 != elementsPerPage) {
+						elementsPerPage = 9
 						showElements(0, elementsPerPage)
 						updatePaginationButtons()
 						updateDots()
 					}
 				} else {
-					if (6 != elementsPerPage) {
-						elementsPerPage = 6
+					if (9 != elementsPerPage) {
+						elementsPerPage = 9
 						showElements(0, elementsPerPage)
 						updatePaginationButtons()
 						updateDots()
