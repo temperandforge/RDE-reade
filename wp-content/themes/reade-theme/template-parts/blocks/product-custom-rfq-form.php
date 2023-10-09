@@ -269,7 +269,10 @@ $fields = get_fields();
     <?php if(!empty($fields['image'])) :?>
      <div class="rfq-form--image">
       <figure>
-       <?php echo wp_get_attachment_image( $fields['image']['ID'], 'full' );?>
+          <img src="<?php echo $fields['image']['sizes']['medium_large']; ?>"
+          alt="<?php echo $fields['image']['alt']; ?>"
+          width="425"
+          height="321">
       </figure>
      </div>
     <?php endif ;?>
