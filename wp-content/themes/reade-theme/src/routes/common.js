@@ -612,9 +612,9 @@ export default {
 			document.body.classList.contains('tax-product_cat')
 		) {
 			if (window.innerWidth < 640) {
-				elementsPerPage = 3
+				elementsPerPage = 9
 			} else {
-				elementsPerPage = 6
+				elementsPerPage = 9
 			}
 			showElements(0, elementsPerPage)
 			updateDots()

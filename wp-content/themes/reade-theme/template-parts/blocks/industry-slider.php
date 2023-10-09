@@ -26,7 +26,7 @@ $fields = get_fields();
             <div class="industry-slider--item">
                 <div class="industry-slider--content">
                     <?php if(!empty($item['heading'])) :?>
-                        <h3><?php echo $item['heading'] ;?></h3>
+                        <p class="industry-slider--tile-heading"><?php echo $item['heading'] ;?></p>
                     <?php endif ;?>
                     <?php if(!empty($item['content'])) :?>
                         <p><?php echo $item['content'] ;?></p>
