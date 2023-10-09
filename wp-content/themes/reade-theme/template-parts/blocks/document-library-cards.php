@@ -23,7 +23,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
           <?php
 
           if (!empty($card['headline'])) {
-            ?><h5 class="document-library-card-headline"><?php echo $card['headline']; ?></h5><?php
+            ?><h2 class="document-library-card-headline"><?php echo $card['headline']; ?></h2><?php
           }
 
           if (!empty($card['text'])) {

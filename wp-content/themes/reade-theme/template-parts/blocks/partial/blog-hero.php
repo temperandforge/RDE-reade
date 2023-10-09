@@ -39,6 +39,15 @@
             <label for="sv-input">
                 <span class="sr-only">Search</span>
                <input id="sv-input" class="news-search" type="text" name="sv" placeholder="<?php echo !empty($fields['search_placeholder_text']) ? $fields['search_placeholder_text'] : 'Search'; ?>">
+               <?php
+
+               if ($qo = get_queried_object()) {
+                ?>
+                <input type="hidden" name="from" value="<?php echo $qo->term_id; ?>">
+                <?php
+               }
+
+               ?>
                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="document.getElementById('search-form').submit();">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.25 5.25C6.317 5.25 4.75 6.817 4.75 8.75C4.75 10.683 6.317 12.25 8.25 12.25C10.183 12.25 11.75 10.683 11.75 8.75C11.75 6.817 10.183 5.25 8.25 5.25ZM3 8.75C3 5.85051 5.35051 3.5 8.25 3.5C11.1495 3.5 13.5 5.85051 13.5 8.75C13.5 9.88385 13.1406 10.9338 12.5294 11.792L16.7437 16.0063C17.0854 16.348 17.0854 16.902 16.7437 17.2437C16.402 17.5854 15.848 17.5854 15.5063 17.2437L11.292 13.0294C10.4338 13.6406 9.38385 14 8.25 14C5.35051 14 3 11.6495 3 8.75Z" fill="#009FC6" onclick="document.getElementById('search-form').submit();" />
                 </svg>
