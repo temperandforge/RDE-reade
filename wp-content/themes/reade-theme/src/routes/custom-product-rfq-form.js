@@ -67,7 +67,7 @@ export default {
         $('#sf-form #last_name').val($('#r-last_name').val());
         $('#sf-form #company').val($('#r-company').val());
         $('#sf-form #phone').val($('#r-phone').val());
-        $('#sf-form #email').val($('#r-email').val());
+        $('#sf-form #sfemail').val($('#r-email').val());
         $('#sf-form #street').text($('#r-street').val());
         $('#sf-form #city').val($('#r-city').val());
         $('#sf-form #state').val($('#r-state').val());
