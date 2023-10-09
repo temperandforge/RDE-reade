@@ -268,7 +268,7 @@ export default {
         $('#sf-form #last_name').val($('#rfq-last-name').val());
         $('#sf-form #company').val($('#rfq-company').val());
         $('#sf-form #phone').val($('#rfq-phone').val());
-        $('#sf-form #email').val($('#rfq-email').val());
+        $('#sf-form #sfemail').val($('#rfq-email').val());
         $('#sf-form #street').text($('#rfq-address-line-1').val() + ($('#rfq-address-line-2').val() ? "\r\n" + $('#rfq-address-line-2').val() : ''));
         $('#sf-form #city').val($('#rfq-city').val());
         $('#sf-form #state').val($('#rfq-state').val());
