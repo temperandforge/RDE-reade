@@ -35,7 +35,7 @@ if (!is_null($cart)) {
     <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
     <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
-    <input  id="sfemail" maxlength="80" name="email" size="20" type="hidden" />
+    <input  id="email" maxlength="80" name="email" size="20" type="hidden" />
     <textarea id="street" name="street" style="display: none;"></textarea>
     <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
     <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
