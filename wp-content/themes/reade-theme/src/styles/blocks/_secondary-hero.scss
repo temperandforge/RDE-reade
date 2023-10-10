@@ -130,6 +130,7 @@
 		font-weight: 400;
 		line-height: 23px;
 		margin-top: 1rem;
+		text-wrap: balance;
 
 		@include respond-above(sm) {
 			font-size: 16px;

@@ -243,6 +243,14 @@ figure {
 		}
 	}
 }
+a.linkedin {
+	path {
+		fill: #009FC6;
+	}
+	&:hover path {
+		fill: var(--primary-100,#cfeef6);
+	}
+}
 
 .leadership-slider-mobile--arrows {
 	@apply flex justify-center;
