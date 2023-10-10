@@ -79,6 +79,94 @@ function mobileMenu() {
 	x.addListener( closeOnDesktop );
 }
 
+//const scrollingDiv = document.getElementById('scrollingDiv');
+//const items = document.querySelectorAll('#scrollingDiv ul li');
+let scrollingDiv;
+let items;
+let selectedItemIndex = -1;
+
+
+
+
+// Highlight the initial selected item (optional)
+//highlightSelectedItem();
+function handleKeyboardInteraction(event) {
+	if ($('.tf-dropdown-open').length) {
+
+		scrollingDiv = $('.tf-dropdown-open');
+		items = $('.tf-dropdown-open ul li');
+
+		switch (event.key) {
+	    case 'ArrowDown':
+	      event.preventDefault();
+	      selectNextItem();
+	      break;
+	    case 'ArrowUp':
+	      event.preventDefault();
+	      selectPreviousItem();
+	      break;
+	    case 'Enter':
+	      event.preventDefault();
+	      if (selectedItemIndex !== -1) {
+	      	items[selectedItemIndex].click();
+	      }
+	      break;
+	    case ' ':
+	    	event.preventDefault();
+	    	if (selectedItemIndex !== -1) {
+	    		items[selectedItemIndex].click();
+	    	}
+	  }
+	} else {
+		scrollingDiv = null;
+		items = null;
+		selectedItemIndex = -1;
+		document.removeEventListener('keydown', handleKeyboardInteraction);
+	}
+}
+
+$('.tf-dropdown').on('click', function() {
+	scrollingDiv = null;
+	items = null;
+	selectedItemIndex = -1;
+	document.removeEventListener('keydown', handleKeyboardInteraction);
+	setTimeout(function() {
+			document.addEventListener('keydown', handleKeyboardInteraction);
+	}, 50);
+});
+
+
+function selectNextItem() {
+  if (selectedItemIndex < items.length - 1) {
+    selectedItemIndex++;
+    scrollToSelectedItem();
+    highlightSelectedItem();
+  }
+}
+
+function selectPreviousItem() {
+  if (selectedItemIndex > 0) {
+    selectedItemIndex--;
+    scrollToSelectedItem();
+    highlightSelectedItem();
+  }
+}
+
+function scrollToSelectedItem() {
+  const selectedElement = items[selectedItemIndex];
+  scrollingDiv.scrollTop = selectedElement.offsetTop - scrollingDiv.clientHeight / 2;
+}
+
+function highlightSelectedItem() {
+  items.each((index, item) => {
+    if (index === selectedItemIndex) {
+      $(item).addClass('selected');
+    } else {
+      $(item).removeClass('selected');
+    }
+  });
+}
+
 function runFunctions() {
 	responsiveNavbar();
 	mobileMenu()
