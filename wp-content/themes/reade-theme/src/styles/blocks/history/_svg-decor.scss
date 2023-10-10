@@ -1,6 +1,70 @@
 /* 1873 section
 width 1,339 */
 
+.current-year-dot {
+	transition: 0.2s;
+	opacity: 0.5;
+	circle:nth-last-child(1) {
+		transition: 0.2s;
+		transition-delay: 0.25s;
+		opacity: 0;
+	}
+}
+.historical-event:hover {
+	.current-year-dot {
+		opacity: 1;
+		circle:nth-last-child(1) {
+			opacity: 1;
+		}
+	}
+}
+//top left h2
+#history-1115,
+#history-0305,
+#history-2003,
+#history-1905,
+#history-1873 {
+	.rel { position: relative; }
+	svg {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translate(-200%, -50%);
+	}
+}
+//above h3
+#history-1983,
+#history-1881,
+#history-1878,
+#history-1773 {
+	svg {
+		margin-top:   -2rem;
+		margin-bottom: 1rem;
+	}
+}
+//above h2
+#history-2023,
+#history-2022,
+#history-2020,
+#history-2018,
+#history-1999,
+#history-1989,
+#history-1941 {
+	svg {
+		margin-bottom: -1rem;
+	}
+}
+//top-left h2
+#history-1115,
+#history-0305,
+#history-2003,
+#history-1905,
+#history-1873 { 
+	svg { 
+		top: 25%; 
+	}
+}
+
 #historySVG1 {
 	&:after {
 		content: '';
