@@ -58,7 +58,7 @@ function tf_dropdown($options)
       }
    }
 
-   $output .= '<dl id="' . $opts['id'] . '" class="tf-dropdown' . (!empty($opts['extra_classes']) ? ' ' . implode(' ', $opts['extra_classes']) : '') . '">
+   $output .= '<dl tabindex="0" id="' . $opts['id'] . '" class="tf-dropdown' . (!empty($opts['extra_classes']) ? ' ' . implode(' ', $opts['extra_classes']) : '') . '">
 		<dt>';
 
    if ($opts['selected_value'] && empty($opts['selected_value']) !== true) {
@@ -174,6 +174,15 @@ function tf_dropdown_js($return)
                      toggleDropdown(e[t].getAttribute("id"));
                   }
                   
+                });
+                e[t].addEventListener("keypress", function(a) {
+                  if (a.keyCode == 13 || a.keyCode == 32) {
+                     if (e[t].getAttribute("id") != "sorterx") {
+                        if (a.target.tagName.toLowerCase() != "li"){
+                           toggleDropdown(e[t].getAttribute("id"));
+                        }
+                     }
+                  }
                 });
                 let n = e[t].querySelectorAll("li");
                 if (n.length)

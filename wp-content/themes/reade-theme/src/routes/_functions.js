@@ -125,14 +125,25 @@ function handleKeyboardInteraction(event) {
 	}
 }
 
-$('.tf-dropdown').on('click', function() {
+$('.tf-dropdown').on('click keypress', function() {
 	scrollingDiv = null;
 	items = null;
 	selectedItemIndex = -1;
-	document.removeEventListener('keydown', handleKeyboardInteraction);
-	setTimeout(function() {
-			document.addEventListener('keydown', handleKeyboardInteraction);
-	}, 50);
+
+	if (event.type == 'keypress') {
+		if (event.keyCode == 13 || event.keycode == 32) {
+			document.removeEventListener('keydown', handleKeyboardInteraction);
+			setTimeout(function() {
+				document.addEventListener('keydown', handleKeyboardInteraction);
+			}, 50);	
+		}
+	}
+	if (event.type == 'click') {
+		document.removeEventListener('keydown', handleKeyboardInteraction);
+		setTimeout(function() {
+				document.addEventListener('keydown', handleKeyboardInteraction);
+		}, 50);
+	}
 });
 
 
@@ -154,7 +165,7 @@ function selectPreviousItem() {
 
 function scrollToSelectedItem() {
   const selectedElement = items[selectedItemIndex];
-  scrollingDiv.scrollTop = selectedElement.offsetTop - scrollingDiv.clientHeight / 2;
+  scrollingDiv.scrollTop(selectedElement.offsetTop - scrollingDiv.height() / 2);
 }
 
 function highlightSelectedItem() {
