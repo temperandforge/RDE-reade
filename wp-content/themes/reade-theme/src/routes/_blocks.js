@@ -315,7 +315,7 @@ function handleTileSlider() {
 				}
 			}
 		})
-	} elseif (document.body.classList.contains('toll-processing'){
+	} elseif (document.body.classList.contains('toll-processing')) {
 		$section.each(function () {
 			$(this)
 				.find('.tile-slider--slider')
