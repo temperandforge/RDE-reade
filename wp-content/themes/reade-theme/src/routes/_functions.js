@@ -166,7 +166,7 @@ function selectPreviousItem() {
 function scrollToSelectedItem() {
   const selectedElement = items[selectedItemIndex];
   console.log(selectedElement.offsetTop - scrollingDiv.height() / 2);
-  scrollingDiv.scrollTop(selectedElement.offsetTop - scrollingDiv.height() / 2);
+  scrollingDiv.scrollTop(Math.round(selectedElement.offsetTop - scrollingDiv.height() / 2));
 }
 
 function highlightSelectedItem() {
