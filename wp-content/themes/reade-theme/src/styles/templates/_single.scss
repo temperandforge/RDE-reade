@@ -18,6 +18,10 @@ body.single {
         margin: 0 auto;
     }
 
+    wp-block-columns.is-layout-flex > * {
+        flex: 1;
+    }
+
     .dec-image {
         position: absolute;
         top: 50%;
