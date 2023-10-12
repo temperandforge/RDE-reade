@@ -79,6 +79,9 @@ function generateInPageNavigation() {
 							`a[id="${ activeId }-anchor"]`
 						);
 						activeAnchor.classList.add( 'active' );
+						let selectedElement = activeAnchor;
+						let scrollingDiv = $('.in-page-nav');
+  						scrollingDiv.scrollTop(Math.round(selectedElement.offsetTop - scrollingDiv.height() / 2));
 					}
 					break;
 				}
