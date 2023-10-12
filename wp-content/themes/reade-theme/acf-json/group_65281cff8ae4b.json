@@ -1,0 +1,45 @@
+{
+    "key": "group_65281cff8ae4b",
+    "title": "Effective Date",
+    "fields": [
+        {
+            "key": "field_65281d00a67be",
+            "label": "Effective Date",
+            "name": "effective_date",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "This field is for the Terms and Conditions of Sale page.  Leave empty on other legal pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/legal.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1697127785
+}

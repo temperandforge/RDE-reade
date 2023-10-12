@@ -7,7 +7,21 @@ get_header(); ?>
 
          <div class="page-legal-hero">
             <h1><?php echo $post->post_title; ?></h1>
-            <p class="last__updated"><?php echo __("Last Updated:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p>
+            <?php
+
+            $fields = get_fields();
+
+            if (!empty($fields['effective_date'])) {
+               ?>
+               <p class="last__updated"><?php echo $fields['effective_date']; ?></p>
+               <?php
+            } else {
+               ?>
+               <p class="last__updated"><?php echo __("Last Updated:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p>
+               <?php
+            }
+
+            ?>
          </div>
          <div class="page-legal-content--container">
             <article class="page-legal-content--article">
