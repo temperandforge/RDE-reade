@@ -27,7 +27,7 @@ $fields = get_fields();
     <?php endif ;?>
     <?php if(($fields['include_featured_image'])) :?>
      <figure class="position-hero--figure">
-      <?php echo get_the_post_thumbnail() ;?>
+      <?php echo get_the_post_thumbnail(null, full) ;?>
      </figure>
     <?php endif ;?>
    </div>
