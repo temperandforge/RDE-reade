@@ -7,7 +7,7 @@ get_header(); ?>
 
          <div class="page-legal-hero">
             <h1><?php echo $post->post_title; ?></h1>
-            <p class="last__updated"><?php echo __("Last Updated:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p>
+            <p class="last__updated"><?php echo __("Effective Date:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_date)); ?></time></p>
          </div>
          <div class="page-legal-content--container">
             <article class="page-legal-content--article">
