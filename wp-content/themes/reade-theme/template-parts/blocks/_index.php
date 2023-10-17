@@ -975,6 +975,30 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Position Details
+    * */
+   acf_register_block([
+      'name'         => 'position-details',
+      'title'         => 'Position Details',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/position-details.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      // 'image'        => $img_root . '/primary-cta.webp',
+      'mode'         => $mode,
+      'keywords'      => ['reade', 'position', 'details', 'theme', TEXTDOMAIN],
+      'supports'     => ['align' => false],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+   
+
+   /** 
     * Position Hero
     * */
    acf_register_block([
