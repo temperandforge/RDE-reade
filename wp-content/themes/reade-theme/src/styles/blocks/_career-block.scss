@@ -51,6 +51,9 @@
 	.solo-slide {
 		display: flex;
 		justify-content: center;
+		max-width: min(100%, 600px);
+		margin: 0 auto;
+		text-align: center;
 
 		.career-block--content {
 			align-items: center;
@@ -58,6 +61,7 @@
 
 		@include respond-below(sm) {
 			justify-content: flex-start;
+			text-align: left;
 
 			.career-block--content {
 				align-items: flex-start;

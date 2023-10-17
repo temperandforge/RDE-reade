@@ -14,6 +14,18 @@ body.single .blog-hero-part {
 
 body.single {
 
+    figure.aligncenter img {
+        margin: 0 auto;
+    }
+
+    .wp-block-columns.is-layout-flex > * {
+        flex: 1;
+    }
+
+    figure.alignleft {
+        float: left; margin: 0 1em 1em 0;
+    }
+
     .dec-image {
         position: absolute;
         top: 50%;
