@@ -132,3 +132,93 @@ class Custom_Menu_Walker extends Walker_Nav_Menu {
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 }
+
+
+add_action('rest_api_init', function () {
+   $namespace = 'meta/v1';
+   register_rest_route($namespace, 'out', array(
+     'methods'  => 'GET',
+     'callback' => 'get_missing_meta',
+   //   'permission_callback' => function (WP_REST_Request $request) {
+   //     return current_user_can('manage_options');
+   //   },
+   ));
+   register_rest_route($namespace, 'get_missing_meta', array(
+     'methods'  => 'GET',
+     'callback' => 'get_missing_meta',
+   //   'permission_callback' => function (WP_REST_Request $request) {
+   //     return current_user_can('manage_options');
+   //   },
+   ));
+});
+
+function get_missing_meta() {
+   $res = [];
+   foreach(['post', 'page', 'product'] as $post_type) {
+      $posts = get_posts(array(
+         'post_type' => $post_type,//['post', 'page'],//, 'product'],  // Adjust the post type as needed
+         'posts_per_page' => -1,
+         'post_status' => 'publish',
+         'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => '_yoast_wpseo_metadesc',
+                'value' => '',
+                'compare' => 'NOT EXISTS',
+            ),
+            // array(
+            //     'key' => '_yoast_wpseo_metadesc',
+            //     'compare' => 'NOT IN',
+            //     'value' => array('1', '0'),
+            // ),
+            array(
+               'key' => '_yoast_wpseo_title',
+               'value' => '',
+               'compare' => 'NOT EXISTS',
+            ),
+            // array(
+            //    'key' => '_yoast_wpseo_title',
+            //    'compare' => 'NOT IN',
+            //    'value' => array('1', '0'),
+            // ),
+         ),
+      ));
+
+      $posts = array_map(
+         function($p) {
+            return [$p->post_title, get_permalink($p->ID), get_post_meta($p->ID, '_yoast_wpseo_title', true), get_post_meta($p->ID, '_yoast_wpseo_metadesc', true)];
+         },
+         $posts
+      );
+
+      // // Specify the file path where you want to save the CSV
+      // $csvFilePath = get_stylesheet_directory_uri() ."/$post_type.csv";
+
+      // // Open the CSV file for writing
+      // $csvFile = fopen($csvFilePath, 'w');
+
+      // if ($csvFile) {
+      //    // Loop through the data and write it to the CSV file
+      //    foreach ($posts as $row) {
+      //       fputcsv($csvFile, $row);
+      //    }
+
+      //    // Close the CSV file
+      //    fclose($csvFile);
+
+      //    echo "CSV file has been created successfully at $csvFilePath";
+      // } else {
+      //    echo "Failed to open the CSV file for writing.";
+      // }
+      $res[] = $posts;
+   }
+
+
+   return $res;
+   // return array_map(
+   //    function($p) {
+   //       return [$p->post_title, get_permalink($p->ID), get_post_meta($p->ID, '_yoast_wpseo_title', true), get_post_meta($p->ID, '_yoast_wpseo_metadesc', true)];
+   //    },
+   //    $posts
+   // );
+}

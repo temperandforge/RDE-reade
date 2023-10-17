@@ -67,7 +67,5 @@ foreach($events as $idx => $event ) {
       } ?>
    </div>
    
-   <!-- line connecting events - JS/dynamically-generated -->
-   <!-- <svg></svg> -->
 </div>
 
