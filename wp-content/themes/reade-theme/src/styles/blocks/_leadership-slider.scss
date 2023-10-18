@@ -191,6 +191,9 @@ figure {
 	}
 
 	&.linkedin {
+		svg path {
+			fill: var(--primary-500, #009fc6);
+		}
 		&:hover {
 			svg {
 				path {

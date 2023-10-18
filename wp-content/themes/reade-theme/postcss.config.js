@@ -13,11 +13,11 @@ module.exports = {
     //   ? cssnano({ preset: 'default' })
     //   : null,
     cssnano({ preset: 'advanced' }),
-    purgecss({ //TODO
-      content: [ //match tailwind
-        '**/*.php', './src/**/*.{html,js,scss,svelte}'
-      ],
-      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-    })
+    // purgecss({ //TODO
+    //   content: [ //match tailwind
+    //     '**/*.php', './src/**/*.{html,js,scss,svelte}'
+    //   ],
+    //   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    // })
   ],
 }
