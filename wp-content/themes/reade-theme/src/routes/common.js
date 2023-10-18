@@ -741,7 +741,7 @@ export default {
 			if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
 				document.addEventListener('DOMContentLoaded', function() {
 					setTimeout(function() {
-						document.getElementById('pab-filters-search').value = window.location.hash.replace('#', '');
+						document.getElementById('pab-filters-search').value = window.location.hash.replace('#', '').replace('%20', ' ');
 						let pabfs = document.getElementById('pab-filters-search');
 						for (let i = 0; i < pabfs.value.length; i++) {
 							pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
