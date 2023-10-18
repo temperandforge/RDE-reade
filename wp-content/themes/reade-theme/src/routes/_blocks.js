@@ -572,10 +572,7 @@ function disableFirstDropdownOptionRFQ() {
 
 function handleAutoComplete() {
 
-	if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
-		document.getElementById('pab-filters-search').value = window.location.hash.replace('#', '');
-		document.getElementById('pab-filters-search').dispatchEvent(new KeyboardEvent('keyup', {'key':'y'}))
-	}
+
 	
 	function autocomplete(inp, arr) {
 		/*the autocomplete function takes two arguments,
