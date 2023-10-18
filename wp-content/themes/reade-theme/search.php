@@ -33,7 +33,9 @@ $args = [
         ],
         [
             'key' => 'is_main_product',
-            'compare' => 'NOT EXISTS',
+            'compare' => '=',
+            'value' => '0',
+            'type' => 'NUMERIC'
         ],
     ],
 ];
