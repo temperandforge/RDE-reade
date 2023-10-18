@@ -24,16 +24,15 @@ $args = [
    'posts_per_page' => -1,
    's' => !empty(get_query_var('s')) ? get_query_var('s') : '',
    'meta_query' => [
-        'relation' => 'OR',
+        'relation' => 'AND',
         [
-            'key' => 'is_main_product',
-            'value' => '1',
-            'compare' => '=',
-            'type' => 'NUMERIC'
+            'post_type' => 'product',
         ],
         [
             'key' => 'is_main_product',
-            'compare' => 'NOT EXISTS',
+            'compare' => '=',
+            'value' => '1',
+            'type' => 'NUMERIC'
         ],
     ],
 ];
