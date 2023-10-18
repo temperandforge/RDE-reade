@@ -660,8 +660,10 @@ export default {
 				$('.pab-filters-search').on(
 					'keyup change',
 					debounceSearch(() => {
+
 						let search = $('.pab-filters-search').val().toLowerCase()
-						let searchresultsfound = false
+						let searchresultsfound = false;
+
 
 						if (search.length >= 3) {
 							// set category type to search
