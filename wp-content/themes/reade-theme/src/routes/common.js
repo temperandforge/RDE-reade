@@ -664,7 +664,6 @@ export default {
 						let search = $('.pab-filters-search').val().toLowerCase()
 						let searchresultsfound = false;
 
-
 						if (search.length >= 3) {
 							// set category type to search
 							categoryType = '.search-result'
@@ -738,6 +737,18 @@ export default {
 			}
 
 			handleSearch()
+
+			if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
+				document.addEventListener('DOMContentLoaded', function() {
+					setTimeout(function() {
+						document.getElementById('pab-filters-search').value = window.location.hash.replace('#', '');
+						let pabfs = document.getElementById('pab-filters-search');
+						for (let i = 0; i < pabfs.value.length; i++) {
+							pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
+						}
+					}, 25);
+				});
+			}
 
 			function handleSort() {
 				$('#filter1 dd ul li').on('click', function () {
