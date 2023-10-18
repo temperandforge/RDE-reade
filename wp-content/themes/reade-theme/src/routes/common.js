@@ -746,6 +746,7 @@ export default {
 						for (let i = 0; i < pabfs.value.length; i++) {
 							pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
 						}
+						pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
 					}, 25);
 				});
 			}
