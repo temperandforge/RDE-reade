@@ -47,7 +47,7 @@ function generateInPageNavigation() {
 		const a = document.createElement( 'a' );
 		//SETUP
 		a.innerHTML = `<svg aria-hidden="true" width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.5 5.32686L11.5014 5.32686L7.25874 1.09763L8.28928 0.053703L14.2852 6.06296L8.28928 12.0588L7.25874 11.0417L11.5014 6.79906L0.5 6.79906L0.5 5.32686Z" fill="#6A6EFF"/> </svg>`;
-		a.innerHTML += `<span>${ h2.innerText }</span>`;
+		a.innerHTML += `<span>${ h2.innerText.replace(':', '') }</span>`;
 		const id = h2.innerText.toLowerCase().replace( /\s+/g, '-' );
 		h2.id = id;
 		a.id = id + '-anchor';
