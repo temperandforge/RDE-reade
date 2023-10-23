@@ -22,20 +22,9 @@ function get_post_type_nat($pt) {
 $args = [
    'post_status' => 'publish',
    'posts_per_page' => -1,
-   's' => !empty(get_query_var('s')) ? get_query_var('s') : '',
-   'meta_query' => [
-        'relation' => 'AND',
-        [
-            'post_type' => 'product',
-        ],
-        [
-            'key' => 'is_main_product',
-            'compare' => '=',
-            'value' => '1',
-            'type' => 'NUMERIC'
-        ],
-    ],
+   's' => !empty(get_query_var('s')) ? sanitize_text_field(get_query_var('s')) : '',
 ];
+
 
 if (!empty($_GET['type']) && in_array($_GET['type'], array('post', 'page', 'product', 'ms-documents', 'careers', 'team'))) {
    $args['post_type'] = $_GET['type'];
@@ -45,6 +34,20 @@ if (!empty($_GET['type']) && in_array($_GET['type'], array('post', 'page', 'prod
 
 $query = new WP_Query($args);
 $searchperpage = 10;
+
+$searchRes = array();
+
+foreach ($query->posts AS $post) {
+   if ($post->post_type != 'product') {
+      $searchRes[] = $post;
+   } else {
+      if ($isMain = get_field('is_main_product', $post->ID)) {
+         $searchRes[] = $post;
+      }
+   }
+}
+
+$searchResCount = count($searchRes);
 ?>
 
 <main id="main-content" class="main-content-wrap">
@@ -63,7 +66,7 @@ $searchperpage = 10;
                      <h1 class="site-search-title"><?php echo !empty($options['search_text_prefix']) ? $options['search_text_prefix'] : 'Search:'; ?> <?php echo !empty(get_query_var('s')) ? get_query_var('s') : ''; ?></h1>
 
                      <div class="site-search-results-count">
-                        (<?php echo $query->found_posts; ?> <?php echo !empty($options['search_results_text']) ? $options['search_results_text'] : 'results'; ?>)
+                        (<?php echo $searchResCount; ?> <?php echo !empty($options['search_results_text']) ? $options['search_results_text'] : 'results'; ?>)
                      </div>
                   </div>
                   <div class="site-search-header-right">
@@ -103,7 +106,7 @@ $searchperpage = 10;
                <div class="site-search-results">
                   <?php
 
-                  if (!$query->found_posts) {
+                  if (!$searchResCount) {
                      ?>
                      <p class="site-search-results-empty">
                         <?php
@@ -116,23 +119,23 @@ $searchperpage = 10;
                      </p>
                      <?php
                   } else {
-                     while( $query->have_posts() ) { $query->the_post(); 
+                    foreach ($searchRes AS $sr) { 
                         ?>
                         <div class="site-search-result-container">
                            <div class="site-search-result">
                               <div class="site-search-result-left">
                                  <div class="site-search-result-type">
-                                    <?php echo get_post_type_nat(get_post_type()); ?>
+                                    <?php echo get_post_type_nat(get_post_type($sr->ID)); ?>
                                  </div>
                                     <h2 class="site-search-result-heading">
-                                       <?php the_title(); ?>
+                                       <?php echo $sr->post_title; ?>
                                     </h2>
                               </div>
                               <div class="site-search-result-right">
                                  <button class="btn-blue-dark-blue btn-arrow btn-search-result">
                                     <?php
 
-                                    if (strtolower(get_post_type()) == 'product') {
+                                    if (strtolower(get_post_type($sr->ID)) == 'product') {
                                        echo !empty($options['search_product_button_text'])
                                           ? $options['search_product_button_text']
                                           : 'View More';
@@ -148,8 +151,8 @@ $searchperpage = 10;
                                     </svg>
                                  </button>
                               </div>
-                              <a class="fillall" href="<?php echo get_permalink(get_the_ID()); ?>">
-                                 <span class="sr-only">View <?php echo the_title(); ?> Search Result</span>
+                              <a class="fillall" href="<?php echo get_permalink($sr->ID); ?>">
+                                 <span class="sr-only">View <?php echo $sr->post_title; ?> Search Result</span>
                               </a>
                            </div>
                         </div>
@@ -162,7 +165,7 @@ $searchperpage = 10;
 
                <?php
 
-               if (ceil($query->found_posts/$searchperpage) > 1) {
+               if (ceil($searchResCount/$searchperpage) > 1) {
                   ?>
                   <button id="site-search-load-more" class="btn-blue-dark-blue">
                      <?php
