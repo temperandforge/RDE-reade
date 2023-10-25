@@ -86,17 +86,19 @@ export default {
 			)
 		}
 
+		
+
 		function updateDots(create = false, noSearchResults) {
 			let pages = Math.ceil($(categoryType).length / elementsPerPage)
 			$('.pab-pagination-dots').html('')
 
 			for (let i = 0; i < pages; i++) {
 				$('.pab-pagination-dots').append(
-					'<svg ' +
+					'<a class="nav-dots" data-dot-page="' + (i + 1) + '" href="javascript: void(0);"><svg ' +
 						(i + 1 == currentPage
 							? 'class="pab-pagination-dot-current" '
 							: '') +
-						'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>'
+						'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg></a>'
 				)
 			}
 
@@ -120,7 +122,36 @@ export default {
 			}
 
 			initialLoad = false
+
+			$('.nav-dots').on('click', function() {
+				let thisdotpage = $(this).data('dot-page');
+
+				//nothing to do, already on this page
+				if (thisdotpage == currentPage) {
+					return;
+				}
+						
+				// show needed elements
+				showElements((+thisdotpage-1) * elementsPerPage, ((+thisdotpage-1) * elementsPerPage) + elementsPerPage);
+				currentPage = thisdotpage;
+				updateDots(false, true);
+			});
 		}
+
+		
+
+				// let dotListenerId = function() {
+					
+				// }
+
+				// document.addEventListener('DOMContentLoaded', dotListenerId);
+
+
+				// if ($('.nav-dots').length) {
+				// 	console.log($('.nav-dots')[0]);
+				// 	$('.nav-dots')[0].click();
+				// }
+		
 
 		/**
 		 * News page, tf dropdown action

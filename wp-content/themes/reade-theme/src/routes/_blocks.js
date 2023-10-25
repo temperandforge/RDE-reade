@@ -683,9 +683,6 @@ function handleAutoComplete() {
 					/*and simulate a click on the "active" item:*/
 					if (x) x[currentFocus].click()
 				}
-			} else {
-				console.log(e.keyCode);
-				console.log(e.key);
 			}
 		})
 
