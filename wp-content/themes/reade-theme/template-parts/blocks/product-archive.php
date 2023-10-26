@@ -62,7 +62,106 @@ $options = get_fields('options');
    </div>
 
    <div id="search_load" class="pab-categories">
-         <!-- this content filled in by ajax -->
+
+         <?php
+
+         /* <!-- this content filled in by ajax, but load just categories initially for fillter until the ajax load request completes --> */
+         /* Gather categories */
+         $per_page = 6;
+
+         $product_categories = get_terms(array(
+           'taxonomy'   => 'product_cat',
+           'hide_empty' => false,
+           'exclude'    => array(get_option('default_product_cat')),
+           'parent' => 0,
+           // 'orderby' => 'name',
+           // 'order' => 'ASC'
+         ));
+         
+         if (!empty($product_categories)) {
+
+            $count = count($product_categories);
+            $pages = ceil($count / $per_page);
+
+            foreach ($product_categories AS $product_category) {
+
+               // permalink
+               $permalink = get_term_link($product_category, 'product_cat');
+
+               // thumbnail id
+               $thumbnail_id = get_term_meta($product_category->term_id, 'thumbnail_id', true);
+
+               // product count
+               $query_args = array(
+                    'post_type'      => 'product',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => -1,
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'term_id',
+                            'terms'    => $product_category->term_id,
+                        ),
+                    ),
+                    'meta_query'     => array(
+                        array(
+                            'key'     => 'is_main_product',
+                            'value'   => true,
+                            'compare' => '='
+                        ),
+                    ),
+                );
+
+                $products_query = new WP_Query($query_args);
+                $product_count = $products_query->found_posts;
+                $product_search_terms = [];
+
+                if (!empty($products_query->posts)) {
+                  foreach ($products_query->posts AS $qpost) {
+                     $product_search_terms[] = strtolower($qpost->post_title);
+                  }
+                }
+
+
+
+               ?>
+               <div class="pab-category" data-search-terms="<?php echo strtolower($product_category->name); ?> <?php echo implode(' ', $product_search_terms); ?>">
+                  <a class="fillall" href="<?php echo $permalink; ?>">
+                     <span class="sr-only"><?php echo $product_category->name; ?> Category</span>
+                  </a>
+                  <div class="pab-category-image">
+                     <?php
+
+                     if ($thumbnail_id) {
+                        if ($image_attributes = wp_get_attachment_image_src($thumbnail_id, 'large')) {
+                           ?>
+                           <img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo $product_category->name; ?> Category" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+                           <?php
+                        }
+                     } else {
+                        if (!empty($options['category_fallback_image']['url'])) {
+                           ?>
+                           <img src="<?php echo $options['category_fallback_image']['sizes']['medium_large']; ?>" alt="<?php echo $product_category->name; ?> Category" width="<?php echo $options['category_fallback_image']['sizes']['medium_large-width']; ?>" height="<?php echo $options['category_fallback_image']['sizes']['medium_large-height']; ?>">
+                           <?php
+                        }
+                     }
+
+                     ?>
+                  </div>
+                  <div class="pab-category-info">
+                     <div class="pab-category-info-left">
+                        <?php echo str_replace(array('®'), array('<sup>®</sup>'), $product_category->name); ?>
+                     </div>
+                     <div class="pab-category-info-right">
+                        <span><?php echo $product_count; ?></span>
+                     </div>
+                  </div>
+               </div>
+               <?php
+            }
+         }
+
+         ?>
    </div>
 
    <div class="pab-pagination">

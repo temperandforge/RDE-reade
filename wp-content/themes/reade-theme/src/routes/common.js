@@ -69,6 +69,10 @@ export default {
 		let currentPage = 1
 		let totalElements = $(categoryType).length
 		let initialLoad = true
+		// hold ajax data until search is performed
+		let ajaxData = false;
+		// control variable to tell if contents have been loaded in dom
+		let ajaxContentsLoaded = false;
 
 		function showElements(startIndex, endIndex) {
 			$(categoryType).hide()
@@ -682,6 +686,7 @@ export default {
 			function handleSearch() {
 				$('#clear-search-text').on('click', function(e) {
 					e.preventDefault();
+					$('.pab-product a, .pab-category a').off('click', addClickToResults);
 					$('#pab-filters-search').val('');
 					$('#clear-search').css('opacity', '0');
 					$('.pab-product').hide();
@@ -717,6 +722,15 @@ export default {
 					$('#pab-filters-form').submit()
 				})
 
+				function addClickToResults(e) {
+					e.preventDefault();
+					const stateObj = { search_term: document.getElementById('pab-filters-search').value};
+							history.pushState(stateObj, '', '#' + document.getElementById('pab-filters-search').value);
+							document.location.href = e.target.href;
+				}
+				
+				let actr;
+
 				$('.pab-filters-search').on(
 // 		change event not needed?  it triggers a search update when input loses focus
 //					'keyup change',
@@ -726,7 +740,22 @@ export default {
 						let search = $('.pab-filters-search').val().toLowerCase()
 						let searchresultsfound = false;
 
-						if (search.length > 0) {
+						if (search.length > 1) {
+
+							/* if our ajax content hasn't been loaded yet, load it now */
+							if (!ajaxContentsLoaded) {
+								// load ajax content
+								$('#search_load').html(ajaxData);
+
+								// clear memory from variable
+								ajaxData = '';
+
+								// set control variable to true
+								ajaxContentsLoaded = true;
+							}
+
+							
+
 							$('#clear-search').css('opacity', '1');
 							// set category type to search
 							categoryType = '.search-result'
@@ -767,7 +796,11 @@ export default {
 							currentPage = 1;
 							showElements(0, elementsPerPage)
 							updateDots(true, false)
+
+							actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 						} else {
+							$('.pab-product a, .pab-category a').off('click', addClickToResults);
+
 							$('#clear-search').css('opacity', '0');
 							searchresultsfound = true
 							$('.pab-search-empty').css('display', 'none')
@@ -881,6 +914,7 @@ export default {
 
 		/** Show the categories and load products when /products/ is initially viewed and scrolled into view **/
 		if (document.body.classList.contains('products')) {
+
 			function handleShowSearchItems() {
 
 				let searchel;
@@ -891,20 +925,20 @@ export default {
 						        url: '/wp-content/themes/reade-theme/template-parts/blocks/partial/product-archive-ajax.php',
 						        type: 'GET',
 						        success: function (data) {
-						            $(entry.target).html(data);
-						            showElements(0, elementsPerPage);
-									updateDots();
 
-									// perform preload search if needed
+						        	/* hold ajax data in variable to be triggered and injected upon typing in the search box */
+						        	ajaxData = data;
+						        	
+						        	/* preload search if it's necessary */
 									if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
-										setTimeout(function() {
-											document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
-											let pabfs = document.getElementById('pab-filters-search');
-											for (let i = 0; i < pabfs.value.length; i++) {
-												pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
-											}
-											pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
-										}, 25);
+										document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
+										let pabfs = document.getElementById('pab-filters-search');
+										for (let i = 0; i < pabfs.value.length; i++) {
+											pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
+										}
+
+										pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
+
 									}
 						        },
 						        error: function () {
