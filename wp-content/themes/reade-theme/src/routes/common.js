@@ -686,6 +686,7 @@ export default {
 			function handleSearch() {
 				$('#clear-search-text').on('click', function(e) {
 					e.preventDefault();
+					window.location.hash = '';
 					$('.pab-product a, .pab-category a').off('click', addClickToResults);
 					$('#pab-filters-search').val('');
 					$('#clear-search').css('opacity', '0');
@@ -799,6 +800,7 @@ export default {
 
 							actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 						} else {
+							window.location.hash = '';
 							$('.pab-product a, .pab-category a').off('click', addClickToResults);
 
 							$('#clear-search').css('opacity', '0');
