@@ -71,7 +71,7 @@ export default {
 		let initialLoad = true
 
 		function showElements(startIndex, endIndex) {
-			$('.pab-category').hide()
+			$(categoryType).hide()
 			let pabs = $(categoryType).slice(startIndex, endIndex)
 			pabs.each(function () {
 				$(this).fadeIn(250).css('display', 'block')
@@ -650,7 +650,7 @@ export default {
 				}
 			} else {
 				if (window.innerWidth < 640) {
-					elementsPerPage = 3;
+					elementsPerPage = 9;
 				} else {
 					elementsPerPage = 6;
 				}
@@ -680,6 +680,35 @@ export default {
 			})
 
 			function handleSearch() {
+				$('#clear-search-text').on('click', function(e) {
+					e.preventDefault();
+					$('#pab-filters-search').val('');
+					$('#clear-search').css('opacity', '0');
+					$('.pab-product').hide();
+								categoryType = '.pab-category'
+								showElements(0, elementsPerPage)
+								updateDots(false, false)
+								
+								searchLoaded = false
+
+								totalElements = $(categoryType).length
+								let pages = Math.ceil(
+									$('.pab-category').length / elementsPerPage
+								)
+								currentPage = 1
+								$('.pab-pagination-dots').html('')
+								for (let i = 0; i < pages; i++) {
+									$('.pab-pagination-dots').append(
+										'<svg ' +
+											(i + 1 == currentPage
+												? 'class="pab-pagination-dot-current" '
+												: '') +
+											'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>'
+									)
+								}
+								updatePaginationButtons()
+				})
+
 				$('#pab-filters-form').on('submit', function (e) {
 					e.preventDefault()
 				})
@@ -689,21 +718,27 @@ export default {
 				})
 
 				$('.pab-filters-search').on(
-					'keyup change',
+// 		change event not needed?  it triggers a search update when input loses focus
+//					'keyup change',
+					'keyup',
 					debounceSearch(() => {
 
 						let search = $('.pab-filters-search').val().toLowerCase()
 						let searchresultsfound = false;
 
-						if (search.length >= 3) {
+						if (search.length > 0) {
+							$('#clear-search').css('opacity', '1');
 							// set category type to search
 							categoryType = '.search-result'
 							searchLoaded = true
 
-							$('.pab-category').hide()
+							$('.pab-category, .pab-product').hide()
 
-							let allCats = $('.pab-category')
-							let count = 0
+							let allCats1 = $('.pab-category');
+							let allCats2 = $('.pab-product');
+							let allCats = $('.pab-product').add('.pab-category');
+							let count = 0;
+
 							for (let i = 0; i < allCats.length; i++) {
 								if ($(allCats[i]).data('searchTerms').indexOf(search) !== -1) {
 									$(allCats[i]).addClass('search-result')
@@ -729,16 +764,18 @@ export default {
 								}
 								searchresultsfound = true
 							}
-
+							currentPage = 1;
 							showElements(0, elementsPerPage)
 							updateDots(true, false)
 						} else {
+							$('#clear-search').css('opacity', '0');
 							searchresultsfound = true
 							$('.pab-search-empty').css('display', 'none')
 							if ($('.pab-top-wrap').length) {
 								$('.pab-top-wrap').show()
 							}
 							if (searchLoaded) {
+								$('.pab-product').hide();
 								categoryType = '.pab-category'
 								showElements(0, elementsPerPage)
 								updateDots(false, false)
@@ -769,18 +806,10 @@ export default {
 
 			handleSearch()
 
-			if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
-				document.addEventListener('DOMContentLoaded', function() {
-					setTimeout(function() {
-						document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
-						let pabfs = document.getElementById('pab-filters-search');
-						for (let i = 0; i < pabfs.value.length; i++) {
-							pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
-						}
-						pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
-					}, 25);
-				});
-			}
+			/* if there's a search preloaded, this function is called after the ajax script is loaded and content is present */
+			// function handlePreloadSearch() {
+				
+			// }
 
 			function handleSort() {
 				$('#filter1 dd ul li').on('click', function () {
@@ -849,6 +878,60 @@ export default {
 			handleSort()
 		}
 
+
+		/** Show the categories and load products when /products/ is initially viewed and scrolled into view **/
+		if (document.body.classList.contains('products')) {
+			function handleShowSearchItems() {
+
+				let searchel;
+				function handleIntersection(entries, observer) {
+				    entries.forEach(entry => {
+				        if (entry.isIntersecting) {
+				        	$.ajax({
+						        url: '/wp-content/themes/reade-theme/template-parts/blocks/partial/product-archive-ajax.php',
+						        type: 'GET',
+						        success: function (data) {
+						            $(entry.target).html(data);
+						            showElements(0, elementsPerPage);
+									updateDots();
+
+									// perform preload search if needed
+									if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
+										setTimeout(function() {
+											document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
+											let pabfs = document.getElementById('pab-filters-search');
+											for (let i = 0; i < pabfs.value.length; i++) {
+												pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
+											}
+											pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
+										}, 25);
+									}
+						        },
+						        error: function () {
+						            console.error('Error loading search data.');
+						        }
+						    });
+				            observer.disconnect();
+				        }
+				    });
+				}
+
+				const options = {
+				    root: null,
+				    rootMargin: '0px',
+				    threshold: 0.1
+				};
+
+				const observer = new IntersectionObserver(handleIntersection, options);
+
+				if (searchel = document.getElementById('search_load')) {
+					observer.observe(searchel);
+				}
+			}
+
+			handleShowSearchItems();
+		}
+
 		// run functions
 		handleTFDropdown()
 		handleNewsCardPagination()
@@ -870,16 +953,28 @@ export default {
 				if (window.innerWidth < 640) {
 					if (9 != elementsPerPage) {
 						elementsPerPage = 9
-						showElements(0, elementsPerPage)
+						showElements(0, elementsPerPage);
+						currentPage = 1;
 						updatePaginationButtons()
 						updateDots()
 					}
 				} else {
-					if (9 != elementsPerPage) {
-						elementsPerPage = 9
-						showElements(0, elementsPerPage)
-						updatePaginationButtons()
-						updateDots()
+					if (document.body.classList.contains('products')) {
+						if (6 != elementsPerPage) {
+							elementsPerPage = 6
+							currentPage = 1;
+							showElements(0, elementsPerPage)
+							updatePaginationButtons()
+							updateDots()
+						}
+					} else {
+						if (9 != elementsPerPage) {
+							elementsPerPage = 9;
+							currentPage = 1;
+							showElements(0, elementsPerPage);
+							updatePaginationButtons();
+							updateDots();
+						}
 					}
 				}
 			})

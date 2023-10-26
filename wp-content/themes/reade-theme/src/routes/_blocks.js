@@ -583,6 +583,7 @@ function handleAutoComplete() {
 			var a,
 				b,
 				i,
+				aWrapper,
 				val = this.value
 			/*close any already open lists of autocompleted values*/
 			closeAllLists()
@@ -593,12 +594,23 @@ function handleAutoComplete() {
 				return false
 			}
 			currentFocus = -1
+
+			var containerDiv = document.createElement("div");
+			containerDiv.id = 'autocomplete-list-wrapper';
+
+			if (document.getElementById('autocomplete-list-wrapper')) {
+				document.getElementById('autocomplete-list-wrapper').remove();
+			}
+
 			/*create a DIV element that will contain the items (values):*/
 			a = document.createElement('DIV')
 			a.setAttribute('id', this.id + 'autocomplete-list')
 			a.setAttribute('class', 'autocomplete-items')
+			containerDiv.appendChild(a);
 			/*append the DIV element as a child of the autocomplete container:*/
-			this.parentNode.appendChild(a)
+
+			this.parentNode.appendChild(containerDiv);
+
 			/*for each item in the array...*/
 			//var pattern = new RegExp(val, 'gi');
 			const boldQuery = (str, query) => {
@@ -658,7 +670,20 @@ function handleAutoComplete() {
 				}
 				//}
 			}
+
+			// alphabetically sort the autocomplete results to match live search results
+			const elements = Array.from(a.querySelectorAll('div'));
+			
+			elements.sort((a, b) => {
+				const textA = a.innerText.trim().toLowerCase();
+			    const textB = b.innerText.trim().toLowerCase();
+			    return textA.localeCompare(textB);
+			});
+
+			const container = document.querySelector('#pab-filters-searchautocomplete-list');
+			elements.forEach((element) => container.appendChild(element));
 		})
+
 		/*execute a function presses a key on the keyboard:*/
 		inp.addEventListener('keydown', function (e) {
 			var x = document.getElementById(this.id + 'autocomplete-list')

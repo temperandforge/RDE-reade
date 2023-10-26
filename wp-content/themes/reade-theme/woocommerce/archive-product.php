@@ -78,7 +78,7 @@ get_header();
                   'column_2_text' => '',
                   'term_id' => $qobj->term_id
                );
-
+               
                include( locate_template( 'template-parts/blocks/product-archive-main.php', false, false, $args = $pam_fields ?: array()) );
 
 
