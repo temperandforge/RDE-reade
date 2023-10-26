@@ -55,6 +55,7 @@
 		display: flex;
 		column-gap: 16px;
 		flex-basis: 192px;
+		align-self: flex-start;
 
 		@include respond-below(lg) {
 			flex-shrink: 1;
@@ -62,6 +63,7 @@
 
 		@include respond-below(sm) {
 			flex-basis: unset;
+			width: 100%;
 		}
 	}
 
@@ -397,6 +399,16 @@
     }
     .tf-dropdown-shown {
         display: block;
+    }
+
+    #clear-search a {
+    	font-size: 14px;
+    	color: red;
+    	text-decoration: underline;
+    	@media (max-width: 640px) {
+    		position: relative;
+    		top: -20px;
+    	}
     }
 
     .autocomplete {

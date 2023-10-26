@@ -71,6 +71,7 @@ if (is_null($qobj)) {
          <input id="pab-filters-search" class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>" autocomplete="off" >
          <span id="pab-filters-search-icon"></span>
          </form>
+         <div id="clear-search" class="clear-search" style="opacity: 0;"><a id="clear-search-text" href="#">Clear</a></div>
          <hr>
       </div>
    </div>
