@@ -73,7 +73,14 @@ ob_start();
                         $product_categories = wp_get_post_terms($prodpost->ID, 'product_cat');
 
                         if (!empty($product_categories)) {
-                           $firstCat = $product_categories[0]->term_id;
+
+                           foreach ($product_categories AS $ke => $va) {
+                              if (in_array($va->term_id, array_keys($category_images))) {
+                                 $firstCat = $va;
+                                 break;
+                              }
+                           }
+                           $firstCat = $va->term_id;
                            ?>
                            <img src="<?php echo $category_images[$firstCat][0]; ?>" alt="<?php echo $product_categories[0]->name; ?> Category" width="<?php echo $category_images[$firstCat][1]; ?>" height="<?php echo $category_images[$firstCat][2]; ?>">
                            <?php
