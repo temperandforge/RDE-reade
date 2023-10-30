@@ -918,14 +918,6 @@ export default {
 						categoryType = '.pab-category';
 						cards = $(categoryType)
 						allcards = cards;
-						allcards.each(function() {
-							$(this).removeClass('child-cat-show');
-							if ($(this).data('child-cats').indexOf(sort) !== -1) {
-								$(container).append($(this).show().addClass('child-cat-show'));
-							} else {
-								$(container).append($(this).hide());
-							}
-						})
 						allcards.sort(function (a, b) {
 							var nameA = $(a)
 								.find('.pab-category-info-left')
@@ -946,6 +938,15 @@ export default {
 							}
 							return 0
 						})
+						allcards.each(function() {
+							$(this).removeClass('child-cat-show');
+							if ($(this).data('child-cats').indexOf(sort) !== -1) {
+								$(container).append($(this).show().addClass('child-cat-show'));
+							} else {
+								$(container).append($(this).hide());
+							}
+						})
+						
 						categoryType = '.child-cat-show';
 					}
 
