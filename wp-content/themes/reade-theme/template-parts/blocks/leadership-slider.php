@@ -126,7 +126,7 @@ if(!$leadership_team) {
          </button>
          </div>
       <div class="leadership-slider-mobile--contacts">
-         <?php foreach($leadership_team as $post) :
+         <?php foreach($leadership_team as $index => $post) :
             
             $postid = $post->ID;
             $post_fields = get_fields($postid);
@@ -139,11 +139,11 @@ if(!$leadership_team) {
                    class="icon-btn linkedin">
                     <span class="sr-only"><?php echo $post_fields['linkedin']['title'] ;?> Profile</span>
                     <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <g clip-path="url(#clip0_4305_71668)">
+                     <g clip-path="url(#clip0_4305_71668<?php echo strval($index) ;?>)">
                         <path d="M24.4334 0.165283H2.55919C1.51136 0.165283 0.664062 0.992523 0.664062 2.01529V23.9798C0.664062 25.0025 1.51136 25.8348 2.55919 25.8348H24.4334C25.4813 25.8348 26.3336 25.0025 26.3336 23.9848V2.01529C26.3336 0.992523 25.4813 0.165283 24.4334 0.165283ZM8.27968 22.0395H4.46937V9.78634H8.27968V22.0395ZM6.37453 8.11682C5.15121 8.11682 4.16354 7.12914 4.16354 5.91084C4.16354 4.69254 5.15121 3.70487 6.37453 3.70487C7.59282 3.70487 8.5805 4.69254 8.5805 5.91084C8.5805 7.12413 7.59282 8.11682 6.37453 8.11682ZM22.5383 22.0395H18.733V16.0834C18.733 14.6645 18.7079 12.8346 16.7526 12.8346C14.7723 12.8346 14.4715 14.3838 14.4715 15.9831V22.0395H10.6712V9.78634H14.321V11.4609H14.3712C14.8776 10.4983 16.1209 9.48051 17.9709 9.48051C21.8264 9.48051 22.5383 12.0174 22.5383 15.3163V22.0395V22.0395Z" fill="#009FC6"/>
                      </g>
                      <defs>
-                        <clipPath id="clip0_4305_71668">
+                        <clipPath id="clip0_4305_71668<?php echo strval($index) ;?>">
                            <rect width="25.6695" height="25.6695" fill="white" transform="translate(0.664062 0.165283)"/>
                         </clipPath>
                      </defs>
