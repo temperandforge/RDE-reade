@@ -912,11 +912,12 @@ export default {
 
 					if (sort == 'alpha' || sort == 'reversealpha') {
 						allcards.each(function () {
-							$(container).append($(this).show())
+							$(container).append($(this).show().removeClass('child-cat-show'));
 						})
 					} else {
 						categoryType = '.child-cat-show';
 						allcards.each(function() {
+							$(this).removeClass('child-cat-show');
 							if ($(this).data('child-cats').indexOf(sort) !== -1) {
 								$(container).append($(this).show().addClass('child-cat-show'));
 							} else {
