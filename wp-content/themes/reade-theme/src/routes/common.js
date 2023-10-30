@@ -939,10 +939,10 @@ export default {
 								.trim()
 
 							if (nameA < nameB) {
-								return -1
+								return 1
 							}
 							if (nameA > nameB) {
-								return 1
+								return 0
 							}
 							return 0
 						})
