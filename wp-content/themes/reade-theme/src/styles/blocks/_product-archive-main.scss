@@ -2,6 +2,12 @@
 	padding: clamp(3.75rem, 1.25rem + 6.25vw, 6.875rem) 0;
 	padding-top: 0;
 
+	#filter1 ul {
+		max-height: 250px;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
 	.pab-headline {
 		color: var(--primary-900, #045);
 		text-align: center;
