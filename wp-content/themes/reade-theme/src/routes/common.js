@@ -926,6 +926,26 @@ export default {
 								$(container).append($(this).hide());
 							}
 						})
+						allcards.sort(function (a, b) {
+							var nameA = $(a)
+								.find('.pab-category-info-left')
+								.text()
+								.toLowerCase()
+								.trim()
+							var nameB = $(b)
+								.find('.pab-category-info-left')
+								.text()
+								.toLowerCase()
+								.trim()
+
+							if (nameA < nameB) {
+								return -1
+							}
+							if (nameA > nameB) {
+								return 1
+							}
+							return 0
+						})
 						categoryType = '.child-cat-show';
 					}
 

@@ -49,7 +49,7 @@ if (is_null($qobj)) {
       <div class="pab-filters-left">
          <?php
          
-         $child_categories = get_terms(array('taxonomy' => 'product_cat', 'child_of' => get_queried_object()->term_id));
+         $child_categories = get_terms(array('taxonomy' => 'product_cat', 'child_of' => get_queried_object()->term_id, 'orderby' => 'name', 'order' => 'ASC'));
 
          $filter1_options = array(
             'id' => 'filter1',
