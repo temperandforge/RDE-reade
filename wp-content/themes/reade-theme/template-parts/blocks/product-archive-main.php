@@ -119,6 +119,8 @@ if (is_null($qobj)) {
                'compare' => '='
             ),
          ),
+         'orderby' => 'name',
+         'order' => 'ASC'
          );
 
          $products = new WP_Query($query_args);
