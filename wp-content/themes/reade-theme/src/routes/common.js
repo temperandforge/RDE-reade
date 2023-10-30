@@ -841,21 +841,21 @@ export default {
 
 			handleSearch()
 
-			/* if there's a search preloaded, this function is called after the ajax script is loaded and content is present */
-			// function handlePreloadSearch() {
-				
-			// }
 
 			function handleSort() {
+				let allcards;
 				$('#filter1 dd ul li').on('click', function () {
 					let sort = $(this).data('key')
 					let container = $('.pab-categories')
 					let cards = $(categoryType)
 					currentPage = 1
 					cards.hide()
+					allcards = cards;
+					console.log(allcards);
 
 					if (sort == 'alpha') {
-						cards.sort(function (a, b) {
+						categoryType = '.pab-category';
+						allcards.sort(function (a, b) {
 							var nameA = $(a)
 								.find('.pab-category-info-left')
 								.text()
@@ -876,7 +876,8 @@ export default {
 							return 0
 						})
 					} else if (sort == 'reversealpha') {
-						cards.sort(function (a, b) {
+						categoryType = '.pab-category';
+						allcards.sort(function (a, b) {
 							var nameA = $(a)
 								.find('.pab-category-info-left')
 								.text()
@@ -896,14 +897,33 @@ export default {
 							}
 							return 0
 						})
+					} else {
+						
+						// allcards.each(function() {
+						// 	if ($(this).data('child-cats').indexOf(sort) !== -1) {
+						// 		$(this).addClass("child-cat-show");
+						// 	}
+						// })
+						
 					}
 
 					// hide all cards
-					$(categoryType).remove()
+					//$(categoryType).remove()
 
-					cards.each(function () {
-						$(container).append($(this).show())
-					})
+					if (sort == 'alpha' || sort == 'reversealpha') {
+						allcards.each(function () {
+							$(container).append($(this).show())
+						})
+					} else {
+						categoryType = '.child-cat-show';
+						allcards.each(function() {
+							if ($(this).data('child-cats').indexOf(sort) !== -1) {
+								$(container).append($(this).show().addClass('child-cat-show'));
+							} else {
+								$(container).append($(this).hide());
+							}
+						})
+					}
 
 					showElements(0, elementsPerPage)
 					updateDots()

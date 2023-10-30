@@ -48,10 +48,12 @@ if (is_null($qobj)) {
    <div class="pab-filters">
       <div class="pab-filters-left">
          <?php
+         
+         $child_categories = get_terms(array('taxonomy' => 'product_cat', 'child_of' => get_queried_object()->term_id));
 
          $filter1_options = array(
             'id' => 'filter1',
-            'width' => '192px',
+            'width' => '250px',
             'select_text' => !empty($options['sort_text']) ? $options['sort_text'] : 'Sort',
             'svg' => '<svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M0.1853 0.965493C-0.045104 1.17537 -0.0617475 1.53228 0.148125 1.76269L4.91632 6.99734C5.02326 7.11473 5.17471 7.18164 5.3335 7.18164C5.4923 7.18164 5.64375 7.11473 5.75069 6.99734L10.5189 1.76268C10.7288 1.53228 10.7121 1.17537 10.4817 0.965492C10.2513 0.755619 9.89439 0.772263 9.68452 1.00267L5.3335 5.77932L0.982492 1.00267C0.772619 0.772264 0.415704 0.75562 0.1853 0.965493Z" fill="#006078"/>
@@ -61,6 +63,12 @@ if (is_null($qobj)) {
                'reversealpha' => 'Alphabetical (Z-A)'
             )
          );
+
+         if (!empty($child_categories)) {
+            foreach ($child_categories AS $child_category) {
+               $filter1_options['values'][$child_category->term_id] = $child_category->name;
+            }
+         }
 
          tf_dropdown($filter1_options);
 
@@ -150,10 +158,8 @@ if (is_null($qobj)) {
                $prodinfo = new WC_Product($prod->ID);
                $permalink = $prodinfo->get_permalink();
 
-
-
                ?>
-               <div class="pab-category" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags(str_replace(array('<', '>', '"', "'"), ' ', $prodinfo->get_short_description())); ?>">
+               <div class="pab-category" data-child-cats="<?php echo !empty($prodinfo->category_ids) ? implode(' ', $prodinfo->category_ids) : ''; ?>" data-search-terms="<?php echo strtolower($prodinfo->get_name()); echo ' ' . strip_tags(str_replace(array('<', '>', '"', "'"), ' ', $prodinfo->get_short_description())); ?>">
                   <div class="pab-category-wrap">
                      <a class="fillall" href="<?php echo $permalink; ?><?php if (!empty($fromId)) { echo '?from=' . $fromId; } ?>">
                         <span class="sr-only"><?php echo $prodinfo->get_name(); ?></span>
