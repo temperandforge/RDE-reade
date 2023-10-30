@@ -100,6 +100,7 @@ if (is_null($qobj)) {
             // get products from sustainable products category
             $term = get_term_by('name', 'Sustainable Products', 'product_cat');
          }
+         
 
          $query_args = array(
             'post_type'      => 'product',
