@@ -851,7 +851,6 @@ export default {
 					currentPage = 1
 					cards.hide()
 					allcards = cards;
-					console.log(allcards);
 
 					if (sort == 'alpha') {
 						categoryType = '.pab-category';
