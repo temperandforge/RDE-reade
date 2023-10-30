@@ -915,7 +915,9 @@ export default {
 							$(container).append($(this).show().removeClass('child-cat-show'));
 						})
 					} else {
-						categoryType = '.child-cat-show';
+						categoryType = '.pab-category';
+						cards = $(categoryType)
+						allcards = cards;
 						allcards.each(function() {
 							$(this).removeClass('child-cat-show');
 							if ($(this).data('child-cats').indexOf(sort) !== -1) {
@@ -924,6 +926,7 @@ export default {
 								$(container).append($(this).hide());
 							}
 						})
+						categoryType = '.child-cat-show';
 					}
 
 					showElements(0, elementsPerPage)
