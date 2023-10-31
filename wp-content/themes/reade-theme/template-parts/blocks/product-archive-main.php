@@ -70,13 +70,14 @@ if (is_null($qobj)) {
             )
          );
 
-         if (!empty($child_categories)) {
-            foreach ($child_categories AS $child_category) {
-               $filter1_options['values'][$child_category->term_id] = $child_category->name;
-            }
-         }
+         // if (!empty($child_categories)) {
+         //    foreach ($child_categories AS $child_category) {
+         //       $filter1_options['values'][$child_category->term_id] = $child_category->name;
+         //    }
+         // }
 
          tf_dropdown($filter1_options);
+         
 
          ?>
       </div>
