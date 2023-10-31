@@ -77,6 +77,7 @@ if (is_null($qobj)) {
          // }
 
          tf_dropdown($filter1_options);
+         
 
          ?>
       </div>
