@@ -65,13 +65,14 @@ ul.header-links {
 		@media (hover: hover) {
 			.active, //TODO
 			a:not(:hover) {
-				color: rgba(0, 68.26, 85, 0.3); //TODO
+				color: rgba(0, 68.26, 85, 0.6); //TODO
 				text-decoration: none;
 				&:before {
 					opacity: 0;
 				}
 			}
 		}
+		
 		a {
 			@apply inline-block relative;
 			color: #004455; //TODO
