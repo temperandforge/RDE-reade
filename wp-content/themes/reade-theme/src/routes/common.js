@@ -847,13 +847,13 @@ export default {
 				$('#filter1 dd ul li').on('click', function () {
 					let sort = $(this).data('key')
 					let container = $('.pab-categories')
+					categoryType = '.pab-category';
 					let cards = $(categoryType)
 					currentPage = 1
 					cards.hide()
 					allcards = cards;
 
 					if (sort == 'alpha') {
-						categoryType = '.pab-category';
 						allcards.sort(function (a, b) {
 							var nameA = $(a)
 								.find('.pab-category-info-left')
@@ -875,7 +875,6 @@ export default {
 							return 0
 						})
 					} else if (sort == 'reversealpha') {
-						categoryType = '.pab-category';
 						allcards.sort(function (a, b) {
 							var nameA = $(a)
 								.find('.pab-category-info-left')
@@ -930,10 +929,10 @@ export default {
 								.trim()
 
 							if (nameA < nameB) {
-								return 1
+								return -1
 							}
 							if (nameA > nameB) {
-								return 0
+								return 1
 							}
 							return 0
 						})
