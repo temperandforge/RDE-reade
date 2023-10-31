@@ -936,6 +936,8 @@ export default {
 							}
 							return 0
 						})
+
+						console.log(allcards);
 						allcards.each(function() {
 							$(this).removeClass('child-cat-show');
 							if ($(this).data('child-cats').indexOf(sort) !== -1) {
@@ -944,6 +946,7 @@ export default {
 								$(container).append($(this).hide());
 							}
 						})
+						console.log(allcards);
 						
 						categoryType = '.child-cat-show';
 					}
