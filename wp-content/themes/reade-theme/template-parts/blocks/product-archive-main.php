@@ -48,8 +48,14 @@ if (is_null($qobj)) {
    <div class="pab-filters">
       <div class="pab-filters-left">
          <?php
-         
-         $child_categories = get_terms(array('taxonomy' => 'product_cat', 'child_of' => get_queried_object()->term_id, 'orderby' => 'name', 'order' => 'ASC'));
+
+         $thisTerm = get_queried_object()->term_id;
+
+         if ($thisTerm == "") {
+            $thisTerm = 30;
+         }
+
+         $child_categories = get_terms(array('taxonomy' => 'product_cat', 'child_of' => $thisTerm, 'orderby' => 'name', 'order' => 'ASC', 'hide_empty' => true));
 
          $filter1_options = array(
             'id' => 'filter1',
