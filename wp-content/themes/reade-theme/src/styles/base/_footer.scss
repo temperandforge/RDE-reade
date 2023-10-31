@@ -40,8 +40,9 @@ ul.footer-links-list {
    .sub-menu a {
       transition: 0.2s;
       &:hover {
-         text-shadow: 0 1px #fff;
+         //text-shadow: 0 1px #fff;
          // letter-spacing: 0.04em;
+         color: #8BD4DF;
       }
    }
    @media (hover:hover) {
