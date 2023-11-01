@@ -659,9 +659,27 @@ export default {
 					elementsPerPage = 6;
 				}
 			}
+
+			showElements(0, elementsPerPage);
+			updateDots();
 			
-			showElements(0, elementsPerPage)
-			updateDots()
+			// if (window.location.hash && window.location.hash != '' && window.location.hash != '#') {
+			// 	if (window.location.hash.replace('#', '').startsWith('page-')) {
+			// 		let thispage = window.location.hash.replace('#page-', '');
+			// 		console.log('here');
+			// 		setTimeout(function() {
+			// 			showElements(+thispage * elementsPerPage, elementsPerPage);
+			// 		}, 3000);
+			// 		console.log('here2');
+			// 		updateDots();
+			// 	} else {
+			// 		showElements(0, elementsPerPage);
+			// 		updateDots();
+			// 	}
+			// } else {
+			// 	showElements(0, elementsPerPage)
+			// 	updateDots()
+			// }
 
 			$('.prev-btn').on('click', function () {
 				if (currentPage > 1) {
@@ -670,6 +688,7 @@ export default {
 					const endIndex = startIndex + elementsPerPage
 					showElements(startIndex, endIndex)
 					updateDots(false, true)
+					updatePageHash(currentPage);
 				}
 			})
 
@@ -680,8 +699,13 @@ export default {
 					const endIndex = startIndex + elementsPerPage
 					showElements(startIndex, endIndex)
 					updateDots(false, true)
+					updatePageHash(currentPage);
 				}
 			})
+
+			function updatePageHash(page) {
+				window.location.hash = 'page-' + page;
+			}
 
 			function handleSearch() {
 				$('#clear-search-text').on('click', function(e) {
@@ -939,7 +963,6 @@ export default {
 							return 0
 						})
 
-						console.log(allcards);
 						allcards.each(function() {
 							$(this).removeClass('child-cat-show');
 							if ($(this).data('child-cats').indexOf(sort) !== -1) {
@@ -948,7 +971,6 @@ export default {
 								$(container).append($(this).hide());
 							}
 						})
-						console.log(allcards);
 						
 						categoryType = '.child-cat-show';
 					}
@@ -991,15 +1013,22 @@ export default {
 						        	ajaxData = data;
 						        	
 						        	/* preload search if it's necessary */
-									if (window.location.hash && window.location.hash !== '' && window.location.hash != '#') {
-										document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
+									if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && !window.location.hash.replace('#', '').startsWith('page-')) {
+										
 										let pabfs = document.getElementById('pab-filters-search');
+										document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
 										for (let i = 0; i < pabfs.value.length; i++) {
 											pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
 										}
 
 										pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
-
+									} else {
+										if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+											let thispage = window.location.hash.replace('#page-', '');
+											showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+											currentPage = +thispage;
+											updateDots();
+										}
 									}
 						        },
 						        error: function () {
