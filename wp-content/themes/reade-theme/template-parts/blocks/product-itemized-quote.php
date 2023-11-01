@@ -417,7 +417,8 @@ if (!is_null($cart)) {
                                     </svg>',
                                 'values' => array(
                                     'Email' => 'Email',
-                                    'Phone' => 'Phone'
+                                    'Phone' => 'Phone',
+                                    'No Preference' => 'No Preference'
                                 )
                             );
 
