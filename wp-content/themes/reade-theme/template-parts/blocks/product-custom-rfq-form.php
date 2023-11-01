@@ -323,7 +323,7 @@ $fields = get_fields();
 
                <input  class="all-fields-2" id="r-00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="text" placeholder="Enter how you found us *" style="display: none;" value="" />
 
-               <p class="all-fields-2" id="p-accept-terms"><input id="r-accept-terms" type="checkbox" name="r-accept-terms"> I have read and accept the <a href="/about-us/terms-conditions-of-sale/">terms and conditions of sale</a></p>
+               <p class="all-fields-2" id="p-accept-terms"><input id="r-accept-terms" type="checkbox" name="r-accept-terms"> I have read and accept the <a href="/about-us/terms-conditions-of-sale/" target="_blank">terms and conditions of sale</a></p>
 
                <div class="rfq-form-controls">
                     <button id="rfq-form-previous" class="btn-blue-dark-blue btn-arrow-reverse">
