@@ -963,7 +963,6 @@ export default {
 
 
 		function handleCustomRFQDropdownColor() {
-			console.log('here');
 			$('.rfq-form--form .tf-dropdown li').on('click', function() {
 				$(this).parent().parent().parent().parent().find('dt p').css('color', '#009fc6');
 			})
