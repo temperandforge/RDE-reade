@@ -640,6 +640,20 @@ export default {
 			})
 		}
 
+		if (document.body.classList.contains('tax-product_cat')) {
+			$('.pah-top-container .btn-arrow-reverse').on('click', function(e) {
+				e.preventDefault();
+				let ref = document.referrer;
+				console.log(ref);
+
+				if (!ref || !ref.includes('/products')) {
+					document.location = $(this).attr('href');
+				} else {
+					window.history.back();
+				}
+			})
+		}
+
 		if (
 			document.body.classList.contains('woocommerce-shop') ||
 			document.body.classList.contains('products') ||
@@ -690,6 +704,10 @@ export default {
 					updateDots(false, true)
 					if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
 						updatePageHash(currentPage);
+					} else {
+						if (!window.location.hash) {
+							updatePageHash(currentPage);
+						}
 					}
 				}
 			})
@@ -703,6 +721,10 @@ export default {
 					updateDots(false, true)
 					if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
 						updatePageHash(currentPage);
+					} else {
+						if (!window.location.hash) {
+							updatePageHash(currentPage);
+						}
 					}
 				}
 			})
