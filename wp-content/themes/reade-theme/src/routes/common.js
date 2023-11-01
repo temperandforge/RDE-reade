@@ -688,7 +688,9 @@ export default {
 					const endIndex = startIndex + elementsPerPage
 					showElements(startIndex, endIndex)
 					updateDots(false, true)
-					updatePageHash(currentPage);
+					if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+						updatePageHash(currentPage);
+					}
 				}
 			})
 
@@ -699,7 +701,9 @@ export default {
 					const endIndex = startIndex + elementsPerPage
 					showElements(startIndex, endIndex)
 					updateDots(false, true)
-					updatePageHash(currentPage);
+					if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+						updatePageHash(currentPage);
+					}
 				}
 			})
 
@@ -998,6 +1002,18 @@ export default {
 		/** Show the categories and load products when /products/ is initially viewed and scrolled into view **/
 		if (document.body.classList.contains('products')) {
 
+			function handleHashChange() {
+				const newHash = window.location.hash;
+				if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+					let thispage = window.location.hash.replace('#page-', '');
+					showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+					currentPage = +thispage;
+					updateDots();
+				}
+			}
+
+			window.addEventListener('hashchange', handleHashChange);
+
 			function handleShowSearchItems() {
 
 				let searchel;
@@ -1054,6 +1070,7 @@ export default {
 			}
 
 			handleShowSearchItems();
+			handleHashChange();
 		}
 
 		// run functions
