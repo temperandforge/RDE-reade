@@ -69,7 +69,7 @@ function handleLeadershipSlider() {
 				dots: false,
 				slidesToScroll: 1,
 				slidesToShow: 1,
-				infinite: false,
+				infinite: true,
 				asNavFor: $('.leadership-slider--slider'),
 				prevArrow: $('.slick-prev-arrow'),
 				nextArrow: $('.slick-next-arrow'),
@@ -78,6 +78,12 @@ function handleLeadershipSlider() {
 			})
 
 	}
+	$slider.on('beforeChange', function() {
+		//$('.leadership-slider--slider').scrollIntoView();
+		if (window.innerWidth < 1300) {
+			document.getElementsByClassName('leadership-slider--slider')[0].scrollIntoView();
+		}
+	})
 
 	$slider.slick({
 		infinite: false,
