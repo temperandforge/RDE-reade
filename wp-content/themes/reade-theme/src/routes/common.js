@@ -842,6 +842,8 @@ export default {
 			handleSearch()
 
 
+
+
 			function handleSort() {
 				let allcards;
 				$('#filter1 dd ul li').on('click', function () {
@@ -957,6 +959,18 @@ export default {
 			}
 
 			handleSort()
+		}
+
+
+		function handleCustomRFQDropdownColor() {
+			console.log('here');
+			$('.rfq-form--form .tf-dropdown li').on('click', function() {
+				$(this).parent().parent().parent().parent().find('dt p').css('color', '#009fc6');
+			})
+		}
+
+		if (document.body.classList.contains('custom-product-rfq-form')) {
+			handleCustomRFQDropdownColor();
 		}
 
 
