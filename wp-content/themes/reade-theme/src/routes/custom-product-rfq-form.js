@@ -230,11 +230,11 @@ export default {
         }
       }
       
-      if (isNaN($('.rfq-input-quantity').val())) {
-        if (!errorfields.includes('rfq-input-quantity')) {
-          errorfields.push('rfq-input-quantity');
-        }
-      }
+      // if (isNaN($('.rfq-input-quantity').val())) {
+      //   if (!errorfields.includes('rfq-input-quantity')) {
+      //     errorfields.push('rfq-input-quantity');
+      //   }
+      // }
       if ($('.rfq-currently-using input:checked').length != 1) {
         if (!errorfields.includes('rfq-currently-using')) {
           errorfields.push('rfq-currently-using');
