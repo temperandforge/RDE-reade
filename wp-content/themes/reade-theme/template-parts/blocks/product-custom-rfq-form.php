@@ -181,7 +181,87 @@ $fields = get_fields();
 
                <input  class="all-fields-2" id="r-city" maxlength="40" name="city" size="20" type="text" placeholder="City *" />
 
-               <input  class="all-fields-2" id="r-state" maxlength="20" name="state" size="20" type="text" placeholder="State/Providence *" />
+               <!--<input  class="all-fields-2" id="r-state" maxlength="20" name="state" size="20" type="text" placeholder="State/Providence *" />-->
+               <?php
+
+               $statedd = [
+                    'id' => 'r-state',
+                    'select_text' => 'State/Providence',
+                    'width' => '100%',
+                    'values' => [
+                         "Alabama" => "Alabama",
+                         "Alaska" => "Alaska",
+                         "Arizona" => "Arizona",
+                         "Arkansas" => "Arkansas",
+                         "California" => "California",
+                         "Colorado" => "Colorado",
+                         "Connecticut" => "Connecticut",
+                         "Delaware" => "Delaware",
+                         "Florida" => "Florida",
+                         "Georgia" => "Georgia",
+                         "Hawaii" => "Hawaii",
+                         "Idaho" => "Idaho",
+                         "Illinois" => "Illinois",
+                         "Indiana" => "Indiana",
+                         "Iowa" => "Iowa",
+                         "Kansas" => "Kansas",
+                         "Kentucky" => "Kentucky",
+                         "Louisiana" => "Louisiana",
+                         "Maine" => "Maine",
+                         "Maryland" => "Maryland",
+                         "Massachusetts" => "Massachusetts",
+                         "Michigan" => "Michigan",
+                         "Minnesota" => "Minnesota",
+                         "Mississippi" => "Mississippi",
+                         "Missouri" => "Missouri",
+                         "Montana" => "Montana",
+                         "Nebraska" => "Nebraska",
+                         "Nevada" => "Nevada",
+                         "New Hampshire" => "New Hampshire",
+                         "New Jersey" => "New Jersey",
+                         "New Mexico" => "New Mexico",
+                         "New York" => "New York",
+                         "North Carolina" => "North Carolina",
+                         "North Dakota" => "North Dakota",
+                         "Ohio" => "Ohio",
+                         "Oklahoma" => "Oklahoma",
+                         "Oregon" => "Oregon",
+                         "Pennsylvania" => "Pennsylvania",
+                         "Rhode Island" => "Rhode Island",
+                         "South Carolina" => "South Carolina",
+                         "South Dakota" => "South Dakota",
+                         "Tennessee" => "Tennessee",
+                         "Texas" => "Texas",
+                         "Utah" => "Utah",
+                         "Vermont" => "Vermont",
+                         "Virginia" => "Virginia",
+                         "Washington" => "Washington",
+                         "West Virginia" => "West Virginia",
+                         "Wisconson" => "Wisconson",
+                         "Wyoming" => "Wyoming",
+                         "Puerto Rico" => "Puerto Rico",
+                         "Alberta" => "Alberta",
+                         "British Columbia" => "British Columbia",
+                         "Manitoba" => "Manitoba",
+                         "New Brunswick" => "New Brunswick",
+                         "Newfoundland" => "Newfoundland",
+                         "Nova Scotia" => "Nova Scotia",
+                         "Ontario" => "Ontario",
+                         "Prince Edward Island" => "Prince Edward Island",
+                         "Quebec" => "Quebec",
+                         "Saskatchewan" => "Saskatchewan",
+                         "Northwest Territories" => "Northwest Territories",
+                         "Yukon" => "Yukon",
+                         "Outside US" => "Outside US"
+                    ],
+                    'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                    </svg>'
+               ];
+
+               tf_dropdown($statedd);
+
+               ?>
 
                <input  class="all-fields-2" id="r-zip" maxlength="20" name="zip" size="20" type="text" placeholder="ZIP *" />
 
