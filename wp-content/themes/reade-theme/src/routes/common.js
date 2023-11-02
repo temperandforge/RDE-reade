@@ -153,20 +153,6 @@ export default {
 				updateDots(false, true);
 			});
 		}
-
-		
-
-				// let dotListenerId = function() {
-					
-				// }
-
-				// document.addEventListener('DOMContentLoaded', dotListenerId);
-
-
-				// if ($('.nav-dots').length) {
-				// 	console.log($('.nav-dots')[0]);
-				// 	$('.nav-dots')[0].click();
-				// }
 		
 
 		/**
@@ -689,7 +675,6 @@ export default {
 			document.body.classList.contains('tax-product_cat')
 		) {
 			if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
-				console.log('herez');
 				if (window.innerWidth < 640) {
 					elementsPerPage = 9
 				} else {
@@ -803,9 +788,11 @@ export default {
 
 				function addClickToResults(e) {
 					e.preventDefault();
-					const stateObj = { search_term: document.getElementById('pab-filters-search').value};
-							history.pushState(stateObj, '', '#' + document.getElementById('pab-filters-search').value);
-							document.location.href = e.target.href;
+					let hv = (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) ? window.location.hash : '';
+					const stateObj = {
+						search_term: document.getElementById('pab-filters-search').value};
+						history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value + hv);
+						document.location.href = e.target.href;
 				}
 				
 				let actr;
@@ -873,8 +860,16 @@ export default {
 								searchresultsfound = true
 							}
 							currentPage = 1;
-							showElements(0, elementsPerPage)
-							updateDots(true, false)
+
+							if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+								let thispage = window.location.hash.replace('#page-', '');
+								showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+								currentPage = +thispage;
+								updateDots();
+							} else {
+								showElements(0, elementsPerPage)
+								updateDots(true, false)
+							}
 
 							actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 						} else {
@@ -1064,9 +1059,23 @@ export default {
 
 			window.addEventListener('hashchange', handleHashChange);
 
+			function getUrlParameter(name) {
+			  const url = window.location.href;
+			  name = name.replace(/[\[\]]/g, "\\$&");
+			  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+			  const results = regex.exec(url);
+
+			  if (!results) return null;
+			  if (!results[2]) return '';
+
+			  return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+
 			function handleShowSearchItems() {
 
 				let searchel;
+				let searchq;
+
 				function handleIntersection(entries, observer) {
 				    entries.forEach(entry => {
 				        if (entry.isIntersecting) {
@@ -1079,23 +1088,16 @@ export default {
 						        	ajaxData = data;
 						        	
 						        	/* preload search if it's necessary */
-									if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && !window.location.hash.replace('#', '').startsWith('page-')) {
-										
+									if (searchq = getUrlParameter('q')) {
 										let pabfs = document.getElementById('pab-filters-search');
-										document.getElementById('pab-filters-search').value = decodeURIComponent(window.location.hash.replace('#', ''));
+										document.getElementById('pab-filters-search').value = decodeURIComponent(searchq);
 										for (let i = 0; i < pabfs.value.length; i++) {
 											pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
 										}
 
 										pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
-									} else {
-										if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
-											let thispage = window.location.hash.replace('#page-', '');
-											showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
-											currentPage = +thispage;
-											updateDots();
-										}
 									}
+									
 						        },
 						        error: function () {
 						            console.error('Error loading search data.');

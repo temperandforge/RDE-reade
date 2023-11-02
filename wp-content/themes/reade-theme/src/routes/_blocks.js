@@ -666,7 +666,7 @@ function handleAutoComplete() {
 						b.addEventListener('click', function (e) {
 
 							const stateObj = { search_term: document.getElementById('pab-filters-search').value};
-							history.pushState(stateObj, '', '#' + document.getElementById('pab-filters-search').value);
+							history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value);
 
 							document.location.href = this.getElementsByTagName('input')[1].value
 							/*insert the value for the autocomplete text field:*/
