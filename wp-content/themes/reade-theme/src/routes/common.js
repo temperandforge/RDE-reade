@@ -127,6 +127,10 @@ export default {
 
 			initialLoad = false
 
+			function updatePageHash(page) {
+				window.location.hash = 'page-' + page;
+			}
+
 			$('.nav-dots').on('click', function() {
 				let thisdotpage = $(this).data('dot-page');
 
@@ -138,6 +142,9 @@ export default {
 				// show needed elements
 				showElements((+thisdotpage-1) * elementsPerPage, ((+thisdotpage-1) * elementsPerPage) + elementsPerPage);
 				currentPage = thisdotpage;
+				if (!window.location.hash || !window.location.hash.replace('#', '').startsWith('page-')) {
+					updatePageHash(currentPage);
+				}
 				updateDots(false, true);
 			});
 		}
@@ -644,7 +651,19 @@ export default {
 			$('.pah-top-container .btn-arrow-reverse').on('click', function(e) {
 				e.preventDefault();
 				let ref = document.referrer;
-				console.log(ref);
+
+				if (!ref || !ref.includes('/products')) {
+					document.location = $(this).attr('href');
+				} else {
+					window.history.back();
+				}
+			})
+		}
+
+		if (document.body.classList.contains('single-product')) {
+			$('.ph-btn').on('click', function(e) {
+				e.preventDefault();
+				let ref = document.referrer;
 
 				if (!ref || !ref.includes('/products')) {
 					document.location = $(this).attr('href');
