@@ -184,6 +184,7 @@ function handleIndustrySlider() {
 				slidesPerRow: 2,
 				adaptiveHeight: true,
 				dots: true,
+				infinite: false,
 				appendDots: $(this).find('.industry-slider--dots'),
 				prevArrow: $(this).find('.industry-slider--arrows .slick-prev-arrow'),
 				nextArrow: $(this).find('.industry-slider--arrows .slick-next-arrow'),
