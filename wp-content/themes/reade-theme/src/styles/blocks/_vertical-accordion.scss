@@ -142,6 +142,9 @@
 			&:not(:first-child) {
 				margin-top: .75rem;
 			}
+			&::marker {
+				color: var(--primary-500-main,#009fc6);
+			}
 		}
 	}
 }
