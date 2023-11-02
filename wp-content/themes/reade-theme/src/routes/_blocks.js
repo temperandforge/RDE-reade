@@ -664,16 +664,25 @@ function handleAutoComplete() {
 							"'>"
 						/*execute a function when someone clicks on the item value (DIV element):*/
 						b.addEventListener('click', function (e) {
+							let hv = (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) ? window.location.hash : '';
+						if (document.body.classList.contains('sustainable-products') || document.body.classList.contains('tax-product_cat')) {
+							const fullURL = window.location.href;
+						  	const stateObj = {
+								search_term: document.getElementById('pab-filters-search').value
+							};
 
-							const stateObj = { search_term: document.getElementById('pab-filters-search').value};
-							history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value);
+						  	history.pushState(stateObj, '', thispath + '?q='+document.getElementById('pab-filters-search').value + hv);
+						  	document.location.href = this.getElementsByTagName('input')[1].value;
+						  	return;
+						} else {
+							if (document.body.classList.contains('products')) {
+								const stateObj = { search_term: document.getElementById('pab-filters-search').value};
+								history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value);
+							}
+						}
 
-							document.location.href = this.getElementsByTagName('input')[1].value
-							/*insert the value for the autocomplete text field:*/
-							//inp.value = this.getElementsByTagName('input')[0].value
-							/*close the list of autocompleted values,
-		              (or any other open lists of autocompleted values:*/
-							closeAllLists()
+						document.location.href = this.getElementsByTagName('input')[1].value;
+						closeAllLists()
 						})
 						a.appendChild(b)
 					}
