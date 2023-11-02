@@ -638,7 +638,7 @@ export default {
 			})
 		}
 
-		if (document.body.classList.contains('tax-product_cat')) {
+		if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
 			$('.pah-top-container .btn-arrow-reverse').on('click', function(e) {
 				e.preventDefault();
 				let ref = document.referrer;
