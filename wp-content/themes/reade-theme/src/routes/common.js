@@ -659,7 +659,7 @@ export default {
 				if (!ref) {
 					document.location = $(this).attr('href');
 				} else {
-					if (ref.includes('/products') || ref.includes('/product-category')) {
+					if (ref.includes('/products') || ref.includes('/product-category') || ref.includes('/sustainable-products')) {
 						window.history.back();
 					} else {
 						document.location = $(this).attr('href');
@@ -691,22 +691,7 @@ export default {
 			showElements(0, elementsPerPage);
 			updateDots();
 			
-			if (document.body.classList.contains('tax-product_cat')) {
-				if (window.location.hash && window.location.hash != '' && window.location.hash != '#') {
-					if (window.location.hash.replace('#', '').startsWith('page-')) {
-						let thispage = window.location.hash.replace('#page-', '');
-						showElements((+thispage - 1) * elementsPerPage, ((+thispage - 1) * elementsPerPage) + elementsPerPage);
-						currentPage = thispage;
-						updateDots();
-					} else {
-						showElements(0, elementsPerPage);
-						updateDots();
-					}
-				} else {
-					showElements(0, elementsPerPage)
-					updateDots()
-				}
-			}
+			
 
 			$('.prev-btn').on('click', function () {
 				if (currentPage > 1) {
@@ -789,10 +774,25 @@ export default {
 				function addClickToResults(e) {
 					e.preventDefault();
 					let hv = (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) ? window.location.hash : '';
-					const stateObj = {
-						search_term: document.getElementById('pab-filters-search').value};
-						history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value + hv);
-						document.location.href = e.target.href;
+
+					if (document.body.classList.contains('sustainable-products') || document.body.classList.contains('tax-product_cat')) {
+						const fullURL = window.location.href;
+						  const stateObj = {
+								search_term: document.getElementById('pab-filters-search').value
+							};
+						  history.pushState(stateObj, '', thispath + '?q='+document.getElementById('pab-filters-search').value + hv);
+						  document.location.href = e.target.href;
+						  return;
+					} else {
+						if (document.body.classList.contains('products')) {
+							const stateObj = {
+								search_term: document.getElementById('pab-filters-search').value
+							};
+							history.pushState(stateObj, '', '/products/?q=' + document.getElementById('pab-filters-search').value + hv);
+							document.location.href = e.target.href;
+							return;
+						}
+					}
 				}
 				
 				let actr;
@@ -807,7 +807,6 @@ export default {
 						let searchresultsfound = false;
 
 						if (search.length > 1) {
-
 							/* if our ajax content hasn't been loaded yet, load it now */
 							if (!ajaxContentsLoaded) {
 								// load ajax content
@@ -912,9 +911,58 @@ export default {
 				)
 			}
 
+
+
 			handleSearch()
 
+			if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
+				// if (window.location.hash && window.location.hash != '' && window.location.hash != '#') {
+				// 	if (window.location.hash.replace('#', '').startsWith('page-')) {
+				// 		let thispage = window.location.hash.replace('#page-', '');
+				// 		showElements((+thispage - 1) * elementsPerPage, ((+thispage - 1) * elementsPerPage) + elementsPerPage);
+				// 		currentPage = thispage;
+				// 		updateDots();
+				// 	} else {
+				// 		showElements(0, elementsPerPage);
+				// 		updateDots();
+				// 	}
+				// } else {
+				// 	showElements(0, elementsPerPage)
+				// 	updateDots()
+				// }
+				let searchq;
+				function getUrlParameter(name) {
+				  const url = window.location.href;
+				  name = name.replace(/[\[\]]/g, "\\$&");
+				  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+				  const results = regex.exec(url);
 
+				  if (!results) return null;
+				  if (!results[2]) return '';
+
+				  return decodeURIComponent(results[2].replace(/\+/g, " "));
+				}
+
+				if (searchq = getUrlParameter('q')) {
+					let pabfs = document.getElementById('pab-filters-search');
+					document.getElementById('pab-filters-search').value = decodeURIComponent(searchq);
+					for (let i = 0; i < pabfs.value.length; i++) {
+						pabfs.dispatchEvent(new KeyboardEvent('input', {'key':pabfs[i]}))
+					}
+					pabfs.dispatchEvent(new KeyboardEvent('keyup', {'keyCode': 38}));
+					currentPage = 1;
+
+					if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+								let thispage = window.location.hash.replace('#page-', '');
+								showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+								currentPage = +thispage;
+								updateDots();
+							} else {
+								showElements(0, elementsPerPage)
+								updateDots(true, false)
+							}
+				}
+			}
 
 
 			function handleSort() {

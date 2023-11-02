@@ -23,6 +23,16 @@ if (is_null($qobj)) {
    }
 }
 
+if ($qobj && $qobj->ID && $qobj->ID) {
+   $path = '/sustainable-products/';
+} else {
+   if ($qobj) {
+      $path = '/product-category/' . $qobj->slug . '/';
+   }
+}
+
+echo "<script>let thispath = '" . $path . "';</script>";
+
 ?>
 <div class="product-archive-main">
    <div class="pab-top">
