@@ -142,8 +142,13 @@ export default {
 				// show needed elements
 				showElements((+thisdotpage-1) * elementsPerPage, ((+thisdotpage-1) * elementsPerPage) + elementsPerPage);
 				currentPage = thisdotpage;
-				if (!window.location.hash || !window.location.hash.replace('#', '').startsWith('page-')) {
+
+				if (!window.location.hash) {
 					updatePageHash(currentPage);
+				} else {
+					if (window.location.hash && window.location.hash.replace('#', '').startsWith('page-')) {
+						updatePageHash(currentPage);
+					}
 				}
 				updateDots(false, true);
 			});
@@ -665,10 +670,14 @@ export default {
 				e.preventDefault();
 				let ref = document.referrer;
 
-				if (!ref || !ref.includes('/products')) {
+				if (!ref) {
 					document.location = $(this).attr('href');
 				} else {
-					window.history.back();
+					if (ref.includes('/products') || ref.includes('/product-category')) {
+						window.history.back();
+					} else {
+						document.location = $(this).attr('href');
+					}
 				}
 			})
 		}
@@ -680,6 +689,7 @@ export default {
 			document.body.classList.contains('tax-product_cat')
 		) {
 			if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
+				console.log('herez');
 				if (window.innerWidth < 640) {
 					elementsPerPage = 9
 				} else {
@@ -696,23 +706,22 @@ export default {
 			showElements(0, elementsPerPage);
 			updateDots();
 			
-			// if (window.location.hash && window.location.hash != '' && window.location.hash != '#') {
-			// 	if (window.location.hash.replace('#', '').startsWith('page-')) {
-			// 		let thispage = window.location.hash.replace('#page-', '');
-			// 		console.log('here');
-			// 		setTimeout(function() {
-			// 			showElements(+thispage * elementsPerPage, elementsPerPage);
-			// 		}, 3000);
-			// 		console.log('here2');
-			// 		updateDots();
-			// 	} else {
-			// 		showElements(0, elementsPerPage);
-			// 		updateDots();
-			// 	}
-			// } else {
-			// 	showElements(0, elementsPerPage)
-			// 	updateDots()
-			// }
+			if (document.body.classList.contains('tax-product_cat')) {
+				if (window.location.hash && window.location.hash != '' && window.location.hash != '#') {
+					if (window.location.hash.replace('#', '').startsWith('page-')) {
+						let thispage = window.location.hash.replace('#page-', '');
+						showElements((+thispage - 1) * elementsPerPage, ((+thispage - 1) * elementsPerPage) + elementsPerPage);
+						currentPage = thispage;
+						updateDots();
+					} else {
+						showElements(0, elementsPerPage);
+						updateDots();
+					}
+				} else {
+					showElements(0, elementsPerPage)
+					updateDots()
+				}
+			}
 
 			$('.prev-btn').on('click', function () {
 				if (currentPage > 1) {
