@@ -22,6 +22,21 @@ if (stripos($_SERVER['REQUEST_URI'], 'product-category/sustainable-products') !=
    exit;
 }
 
+if ($qo = get_queried_object()) {
+   if ($qo->parent != 0) {
+      $parent = $qo->parent;
+      $category_url = get_term_link($parent, 'product_cat');
+    
+      if (!is_wp_error($category_url)) {
+         wp_redirect($category_url);
+         exit;
+      } else {
+         wp_redirect(get_site_url() . '/products');
+         exit;
+      }
+   }
+}
+
 $page_id = is_shop() ? wc_get_page_id( 'shop' ) : false;
 
 get_header();
