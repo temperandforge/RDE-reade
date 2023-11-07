@@ -21,7 +21,7 @@ export default {
     }
 
     let fieldsnotempty = ['rfq-input-product', 'rfq-input-size', 'rfq-input-size-measure', 'rfq-input-purity', 'rfq-input-quantity', 'rfq-input-quantity-measure', 'rfq-input-general-application'];
-    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-zip', 'r-country', 'r-phone', 'r-email'];
+    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-zip', 'r-phone', 'r-email'];
     let errorfields = [];
     let errorfields2 = [];
 
@@ -59,7 +59,7 @@ export default {
       e.preventDefault();
       if (validateFormPart2()) {
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
         
 
          // update salesforce form with values from this field
@@ -75,6 +75,7 @@ export default {
 
         //state
         $('#sf-form #state').val($('#r-state dt p').text());
+        $('#sf-form #country').val($('#r-country dt p').text());
 
         // how they found us
         $('#00N6g00000TtToG').val($('#r-00N6g00000TtToG dt p').text());
@@ -99,15 +100,16 @@ export default {
             'Currently Using: ' + ($('#r-currently-using-yes').is(':checked') ? 'Yes' : 'No') + "\r\n" + 
             'General Application: ' + $('#00N6g00000TUVG8').val()
         );
+        return;
  
-        $('#sf-form-submit').click();
+        //$('#sf-form-submit').click();
 
 
 
       } else {
         enableForm();
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
         
         for (let i = 0; i < errorfields2.length; i++) {
           document.getElementById(errorfields2[i]).classList.add('rfq-error');
@@ -158,9 +160,15 @@ export default {
         }
       }
 
-      if ($('#r-state dt p').text() == 'State/Providence') {
-        if (!errorfields2.includes('r-state')) {
-          errorfields2.push('r-state');
+      // if ($('#r-state dt p').text() == 'State/Providence') {
+      //   if (!errorfields2.includes('r-state')) {
+      //     errorfields2.push('r-state');
+      //   }
+      // }
+
+      if ($('#r-country dt p').text() == 'Select Country *') {
+        if (!errorfields2.includes('r-country')) {
+          errorfields2.push('r-country');
         }
       }
 
