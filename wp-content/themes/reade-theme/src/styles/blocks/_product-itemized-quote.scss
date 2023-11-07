@@ -10,7 +10,7 @@
     .sf-hidden {
         display: none;
     }
-    #find_us, #how-to-contact {
+    #find_us, #how-to-contact, #rfq-state, #rfq-country {
         border: 1px solid var(--primary-300,#8bd4df);
         height: auto;
 
@@ -24,7 +24,11 @@
             color: var(--primary-300, #8BD4DF);
         }
     }
-    #find_us.rfq-error, #how-to-contact.rfq-error {
+    #rfq-state ul, #rfq-country ul {
+        max-height: 300px;
+        overflow: auto;
+    }
+    #find_us.rfq-error, #how-to-contact.rfq-error, #rfq-state.rfq-error, #rfq-country.rfq-error {
         background-color: var(--primary-50,#effbff);
         border: 1px solid #f15252;
         p {

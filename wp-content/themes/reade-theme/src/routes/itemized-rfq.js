@@ -85,6 +85,10 @@ export default {
       $('#how-to-contact ul li').on('click', function() {
         $('#how-to-contact p').css('color', '#045');
       })
+
+      $('#rfq-state ul li').on('click', function() {
+        $('#rfq-state p').css('color', '#045');
+      })
     }
 
     function handleRFQSubmit() {
@@ -174,7 +178,7 @@ export default {
           }
         }
 
-        if ($('#rfq-state').val() == '') {
+        if ($('#rfq-state p').text() == 'State/Providence') {
           errors.push('Please enter a state');
           if (!errorFields.includes('rfq-state')) {
             errorFields.push('rfq-state');
@@ -192,6 +196,13 @@ export default {
           errors.push('Please let us know how you found READE');
           if (!errorFields.includes('find_us')) {
             errorFields.push('find_us');
+          }
+        }
+
+        if ($('#rfq-country p').text() == 'Select Country *') {
+          errors.push('Please enter a country');
+          if (!errorFields.includes('rfq-country')) {
+            errorFields.push('rfq-country');
           }
         }
 
@@ -271,7 +282,8 @@ export default {
         $('#sf-form #sfemail').val($('#rfq-email').val());
         $('#sf-form #street').text($('#rfq-address-line-1').val() + ($('#rfq-address-line-2').val() ? "\r\n" + $('#rfq-address-line-2').val() : ''));
         $('#sf-form #city').val($('#rfq-city').val());
-        $('#sf-form #state').val($('#rfq-state').val());
+        $('#sf-form #state').val($('#rfq-state dt p').text());
+        $('#sf-form #country').val($('#rfq-country dt p').text());
         $('#sf-form #zip').val($('#rfq-zip').val());
         $('#00N3J000001mdyh').text($('#rfq-notes').val());
 
@@ -394,8 +406,11 @@ export default {
             
 
             $('.rfq-error-message').hide();
-        
             $('#sf-form-submit').click();
+            
+
+
+
             // $(this).find('.spinner').css('display', 'block');
             // $(this).find('svg:not(.spinner').css('display', 'none');
             // $.ajax({
@@ -427,6 +442,8 @@ export default {
             fields.each(function(index, element) {
               $(element).removeClass('rfq-error');
             });
+            $('#rfq-state').removeClass('rfq-error');
+            $('#rfq-country').removeClass('rfq-error');
             $('#find_us').removeClass('rfq-error');
             $('#rfq-tos').removeClass('rfq-error');
             $('#how-to-contact').removeClass('rfq-error');
