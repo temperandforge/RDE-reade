@@ -100,9 +100,8 @@ export default {
             'Currently Using: ' + ($('#r-currently-using-yes').is(':checked') ? 'Yes' : 'No') + "\r\n" + 
             'General Application: ' + $('#00N6g00000TUVG8').val()
         );
-        return;
  
-        //$('#sf-form-submit').click();
+        $('#sf-form-submit').click();
 
 
 
@@ -160,11 +159,11 @@ export default {
         }
       }
 
-      // if ($('#r-state dt p').text() == 'State/Providence') {
-      //   if (!errorfields2.includes('r-state')) {
-      //     errorfields2.push('r-state');
-      //   }
-      // }
+      if ($('#r-state dt p').text() == 'State/Providence') {
+         if (!errorfields2.includes('r-state')) {
+           errorfields2.push('r-state');
+         }
+       }
 
       if ($('#r-country dt p').text() == 'Select Country *') {
         if (!errorfields2.includes('r-country')) {
