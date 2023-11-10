@@ -69,7 +69,7 @@ get_header();
                if ($qobj && $qobj->term_id == ALL_PRODUCTS_CAT_ID) {
 
                   // Retrieve the acf values for "secondary hero" from the "products" page to include in the header for this page
-                  $field_values = parse_blocks(get_post_field('post_content', get_page_by_path('products')->ID));
+                  $field_values = parse_blocks(get_post_field('post_content', 88));
 
                   if (!empty($field_values)) {
                      $found_block_key = false;
