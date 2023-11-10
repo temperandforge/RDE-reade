@@ -13,6 +13,13 @@
 }
 .footer-links {
 }
+ul.footer-links-list>li:not(.menu-item-has-children) > a {
+   transition: 0.2s;
+}
+ul.footer-links-list>li:not(.menu-item-has-children):hover > a {
+   color: #8bd4df;
+}
+
 ul.footer-links-list {
    @apply mb-12;
    @apply grid gap-y-6 gap-x-6 sm:gap-x-0;
@@ -52,7 +59,7 @@ ul.footer-links-list {
          cursor: default;
       }
       li:not(.menu-item-has-children):hover > a:before {
-         opacity:1;
+         opacity:0;
       }
    }
    //.current-menu-ancestor,
