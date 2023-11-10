@@ -739,6 +739,10 @@ export default {
 			function handleSearch() {
 				$('#clear-search-text').on('click', function(e) {
 					e.preventDefault();
+
+					if ($('.pab-search-empty').length) {
+						$('.pab-search-empty').hide();
+					}
 					window.location.hash = '';
 					$('.pab-product a, .pab-category a').off('click', addClickToResults);
 					$('#pab-filters-search').val('');
