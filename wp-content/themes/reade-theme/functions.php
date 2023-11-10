@@ -133,7 +133,7 @@ class Custom_Menu_Walker extends Walker_Nav_Menu {
     }
 }
 
-
+//TODO remove
 add_action('rest_api_init', function () {
    $namespace = 'meta/v1';
    register_rest_route($namespace, 'out', array(

@@ -30,6 +30,7 @@ ul.footer-links-list {
    }
    > li:not([class*=btn]) > a {
       @apply relative;
+      transition: 0.2s;
       &:before {
          @apply absolute bg-white bottom-[-1px] left-0 h-[2px] w-full;
          content: '';
@@ -50,8 +51,11 @@ ul.footer-links-list {
       li.menu-item-has-children:hover > a {
          cursor: default;
       }
-      li:not(.menu-item-has-children):hover > a:before {
-         opacity:1;
+      // li:not(.menu-item-has-children):hover > a:before {
+      //    opacity:1;
+      // }
+      li:not(.menu-item-has-children):hover > a {
+         text-shadow: 1px 0 #fff;
       }
    }
    //.current-menu-ancestor,
