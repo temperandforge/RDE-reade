@@ -71,7 +71,7 @@ $options = get_fields('options');
 
          /* <!-- this content filled in by ajax, but load just categories initially for fillter until the ajax load request completes --> */
          /* Gather categories */
-         $per_page = 6;
+         $per_page = 9;
 
          $product_categories = get_terms(array(
            'taxonomy'   => 'product_cat',

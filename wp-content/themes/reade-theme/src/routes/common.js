@@ -116,11 +116,16 @@ export default {
 			}
 
 			if (!initialLoad) {
-				if (document.getElementsByClassName('pab-filters')) {
-					if (noSearchResults) {
-						document
-							.getElementsByClassName('pab-filters')[0]
-							.scrollIntoView(true)
+
+				if (document.body.classList.contains('products')) {
+					document.getElementById('search_load').scrollIntoView();
+				} else {
+					if (document.getElementsByClassName('pab-filters')) {
+						if (noSearchResults) {
+							document
+								.getElementsByClassName('pab-filters')[0]
+								.scrollIntoView(true)
+						}
 					}
 				}
 			}
@@ -684,7 +689,7 @@ export default {
 				if (window.innerWidth < 640) {
 					elementsPerPage = 9;
 				} else {
-					elementsPerPage = 6;
+					elementsPerPage = 9;
 				}
 			}
 
@@ -1201,8 +1206,8 @@ export default {
 					}
 				} else {
 					if (document.body.classList.contains('products')) {
-						if (6 != elementsPerPage) {
-							elementsPerPage = 6
+						if (9 != elementsPerPage) {
+							elementsPerPage = 9
 							currentPage = 1;
 							showElements(0, elementsPerPage)
 							updatePaginationButtons()
