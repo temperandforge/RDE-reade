@@ -384,6 +384,19 @@
 			transition: ease 0.2s;
 		}
 	}
+
+	@media (max-width: 1024px) {
+		.pab-pagination-dots {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.pab-pagination-dots {
+			justify-content: center;
+		}
+	}
+
 	.pab-pagination-arrows {
 		position: absolute;
 		right: 0;
