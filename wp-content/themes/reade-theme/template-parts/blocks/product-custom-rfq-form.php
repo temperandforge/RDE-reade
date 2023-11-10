@@ -20,11 +20,18 @@ $fields = get_fields();
      </div>
     <?php endif ;?>
     <div class="rfq-form--form">
+
+
+
+
+
      <!-- salesforce form -->
 
-    <form id="sf-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-    <input type=hidden name="oid" value="00D3J0000008rZJ">
-    <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
+     <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
+     <input type=hidden name="oid" value="00D6g000003RNAt">
+    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/">
+
+
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
     <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
@@ -36,9 +43,12 @@ $fields = get_fields();
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
     <input id="country" maxlength="255" name="country" size="20" type="hidden" />
     <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-    <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea>
 
+    <!-- product 1 name and details -->
+    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- notes -->
     <textarea id="00N3J000001mdyh" name="00N3J000001mdyh" type="text" wrap="soft" style="display: none;"></textarea>
 
     <!-- find us -->
@@ -54,6 +64,7 @@ $fields = get_fields();
     <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
 
     <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
+
     </form>
 
 

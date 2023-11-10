@@ -28,9 +28,13 @@ if (!is_null($cart)) {
     ?>
     <!-- salesforce form -->
 
-    <form id="sf-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-    <input type=hidden name="oid" value="00D3J0000008rZJ">
-    <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
+    <!--General Application:<textarea  id="00N6g00000TUVG8" name="00N6g00000TUVG8" rows="3" type="text" wrap="soft"></textarea><br>-->
+
+
+
+    <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
+    <input type=hidden name="oid" value="00D6g000003RNAt">
+    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/">
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
     <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
@@ -42,17 +46,28 @@ if (!is_null($cart)) {
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
     <input id="country" maxlength="255" name="country" size="20" type="hidden" />
     <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-    <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mcrL" maxlength="255" name="00N3J000001mcrL" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcrQ" name="00N3J000001mcrQ" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mcrV" maxlength="255" name="00N3J000001mcrV" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcra" name="00N3J000001mcra" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mdxo" maxlength="255" name="00N3J000001mdxo" size="20" type="hidden" />
-    <textarea  id="00N3J000001mdxt" name="00N3J000001mdxt" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mdxy" maxlength="255" name="00N3J000001mdxy" size="20" type="hidden" />
-    <textarea  id="00N3J000001mdy8" name="00N3J000001mdy8" type="text" wrap="soft" style="display: none;"></textarea>
-    <textarea  id="00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+    <!-- product 1 -->
+    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 2 -->
+    <input  id="00N6g00000VMFwI" maxlength="255" name="00N6g00000VMFwI" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwH" name="00N6g00000VMFwH" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 3 -->
+    <input  id="00N6g00000VMFwK" maxlength="255" name="00N6g00000VMFwK" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwJ" name="00N6g00000VMFwJ" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 4 -->
+    <input  id="00N6g00000VMFwM" maxlength="255" name="00N6g00000VMFwM" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwL" name="00N6g00000VMFwL" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 5 -->
+    <input  id="00N6g00000VMFwO" maxlength="255" name="00N6g00000VMFwO" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwN" name="00N6g00000VMFwN" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- additional comments -->
+    <textarea  id="00N6g00000TtToE" name="00N6g00000TtToE" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
 
     <!-- find us -->
     <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">

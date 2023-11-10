@@ -53,7 +53,6 @@ export default {
     })
 
 
-
     $('#rfq-form-submit').on('click', function(e) {
       disableForm();
       e.preventDefault();
@@ -87,10 +86,10 @@ export default {
         $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ dt p').text());
 
         // product 1 name
-        $('#00N3J000001mcrB').val($('#00N6g00000TUVFe').val());
+        $('#00N6g00000VMFwG').val($('#00N6g00000TUVFe').val());
 
         // product 1 details
-        $('#00N3J000001mcrG').text(
+        $('#00N6g00000VMFwF').text(
             'Size: ' + $('#00N6g00000Tj7ls').val() + "\r\n" + 
             'Shape: ' + $('#00N6g00000TBLtL').val() + "\r\n" + 
             'Size Unit: ' + $('#00N6g00000TtToL dt p').text() + "\r\n" + 
@@ -102,6 +101,7 @@ export default {
         );
  
         $('#sf-form-submit').click();
+
 
 
 
