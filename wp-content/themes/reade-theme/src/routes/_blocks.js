@@ -763,7 +763,9 @@ function handleAutoComplete() {
 	})
 
 	document.addEventListener('DOMContentLoaded', function () {
-		autocomplete(document.getElementById('pab-filters-search'), products)
+		if (document.getElementById('pab-filters-search')) {
+			autocomplete(document.getElementById('pab-filters-search'), products)
+		}
 	})
 }
 

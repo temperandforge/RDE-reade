@@ -802,118 +802,121 @@ export default {
 				
 				let actr;
 
-				$('.pab-filters-search').on(
-// 		change event not needed?  it triggers a search update when input loses focus
-//					'keyup change',
-					'keyup',
-					debounceSearch(() => {
+				if ($('.pab-filters-search').length) {
 
-						let search = $('.pab-filters-search').val().toLowerCase()
-						let searchresultsfound = false;
+					$('.pab-filters-search').on(
+	// 		change event not needed?  it triggers a search update when input loses focus
+	//					'keyup change',
+						'keyup',
+						debounceSearch(() => {
 
-						if (search.length > 1) {
-							/* if our ajax content hasn't been loaded yet, load it now */
-							if (!ajaxContentsLoaded) {
-								// load ajax content
-								$('#search_load').html(ajaxData);
+							let search = $('.pab-filters-search').val().toLowerCase()
+							let searchresultsfound = false;
 
-								// clear memory from variable
-								ajaxData = '';
+							if (search.length > 1) {
+								/* if our ajax content hasn't been loaded yet, load it now */
+								if (!ajaxContentsLoaded) {
+									// load ajax content
+									$('#search_load').html(ajaxData);
 
-								// set control variable to true
-								ajaxContentsLoaded = true;
-							}
+									// clear memory from variable
+									ajaxData = '';
 
-							
+									// set control variable to true
+									ajaxContentsLoaded = true;
+								}
 
-							$('#clear-search').css('opacity', '1');
-							// set category type to search
-							categoryType = '.search-result'
-							searchLoaded = true
+								
 
-							$('.pab-category, .pab-product').hide()
+								$('#clear-search').css('opacity', '1');
+								// set category type to search
+								categoryType = '.search-result'
+								searchLoaded = true
 
-							let allCats1 = $('.pab-category');
-							let allCats2 = $('.pab-product');
-							let allCats = $('.pab-product').add('.pab-category');
-							let count = 0;
+								$('.pab-category, .pab-product').hide()
 
-							for (let i = 0; i < allCats.length; i++) {
-								if ($(allCats[i]).data('searchTerms').indexOf(search) !== -1) {
-									$(allCats[i]).addClass('search-result')
-									count++
+								let allCats1 = $('.pab-category');
+								let allCats2 = $('.pab-product');
+								let allCats = $('.pab-product').add('.pab-category');
+								let count = 0;
+
+								for (let i = 0; i < allCats.length; i++) {
+									if ($(allCats[i]).data('searchTerms').indexOf(search) !== -1) {
+										$(allCats[i]).addClass('search-result')
+										count++
+									} else {
+										$(allCats[i]).removeClass('search-result')
+									}
+								}
+								if (!count) {
+									$('.pab-search-empty').css('display', 'block')
+									$('#pab-search-term').html(search)
+
+									if ($('.pab-top-wrap').length) {
+										$('.pab-top-wrap').hide()
+									}
+									searchresultsfound = false
 								} else {
-									$(allCats[i]).removeClass('search-result')
-								}
-							}
-							if (!count) {
-								$('.pab-search-empty').css('display', 'block')
-								$('#pab-search-term').html(search)
+									$('#pab-search-term').html('')
+									$('.pab-search-empty').css('display', 'none')
 
-								if ($('.pab-top-wrap').length) {
-									$('.pab-top-wrap').hide()
+									if ('.pab-top-wrap'.length) {
+										$('.pab-top-wrap').show()
+									}
+									searchresultsfound = true
 								}
-								searchresultsfound = false
+								currentPage = 1;
+
+								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+									let thispage = window.location.hash.replace('#page-', '');
+									showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+									currentPage = +thispage;
+									updateDots();
+								} else {
+									showElements(0, elementsPerPage)
+									updateDots(true, false)
+								}
+
+								actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 							} else {
-								$('#pab-search-term').html('')
-								$('.pab-search-empty').css('display', 'none')
+								window.location.hash = '';
+								$('.pab-product a, .pab-category a').off('click', addClickToResults);
 
-								if ('.pab-top-wrap'.length) {
+								$('#clear-search').css('opacity', '0');
+								searchresultsfound = true
+								$('.pab-search-empty').css('display', 'none')
+								if ($('.pab-top-wrap').length) {
 									$('.pab-top-wrap').show()
 								}
-								searchresultsfound = true
-							}
-							currentPage = 1;
+								if (searchLoaded) {
+									$('.pab-product').hide();
+									categoryType = '.pab-category'
+									showElements(0, elementsPerPage)
+									updateDots(false, false)
+									updatePaginationButtons()
+									searchLoaded = false
 
-							if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
-								let thispage = window.location.hash.replace('#page-', '');
-								showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
-								currentPage = +thispage;
-								updateDots();
-							} else {
-								showElements(0, elementsPerPage)
-								updateDots(true, false)
-							}
-
-							actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
-						} else {
-							window.location.hash = '';
-							$('.pab-product a, .pab-category a').off('click', addClickToResults);
-
-							$('#clear-search').css('opacity', '0');
-							searchresultsfound = true
-							$('.pab-search-empty').css('display', 'none')
-							if ($('.pab-top-wrap').length) {
-								$('.pab-top-wrap').show()
-							}
-							if (searchLoaded) {
-								$('.pab-product').hide();
-								categoryType = '.pab-category'
-								showElements(0, elementsPerPage)
-								updateDots(false, false)
-								updatePaginationButtons()
-								searchLoaded = false
-
-								totalElements = $(categoryType).length
-								let pages = Math.ceil(
-									$('.pab-category').length / elementsPerPage
-								)
-								currentPage = 1
-								$('.pab-pagination-dots').html('')
-								for (let i = 0; i < pages; i++) {
-									$('.pab-pagination-dots').append(
-										'<svg ' +
-											(i + 1 == currentPage
-												? 'class="pab-pagination-dot-current" '
-												: '') +
-											'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>'
+									totalElements = $(categoryType).length
+									let pages = Math.ceil(
+										$('.pab-category').length / elementsPerPage
 									)
+									currentPage = 1
+									$('.pab-pagination-dots').html('')
+									for (let i = 0; i < pages; i++) {
+										$('.pab-pagination-dots').append(
+											'<svg ' +
+												(i + 1 == currentPage
+													? 'class="pab-pagination-dot-current" '
+													: '') +
+												'width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="5.74709" cy="5.9999" r="5.24416" stroke="#009FC6"></circle></svg>'
+										)
+									}
+									updatePaginationButtons()
 								}
-								updatePaginationButtons()
 							}
-						}
-					}, 250)
-				)
+						}, 250)
+					)
+				}
 			}
 
 
