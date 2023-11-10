@@ -13,6 +13,13 @@
 }
 .footer-links {
 }
+ul.footer-links-list>li:not(.menu-item-has-children) > a {
+   transition: 0.2s;
+}
+ul.footer-links-list>li:not(.menu-item-has-children):hover > a {
+   color: #8bd4df;
+}
+
 ul.footer-links-list {
    @apply mb-12;
    @apply grid gap-y-6 gap-x-6 sm:gap-x-0;
@@ -41,8 +48,9 @@ ul.footer-links-list {
    .sub-menu a {
       transition: 0.2s;
       &:hover {
-         text-shadow: 0 1px #fff;
+         //text-shadow: 0 1px #fff;
          // letter-spacing: 0.04em;
+         color: #8BD4DF;
       }
    }
    @media (hover:hover) {

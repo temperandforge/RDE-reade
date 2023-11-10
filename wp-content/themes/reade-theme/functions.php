@@ -222,3 +222,6 @@ function get_missing_meta() {
    //    $posts
    // );
 }
+
+//138 locally
+define('ALL_PRODUCTS_CAT_ID', 368);

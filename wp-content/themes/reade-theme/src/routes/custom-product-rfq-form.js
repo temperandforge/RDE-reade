@@ -21,7 +21,7 @@ export default {
     }
 
     let fieldsnotempty = ['rfq-input-product', 'rfq-input-size', 'rfq-input-size-measure', 'rfq-input-purity', 'rfq-input-quantity', 'rfq-input-quantity-measure', 'rfq-input-general-application'];
-    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-state', 'r-zip', 'r-country', 'r-phone', 'r-email'];
+    let allfields2 = ['r-first_name', 'r-last_name', 'r-company', 'r-street', 'r-city', 'r-zip', 'r-phone', 'r-email'];
     let errorfields = [];
     let errorfields2 = [];
 
@@ -53,13 +53,12 @@ export default {
     })
 
 
-
     $('#rfq-form-submit').on('click', function(e) {
       disableForm();
       e.preventDefault();
       if (validateFormPart2()) {
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
         
 
          // update salesforce form with values from this field
@@ -70,9 +69,12 @@ export default {
         $('#sf-form #sfemail').val($('#r-email').val());
         $('#sf-form #street').text($('#r-street').val());
         $('#sf-form #city').val($('#r-city').val());
-        $('#sf-form #state').val($('#r-state').val());
         $('#sf-form #zip').val($('#r-zip').val());
         $('#00N3J000001mdyh').text($('#r-00N3J000001mdyh').val());
+
+        //state
+        $('#sf-form #state').val($('#r-state dt p').text());
+        $('#sf-form #country').val($('#r-country dt p').text());
 
         // how they found us
         $('#00N6g00000TtToG').val($('#r-00N6g00000TtToG dt p').text());
@@ -84,10 +86,10 @@ export default {
         $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ dt p').text());
 
         // product 1 name
-        $('#00N3J000001mcrB').val($('#00N6g00000TUVFe').val());
+        $('#00N6g00000VMFwG').val($('#00N6g00000TUVFe').val());
 
         // product 1 details
-        $('#00N3J000001mcrG').text(
+        $('#00N6g00000VMFwF').text(
             'Size: ' + $('#00N6g00000Tj7ls').val() + "\r\n" + 
             'Shape: ' + $('#00N6g00000TBLtL').val() + "\r\n" + 
             'Size Unit: ' + $('#00N6g00000TtToL dt p').text() + "\r\n" + 
@@ -102,10 +104,11 @@ export default {
 
 
 
+
       } else {
         enableForm();
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
         
         for (let i = 0; i < errorfields2.length; i++) {
           document.getElementById(errorfields2[i]).classList.add('rfq-error');
@@ -132,6 +135,7 @@ export default {
         }
       }
 
+
       let phoneNumber = $('#r-phone').val();
       let cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
       let phoneRegex = /^[0-9]{10,15}$/;
@@ -152,6 +156,18 @@ export default {
       if ($('#r-00N6g00000TtToJ dt p').text() == 'Preferred Method of Contact *') {
         if (!errorfields2.includes('r-00N6g00000TtToJ')) {
           errorfields2.push('r-00N6g00000TtToJ');
+        }
+      }
+
+      if ($('#r-state dt p').text() == 'State/Providence') {
+         if (!errorfields2.includes('r-state')) {
+           errorfields2.push('r-state');
+         }
+       }
+
+      if ($('#r-country dt p').text() == 'Select Country *') {
+        if (!errorfields2.includes('r-country')) {
+          errorfields2.push('r-country');
         }
       }
 
@@ -221,11 +237,11 @@ export default {
         }
       }
       
-      if (isNaN($('.rfq-input-quantity').val())) {
-        if (!errorfields.includes('rfq-input-quantity')) {
-          errorfields.push('rfq-input-quantity');
-        }
-      }
+      // if (isNaN($('.rfq-input-quantity').val())) {
+      //   if (!errorfields.includes('rfq-input-quantity')) {
+      //     errorfields.push('rfq-input-quantity');
+      //   }
+      // }
       if ($('.rfq-currently-using input:checked').length != 1) {
         if (!errorfields.includes('rfq-currently-using')) {
           errorfields.push('rfq-currently-using');

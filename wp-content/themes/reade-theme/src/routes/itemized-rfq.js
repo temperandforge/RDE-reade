@@ -85,6 +85,14 @@ export default {
       $('#how-to-contact ul li').on('click', function() {
         $('#how-to-contact p').css('color', '#045');
       })
+
+      $('#rfq-state ul li').on('click', function() {
+        $('#rfq-state p').css('color', '#045');
+      })
+
+      $('#rfq-country ul li').on('click', function() {
+        $('#rfq-country p').css('color', '#045');
+      })
     }
 
     function handleRFQSubmit() {
@@ -174,7 +182,7 @@ export default {
           }
         }
 
-        if ($('#rfq-state').val() == '') {
+        if ($('#rfq-state p').text() == 'State/Providence') {
           errors.push('Please enter a state');
           if (!errorFields.includes('rfq-state')) {
             errorFields.push('rfq-state');
@@ -192,6 +200,13 @@ export default {
           errors.push('Please let us know how you found READE');
           if (!errorFields.includes('find_us')) {
             errorFields.push('find_us');
+          }
+        }
+
+        if ($('#rfq-country p').text() == 'Select Country *') {
+          errors.push('Please enter a country');
+          if (!errorFields.includes('rfq-country')) {
+            errorFields.push('rfq-country');
           }
         }
 
@@ -271,9 +286,12 @@ export default {
         $('#sf-form #sfemail').val($('#rfq-email').val());
         $('#sf-form #street').text($('#rfq-address-line-1').val() + ($('#rfq-address-line-2').val() ? "\r\n" + $('#rfq-address-line-2').val() : ''));
         $('#sf-form #city').val($('#rfq-city').val());
-        $('#sf-form #state').val($('#rfq-state').val());
+        $('#sf-form #state').val($('#rfq-state dt p').text());
+        $('#sf-form #country').val($('#rfq-country dt p').text());
         $('#sf-form #zip').val($('#rfq-zip').val());
-        $('#00N3J000001mdyh').text($('#rfq-notes').val());
+        
+        // additional comments
+        $('#00N6g00000TtToE').text($('#rfq-notes').val());
 
         // how they found us
         $('#00N6g00000TtToG').val($('#find_us p').text());
@@ -291,18 +309,18 @@ export default {
         // product 1 name
         if ($('#sf-product-1-name').length) {
           if ($('#sf-product-1-name').text() != '') {
-            $('#00N3J000001mcrB').val($('#sf-product-1-name').text());
+            $('#00N6g00000VMFwG').val($('#sf-product-1-name').text());
 
             // product 1 details
             //console.log($('#product-1-using input[type="radio"]:checked').val());
-            $('#00N3J000001mcrG').text($('#sf-product-1-qty').val() + "\r\n" + $('dl#product-units-1 dt p').text() + "\r\n" + $('#sf-product-1-attributes').text() + "\r\nCurrently Using: " + (($('#product-1-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-1-general-application').val());
+            $('#00N6g00000VMFwF').text($('#sf-product-1-qty').val() + "\r\n" + $('dl#product-units-1 dt p').text() + "\r\n" + $('#sf-product-1-attributes').text() + "\r\nCurrently Using: " + (($('#product-1-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-1-general-application').val());
           } else {
-            $('#00N3J000001mcrB').val('');
-            $('#00N3J000001mcrG').text('');
+            $('#00N6g00000VMFwG').val('');
+            $('#00N6g00000VMFwF').text('');
           }
         } else {
-          $('#00N3J000001mcrB').val('');
-          $('#00N3J000001mcrG').text('');
+          $('#00N6g00000VMFwG').val('');
+          $('#00N6g00000VMFwF').text('');
         }
 
 
@@ -310,65 +328,65 @@ export default {
         // product 2 name
         if ($('#sf-product-2-name').length) {
           if ($('#sf-product-2-name').text() != '') {
-            $('#00N3J000001mcrL').val($('#sf-product-2-name').text());
+            $('#00N6g00000VMFwI').val($('#sf-product-2-name').text());
 
             // product 2 details
-            $('#00N3J000001mcrQ').text($('#sf-product-2-qty').val() + "\r\n" + $('dl#product-units-2 dt p').text() + "\r\n" + $('#sf-product-2-attributes').text() + "\r\nCurrently Using: " + (($('#product-2-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-2-general-application').val());
+            $('#00N6g00000VMFwH').text($('#sf-product-2-qty').val() + "\r\n" + $('dl#product-units-2 dt p').text() + "\r\n" + $('#sf-product-2-attributes').text() + "\r\nCurrently Using: " + (($('#product-2-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-2-general-application').val());
           } else {
-            $('#00N3J000001mcrL').val('');
-            $('#00N3J000001mcrQ').text('');
+            $('#00N6g00000VMFwI').val('');
+            $('#00N6g00000VMFwH').text('');
           }
         } else {
-          $('#00N3J000001mcrL').val('');
-          $('#00N3J000001mcrQ').text('');
+          $('#00N6g00000VMFwI').val('');
+          $('#00N6g00000VMFwH').text('');
         }
 
         // product 3 name
         if ($('#sf-product-3-name').length) {
           if ($('#sf-product-3-name').text() != '') {
-            $('#00N3J000001mcrV').val($('#sf-product-3-name').text());
+            $('#00N6g00000VMFwK').val($('#sf-product-3-name').text());
 
             // product 3 details
-            $('#00N3J000001mcra').text($('#sf-product-3-qty').val() + "\r\n" + $('dl#product-units-3 dt p').text() + "\r\n" + $('#sf-product-3-attributes').text() + "\r\nCurrently Using: " + (($('#product-3-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-3-general-application').val());
+            $('#00N6g00000VMFwJ').text($('#sf-product-3-qty').val() + "\r\n" + $('dl#product-units-3 dt p').text() + "\r\n" + $('#sf-product-3-attributes').text() + "\r\nCurrently Using: " + (($('#product-3-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-3-general-application').val());
           }else {
-            $('#00N3J000001mcrV').val('');
-            $('#00N3J000001mcra').text('');
+            $('#00N6g00000VMFwK').val('');
+            $('#00N6g00000VMFwJ').text('');
           }
         } else {
-          $('#00N3J000001mcrV').val('');
-          $('#00N3J000001mcra').text('');
+          $('#00N6g00000VMFwK').val('');
+          $('#00N6g00000VMFwJ').text('');
         }
 
         // product 4 name
         if ($('#sf-product-4-name').length) {
           if ($('#sf-product-4-name').text() != '') {
-            $('#00N3J000001mdxo').val($('#sf-product-4-name').text());
+            $('#00N6g00000VMFwM').val($('#sf-product-4-name').text());
 
             // product 4 details
-            $('#00N3J000001mdxt').text($('#sf-product-4-qty').val() + "\r\n" + $('dl#product-units-4 dt p').text() + "\r\n" + $('#sf-product-4-attributes').text() + "\r\nCurrently Using: " + (($('#product-4-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-4-general-application').val());
+            $('#00N6g00000VMFwL').text($('#sf-product-4-qty').val() + "\r\n" + $('dl#product-units-4 dt p').text() + "\r\n" + $('#sf-product-4-attributes').text() + "\r\nCurrently Using: " + (($('#product-4-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-4-general-application').val());
           }else {
-            $('#00N3J000001mdxo').val('');
-            $('#00N3J000001mdxt').text('');
+            $('#00N6g00000VMFwM').val('');
+            $('#00N6g00000VMFwL').text('');
           }
         } else {
-          $('#00N3J000001mdxo').val('');
-          $('#00N3J000001mdxt').text('');
+          $('#00N6g00000VMFwM').val('');
+          $('#00N6g00000VMFwL').text('');
         }
 
         // product 5 name
         if ($('#sf-product-5-name').length) {
           if ($('#sf-product-5-name').text() != '') {
-            $('#00N3J000001mdxy').val($('#sf-product-5-name').text());
+            $('#00N6g00000VMFwO').val($('#sf-product-5-name').text());
 
             // product 5 details
-            $('#00N3J000001mdy8').text($('#sf-product-5-qty').val() + "\r\n" + $('dl#product-units-5 dt p').text() + "\r\n" + $('#sf-product-5-attributes').text() + "\r\nCurrently Using: " + (($('#product-5-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-5-general-application').val());
+            $('#00N6g00000VMFwN').text($('#sf-product-5-qty').val() + "\r\n" + $('dl#product-units-5 dt p').text() + "\r\n" + $('#sf-product-5-attributes').text() + "\r\nCurrently Using: " + (($('#product-5-using input[type="radio"]:checked').val() == '1') ? 'Yes' : 'No') + "\r\nGeneral Application: " + $('.product-5-general-application').val());
           }else {
-            $('#00N3J000001mdxy').val('');
-            $('#00N3J000001mdy8').text('');
+            $('#00N6g00000VMFwO').val('');
+            $('#00N6g00000VMFwN').text('');
           }
         } else {
-          $('#00N3J000001mdxy').val('');
-          $('#00N3J000001mdy8').text('');
+          $('#00N6g00000VMFwO').val('');
+          $('#00N6g00000VMFwN').text('');
         }
 
         
@@ -394,8 +412,11 @@ export default {
             
 
             $('.rfq-error-message').hide();
-        
             $('#sf-form-submit').click();
+            
+
+
+
             // $(this).find('.spinner').css('display', 'block');
             // $(this).find('svg:not(.spinner').css('display', 'none');
             // $.ajax({
@@ -427,6 +448,8 @@ export default {
             fields.each(function(index, element) {
               $(element).removeClass('rfq-error');
             });
+            $('#rfq-state').removeClass('rfq-error');
+            $('#rfq-country').removeClass('rfq-error');
             $('#find_us').removeClass('rfq-error');
             $('#rfq-tos').removeClass('rfq-error');
             $('#how-to-contact').removeClass('rfq-error');

@@ -1,6 +1,10 @@
 <?php
 
-$fields = get_fields();
+if (!empty($args)) {
+   $fields = $args;
+} else {
+   $fields = get_fields();
+}
 
 $cat = get_the_category();
 if ($cat) {

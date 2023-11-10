@@ -82,7 +82,7 @@ $options = get_fields('options');
   if (!empty($fields['image'])) {
     ?>
     <div class="pah-image">
-      <img src="<?php echo $fields['image']['sizes']['large']; ?>" alt="<?php echo $fields['image']['alt']; ?>" width="<?php echo $fields['image']['sizes']['large-width']; ?>" height="<?php echo $fields['image']['sizes']['large-height']; ?>" loading="eager">
+      <img src="<?php echo @$fields['image']['sizes']['large']; ?>" alt="<?php echo @$fields['image']['alt']; ?>" width="<?php echo @$fields['image']['sizes']['large-width']; ?>" height="<?php echo @$fields['image']['sizes']['large-height']; ?>" loading="eager">
     </div>
     <?php
   } else {

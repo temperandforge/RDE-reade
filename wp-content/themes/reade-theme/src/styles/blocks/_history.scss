@@ -211,6 +211,8 @@ $finalWidth: 100vw; //3 * $finalHeight;
 
 		display: block;
 		margin-bottom: 1.3rem;
+		position: relative;
+		top: -20px;
 	}
 	picture {
 		border-radius: 0.625rem;

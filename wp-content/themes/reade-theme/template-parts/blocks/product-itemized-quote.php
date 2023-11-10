@@ -28,9 +28,13 @@ if (!is_null($cart)) {
     ?>
     <!-- salesforce form -->
 
-    <form id="sf-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-    <input type=hidden name="oid" value="00D3J0000008rZJ">
-    <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
+    <!--General Application:<textarea  id="00N6g00000TUVG8" name="00N6g00000TUVG8" rows="3" type="text" wrap="soft"></textarea><br>-->
+
+
+
+    <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
+    <input type=hidden name="oid" value="00D6g000003RNAt">
+    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/">
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
     <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
@@ -40,18 +44,30 @@ if (!is_null($cart)) {
     <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
     <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input id="country" maxlength="255" name="country" size="20" type="hidden" />
     <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-    <input  id="00N3J000001mcrB" maxlength="255" name="00N3J000001mcrB" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcrG" name="00N3J000001mcrG" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mcrL" maxlength="255" name="00N3J000001mcrL" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcrQ" name="00N3J000001mcrQ" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mcrV" maxlength="255" name="00N3J000001mcrV" size="20" type="hidden" />
-    <textarea  id="00N3J000001mcra" name="00N3J000001mcra" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mdxo" maxlength="255" name="00N3J000001mdxo" size="20" type="hidden" />
-    <textarea  id="00N3J000001mdxt" name="00N3J000001mdxt" type="text" wrap="soft" style="display: none;"></textarea>
-    <input  id="00N3J000001mdxy" maxlength="255" name="00N3J000001mdxy" size="20" type="hidden" />
-    <textarea  id="00N3J000001mdy8" name="00N3J000001mdy8" type="text" wrap="soft" style="display: none;"></textarea>
-    <textarea  id="00N3J000001mdyh" name="00N3J000001mdyh" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+    <!-- product 1 -->
+    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 2 -->
+    <input  id="00N6g00000VMFwI" maxlength="255" name="00N6g00000VMFwI" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwH" name="00N6g00000VMFwH" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 3 -->
+    <input  id="00N6g00000VMFwK" maxlength="255" name="00N6g00000VMFwK" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwJ" name="00N6g00000VMFwJ" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 4 -->
+    <input  id="00N6g00000VMFwM" maxlength="255" name="00N6g00000VMFwM" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwL" name="00N6g00000VMFwL" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 5 -->
+    <input  id="00N6g00000VMFwO" maxlength="255" name="00N6g00000VMFwO" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwN" name="00N6g00000VMFwN" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- additional comments -->
+    <textarea  id="00N6g00000TtToE" name="00N6g00000TtToE" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
 
     <!-- find us -->
     <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
@@ -379,8 +395,356 @@ if (!is_null($cart)) {
                             <input type="text" id="rfq-address-line-1" name="rfq-address-line-1" placeholder="Address" value="">
                             <input type="text" id="rfq-address-line-2" name="rfq-address-line-2" placeholder="Address Line 2" value="">
                             <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
-                            <input type="text" id="rfq-state" name="rfq-state" placeholder="State" value="">
+
+                            <?php
+
+
+                            $statedd = [
+                                'id' => 'rfq-state',
+                                'select_text' => 'State/Providence',
+                                'width' => '100%',
+                                'values' => [
+                                     "Not In United States" => "Not In United States",
+                                     "Alabama" => "Alabama",
+                                     "Alaska" => "Alaska",
+                                     "Arizona" => "Arizona",
+                                     "Arkansas" => "Arkansas",
+                                     "California" => "California",
+                                     "Colorado" => "Colorado",
+                                     "Connecticut" => "Connecticut",
+                                     "Delaware" => "Delaware",
+                                     "Florida" => "Florida",
+                                     "Georgia" => "Georgia",
+                                     "Hawaii" => "Hawaii",
+                                     "Idaho" => "Idaho",
+                                     "Illinois" => "Illinois",
+                                     "Indiana" => "Indiana",
+                                     "Iowa" => "Iowa",
+                                     "Kansas" => "Kansas",
+                                     "Kentucky" => "Kentucky",
+                                     "Louisiana" => "Louisiana",
+                                     "Maine" => "Maine",
+                                     "Maryland" => "Maryland",
+                                     "Massachusetts" => "Massachusetts",
+                                     "Michigan" => "Michigan",
+                                     "Minnesota" => "Minnesota",
+                                     "Mississippi" => "Mississippi",
+                                     "Missouri" => "Missouri",
+                                     "Montana" => "Montana",
+                                     "Nebraska" => "Nebraska",
+                                     "Nevada" => "Nevada",
+                                     "New Hampshire" => "New Hampshire",
+                                     "New Jersey" => "New Jersey",
+                                     "New Mexico" => "New Mexico",
+                                     "New York" => "New York",
+                                     "North Carolina" => "North Carolina",
+                                     "North Dakota" => "North Dakota",
+                                     "Ohio" => "Ohio",
+                                     "Oklahoma" => "Oklahoma",
+                                     "Oregon" => "Oregon",
+                                     "Pennsylvania" => "Pennsylvania",
+                                     "Rhode Island" => "Rhode Island",
+                                     "South Carolina" => "South Carolina",
+                                     "South Dakota" => "South Dakota",
+                                     "Tennessee" => "Tennessee",
+                                     "Texas" => "Texas",
+                                     "Utah" => "Utah",
+                                     "Vermont" => "Vermont",
+                                     "Virginia" => "Virginia",
+                                     "Washington" => "Washington",
+                                     "West Virginia" => "West Virginia",
+                                     "Wisconson" => "Wisconson",
+                                     "Wyoming" => "Wyoming",
+                                     "Puerto Rico" => "Puerto Rico",
+                                     "Alberta" => "Alberta",
+                                     "British Columbia" => "British Columbia",
+                                     "Manitoba" => "Manitoba",
+                                     "New Brunswick" => "New Brunswick",
+                                     "Newfoundland" => "Newfoundland",
+                                     "Nova Scotia" => "Nova Scotia",
+                                     "Ontario" => "Ontario",
+                                     "Prince Edward Island" => "Prince Edward Island",
+                                     "Quebec" => "Quebec",
+                                     "Saskatchewan" => "Saskatchewan",
+                                     "Northwest Territories" => "Northwest Territories",
+                                     "Yukon" => "Yukon",
+                                     "Outside US" => "Outside US"
+                                ],
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                                </svg>'
+                           ];
+
+                           tf_dropdown($statedd);
+
+                            ?>
+
+
+                            <!--<input type="text" id="rfq-state" name="rfq-state" placeholder="State" value="">-->
                             <input type="text" id="rfq-zip" name="rfq-zip" placeholder="Zip" value="">
+
+                            <?php
+
+                           $countries = array(
+                                'United States' => 'United States',
+                                'Afghanistan' => 'Afghanistan',
+                                'Åland Islands' => 'Åland Islands',
+                                'Albania' => 'Albania',
+                                'Algeria' => 'Algeria',
+                                'American Samoa' => 'American Samoa',
+                                'Andorra' => 'Andorra',
+                                'Angola' => 'Angola',
+                                'Anguilla' => 'Anguilla',
+                                'Antarctica' => 'Antarctica',
+                                'Antigua and Barbuda' => 'Antigua and Barbuda',
+                                'Argentina' => 'Argentina',
+                                'Armenia' => 'Armenia',
+                                'Aruba' => 'Aruba',
+                                'Australia' => 'Australia',
+                                'Austria' => 'Austria',
+                                'Azerbaijan' => 'Azerbaijan',
+                                'Bahamas' => 'Bahamas',
+                                'Bahrain' => 'Bahrain',
+                                'Bangladesh' => 'Bangladesh',
+                                'Barbados' => 'Barbados',
+                                'Belarus' => 'Belarus',
+                                'Belgium' => 'Belgium',
+                                'Belize' => 'Belize',
+                                'Benin' => 'Benin',
+                                'Bermuda' => 'Bermuda',
+                                'Bhutan' => 'Bhutan',
+                                'Bolivia' => 'Bolivia',
+                                'Bosnia and Herzegovina' => 'Bosnia and Herzegovina',
+                                'Botswana' => 'Botswana',
+                                'Bouvet Island' => 'Bouvet Island',
+                                'Brazil' => 'Brazil',
+                                'British Indian Ocean Territory' => 'British Indian Ocean Territory',
+                                'Brunei Darussalam' => 'Brunei Darussalam',
+                                'Bulgaria' => 'Bulgaria',
+                                'Burkina Faso' => 'Burkina Faso',
+                                'Burundi' => 'Burundi',
+                                'Cambodia' => 'Cambodia',
+                                'Cameroon' => 'Cameroon',
+                                'Canada' => 'Canada',
+                                'Cape Verde' => 'Cape Verde',
+                                'Cayman Islands' => 'Cayman Islands',
+                                'Central African Republic' => 'Central African Republic',
+                                'Chad' => 'Chad',
+                                'Chile' => 'Chile',
+                                'China' => 'China',
+                                'Christmas Island' => 'Christmas Island',
+                                'Cocos (Keeling) Islands' => 'Cocos (Keeling) Islands',
+                                'Colombia' => 'Colombia',
+                                'Comoros' => 'Comoros',
+                                'Congo' => 'Congo',
+                                'Congo, The Democratic Republic of The' => 'Congo, The Democratic Republic of The',
+                                'Cook Islands' => 'Cook Islands',
+                                'Costa Rica' => 'Costa Rica',
+                                'Cote D\'ivoire' => 'Cote D\'ivoire',
+                                'Croatia' => 'Croatia',
+                                'Cuba' => 'Cuba',
+                                'Cyprus' => 'Cyprus',
+                                'Czech Republic' => 'Czech Republic',
+                                'Denmark' => 'Denmark',
+                                'Djibouti' => 'Djibouti',
+                                'Dominica' => 'Dominica',
+                                'Dominican Republic' => 'Dominican Republic',
+                                'Ecuador' => 'Ecuador',
+                                'Egypt' => 'Egypt',
+                                'El Salvador' => 'El Salvador',
+                                'Equatorial Guinea' => 'Equatorial Guinea',
+                                'Eritrea' => 'Eritrea',
+                                'Estonia' => 'Estonia',
+                                'Ethiopia' => 'Ethiopia',
+                                'Falkland Islands (Malvinas)' => 'Falkland Islands (Malvinas)',
+                                'Faroe Islands' => 'Faroe Islands',
+                                'Fiji' => 'Fiji',
+                                'Finland' => 'Finland',
+                                'France' => 'France',
+                                'French Guiana' => 'French Guiana',
+                                'French Polynesia' => 'French Polynesia',
+                                'French Southern Territories' => 'French Southern Territories',
+                                'Gabon' => 'Gabon',
+                                'Gambia' => 'Gambia',
+                                'Georgia' => 'Georgia',
+                                'Germany' => 'Germany',
+                                'Ghana' => 'Ghana',
+                                'Gibraltar' => 'Gibraltar',
+                                'Greece' => 'Greece',
+                                'Greenland' => 'Greenland',
+                                'Grenada' => 'Grenada',
+                                'Guadeloupe' => 'Guadeloupe',
+                                'Guam' => 'Guam',
+                                'Guatemala' => 'Guatemala',
+                                'Guernsey' => 'Guernsey',
+                                'Guinea' => 'Guinea',
+                                'Guinea-bissau' => 'Guinea-bissau',
+                                'Guyana' => 'Guyana',
+                                'Haiti' => 'Haiti',
+                                'Heard Island and Mcdonald Islands' => 'Heard Island and Mcdonald Islands',
+                                'Holy See (Vatican City State)' => 'Holy See (Vatican City State)',
+                                'Honduras' => 'Honduras',
+                                'Hong Kong' => 'Hong Kong',
+                                'Hungary' => 'Hungary',
+                                'Iceland' => 'Iceland',
+                                'India' => 'India',
+                                'Indonesia' => 'Indonesia',
+                                'Iran, Islamic Republic of' => 'Iran, Islamic Republic of',
+                                'Iraq' => 'Iraq',
+                                'Ireland' => 'Ireland',
+                                'Isle of Man' => 'Isle of Man',
+                                'Israel' => 'Israel',
+                                'Italy' => 'Italy',
+                                'Jamaica' => 'Jamaica',
+                                'Japan' => 'Japan',
+                                'Jersey' => 'Jersey',
+                                'Jordan' => 'Jordan',
+                                'Kazakhstan' => 'Kazakhstan',
+                                'Kenya' => 'Kenya',
+                                'Kiribati' => 'Kiribati',
+                                'Korea, Democratic People\'s Republic of' => 'Korea, Democratic People\'s Republic of',
+                                'Korea, Republic of' => 'Korea, Republic of',
+                                'Kuwait' => 'Kuwait',
+                                'Kyrgyzstan' => 'Kyrgyzstan',
+                                'Lao People\'s Democratic Republic' => 'Lao People\'s Democratic Republic',
+                                'Latvia' => 'Latvia',
+                                'Lebanon' => 'Lebanon',
+                                'Lesotho' => 'Lesotho',
+                                'Liberia' => 'Liberia',
+                                'Libyan Arab Jamahiriya' => 'Libyan Arab Jamahiriya',
+                                'Liechtenstein' => 'Liechtenstein',
+                                'Lithuania' => 'Lithuania',
+                                'Luxembourg' => 'Luxembourg',
+                                'Macao' => 'Macao',
+                                'Macedonia, The Former Yugoslav Republic of' => 'Macedonia, The Former Yugoslav Republic of',
+                                'Madagascar' => 'Madagascar',
+                                'Malawi' => 'Malawi',
+                                'Malaysia' => 'Malaysia',
+                                'Maldives' => 'Maldives',
+                                'Mali' => 'Mali',
+                                'Malta' => 'Malta',
+                                'Marshall Islands' => 'Marshall Islands',
+                                'Martinique' => 'Martinique',
+                                'Mauritania' => 'Mauritania',
+                                'Mauritius' => 'Mauritius',
+                                'Mayotte' => 'Mayotte',
+                                'Mexico' => 'Mexico',
+                                'Micronesia, Federated States of' => 'Micronesia, Federated States of',
+                                'Moldova, Republic of' => 'Moldova, Republic of',
+                                'Monaco' => 'Monaco',
+                                'Mongolia' => 'Mongolia',
+                                'Montenegro' => 'Montenegro',
+                                'Montserrat' => 'Montserrat',
+                                'Morocco' => 'Morocco',
+                                'Mozambique' => 'Mozambique',
+                                'Myanmar' => 'Myanmar',
+                                'Namibia' => 'Namibia',
+                                'Nauru' => 'Nauru',
+                                'Nepal' => 'Nepal',
+                                'Netherlands' => 'Netherlands',
+                                'Netherlands Antilles' => 'Netherlands Antilles',
+                                'New Caledonia' => 'New Caledonia',
+                                'New Zealand' => 'New Zealand',
+                                'Nicaragua' => 'Nicaragua',
+                                'Niger' => 'Niger',
+                                'Nigeria' => 'Nigeria',
+                                'Niue' => 'Niue',
+                                'Norfolk Island' => 'Norfolk Island',
+                                'Northern Mariana Islands' => 'Northern Mariana Islands',
+                                'Norway' => 'Norway',
+                                'Oman' => 'Oman',
+                                'Pakistan' => 'Pakistan',
+                                'Palau' => 'Palau',
+                                'Palestinian Territory, Occupied' => 'Palestinian Territory, Occupied',
+                                'Panama' => 'Panama',
+                                'Papua New Guinea' => 'Papua New Guinea',
+                                'Paraguay' => 'Paraguay',
+                                'Peru' => 'Peru',
+                                'Philippines' => 'Philippines',
+                                'Pitcairn' => 'Pitcairn',
+                                'Poland' => 'Poland',
+                                'Portugal' => 'Portugal',
+                                'Puerto Rico' => 'Puerto Rico',
+                                'Qatar' => 'Qatar',
+                                'Reunion' => 'Reunion',
+                                'Romania' => 'Romania',
+                                'Russian Federation' => 'Russian Federation',
+                                'Rwanda' => 'Rwanda',
+                                'Saint Helena' => 'Saint Helena',
+                                'Saint Kitts and Nevis' => 'Saint Kitts and Nevis',
+                                'Saint Lucia' => 'Saint Lucia',
+                                'Saint Pierre and Miquelon' => 'Saint Pierre and Miquelon',
+                                'Saint Vincent and The Grenadines' => 'Saint Vincent and The Grenadines',
+                                'Samoa' => 'Samoa',
+                                'San Marino' => 'San Marino',
+                                'Sao Tome and Principe' => 'Sao Tome and Principe',
+                                'Saudi Arabia' => 'Saudi Arabia',
+                                'Senegal' => 'Senegal',
+                                'Serbia' => 'Serbia',
+                                'Seychelles' => 'Seychelles',
+                                'Sierra Leone' => 'Sierra Leone',
+                                'Singapore' => 'Singapore',
+                                'Slovakia' => 'Slovakia',
+                                'Slovenia' => 'Slovenia',
+                                'Solomon Islands' => 'Solomon Islands',
+                                'Somalia' => 'Somalia',
+                                'South Africa' => 'South Africa',
+                                'South Georgia and The South Sandwich Islands' => 'South Georgia and The South Sandwich Islands',
+                                'Spain' => 'Spain',
+                                'Sri Lanka' => 'Sri Lanka',
+                                'Sudan' => 'Sudan',
+                                'Suriname' => 'Suriname',
+                                'Svalbard and Jan Mayen' => 'Svalbard and Jan Mayen',
+                                'Swaziland' => 'Swaziland',
+                                'Sweden' => 'Sweden',
+                                'Switzerland' => 'Switzerland',
+                                'Syrian Arab Republic' => 'Syrian Arab Republic',
+                                'Taiwan' => 'Taiwan',
+                                'Tajikistan' => 'Tajikistan',
+                                'Tanzania, United Republic of' => 'Tanzania, United Republic of',
+                                'Thailand' => 'Thailand',
+                                'Timor-leste' => 'Timor-leste',
+                                'Togo' => 'Togo',
+                                'Tokelau' => 'Tokelau',
+                                'Tonga' => 'Tonga',
+                                'Trinidad and Tobago' => 'Trinidad and Tobago',
+                                'Tunisia' => 'Tunisia',
+                                'Turkey' => 'Turkey',
+                                'Turkmenistan' => 'Turkmenistan',
+                                'Turks and Caicos Islands' => 'Turks and Caicos Islands',
+                                'Tuvalu' => 'Tuvalu',
+                                'Uganda' => 'Uganda',
+                                'Ukraine' => 'Ukraine',
+                                'United Arab Emirates' => 'United Arab Emirates',
+                                'United Kingdom' => 'United Kingdom',
+                                'United States' => 'United States',
+                                'United States Minor Outlying Islands' => 'United States Minor Outlying Islands',
+                                'Uruguay' => 'Uruguay',
+                                'Uzbekistan' => 'Uzbekistan',
+                                'Vanuatu' => 'Vanuatu',
+                                'Venezuela' => 'Venezuela',
+                                'Viet Nam' => 'Viet Nam',
+                                'Virgin Islands, British' => 'Virgin Islands, British',
+                                'Virgin Islands, U.S.' => 'Virgin Islands, U.S.',
+                                'Wallis and Futuna' => 'Wallis and Futuna',
+                                'Western Sahara' => 'Western Sahara',
+                                'Yemen' => 'Yemen',
+                                'Zambia' => 'Zambia',
+                                'Zimbabwe' => 'Zimbabwe',
+
+                           );
+
+                           tf_dropdown(array('id' => 'rfq-country',
+                                'select_text' => 'Select Country *',
+                                'width' => '100%',
+                                'values' => $countries,
+                                'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"></path>
+                                                </svg>'
+                           ));
+
+
+                           ?>
                             <?php
 
                             $piqOptions = array(
@@ -417,7 +781,8 @@ if (!is_null($cart)) {
                                     </svg>',
                                 'values' => array(
                                     'Email' => 'Email',
-                                    'Phone' => 'Phone'
+                                    'Phone' => 'Phone',
+                                    'No Preference' => 'No Preference'
                                 )
                             );
 

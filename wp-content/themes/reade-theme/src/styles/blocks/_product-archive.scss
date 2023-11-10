@@ -83,6 +83,7 @@
 		display: flex;
 		column-gap: 16px;
 		flex-basis: 192px;
+		align-self: flex-start;
 
 		@include respond-below(lg) {
 			flex-shrink: 1;
@@ -90,6 +91,7 @@
 
 		@include respond-below(sm) {
 			flex-basis: unset;
+			width: 100%;
 		}
 	}
 
@@ -189,7 +191,7 @@
 		row-gap: 25px;
 	}
 
-	.pab-category {
+	.pab-category, .pab-product {
 		flex-basis: calc(33.333333% - calc(50px / 3));
 		display: none;
 		position: relative; 
@@ -280,6 +282,18 @@
 
 		svg {
 			transition: ease 0.2s;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.pab-pagination-dots {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.pab-pagination-dots {
+			justify-content: center;
 		}
 	}
 	.pab-pagination-arrows {
@@ -376,32 +390,55 @@
         }
     }
 
+    #clear-search a {
+    	font-size: 14px;
+    	color: red;
+    	text-decoration: underline;
+    	@media (max-width: 640px) {
+    		position: relative;
+    		top: -20px;
+    	}
+    }
+
     .autocomplete {
 	  position: relative;
 	  display: inline-block;
 	}
 	.autocomplete-items {
-	  position: absolute;
 	  border-bottom: none;
 	  border-top: none;
 	  z-index: 99;
-	  top: 100%;
-	  right: 0;
-	  margin-top: 5px;
 	  border-radius: 6px;
-	  width: min(395px,100%);
+	  width: 100%;
 	  max-height: 300px;
 	  overflow: hidden;
 	  overflow-y: scroll;
+	  overflow-x: hidden;
 
-	  @include respond-below(sm) {
-	  	margin-top: -15px;
-	  	width: 100%;
-	  }
+	  
 	}
-	.autocomplete-items:has(div) {
+	#autocomplete-list-wrapper {
+		border-radius: 5px;
+		overflow: hidden;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		border-radius: 6px;
+		width: min(395px, 100%);
+		margin-top: 5px;
+		z-index: 21;
+
+		@include respond-below(sm) {
+		  	margin-top: -15px;
+		  	width: 100%;
+		  }
+	}
+	#autocomplete-list-wrapper:has(div > div) {
+		border: solid 1px #009fc6;
+	}
+	/*.autocomplete-items:has(div) {
 	  border: solid 1px #009FC6;
-	}
+	}*/
 	.autocomplete-items div {
 	  padding: 10px;
 	  cursor: pointer;

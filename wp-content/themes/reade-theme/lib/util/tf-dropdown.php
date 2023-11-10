@@ -131,6 +131,16 @@ function tf_dropdown_js($return)
 
    define('TF_DROPDOWN_JS', true);
    $js = '<script>
+
+   // container for active dropdown for listening to keypresses
+   let thisdropdown;
+
+   // last key pressed container
+   let thisdropdownlastkey;
+
+   // number of times last key was pressed
+   let timespressed = 0;
+
     let clickOutside = function(e) {
         e.preventDefault();
         let alldd = document.getElementsByClassName("tf-dropdown");
@@ -176,10 +186,60 @@ function tf_dropdown_js($return)
                   
                 });
                 e[t].addEventListener("keypress", function(a) {
+                  // spacebar or enter triggers dropdown opening if it\'s been tabbed to and has focus
                   if (a.keyCode == 13 || a.keyCode == 32) {
                      if (e[t].getAttribute("id") != "sorterx") {
                         if (a.target.tagName.toLowerCase() != "li"){
                            toggleDropdown(e[t].getAttribute("id"));
+                        }
+                     }
+                  } else {
+
+                     if (thisdropdown != e[t].getAttribute("id")) {
+                        thisdropdown = e[t].getAttribute("id");
+                        thisdropdownlastkey = "";
+                        timespressed = 0;
+                     }
+
+                     if (!thisdropdownlastkey.length || a.key.toLowerCase() != thisdropdownlastkey) {
+                        thisdropdownlastkey = a.key.toLowerCase();
+                        timespressed = 1;
+                     } else {
+                        timespressed = timespressed + 1;
+                     }
+
+                     // keyboard navigation, select options by pressing a key on your keyboard, for example, pressing "m" selects the first item starting with "m"
+                     // , then, pressing "m" again selects the second item starting with m
+                     if (/^[a-z]$/.test(a.key.toLowerCase())) {
+                        let thisli = e[t].querySelectorAll("li");
+                        let foundlis = [];
+
+                        if (thisli.length) {
+                           for (b = 0; b<thisli.length; b++) {      
+                              if (thisli[b].innerText.length) {
+                                 if (thisli[b].innerText.charAt(0).toLowerCase() == a.key.toLowerCase()) {
+                                    foundlis.push(thisli[b]);
+                                 }
+                              }
+                           }
+                        }
+
+                        if (foundlis.length) {
+                           // reset times pressed if times pressed is greater than the number of found matches, to cycle through them again
+                           if (timespressed > foundlis.length) {
+                              timespressed = 1;
+                           }
+                           for (c = 0; c <= foundlis.length; c++) {
+                              if (c == (timespressed -1)) {
+                                 foundlis[c].click();
+                                 toggleDropdown(e[t].getAttribute("id"));
+
+                                 if (e[t].classList.contains("tf-dropdown-open")) {
+                                    toggleDropdown(e[t].getAttribute("id"));
+                                 }
+                                 return;
+                              }
+                           }
                         }
                      }
                   }

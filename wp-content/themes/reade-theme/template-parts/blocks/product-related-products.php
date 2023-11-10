@@ -12,6 +12,12 @@ if (!empty($terms)) {
     $term_ids[] = $term->term_id;
   }
 
+  if (ALL_PRODUCTS_CAT_ID) {
+    $term_ids = array_filter($term_ids, function ($element) {
+      return $element !== ALL_PRODUCTS_CAT_ID;
+    });
+  }
+
   $args = array(
     'post_type' => 'product',
     'post_status' => 'publish',

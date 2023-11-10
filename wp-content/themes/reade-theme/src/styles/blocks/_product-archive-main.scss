@@ -2,6 +2,12 @@
 	padding: clamp(3.75rem, 1.25rem + 6.25vw, 6.875rem) 0;
 	padding-top: 0;
 
+	#filter1 ul {
+		max-height: 250px;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
 	.pab-headline {
 		color: var(--primary-900, #045);
 		text-align: center;
@@ -55,6 +61,7 @@
 		display: flex;
 		column-gap: 16px;
 		flex-basis: 192px;
+		align-self: flex-start;
 
 		@include respond-below(lg) {
 			flex-shrink: 1;
@@ -62,6 +69,7 @@
 
 		@include respond-below(sm) {
 			flex-basis: unset;
+			width: 100%;
 		}
 	}
 
@@ -376,6 +384,19 @@
 			transition: ease 0.2s;
 		}
 	}
+
+	@media (max-width: 1024px) {
+		.pab-pagination-dots {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.pab-pagination-dots {
+			justify-content: center;
+		}
+	}
+
 	.pab-pagination-arrows {
 		position: absolute;
 		right: 0;
@@ -399,35 +420,55 @@
         display: block;
     }
 
+    #clear-search a {
+    	font-size: 14px;
+    	color: red;
+    	text-decoration: underline;
+    	@media (max-width: 640px) {
+    		position: relative;
+    		top: -20px;
+    	}
+    }
+
     .autocomplete {
 	  position: relative;
 	  display: inline-block;
 	}
-
 	.autocomplete-items {
-	  position: absolute;
 	  border-bottom: none;
 	  border-top: none;
 	  z-index: 99;
-	  top: 100%;
-	  right: 0;
-	  margin-top: 5px;
 	  border-radius: 6px;
-	  width: min(395px,100%);
+	  width: 100%;
 	  max-height: 300px;
 	  overflow: hidden;
 	  overflow-y: scroll;
+	  overflow-x: hidden;
 
-	  @include respond-below(sm) {
-	  	margin-top: -15px;
-	  	width: 100%;
-	  }
+	  
 	}
+	#autocomplete-list-wrapper {
+		border-radius: 5px;
+		overflow: hidden;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		border-radius: 6px;
+		width: min(395px, 100%);
+		margin-top: 5px;
+		z-index: 21;
 
-	.autocomplete-items:has(div) {
+		@include respond-below(sm) {
+		  	margin-top: -15px;
+		  	width: 100%;
+		  }
+	}
+	#autocomplete-list-wrapper:has(div > div) {
+		border: solid 1px #009fc6;
+	}
+	/*.autocomplete-items:has(div) {
 	  border: solid 1px #009FC6;
-	}
-
+	}*/
 	.autocomplete-items div {
 	  padding: 10px;
 	  cursor: pointer;
@@ -448,11 +489,9 @@
 	  // 	border-bottom-right-radius: 6px;
 	  // }
 	}
-
 	.autocomplete-items div:hover {
 	  background-color: var(--primary-100,#cfeef6);
 	}
-
 	.autocomplete-active {
 	  background-color: var(--primary-100,#cfeef6) !important;
 	  font-weight: 600;

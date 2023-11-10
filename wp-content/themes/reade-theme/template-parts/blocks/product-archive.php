@@ -25,6 +25,8 @@ $options = get_fields('options');
       ?>
    </div>
 
+   <!--
+
    <div class="pab-filters">
       <div class="pab-filters-left">
          <?php
@@ -51,29 +53,35 @@ $options = get_fields('options');
          <input id="pab-filters-search" class="pab-filters-search" type="text" value="" placeholder="<?php echo !empty($options['search_placeholder_text']) ? $options['search_placeholder_text'] : 'Search'; ?>" autocomplete="off">
          <span id="pab-filters-search-icon"></span>
          </form>
+         <div id="clear-search" class="clear-search" style="opacity: 0;"><a id="clear-search-text" href="#">Clear</a></div>
          <hr>
       </div>
    </div>
+
+   -->
 
    <div class="pab-search-empty">
       <h3 class="pab-search-empty-title">Search: "<span id="pab-search-term"></span>"</h3>
       <p class="pab-search-empty-text"><?php echo !empty($options['empty_search_text']) ? $options['empty_search_text'] : 'No results'; ?></p>
    </div>
 
-   <div class="pab-categories">
+   <div id="search_load" class="pab-categories">
+
          <?php
 
-         $per_page = 6;
+         /* <!-- this content filled in by ajax, but load just categories initially for fillter until the ajax load request completes --> */
+         /* Gather categories */
+         $per_page = 9;
 
          $product_categories = get_terms(array(
            'taxonomy'   => 'product_cat',
            'hide_empty' => false,
-           'exclude'    => array(get_option('default_product_cat')),
+           'exclude'    => array(get_option('default_product_cat'), ALL_PRODUCTS_CAT_ID ),
            'parent' => 0,
            // 'orderby' => 'name',
            // 'order' => 'ASC'
          ));
-
+         
          if (!empty($product_categories)) {
 
             $count = count($product_categories);
