@@ -25,6 +25,8 @@ $options = get_fields('options');
       ?>
    </div>
 
+   <!--
+
    <div class="pab-filters">
       <div class="pab-filters-left">
          <?php
@@ -55,6 +57,8 @@ $options = get_fields('options');
          <hr>
       </div>
    </div>
+
+   -->
 
    <div class="pab-search-empty">
       <h3 class="pab-search-empty-title">Search: "<span id="pab-search-term"></span>"</h3>
