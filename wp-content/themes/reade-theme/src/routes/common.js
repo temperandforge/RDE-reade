@@ -33,6 +33,24 @@ export default {
 			$body.removeClass('using-mouse')
 		})
 
+		//newsletter footer submit
+		if ($('.newsletter-footer-submit')) {
+			$('.newsletter-footer-submit').on('click', function() {
+				console.log('newsletter footer submitted');
+				window.dataLayer || [];
+				window.dataLayer.push({'event': 'newsletterfooter'});
+			});
+		}
+
+		//newsletter single submit
+		if ($('.newsletter-single-submit')) {
+			$('.newsletter-single-submit').on('click', function() {
+				console.log('newsletter single submitted');
+				window.dataLayer || [];
+				window.dataLayer.push({'event': 'newsletterposts'});
+			});
+		}
+
 		if (document.body.classList.contains('custom-product-rfq-form')) {
 			document.addEventListener(
 				'wpcf7mailsent',
