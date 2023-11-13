@@ -40,6 +40,14 @@
       "> -->
       <!-- require-trusted-types-for 'script'; -->
   <?php wp_head(); ?>
+
+  <?php
+
+  if (!empty(get_field('gtm_head', 'options'))) {
+    echo get_field('gtm_head', 'options');
+  }
+
+  ?>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
