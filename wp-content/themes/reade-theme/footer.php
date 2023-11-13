@@ -175,7 +175,6 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
     window.dataLayer.push({'event' : 'contactformsubmitted'})
   }
   if (event.target.getAttribute('id') == 'reade-toll-processing-request-form') {
-    console.log('data pushed');
      window.dataLayer.push({'event': 'submittollprocessingrequest'})
   }
 }); 
