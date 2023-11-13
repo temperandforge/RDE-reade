@@ -694,8 +694,27 @@ export default {
 				}
 			}
 
-			showElements(0, elementsPerPage);
-			updateDots();
+			function getUrlParameter(name) {
+				  const url = window.location.href;
+				  name = name.replace(/[\[\]]/g, "\\$&");
+				  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+				  const results = regex.exec(url);
+
+				  if (!results) return null;
+				  if (!results[2]) return '';
+
+				  return decodeURIComponent(results[2].replace(/\+/g, " "));
+				}
+
+			if (document.location.hash && document.location.hash != '' && document.location.hash != '#' && document.location.hash.replace('#', '').startsWith('page-')  && !getUrlParameter('q')) {
+				let thispage = window.location.hash.replace('#page-', '');
+				showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+				currentPage = +thispage;
+				updateDots();
+			} else {
+				showElements(0, elementsPerPage);
+				updateDots();
+			}
 			
 			
 
@@ -815,6 +834,8 @@ export default {
 						'keyup',
 						debounceSearch(() => {
 
+							window.location.hash = '';
+
 							let search = $('.pab-filters-search').val().toLowerCase()
 							let searchresultsfound = false;
 
@@ -873,11 +894,11 @@ export default {
 								currentPage = 1;
 
 								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
-									let thispage = window.location.hash.replace('#page-', '');
-									showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
-									currentPage = +thispage;
-									updateDots();
-								} else {
+								 	let thispage = window.location.hash.replace('#page-', '');
+								 	showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+								 	currentPage = +thispage;
+								 	updateDots();
+								 } else {
 									showElements(0, elementsPerPage)
 									updateDots(true, false)
 								}
