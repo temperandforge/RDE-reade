@@ -828,13 +828,12 @@ export default {
 
 				if ($('.pab-filters-search').length) {
 
+					let initialAllLoad = false;
 					$('.pab-filters-search').on(
 	// 		change event not needed?  it triggers a search update when input loses focus
 	//					'keyup change',
 						'keyup',
 						debounceSearch(() => {
-
-							window.location.hash = '';
 
 							let search = $('.pab-filters-search').val().toLowerCase()
 							let searchresultsfound = false;
@@ -893,7 +892,7 @@ export default {
 								}
 								currentPage = 1;
 
-								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
+								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-') && !initialAllLoad) {
 								 	let thispage = window.location.hash.replace('#page-', '');
 								 	showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
 								 	currentPage = +thispage;
@@ -902,6 +901,8 @@ export default {
 									showElements(0, elementsPerPage)
 									updateDots(true, false)
 								}
+
+								initialAllLoad = true;
 
 								actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 							} else {
