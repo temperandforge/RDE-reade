@@ -29,7 +29,7 @@ $fields = get_fields();
 
      <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
      <input type=hidden name="oid" value="00D6g000003RNAt">
-    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/">
+    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/?from=custom">
 
 
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
