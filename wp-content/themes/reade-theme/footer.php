@@ -168,6 +168,17 @@ if (!('customElements' in window)) {
 }
 </script>
 
+<!-- contact form submission firing event -->
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+  if (event.target.getAttribute('id') == 'reade-contact-form') {
+    window.dataLayer.push({'event' : 'contactformsubmitted'})
+  }
+}); 
+
+
+</script>
+
 
 <?php wp_footer(); ?>
 
