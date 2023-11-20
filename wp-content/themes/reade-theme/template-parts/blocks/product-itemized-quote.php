@@ -34,7 +34,7 @@ if (!is_null($cart)) {
 
     <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
     <input type=hidden name="oid" value="00D6g000003RNAt">
-    <input type=hidden name="retURL" value="https://reade.wpengine.com/itemized-rfq-form-success/?from=rfq">
+    <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=rfq">
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
     <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
     <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
