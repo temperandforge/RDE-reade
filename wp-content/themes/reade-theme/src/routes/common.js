@@ -33,6 +33,24 @@ export default {
 			$body.removeClass('using-mouse')
 		})
 
+		//newsletter footer submit
+		if ($('.newsletter-footer-submit')) {
+			$('.newsletter-footer-submit').on('click', function() {
+				console.log('newsletter footer submitted');
+				window.dataLayer || [];
+				window.dataLayer.push({'event': 'newsletterfooter'});
+			});
+		}
+
+		//newsletter single submit
+		if ($('.newsletter-single-submit')) {
+			$('.newsletter-single-submit').on('click', function() {
+				console.log('newsletter single submitted');
+				window.dataLayer || [];
+				window.dataLayer.push({'event': 'newsletterposts'});
+			});
+		}
+
 		if (document.body.classList.contains('custom-product-rfq-form')) {
 			document.addEventListener(
 				'wpcf7mailsent',
@@ -694,8 +712,27 @@ export default {
 				}
 			}
 
-			showElements(0, elementsPerPage);
-			updateDots();
+			function getUrlParameter(name) {
+				  const url = window.location.href;
+				  name = name.replace(/[\[\]]/g, "\\$&");
+				  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+				  const results = regex.exec(url);
+
+				  if (!results) return null;
+				  if (!results[2]) return '';
+
+				  return decodeURIComponent(results[2].replace(/\+/g, " "));
+				}
+
+			if (document.location.hash && document.location.hash != '' && document.location.hash != '#' && document.location.hash.replace('#', '').startsWith('page-')  && !getUrlParameter('q')) {
+				let thispage = window.location.hash.replace('#page-', '');
+				showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+				currentPage = +thispage;
+				updateDots();
+			} else {
+				showElements(0, elementsPerPage);
+				updateDots();
+			}
 			
 			
 
@@ -809,6 +846,7 @@ export default {
 
 				if ($('.pab-filters-search').length) {
 
+					let initialAllLoad = false;
 					$('.pab-filters-search').on(
 	// 		change event not needed?  it triggers a search update when input loses focus
 	//					'keyup change',
@@ -872,15 +910,17 @@ export default {
 								}
 								currentPage = 1;
 
-								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-')) {
-									let thispage = window.location.hash.replace('#page-', '');
-									showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
-									currentPage = +thispage;
-									updateDots();
-								} else {
+								if (window.location.hash && window.location.hash !== '' && window.location.hash != '#' && window.location.hash.replace('#', '').startsWith('page-') && !initialAllLoad) {
+								 	let thispage = window.location.hash.replace('#page-', '');
+								 	showElements((+thispage * elementsPerPage) - elementsPerPage, (+thispage * elementsPerPage));
+								 	currentPage = +thispage;
+								 	updateDots();
+								 } else {
 									showElements(0, elementsPerPage)
 									updateDots(true, false)
 								}
+
+								initialAllLoad = true;
 
 								actr = $('.pab-product, .pab-category a').on('click', addClickToResults);
 							} else {

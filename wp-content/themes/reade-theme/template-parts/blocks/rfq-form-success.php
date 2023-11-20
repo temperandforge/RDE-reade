@@ -44,3 +44,25 @@ $woocommerce->cart->empty_cart();
   </div>
  </div>
 </div>
+<?php
+
+   if (!empty($_GET['from']) && in_array($_GET['from'], array('custom', 'rfq'))) {
+
+      if ($_GET['from'] == 'custom') {
+         ?>
+         <script>
+         window.dataLayer || [];
+         window.dataLayer.push({'event': 'submitproductrequest'});
+         </script>
+         <?php
+      }
+
+      if ($_GET['from'] == 'rfq') {
+         ?>
+         <script>
+         window.dataLayer || [];
+         window.dataLayer.push({'event': 'submitrfq'});
+         </script>
+         <?php
+      }
+   }
