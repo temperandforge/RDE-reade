@@ -137,6 +137,7 @@
             <?php endif; ?>
          </div>
          <div class="footer-bottom footer-row-3">
+            <p style="position: absolute; left: 0; bottom: 0.5rem; font-size:8px; opacity: 0.25; color: #000;"><a href="https://temperandforge.com">Web Design</a> by T/F</p>
             <div class="footer-copyright">
                <p class="mb-0"><?php echo __('All Rights Reserved.', TEXTDOMAIN);?> &copy; <?php echo date('Y', strtotime('now')) .' '. get_bloginfo(); ?></p>
             </div>
