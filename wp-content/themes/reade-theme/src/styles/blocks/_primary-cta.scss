@@ -1,15 +1,20 @@
-#main-content:has(.primary-cta) + #site-footer {
-	@include respond-above(sm) {
-		padding-top: 89px;
-	}
-}
+// #main-content:has(.primary-cta) + #site-footer {
+// 	@include respond-above(sm) {
+// 		padding-top: 89px;
+// 	}
+// }
 
 /** can't do :has() with mozilla **/
 @-moz-document url-prefix() {
-	body.home #site-footer {
-		@include respond-above(sm) {
-			padding-top: 89px;
-		}
+}
+body.page-id-76 #site-footer, // about-us
+body.about-us #site-footer,
+body.page-id-84 #site-footer, // services
+body.services #site-footer,
+body.page-id-80 #site-footer, // home
+body.home #site-footer {
+	@include respond-above(sm) {
+		padding-top: 89px;
 	}
 }
 
