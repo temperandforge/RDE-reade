@@ -22,4 +22,6 @@ if (!empty($_POST['action']) && ($_POST['action'] == 'doSubmitRecaptcha')) {
     } else {
         die('invalid');
     }
+
+	die('invalid');
 }
