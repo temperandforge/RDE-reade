@@ -213,7 +213,85 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 if (array_key_exists('footer_code', $option_fields) && $footer_code = $option_fields['footer_code']) {
   // additional footer code for analytics and whatnot
   echo $footer_code;
-} 
+}
+
+/** Conditionally load recaptcha scripts */
+global $post;
+
+if (!has_shortcode($post->post_content, 'contact-form-7')) {
+  ?>
+  <script>
+  //   How this code snippet works:
+  // This logic overwrites the default behavior of `grecaptcha.ready()` to
+  // ensure that it can be safely called at any time. When `grecaptcha.ready()`
+  // is called before reCAPTCHA is loaded, the callback function that is passed
+  // by `grecaptcha.ready()` is enqueued for execution after reCAPTCHA is
+  // loaded.
+  if(typeof grecaptcha === 'undefined') {
+    grecaptcha = {};
+  }
+  grecaptcha.ready = function(cb){
+    if(typeof grecaptcha === 'undefined') {
+      // window.__grecaptcha_cfg is a global variable that stores reCAPTCHA's
+      // configuration. By default, any functions listed in its 'fns' property
+      // are automatically executed when reCAPTCHA loads.
+      const c = '___grecaptcha_cfg';
+      window[c] = window[c] || {};
+      (window[c]['fns'] = window[c]['fns']||[]).push(cb);
+    } else {
+      cb();
+    }
+  }
+
+  // Usage
+  if (document.getElementById('sf-form')) {
+
+    $('#sf-form').on('submit', function(e) {
+
+      /* don't submit a form without at least product 1 */
+      if ($('#00N6g00000VMFwG').val() == '') {
+        e.preventDefault();
+        return false;
+      }
+
+      let thisform = e;
+      e.preventDefault();
+      grecaptcha.ready(function(){
+        grecaptcha.execute('6LfEWw8pAAAAAHc07h0kwQDiqZJPDCm2J0CTJACT', {action: 'submit'}).then(function(token) {
+          var postData = {
+                'action' : 'doSubmitRecaptcha',
+                'response' : token
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/wp-content/themes/reade-theme/_verify-recaptcha.php',
+                data: postData,
+                success: function (response) {
+                    if (response == 'invalid') {
+                      console.log('invalid form submission');
+                      alert('An error has occured, please try again.');
+                      return false;
+                    } else {
+                      console.log('valid form submission');
+                      $(e.target).off('submit');
+                      $('#sf-form-submit').click();
+                      return true;
+                    }
+                },
+                error: function (error) {
+                    console.log('Error');
+                }
+            });
+
+
+          });
+      });
+    });
+  }
+  </script>
+  <?php
+}
 ?>
 
 </body>

@@ -39,7 +39,24 @@
       object-src 'none'; 
       "> -->
       <!-- require-trusted-types-for 'script'; -->
-  <?php wp_head(); ?>
+      <?php
+      
+      wp_head();
+
+      /**
+       * Load recaptcha if contact form 7 is not present
+       *
+       * We will load specific javascript in the footer to check for recaptcha responses */
+      global $post;
+
+      if (!has_shortcode($post->post_content, 'contact-form-7')) {
+        ?>
+        <link rel="preconnect" href="https://www.google.com">
+        <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+        <script async src="https://www.google.com/recaptcha/api.js?render=6LfEWw8pAAAAAHc07h0kwQDiqZJPDCm2J0CTJACT"></script>
+        <?php
+      }
+  ?>
 
   <?php
 

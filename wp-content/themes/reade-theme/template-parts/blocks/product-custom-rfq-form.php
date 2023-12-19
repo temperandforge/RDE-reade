@@ -32,6 +32,7 @@ $fields = get_fields();
                <!-- salesforce form -->
 
                <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
+                    <!-- <form id="sf-form" action="/" method="POST"> -->
                <input type=hidden name="oid" value="00D6g000003RNAt">
               <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=custom">
 
