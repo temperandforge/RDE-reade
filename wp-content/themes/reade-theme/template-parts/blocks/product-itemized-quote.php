@@ -26,73 +26,10 @@ if (!is_null($cart)) {
     }
 
     ?>
-    <!-- salesforce form -->
 
-    <!--General Application:<textarea  id="00N6g00000TUVG8" name="00N6g00000TUVG8" rows="3" type="text" wrap="soft"></textarea><br>-->
-
-
-
-    <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
-    <!-- <form id="sf-form" action="/" method="POST"> -->
+    <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/wp-content/themes/reade-theme/_verify-recaptcha.php" method="POST">
+    <input type="hidden" name="action" value="doProcessRFQ">
     
-    <input type=hidden name="oid" value="00D6g000003RNAt">
-    <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=rfq">
-    <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
-    <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
-    <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
-    <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
-    <input  id="sfemail" maxlength="80" name="email" size="20" type="hidden" />
-    <textarea id="street" name="street" style="display: none;"></textarea>
-    <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
-    <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
-    <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
-    <input id="country" maxlength="255" name="country" size="20" type="hidden" />
-    <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-    <!-- product 1 -->
-    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
-    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- product 2 -->
-    <input  id="00N6g00000VMFwI" maxlength="255" name="00N6g00000VMFwI" size="20" type="hidden" />
-    <textarea  id="00N6g00000VMFwH" name="00N6g00000VMFwH" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- product 3 -->
-    <input  id="00N6g00000VMFwK" maxlength="255" name="00N6g00000VMFwK" size="20" type="hidden" />
-    <textarea  id="00N6g00000VMFwJ" name="00N6g00000VMFwJ" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- product 4 -->
-    <input  id="00N6g00000VMFwM" maxlength="255" name="00N6g00000VMFwM" size="20" type="hidden" />
-    <textarea  id="00N6g00000VMFwL" name="00N6g00000VMFwL" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- product 5 -->
-    <input  id="00N6g00000VMFwO" maxlength="255" name="00N6g00000VMFwO" size="20" type="hidden" />
-    <textarea  id="00N6g00000VMFwN" name="00N6g00000VMFwN" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- additional comments -->
-    <textarea  id="00N6g00000TtToE" name="00N6g00000TtToE" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
-
-    <!-- find us -->
-    <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
-
-    <!-- find us details -->
-    <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
-
-    <!-- preferred method of contact -->
-    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
-
-    <!-- terms and conditions -->
-    <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
-
-    <!-- preferred method of contact -->
-    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
-
-    <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
-    </form>
-    
-
-
-    <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/itemized-rfq-form-success/" method="POST">
-    <input type="hidden" name="action" value="doSubmitRFQ">
     <div class="piq-container">
         <div class="piq-container-left">
             <div class="rfq-empty" <?php if (empty($cart_contents)) { echo 'style="display: flex;"'; } ?>>
@@ -385,10 +322,12 @@ if (!is_null($cart)) {
             //if (!empty($cart_contents)) {
                 ?>
                 <div class="piq-container-right-form">
+                    
                     <div class="rfq-error-message"></div>
                     <h2 class="piq-form-headline"><?php echo !empty($fields['form_headline']) ? $fields['form_headline'] : 'Customer Info'; ?></h2>
                     <div class="piq-form">
                         <div class="piq-form-container">
+                            
                             <input type="text" id="rfq-first-name" name="rfq-first-name" placeholder="First Name" value="">
                             <input type="text" id="rfq-last-name" name="rfq-last-name" placeholder="Last Name" value="">
                             <input type="text" id="rfq-company" name="rfq-company" placeholder="Company" value="">
@@ -806,7 +745,10 @@ if (!is_null($cart)) {
                         </div>
                     </div>
                 </div>
-                    <button id="piq-form-submit" class="btn-blue-light-blue btn-arrow" <?php if (empty($cart_contents)) { ?>disabled<?php } ?>>
+                    <button id="piq-form-submit" class="g-recaptcha btn-blue-light-blue btn-arrow" <?php if (empty($cart_contents)) { ?>disabled<?php } ?> 
+        data-sitekey="6LfEWw8pAAAAAHc07h0kwQDiqZJPDCm2J0CTJACT" 
+        data-callback='onSubmit' 
+        data-action='RFQSubmit'>
                         <?php echo !empty($fields['form_submit_button_text']) ? $fields['form_submit_button_text'] : 'Submit RFQ'; ?>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0063 5.88128C12.348 5.53957 12.902 5.53957 13.2437 5.88128L16.7437 9.38128C17.0854 9.72299 17.0854 10.277 16.7437 10.6187L13.2437 14.1187C12.902 14.4604 12.348 14.4604 12.0063 14.1187C11.6646 13.777 11.6646 13.223 12.0063 12.8813L14.0126 10.875H3.875C3.39175 10.875 3 10.4832 3 10C3 9.51675 3.39175 9.125 3.875 9.125H14.0126L12.0063 7.11872C11.6646 6.77701 11.6646 6.22299 12.0063 5.88128Z" fill="#FAFAFA"/>
@@ -826,6 +768,59 @@ if (!is_null($cart)) {
 
             ?>
         </div>
+    </div>
+    <div id="sf-form" style="display: none;">
+    <input type=hidden name="oid" value="00D6g000003RNAt">
+    <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=rfq">
+    <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
+    <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
+    <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
+    <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
+    <input  id="sfemail" maxlength="80" name="email" size="20" type="hidden" />
+    <textarea id="street" name="street" style="display: none;"></textarea>
+    <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
+    <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
+    <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input id="country" maxlength="255" name="country" size="20" type="hidden" />
+    <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
+    <!-- product 1 -->
+    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 2 -->
+    <input  id="00N6g00000VMFwI" maxlength="255" name="00N6g00000VMFwI" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwH" name="00N6g00000VMFwH" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 3 -->
+    <input  id="00N6g00000VMFwK" maxlength="255" name="00N6g00000VMFwK" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwJ" name="00N6g00000VMFwJ" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 4 -->
+    <input  id="00N6g00000VMFwM" maxlength="255" name="00N6g00000VMFwM" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwL" name="00N6g00000VMFwL" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- product 5 -->
+    <input  id="00N6g00000VMFwO" maxlength="255" name="00N6g00000VMFwO" size="20" type="hidden" />
+    <textarea  id="00N6g00000VMFwN" name="00N6g00000VMFwN" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- additional comments -->
+    <textarea  id="00N6g00000TtToE" name="00N6g00000TtToE" rows="3" type="text" wrap="soft" style="display: none;"></textarea>
+
+    <!-- find us -->
+    <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
+
+    <!-- find us details -->
+    <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+
+    <!-- terms and conditions -->
+    <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
+
+    <!-- preferred method of contact -->
+    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+    </div>
     </div>
     </form>
 </div>

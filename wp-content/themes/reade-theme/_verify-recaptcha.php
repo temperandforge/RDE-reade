@@ -1,27 +1,201 @@
 <?php
 
-require_once __DIR__ . '/../../../wp-load.php';
+    require_once __DIR__ . '/../../../wp-load.php';
 
-if (!empty($_POST['action']) && ($_POST['action'] == 'doSubmitRecaptcha')) {
-	$recaptcha_response = $_POST['response'];
-    define("RECAPTCHA_V3_SECRET_KEY", '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW');
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => RECAPTCHA_V3_SECRET_KEY, 'response' => $recaptcha_response)));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    if (!empty($_POST['action']) && ($_POST['action'] == 'doCustomRFQSubmit')) {
+        if (empty($_POST['g-recaptcha-response'])) {
+            header('Location: ' . site_url() . '/custom-product-rfq-form/?error=invalid-captcha');
+            exit;
+        }
 
-    $response = curl_exec($ch);
-    curl_close($ch);
-    $arrResponse = json_decode($response, true);
-    // verify the response
-    if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.5) {
-        die('valid');
-    } else {
-        die('invalid');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $arrResponse = json_decode($response, true);
+
+        // verify the response
+        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.2) {
+            // set up post data
+            $postData = array(
+                'lead_source' => 'Website',
+                '00N6g00000TUVFe' => !empty($_POST['00N6g00000TUVFe']) ? $_POST['00N6g00000TUVFe'] : '',
+                '00N6g00000Tj7ls' => !empty($_POST['00N6g00000Tj7ls']) ? $_POST['00N6g00000Tj7ls'] : '',
+                '00N6g00000TBLtL' => !empty($_POST['00N6g00000TBLtL']) ? $_POST['00N6g00000TBLtL'] : '',
+                '00N6g00000TUVFy' => !empty($_POST['00N6g00000TUVFy']) ? $_POST['00N6g00000TUVFy'] : '',
+                '00N6g00000TUVG3' => !empty($_POST['00N6g00000TUVG3']) ? $_POST['00N6g00000TUVG3'] : '',
+                '00N6g00000TUVG8' => !empty($_POST['00N6g00000TUVG8']) ? $_POST['00N6g00000TUVG8'] : '',
+                'first_name' => !empty($_POST['first_name']) ? $_POST['first_name'] : '',
+                'last_name' => !empty($_POST['last_name']) ? $_POST['last_name'] : '',
+                'company' => !empty($_POST['company']) ? $_POST['company'] : '',
+                'street' => !empty($_POST['street']) ? $_POST['street'] : '',
+                'city' => !empty($_POST['city']) ? $_POST['city'] : '',
+                'zip' => !empty($_POST['zip']) ? $_POST['zip'] : '',
+                'phone' => !empty($_POST['phone']) ? $_POST['phone'] : '',
+                'email' => !empty($_POST['email']) ? $_POST['email'] : '',
+                '00N3J000001mdyh' => !empty($_POST['00N3J000001mdyh']) ? $_POST['00N3J000001mdyh'] : '',
+                '00N6g00000U3avS' => !empty($_POST['00N6g00000U3avS']) ? $_POST['00N6g00000U3avS'] : '',
+                'oid' => !empty($_POST['oid']) ? $_POST['oid'] : '',
+                'retURL' => !empty($_POST['retURL']) ? $_POST['retURL'] : '',
+                'state' => !empty($_POST['state']) ? $_POST['state'] : '',
+                'country' => !empty($_POST['country']) ? $_POST['country'] : '',
+                '00N6g00000VMFwG' => !empty($_POST['00N6g00000VMFwG']) ? $_POST['00N6g00000VMFwG'] : '',
+                '00N6g00000VMFwF' => !empty($_POST['00N6g00000VMFwF']) ? $_POST['00N6g00000VMFwF'] : '',
+                '00N6g00000TtToG' => !empty($_POST['00N6g00000TtToG']) ? $_POST['00N6g00000TtToG'] : '',
+                '00N6g00000TtToJ' => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
+                '00N6g00000TUVGD' => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : ''
+            );
+
+            // // send the post data with curl
+            // // Initialize cURL session
+             $ch = curl_init('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt');
+
+            $headers = array(
+                "X-Custom-Header: website-",
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            );
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_HEADER, true);
+
+            // Set cURL options
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            // local only
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Execute cURL session and get the response
+            $response = curl_exec($ch);
+
+            // Check for cURL errors
+            if (curl_errno($ch)) {
+                die('there was an error, please try again later.');
+                exit;
+            }
+
+            // Close cURL session
+            curl_close($ch);
+
+            // redirect
+            header('Location: ' . $_POST['retURL']);
+            exit;
+
+        } else {
+            header('Location: ' . site_url() . '/custom-product-rfq-form/?error=invalid-captcha-response');
+            exit;
+        }
+
+        // if we reached this point, we assume invalid
+        header('Location: ' . site_url() . '/custom-product-rfq-form/?error=general-invalid-captcha');
+        exit;
     }
 
-	die('invalid');
-}
+    if (!empty($_POST['action']) && ($_POST['action'] == 'doProcessRFQ')) {
+
+        if (empty($_POST['g-recaptcha-response'])) {
+            header('Location: ' . site_url() . '/itemized-rfq/?error=invalid-captcha');
+            exit;
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $arrResponse = json_decode($response, true);
+
+        // verify the response
+        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.2) {
+
+            // set up post data
+            $postData = array(
+                'oid' => !empty($_POST['oid']) ? $_POST['oid'] : '',
+                'retURL' => !empty($_POST['retURL']) ? $_POST['retURL'] : '',
+                'first_name' => !empty($_POST['first_name']) ? $_POST['first_name'] : '',
+                'last_name' => !empty($_POST['last_name']) ? $_POST['last_name'] : '',
+                'company' => !empty($_POST['company']) ? $_POST['company'] : '',
+                'phone' => !empty($_POST['phone']) ? $_POST['phone'] : '',
+                'email' => !empty($_POST['email']) ? $_POST['email'] : '',
+                'street' => !empty($_POST['street']) ? $_POST['street'] : '',
+                'city' => !empty($_POST['city']) ? $_POST['city'] : '',
+                'state' => !empty($_POST['state']) ? $_POST['state'] : '',
+                'zip' => !empty($_POST['zip']) ? $_POST['zip'] : '',
+                'country' => !empty($_POST['country']) ? $_POST['country'] : '',
+                'lead_source' => !empty($_POST['lead_source']) ? $_POST['lead_source'] : '',
+                '00N6g00000VMFwG' => !empty($_POST['00N6g00000VMFwG']) ? $_POST['00N6g00000VMFwG'] : '',
+                '00N6g00000VMFwF' => !empty($_POST['00N6g00000VMFwF']) ? $_POST['00N6g00000VMFwF'] : '',
+                '00N6g00000VMFwI' => !empty($_POST['00N6g00000VMFwI']) ? $_POST['00N6g00000VMFwI'] : '',
+                '00N6g00000VMFwH' => !empty($_POST['00N6g00000VMFwH']) ? $_POST['00N6g00000VMFwH'] : '',
+                '00N6g00000VMFwK' => !empty($_POST['00N6g00000VMFwK']) ? $_POST['00N6g00000VMFwK'] : '',
+                '00N6g00000VMFwJ' => !empty($_POST['00N6g00000VMFwJ']) ? $_POST['00N6g00000VMFwJ'] : '',
+                '00N6g00000VMFwM' => !empty($_POST['00N6g00000VMFwM']) ? $_POST['00N6g00000VMFwM'] : '',
+                '00N6g00000VMFwL' => !empty($_POST['00N6g00000VMFwL']) ? $_POST['00N6g00000VMFwL'] : '',
+                '00N6g00000VMFwO' => !empty($_POST['00N6g00000VMFwO']) ? $_POST['00N6g00000VMFwO'] : '',
+                '00N6g00000VMFwN' => !empty($_POST['00N6g00000VMFwN']) ? $_POST['00N6g00000VMFwN'] : '',
+                '00N6g00000TtToE' => !empty($_POST['00N6g00000TtToE']) ? $_POST['00N6g00000TtToE'] : '',
+                '00N6g00000TtToG' => !empty($_POST['00N6g00000TtToG']) ? $_POST['00N6g00000TtToG'] : '',
+                '00N6g00000U3avS' => !empty($_POST['00N6g00000U3avS']) ? $_POST['00N6g00000U3avS'] : '',
+                '00N6g00000TtToJ' => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
+                '00N6g00000TUVGD' => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : '',
+            );
+
+            // send the post data with curl
+            // Initialize cURL session
+            $ch = curl_init('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt');
+
+            $headers = array(
+                "X-Custom-Header: website-",
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+            );
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_HEADER, true);
+
+            // Set cURL options
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            // local only
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Execute cURL session and get the response
+            $response = curl_exec($ch);
+
+            // Check for cURL errors
+            if (curl_errno($ch)) {
+                die('there was an error, please try again later.');
+                exit;
+            }
+
+            // Close cURL session
+            curl_close($ch);
+
+            // redirect
+            header('Location: ' . $_POST['retURL']);
+            exit;
+
+        } else {
+            header('Location: ' . site_url() . '/itemized-rfq/?error=invalid-captcha-response');
+            exit;
+        }
+
+        // if we reached this point, we assume invalid
+        header('Location: ' . site_url() . '/itemized-rfq/?error=general-invalid-captcha');
+        exit;
+    }

@@ -395,6 +395,8 @@ export default {
 
       }
 
+      
+
       function disableForm() {
         $('#piq-form-submit').prop('disabled', true);
       }
@@ -412,37 +414,13 @@ export default {
             
 
             $('.rfq-error-message').hide();
-            $('#sf-form-submit').click();
-            
 
-
-
-            // $(this).find('.spinner').css('display', 'block');
-            // $(this).find('svg:not(.spinner').css('display', 'none');
-            // $.ajax({
-            //     type: "POST",
-            //     url: "/wp-content/themes/reade-theme/_woo-ajax.php",
-            //     data: 'action=doSubmit&formData=x',
-            //     success: function(responseText){
-            //       //alert(responseText);
-            //       if (responseText == 'success') {
-            //         $(this).find('.spinner').css('display', 'none');
-            //         $(this).find('svg:not(.spinner').css('display', 'block');
-
-            //         document.location.href = '/itemized-rfq-form-success/';
-            //       }
-            //     },
-            //     error: function() {
-            //       //alert('there was an error');
-            //     },
-            //     complete: function() {
-            //     }
-            //   });
+            // submit form
+            setTimeout(function() {
+              $('#piq-itemized-rfq').off('submit').submit();
+            }, 250);
 
           } else {
-            // do this
-            //$('.rfq-error-message').html('<p>' + errors.toString() + '</p>');
-            //$('.rfq-error-message').show();
 
             let fields = $('.piq-form input:not([type="submit"])');
             fields.each(function(index, element) {

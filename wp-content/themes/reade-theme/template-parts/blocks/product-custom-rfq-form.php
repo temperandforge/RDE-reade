@@ -29,59 +29,9 @@ $fields = get_fields();
 
           if ($fields['form_code'] == '' || empty($fields['form_code'])) {
                ?>
-               <!-- salesforce form -->
-
-               <form id="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt" method="POST">
-                    <!-- <form id="sf-form" action="/" method="POST"> -->
-               <input type=hidden name="oid" value="00D6g000003RNAt">
-              <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=custom">
-
-
-              <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
-              <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
-              <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
-              <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
-              <input  id="sfemail" maxlength="80" name="email" size="20" type="hidden" />
-              <textarea id="street" name="street" style="display: none;"></textarea>
-              <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
-              <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
-              <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
-              <input id="country" maxlength="255" name="country" size="20" type="hidden" />
-              <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-
-              <!-- product 1 name and details -->
-              <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
-              <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
-
-              <!-- notes -->
-              <textarea id="00N3J000001mdyh" name="00N3J000001mdyh" type="text" wrap="soft" style="display: none;"></textarea>
-
-              <!-- find us -->
-              <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
-
-              <!-- find us details -->
-              <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
-
-              <!-- preferred method of contact -->
-              <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
-
-              <!-- terms and conditions -->
-              <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
-
-              <input id="sf-form-submit" type="submit" name="submit" style="display: none;">
-
-              </form>
-
-
-
-               <form id="custom-product-request-form" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-
-
+                    <form id="custom-rfq-form" action="/wp-content/themes/reade-theme/_verify-recaptcha.php" method="POST">
+                    <input type="hidden" name="action" value="doCustomRFQSubmit">
                     <div class="rfq-form-slide-1 rfq-form-slide">
-
-                         <input type=hidden name="oid" value="00D3J0000008rZJ">
-                         <input type=hidden name="retURL" value="http://reade.wpengine.com/itemized-rfq-form-success/">
-
                          <input  id="lead_source" name="lead_source" value="Website" type="hidden"></select>
 
                          <input  class="all-fields rfq-input-product" id="00N6g00000TUVFe" maxlength="255" name="00N6g00000TUVFe" size="20" type="text" placeholder="Material or Chemical Formula *" />
@@ -611,7 +561,7 @@ $fields = get_fields();
                                    </svg>
                                    Previous
                               </button>
-                              <button id="rfq-form-submit" class="btn-blue-dark-blue" type="submit" name="submit">
+                              <button id="rfq-form-submit" class="btn-blue-dark-blue g-recaptcha" name="submit2" data-sitekey="6LfEWw8pAAAAAHc07h0kwQDiqZJPDCm2J0CTJACT" data-callback='onCustomSubmit' data-action='CustomRFQSubmit'>
                                    Submit
                                    <svg class="spinner" viewBox="0 0 50 50">
                                         <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -619,7 +569,30 @@ $fields = get_fields();
                               </button>
                          </div>
                     </div>
+                    <div id="sf-form" style="display: none;">
+              
+                    <input type=hidden name="oid" value="00D6g000003RNAt">
+                    <input type=hidden name="retURL" value="<?php echo site_url(); ?>/itemized-rfq-form-success/?from=custom">
+                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="hidden" />
+                    <input  id="last_name" maxlength="80" name="last_name" size="20" type="hidden" />
+                    <input  id="company" maxlength="40" name="company" size="20" type="hidden" />
+                    <input  id="phone" maxlength="40" name="phone" size="20" type="hidden" />
+                    <input  id="sfemail" maxlength="80" name="email" size="20" type="hidden" />
+                    <textarea id="street" name="street" style="display: none;"></textarea>
+                    <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
+                    <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
+                    <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+                    <input id="country" maxlength="255" name="country" size="20" type="hidden" />
+                    <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
+                    <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
+                    <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
+                    <textarea id="00N3J000001mdyh" name="00N3J000001mdyh" type="text" wrap="soft" style="display: none;"></textarea>
+                    <input  id="00N6g00000TtToG" name="00N6g00000TtToG" value="" type="hidden">
+                    <input  id="00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="hidden" />
+                    <input  id="00N6g00000TtToJ" name="00N6g00000TtToJ" size="20" type="hidden">
+                    <input  id="00N6g00000TUVGD" name="00N6g00000TUVGD" type="hidden" value="1">
 
+                    </div>
                </form>
                <?php
           } else {

@@ -35,7 +35,6 @@ export default {
           $(this).removeClass('rfq-form-slide-hidden');
         }).css('display', 'flex');
       } else {
-        //console.log(errorfields);
         $('.all-fields').removeClass('rfq-error');
         $('#00N6g00000TtToL, #00N6g00000TUVFo').removeClass('rfq-error');
 
@@ -53,7 +52,7 @@ export default {
     })
 
 
-    $('#rfq-form-submit').on('click', function(e) {
+    $('#custom-rfq-form').on('submit', function(e) {
       disableForm();
       e.preventDefault();
       if (validateFormPart2()) {
@@ -100,7 +99,9 @@ export default {
             'General Application: ' + $('#00N6g00000TUVG8').val()
         );
  
-        $('#sf-form-submit').click();
+        setTimeout(function() {
+          $('#custom-rfq-form').off('submit').submit();
+        }, 250);
 
 
 
