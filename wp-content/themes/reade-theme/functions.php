@@ -225,13 +225,3 @@ function get_missing_meta() {
 
 //138 locally
 define('ALL_PRODUCTS_CAT_ID', 368);
-
-function contactform_dequeue_scripts() {
-        global $post;
-        if (!has_shortcode($post->post_content, 'contact-form-7')) {
-            wp_dequeue_script('contact-form-7');
-            wp_dequeue_script('google-recaptcha');
-            wp_dequeue_style('contact-form-7');
-        }
-}
-add_action('wp_enqueue_scripts', 'contactform_dequeue_scripts', 99);
