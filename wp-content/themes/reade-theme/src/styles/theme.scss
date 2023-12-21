@@ -47,3 +47,56 @@ body {
    background-color: var(--primary-100,#cfeef6);
    font-weight: 600;
 }
+
+
+
+/** Customizer Styles */
+#history-2023 img {
+	object-fit: contain;
+	max-width: 450px;
+}
+
+.faq-accordion .accordion-answer a {
+	text-decoration: underline;
+}
+
+/* remove share icons */
+.single-container-left {
+	display: none;
+}
+body.postid-5029 .single-featured-image {
+	display: none;
+}
+
+body.toll-processing-request .rfq-form--heading h2 {
+	max-width: 30ch;
+}
+
+body.term-all-products #pab-filters-search {
+	z-index: 20;	
+}
+.grecaptcha-badge { 
+    visibility: hidden;
+}
+
+.dropshadow-cards .dropshadow-cards-card-text {
+	text-wrap: balance;
+}
+
+.toc-nav-link svg {
+	flex-shrink: 0;
+}
+
+.page-template-legal .iubenda_legal_document h6,
+.page-template-legal .iubenda_legal_document h5,
+.page-template-legal .iubenda_legal_document h4,
+.page-template-legal .iubenda_legal_document h3 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+}
+
+.iubenda_legal_document ul {
+	list-style-type:disc;
+	padding-left: 1.5rem;
+}
