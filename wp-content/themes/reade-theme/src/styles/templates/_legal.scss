@@ -97,6 +97,7 @@
 			transform: translateX(20%);
 		}
 	}
+	&.page-id-5101 h2,
 	h1 {
 		color: var(--primary-900, #045);
 		/* Heading/H1/Bold/Desktop */
@@ -114,7 +115,8 @@
 			letter-spacing: -0.04em;
 		}
 	}
-	h2 {
+	&:not(.page-id-5101) h2
+	&.page-id-5101 h3 {
 		@apply mb-8 mt-16 font-bold;
 		&:first-child {
 			@apply mt-0;
