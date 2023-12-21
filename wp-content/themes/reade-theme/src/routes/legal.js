@@ -5,12 +5,16 @@ const { $ } = window;
 export default {
 	init() {
 		// Usage
-		waitForElement('#iub-pp-container h2', (element) => {
-			// The element is now present on the page
+		if(document.body.classList.includes('.page-id-91')) { // Terms of service of sales
 			generateInPageNavigation();
 			handleMobileInPageNav();
-		})
-	
+		} else {
+			waitForElement('#iub-pp-container h2', (element) => {
+				// The element is now present on the page
+				generateInPageNavigation();
+				handleMobileInPageNav();
+			})
+		}
 	},
 	finalize() {
 
