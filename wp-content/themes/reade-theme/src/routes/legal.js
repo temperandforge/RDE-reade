@@ -5,7 +5,7 @@ const { $ } = window;
 export default {
 	init() {
 		// Usage
-		if(document.body.classList.includes('.page-id-91')) { // Terms of service of sales
+		if(document.body.classList.contains('page-id-91')) { // Terms of service of sales
 			generateInPageNavigation();
 			handleMobileInPageNav();
 		} else {
