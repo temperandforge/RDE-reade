@@ -7,6 +7,8 @@
 /** can't do :has() with mozilla **/
 @-moz-document url-prefix() {
 }
+body.page-id-85 #site-footer, // global-sourcing
+body.global-sourcing #site-footer,
 body.page-id-76 #site-footer, // about-us
 body.about-us #site-footer,
 body.page-id-84 #site-footer, // services
