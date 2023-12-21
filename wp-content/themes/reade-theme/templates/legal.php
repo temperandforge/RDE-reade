@@ -6,18 +6,18 @@ get_header(); ?>
       <div class="theme-inner-wrap">
 
          <div class="page-legal-hero">
-            <h1><?php echo $post->post_title; ?></h1>
+            <!-- <h1><?php echo $post->post_title; ?></h1> -->
             <?php
 
             $fields = get_fields();
 
             if (!empty($fields['effective_date'])) {
                ?>
-               <p class="last__updated"><?php echo $fields['effective_date']; ?></p>
+               <!-- <p class="last__updated"><?php echo $fields['effective_date']; ?></p> -->
                <?php
             } else {
                ?>
-               <p class="last__updated"><?php echo __("Last Updated:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p>
+               <!-- <p class="last__updated"><?php echo __("Last Updated:", 'reade-themepnpm');?> <time><?php echo date('F j, Y', strtotime($post->post_modified)); ?></time></p> -->
                <?php
             }
 

@@ -7,252 +7,264 @@
  * STRUCTURAL-SPECIFIC STYLES
  *
 **/
-.last__updated { 
-   @apply mb-12 lg:mb-16;
+.last__updated {
+	@apply mb-12 lg:mb-16;
 }
 
 .psuedo-select-active {
-   @apply flex font-medium items-center justify-between mb-0;
-   cursor: pointer;
+	@apply flex font-medium items-center justify-between mb-0;
+	cursor: pointer;
 }
 
 .toc-nav-link {
-   @apply flex leading-normal py-4 items-center;
-   svg {
-      margin-right: 1rem;
-      max-width: 100%;
-      overflow: hidden;
-      transition: 0.2s;
-   }
-   span { pointer-events: none; }
-   &:not(.active) {
-      svg {
-         margin-right: 0;
-         max-width: 0;
-         opacity: 0;
-      }
-   }
-   &.active {
-      @apply font-bold text-primary900;
-   }
-   &:not(:last-child) {
-      border-bottom: 1px dashed var(--primary);
-   }
+	@apply flex leading-normal py-4 items-center;
+	svg {
+		margin-right: 1rem;
+		max-width: 100%;
+		overflow: hidden;
+		transition: 0.2s;
+	}
+	span {
+		pointer-events: none;
+	}
+	&:not(.active) {
+		svg {
+			margin-right: 0;
+			max-width: 0;
+			opacity: 0;
+		}
+	}
+	&.active {
+		@apply font-bold text-primary900;
+	}
+	&:not(:last-child) {
+		border-bottom: 1px dashed var(--primary);
+	}
 }
 
 .psuedo-select {
-   .svg-arrow-down {
-      @apply ml-2;
-      pointer-events: none;
-   }
+	.svg-arrow-down {
+		@apply ml-2;
+		pointer-events: none;
+	}
 }
 .in-page-nav {
-   @apply block max-w-md relative rounded w-full;
+	@apply block max-w-md relative rounded w-full;
 
-   .psuedo-select-active {
-      @apply px-4 py-3;
-   }
+	.psuedo-select-active {
+		@apply px-4 py-3;
+	}
 
-   nav {
-      @apply absolute bg-white w-full mt-2 rounded px-4;
-      top: 100%;
-      left: 0;
-   }
+	nav {
+		@apply absolute bg-white w-full mt-2 rounded px-4;
+		top: 100%;
+		left: 0;
+	}
 }
 
 .page-legal-content--article {
-   @apply flex flex-col;
+	@apply flex flex-col;
 }
 .page-legal-content--wrap {
-   flex: 1;
+	flex: 1;
 }
 .page-template-legal {
-   overflow-x: unset;
+	overflow-x: unset;
 }
 
 .page-template-legal {
-   .main-content-wrap {
-      @apply my-16 md:my-24 lg:my-40;
-      position: relative;
-      z-index: 1;
+	.main-content-wrap {
+		@apply my-16 md:my-24 lg:my-40;
+		position: relative;
+		z-index: 1;
 
-      li, 
-      p:not([class]) { //p.psuedo-select-active, last-updated
-         /* Paragraph/Medium/Medium */
-         color: var(--primary-900, #045);
-         // font-family: $font-open-sans;
-         font-size: 1rem;
-         // font-weight: 400;
-         line-height: 1.5;
-         margin-bottom: 1em;
-      }
+		li,
+		p:not([class]) {
+			//p.psuedo-select-active, last-updated
+			/* Paragraph/Medium/Medium */
+			color: var(--primary-900, #045);
+			// font-family: $font-open-sans;
+			font-size: 1rem;
+			// font-weight: 400;
+			line-height: 1.5;
+			margin-bottom: 1em;
+		}
 
-      > svg {
-         @apply hidden md:block absolute top-0 right-0;
-         z-index: -1;
-         margin-right: calc(-50vw + 50%);
-         transform: translateX(20%);
-      }
-   }
-   h1 {
-      color: var(--primary-900, #045);
-      /* Heading/H1/Bold/Desktop */
-      font-family: $font-open-sans;
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      @include dynamic('margin-bottom', 86, 24);
-      @include respond-above(sm) {
-         //@apply mb-6 md:mb-12 lg:mb-20;
-         @apply font-bold;
-         font-size: 3.4375rem;
-         line-height: 1.1728727272727273;
-         letter-spacing: -0.04em;
-      }
-   }
-   h2 {
-      @apply mb-8 mt-16 font-bold;
-      &:first-child {
-       @apply mt-0;  
-      }
-      text-wrap: balance;
-      scroll-margin-top: 3rem;
+		> svg {
+			@apply hidden md:block absolute top-0 right-0;
+			z-index: -1;
+			margin-right: calc(-50vw + 50%);
+			transform: translateX(20%);
+		}
+	}
+	h1 {
+		color: var(--primary-900, #045);
+		/* Heading/H1/Bold/Desktop */
+		font-family: $font-open-sans;
+		font-size: 2.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		@include dynamic('margin-bottom', 86, 24);
+		@include respond-above(sm) {
+			//@apply mb-6 md:mb-12 lg:mb-20;
+			@apply font-bold;
+			font-size: 3.4375rem;
+			line-height: 1.1728727272727273;
+			letter-spacing: -0.04em;
+		}
+	}
+	h2 {
+		@apply mb-8 mt-16 font-bold;
+		&:first-child {
+			@apply mt-0;
+		}
+		text-wrap: balance;
+		scroll-margin-top: 3rem;
 
-      color: var(--primary-900, #045);
+		color: var(--primary-900, #045);
 
-      /* Heading/H5/Bold/Desktop */
-      // font-family: $font-open-sans;
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.3333333333333333;
-      letter-spacing: -0.02em;
-   }
+		/* Heading/H5/Bold/Desktop */
+		// font-family: $font-open-sans;
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.3333333333333333;
+		letter-spacing: -0.02em;
+	}
+
+	h3 {
+		@apply font-bold text-[1.25rem] mb-4;
+	}
+
+	h4 {
+		@apply font-semibold text-[1.1rem] mb-2;
+	}
 }
-
 
 @include respond-below(xl) {
-   .psuedo-select {
-      nav {
-         @apply overflow-hidden;
-         max-height: 200px;
-         overflow: auto;
-         overscroll-behavior: contain;
-         transition: max-height 0.2s;
-   
-         --scrollBarColor1:#0004;
-         --scrollBarColor2:#fff;
-         
-         /* Works on Firefox */
-         scrollbar-width: thin;
-         scrollbar-color: var(--scrollBarColor1) var(--scrollBarColor2);
-          
-         /* Works on Chrome, Edge, and Safari */
-         &::-webkit-scrollbar {
-            width: 8px;
-         }
-         
-         &::-webkit-scrollbar-track {
-            background: var(--scrollBarColor2);
-         }
-         
-         &::-webkit-scrollbar-thumb {
-            background-color: var(--scrollBarColor1);
-            border-radius: 20px;
-            border: 2px solid var(--scrollBarColor2);
-         }
-      }
-      &:not(.is-open) {
-         nav {
-            @apply max-h-0 pointer-events-none;
-         }
-      }
-   }
-   .page-template-legal aside a,
-   .toc-nav-link {
-      color: var(--primary-900, #045)!important;
-      /* Paragraph/Small/Semibold */
-      // font-family: $font-open-sans;
-      font-size: 0.875rem;
-      // font-style: normal;
-      font-weight: 600;
-      line-height: 1.4285714285714286;
-      border-bottom: unset!important;
-      &.active {
-         svg {
-            @apply hidden;
-         }
-      }
-      @media (hover:hover) {
-         &:hover {
-            background: var(--primary-50, #EFFBFF);
-         }
-      }
-      padding-block: 0.62rem;
-      padding-inline: 1rem;
-   }
-   .in-page-nav nav,
-   .pseudo-select-nav {
-      padding-inline: 0;
-   }
-   .psuedo-select-active {
-      border-radius: 0.3125rem;
-   }
-   .psuedo-select.is-open {
-      .psuedo-select-active {
-         border-radius: 0.3125rem 0.3125rem 0rem 0rem;
-      } 
-      .pseudo-select-nav {
-         border: 1px solid var(--primary-100, #CFEEF6);
-         @include hide-sb(); //cutting off border
-      }
-   }
-   .in-page-nav nav.pseudo-select-nav {
-      margin-top: 0;
-      border-radius: 0 0 0.3125rem 0.3125rem;
-   }
-   aside.in-page-nav {
-      margin-bottom: 4rem;
-   }
+	.psuedo-select {
+		nav {
+			@apply overflow-hidden;
+			max-height: 200px;
+			overflow: auto;
+			overscroll-behavior: contain;
+			transition: max-height 0.2s;
+
+			--scrollBarColor1: #0004;
+			--scrollBarColor2: #fff;
+
+			/* Works on Firefox */
+			scrollbar-width: thin;
+			scrollbar-color: var(--scrollBarColor1) var(--scrollBarColor2);
+
+			/* Works on Chrome, Edge, and Safari */
+			&::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			&::-webkit-scrollbar-track {
+				background: var(--scrollBarColor2);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: var(--scrollBarColor1);
+				border-radius: 20px;
+				border: 2px solid var(--scrollBarColor2);
+			}
+		}
+		&:not(.is-open) {
+			nav {
+				@apply max-h-0 pointer-events-none;
+			}
+		}
+	}
+	.page-template-legal aside a,
+	.toc-nav-link {
+		color: var(--primary-900, #045) !important;
+		/* Paragraph/Small/Semibold */
+		// font-family: $font-open-sans;
+		font-size: 0.875rem;
+		// font-style: normal;
+		font-weight: 600;
+		line-height: 1.4285714285714286;
+		border-bottom: unset !important;
+		&.active {
+			svg {
+				@apply hidden;
+			}
+		}
+		@media (hover: hover) {
+			&:hover {
+				background: var(--primary-50, #effbff);
+			}
+		}
+		padding-block: 0.62rem;
+		padding-inline: 1rem;
+	}
+	.in-page-nav nav,
+	.pseudo-select-nav {
+		padding-inline: 0;
+	}
+	.psuedo-select-active {
+		border-radius: 0.3125rem;
+	}
+	.psuedo-select.is-open {
+		.psuedo-select-active {
+			border-radius: 0.3125rem 0.3125rem 0rem 0rem;
+		}
+		.pseudo-select-nav {
+			border: 1px solid var(--primary-100, #cfeef6);
+			@include hide-sb(); //cutting off border
+		}
+	}
+	.in-page-nav nav.pseudo-select-nav {
+		margin-top: 0;
+		border-radius: 0 0 0.3125rem 0.3125rem;
+	}
+	aside.in-page-nav {
+		margin-bottom: 4rem;
+	}
 }
 @include respond-above(xl) {
-   .in-page-nav {
-      @apply border-none basis-80 grow shrink-0 sticky;// top-10;
-      //@apply hidden lg:block;
-      @apply px-10 py-6;
-      top: calc(2rem + var(--navbar-height));
-      top: var(--navbar-height);
-      max-height: calc(100vh - 2 * var(--navbar-height));
-      overflow: auto;
-      overscroll-behavior: contain;
+	.in-page-nav {
+		@apply border-none basis-80 grow shrink-0 sticky; // top-10;
+		//@apply hidden lg:block;
+		@apply px-10 py-6;
+		top: calc(2rem + var(--navbar-height));
+		top: var(--navbar-height);
+		max-height: calc(100vh - 2 * var(--navbar-height));
+		overflow: auto;
+		overscroll-behavior: contain;
 
-      /* Works on Firefox */
-      scrollbar-width: thin;
-      scrollbar-color: var(--primary) #fff;
-      
-      /* Works on Chrome, Edge, and Safari */
-      &::-webkit-scrollbar {
-         width: 12px;
-      }
-       
-      &::-webkit-scrollbar-track {
-         background: #fff;
-      }
-       
-      &::-webkit-scrollbar-thumb {
-         background-color: var(--primary);
-         border-radius: 20px;
-         border: 3px solid #fff;
-      }
+		/* Works on Firefox */
+		scrollbar-width: thin;
+		scrollbar-color: var(--primary) #fff;
 
-      nav {
-         @apply bg-[#0000] mt-0 relative; // mx-8 my-6 relative;
-      }
-   }
-   
-   .psuedo-select-active { @apply hidden; }
-   
-   .page-legal-content--article {
-      @apply flex-row-reverse gap-x-20 items-start relative;
-   }
+		/* Works on Chrome, Edge, and Safari */
+		&::-webkit-scrollbar {
+			width: 12px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #fff;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--primary);
+			border-radius: 20px;
+			border: 3px solid #fff;
+		}
+
+		nav {
+			@apply bg-[#0000] mt-0 relative; // mx-8 my-6 relative;
+		}
+	}
+
+	.psuedo-select-active {
+		@apply hidden;
+	}
+
+	.page-legal-content--article {
+		@apply flex-row-reverse gap-x-20 items-start relative;
+	}
 }

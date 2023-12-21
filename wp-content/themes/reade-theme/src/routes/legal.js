@@ -4,13 +4,31 @@ const { $ } = window;
 
 export default {
 	init() {
-		generateInPageNavigation();
-		handleMobileInPageNav();
+		// Usage
+		waitForElement('#iub-pp-container h2', (element) => {
+			// The element is now present on the page
+			generateInPageNavigation();
+			handleMobileInPageNav();
+		})
+	
 	},
 	finalize() {
 
 	},
 };
+// Function to wait for an element to be present
+function waitForElement(selector, callback) {
+  const observer = new MutationObserver((mutationsList, observer) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      observer.disconnect();
+      callback(element);
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+}
+
 
 function handleMobileInPageNav() {
 
@@ -40,7 +58,10 @@ function handleMobileInPageNav() {
 
 function generateInPageNavigation() {
 	const $nav = $( '.in-page-nav nav ul' );
-	const sectionHeadings = document.querySelectorAll( '.main-content-wrap h2' );
+	// const sectionHeadings = document.querySelector('.page-id-4562') chris' - local page id
+	const sectionHeadings = document.querySelector('.page-id-5101') //page id for cookies
+		? document.querySelectorAll('.main-content-wrap h3')
+		: document.querySelectorAll('.main-content-wrap h2')
 
 	//dyanmically generate a link for each h2
 	sectionHeadings.forEach( ( h2 ) => {
