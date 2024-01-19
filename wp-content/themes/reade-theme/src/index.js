@@ -6,6 +6,7 @@ import pageTemplateLegal from './routes/legal'
 import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
 import history from './routes/history'
+import ourHistoryNew from './routes/history-new';
 import singleProduct from './routes/single-product';
 import itemizedRfq from './routes/itemized-rfq';
 import pageId103 from './routes/particle-measurement';
@@ -22,6 +23,7 @@ const routes = new Router({
   pageTemplateLegal,
   frontPage,
   history,
+  ourHistoryNew,
   singleProduct,
   itemizedRfq,
   pageId103,
