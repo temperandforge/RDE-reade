@@ -28,7 +28,6 @@ $fields = get_fields();
 						if (stripos($year, '-') !== false) {
 							$year = explode('-', $year);
 							$yearPart1 = "'" . substr($year[0], 2, 4);
-							echo $yearPart1;
 							$yearPart2 = " - '" . substr($year[1], 2, 4);
 							$year = $yearPart1 . $yearPart2;
 						}
@@ -62,6 +61,7 @@ $fields = get_fields();
 								?>
 							</div>
 							<div class="history-new--slide-right">
+								
 								<?php
 
 								if (!empty($slide['title']) || !empty($slide['text'])) {
@@ -92,6 +92,22 @@ $fields = get_fields();
 			?>
 		</div>
 		<div class="history-new--right">
+			<div class="history-new--arrows">
+				<div class="history-new--arrow-left">
+					<a href="#prev" id="history-new--prev">
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.9502 22.6294L4.97327 14.6525M4.97327 14.6525L12.9502 6.67555M4.97327 14.6525L25.4854 14.6525" stroke="#EFFBFF" stroke-width="2.4468" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
+				<div class="history-new--arrow-right">
+					<a href="#next" id="history-new--next">
+						<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.8114 6.67627L25.7883 14.6532M25.7883 14.6532L17.8114 22.6301M25.7883 14.6532L5.27625 14.6532" stroke="#EFFBFF" stroke-width="2.4468" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
+			</div>
 			<div class="history-new--dial">
 				<div id="history-dial" class="history-new--dial-center">
 					<div class="history-grab-container"></div>
