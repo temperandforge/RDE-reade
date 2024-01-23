@@ -96,18 +96,18 @@ export default {
     }
 
     // create elements for years around the dial
-  	for (let i of [...Array(numberSections).keys()]) {
+  	for (let z of [...Array(numberSections).keys()]) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
 
-		  if (i == 0) {
+		  if (z == 0) {
 			  d.classList.add('history-new--dial-year-active');
 		  }
-		  d.href = `#event-${i + 1}`;
-		  d.dataset.position = i + 1;
-      console.log(i);
-      console.log(sections[i]);
-		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
+		  d.href = `#event-${z + 1}`;
+		  d.dataset.position = z + 1;
+      console.log(z);
+      console.log(sections[z]);
+		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[z].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
       // create elements for dashes around the dial inbetween years
@@ -317,6 +317,9 @@ export default {
 
              $('.history-new--dial-year').removeClass('history-new--dial-year-active');
              $(activeElement).addClass('history-new--dial-year-active');
+             if (isMobile) {
+              $('html, body').scrollTop(0);
+             }
           }, 250);
            }
       })
