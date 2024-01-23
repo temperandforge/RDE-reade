@@ -97,7 +97,7 @@ export default {
 
     // create elements for years around the dial
     //for (let i = 0; i < (numberSections -1); i++) {
-  	for (let i of [...Array(numberSections).keys()]) {
+  	for (let i in [...Array(numberSections).keys()]) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
 
