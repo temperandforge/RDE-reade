@@ -97,10 +97,10 @@ export default {
 
     // create elements for years around the dial
     //for (let i = 0; i < (numberSections -1); i++) {
-    const tmpRange = Array.apply(null, Array(numberSections - 1)).map(function(_, index) {
+    const tmpRange = Array.apply(null, Array(numberSections)).map(function(_, index) {
       return index;
     });
-  	for (let i in tmpRange) {
+    for (let i in tmpRange) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
 
@@ -109,7 +109,7 @@ export default {
 		  }
 		  d.href = `#event-${i + 1}`;
 		  d.dataset.position = i + 1;
-      console.log(i);
+      // console.log(i);
 		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
