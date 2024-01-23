@@ -27,6 +27,9 @@ export default {
     let isMobile = false;
     let view = 'desktop';
 
+    console.log(gsap);
+    console.log(sections);
+
     if (window.innerWidth <= 768) {
       view = 'mobile';
       isMobile = true;
