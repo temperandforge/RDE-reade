@@ -27,9 +27,6 @@ export default {
     let isMobile = false;
     let view = 'desktop';
 
-    console.log(gsap);
-    console.log(sections);
-
     if (window.innerWidth <= 768) {
       view = 'mobile';
       isMobile = true;
@@ -108,6 +105,7 @@ export default {
 		  }
 		  d.href = `#event-${i + 1}`;
 		  d.dataset.position = i + 1;
+      console.log(sections[i]);
 		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
