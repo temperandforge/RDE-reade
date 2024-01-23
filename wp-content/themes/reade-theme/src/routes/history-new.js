@@ -96,16 +96,17 @@ export default {
     }
 
     // create elements for years around the dial
-  	for (let z = 0; z < (numberSections - 1); z++) {
+    //for (let i = 0; i < (numberSections -1); i++) {
+  	for (let i of [...Array(numberSections).keys()]) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
 
-		  if (z == 0) {
+		  if (i == 0) {
 			  d.classList.add('history-new--dial-year-active');
 		  }
-		  d.href = `#event-${z + 1}`;
-		  d.dataset.position = z + 1;
-		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[z].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
+		  d.href = `#event-${i + 1}`;
+		  d.dataset.position = i + 1;
+		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
       // create elements for dashes around the dial inbetween years
@@ -236,31 +237,16 @@ export default {
         type: "rotation",
         liveSnap: {
           rotation: function (value) {
-            setTimeout(function() {
-                if (isDesktop) {
-                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
-                  var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
-                  //console.log(furthestLeftElement);
-                  $(furthestLeftElement).addClass('history-new--dial-year-active');
-                } else {
-                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
-                  var furthestTopElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
-                  //console.log(furthestLeftElement);
-                  $(furthestTopElement).addClass('history-new--dial-year-active');
-                }
-              }, 250);
             //snap to the closest increment of number of sections
             return Math.round(value / (-360/numberSections)) * (-360/numberSections);
           },
         },
 
         onDrag: function() {
-          // setTimeout(function() {
-          //   $('.history-new--dial-year').removeClass('history-new--dial-year-active');
-          //   var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
-          //   //console.log(furthestLeftElement);
-          //   $(furthestLeftElement).addClass('history-new--dial-year-active');
-          // }, 150);
+          //$('.history-new--dial-year').removeClass('history-new--dial-year-active');
+          //var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+          //console.log(furthestLeftElement);
+          //$(furthestLeftElement).css('color', 'red');
 
         },
        
@@ -301,9 +287,9 @@ export default {
             currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
 
             if (isMobile) {
-              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
             } else {
-             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
             }
 
              let this_position = $(activeElement).data('position');
@@ -315,6 +301,7 @@ export default {
 
              $('.history-new--dial-year').removeClass('history-new--dial-year-active');
              $(activeElement).addClass('history-new--dial-year-active');
+
              if (isMobile) {
               $('html, body').scrollTop(0);
              }
