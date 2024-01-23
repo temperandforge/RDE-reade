@@ -96,9 +96,7 @@ export default {
     }
 
     // create elements for years around the dial
-    let keys = Array(numberSections).keys();
-    console.log(keys);
-  	for (let z of keys) {
+  	for (let z = 0; z < (numberSections - 1); z++) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
 
@@ -107,8 +105,6 @@ export default {
 		  }
 		  d.href = `#event-${z + 1}`;
 		  d.dataset.position = z + 1;
-      console.log(z);
-      console.log(sections[z]);
 		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[z].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
