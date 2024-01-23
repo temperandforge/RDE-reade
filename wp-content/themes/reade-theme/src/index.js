@@ -5,7 +5,6 @@ import customProductRfqForm from './routes/custom-product-rfq-form.js'
 import pageTemplateLegal from './routes/legal'
 import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
-import history from './routes/history'
 import ourHistoryNew from './routes/history-new';
 import singleProduct from './routes/single-product';
 import itemizedRfq from './routes/itemized-rfq';
@@ -22,7 +21,6 @@ const routes = new Router({
   single,
   pageTemplateLegal,
   frontPage,
-  history,
   ourHistoryNew,
   singleProduct,
   itemizedRfq,
