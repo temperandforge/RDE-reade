@@ -106,6 +106,7 @@ export default {
 		  }
 		  d.href = `#event-${i + 1}`;
 		  d.dataset.position = i + 1;
+      console.log(i);
 		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
 
