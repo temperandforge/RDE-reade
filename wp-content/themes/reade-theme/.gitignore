@@ -16,6 +16,7 @@ pnpm-lock.yaml
 build/
 assets/js/bundle.js.map
 assets/js/bundle.js
+assets/js/bundle-static.js
 ! assets/css/critical.css
 ! assets/js/dragscroll-custom.js
 ! assets/js/dragscroll.js
