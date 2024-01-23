@@ -238,16 +238,31 @@ export default {
         type: "rotation",
         liveSnap: {
           rotation: function (value) {
+            setTimeout(function() {
+                if (isDesktop) {
+                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
+                  var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+                  //console.log(furthestLeftElement);
+                  $(furthestLeftElement).addClass('history-new--dial-year-active');
+                } else {
+                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
+                  var furthestTopElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+                  //console.log(furthestLeftElement);
+                  $(furthestTopElement).addClass('history-new--dial-year-active');
+                }
+              }, 250);
             //snap to the closest increment of number of sections
             return Math.round(value / (-360/numberSections)) * (-360/numberSections);
           },
         },
 
         onDrag: function() {
-          //$('.history-new--dial-year').removeClass('history-new--dial-year-active');
-          //var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
-          //console.log(furthestLeftElement);
-          //$(furthestLeftElement).css('color', 'red');
+          // setTimeout(function() {
+          //   $('.history-new--dial-year').removeClass('history-new--dial-year-active');
+          //   var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+          //   //console.log(furthestLeftElement);
+          //   $(furthestLeftElement).addClass('history-new--dial-year-active');
+          // }, 150);
 
         },
        
@@ -288,9 +303,9 @@ export default {
             currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
 
             if (isMobile) {
-              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
             } else {
-             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
             }
 
              let this_position = $(activeElement).data('position');
