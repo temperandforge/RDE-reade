@@ -100,6 +100,7 @@ export default {
     const tmpRange = Array.apply(null, Array(numberSections)).map(function(_, index) {
       return index;
     });
+
     for (let i in tmpRange) {
 		  let d = document.createElement("a");
 		  d.classList.add("history-new--dial-year");
@@ -108,7 +109,7 @@ export default {
 			  d.classList.add('history-new--dial-year-active');
 		  }
 		  d.href = `#event-${i + 1}`;
-		  d.dataset.position = i + 1;
+		  d.dataset.position = parseInt(i) + 1;
       // console.log(i);
 		  d.innerHTML = '<span class="history-new--dial-dash-year--inner">' + sections[i].dataset.year + '</span><span class="history-new--dial-dash-year"></span>';
 		  dial.appendChild(d);
@@ -241,6 +242,21 @@ export default {
         type: "rotation",
         liveSnap: {
           rotation: function (value) {
+
+
+            setTimeout(function() {
+                if (isDesktop) {
+                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
+                  var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
+                  //console.log(furthestLeftElement);
+                  $(furthestLeftElement).addClass('history-new--dial-year-active');
+                } else {
+                  $('.history-new--dial-year').removeClass('history-new--dial-year-active');
+                  var furthestTopElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+                  //console.log(furthestLeftElement);
+                  $(furthestTopElement).addClass('history-new--dial-year-active');
+                }
+              }, 250);
             //snap to the closest increment of number of sections
             return Math.round(value / (-360/numberSections)) * (-360/numberSections);
           },
@@ -291,13 +307,13 @@ export default {
             currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
 
             if (isMobile) {
-              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+              activeElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
             } else {
-             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
+             activeElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
             }
 
              let this_position = $(activeElement).data('position');
-
+            
              $('.history-new--slide-current').removeClass('history-new--slide-current').fadeTo(150, '0.0', function() {
                $(this).hide(0);
                $('.history-new--slide-' + this_position).css('opacity', '0').show(0).addClass('history-new--slide-current').fadeTo(150, '1.0');
