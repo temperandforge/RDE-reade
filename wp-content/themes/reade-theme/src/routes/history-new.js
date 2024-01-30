@@ -1,40 +1,40 @@
 const { $ } = window
 const $body = $(document.body)
-// import gsap from "gsap";
-// console.log(gsap);
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// gsap.registerPlugin(ScrollTrigger);
-
-
+let isDragging = false;
 export default {
   init() {
-
-   
   },
   finalize() {
-
-    
-
-
     let sections = gsap.utils.toArray(".history-new--slide");
     let numberSections = sections.length;
 	  let dial = document.querySelector(".history-new--dial-center");
   	let dash_position = 0;
     let turnto = 0;
+    let prevturnto;
     let dragged = false;
     let clicked = false;
     let isDesktop = true;
     let isMobile = false;
     let view = 'desktop';
 
-    if (window.innerWidth <= 768) {
+    // mobile only
+    let prev_is_clickable = true;
+    let next_is_clickable = true;
+
+    if (window.innerWidth < 768) {
       view = 'mobile';
       isMobile = true;
       isDesktop = false;
     }
 
     window.addEventListener('resize', function() {
-      if (window.innerWidth <= 768) {
+      gsap.set(".slide-image-1", {
+        clearProps: "all"
+      });
+      gsap.set(".slide-image-2", {
+        clearProps: "all"
+      });
+      if (window.innerWidth < 768) {
         if (view == 'desktop') {
           view = 'mobile';
           positionChildElementsEquallyMobile();
@@ -160,18 +160,24 @@ export default {
         dragged = false;
 
         $('.history-new--dial-year').removeClass('history-new--dial-year-active');
-        //let active_position = $('.history-new--dial-year-active').data('position');
         let active_position = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
-        active_position = $(active_position).data('position');
+        active_position = $(active_position).data('position') ;
         let this_position = $(this).data('position');
         let num_spots = this_position - active_position;
+        num_spots = (num_spots + numberSections * 1.5) % numberSections - numberSections / 2;
 
         $('.history-new--slide-current').removeClass('history-new--slide-current').fadeTo(150, '0.0', function() {
           $(this).hide(0);
           $('.history-new--slide-' + this_position).css('opacity', '0').show(0).addClass('history-new--slide-current').fadeTo(150, '1.0');
+          doImageAnimations('.history-new--slide-' + this_position);
         });
 
-			  turnto += (-360 / numberSections) * num_spots;
+        let threshold = numberSections/2;
+        if (Math.abs(num_spots) > threshold) {
+          let per_spot = 360/numberSections;
+        }
+        
+			  turnto = turnto + ((-360 / numberSections) * num_spots);    
         $(this).addClass('history-new--dial-year-active');
       
 			  dial.style.transform = `rotate(${turnto}deg)`
@@ -195,7 +201,6 @@ export default {
         children[i].style.top = `${y + 50}%`;
 
         let rotationAngle = Math.atan2(y, x) + Math.PI; //right-side
-        //let rotationAngle = (idx / (numChildren.length - 1)) * 360; // Calculate
         children[i].style.transform = `translate(-50%, -50%) rotate(${rotationAngle}rad)`;
       }
 	  }
@@ -219,7 +224,6 @@ export default {
           rotationAngle = Math.atan2(y, x) + Math.PI;
         }
 
-        //let rotationAngle = (idx / (numChildren.length - 1)) * 360; // Calculate
         children[i].style.transform = `translate(-50%, -50%) rotate(${rotationAngle}rad)`;
       }
 	  }
@@ -236,10 +240,12 @@ export default {
       $(active).addClass('history-new--dial-year-active');
     }
 
+
     // Initialize Draggable
     setTimeout(function() {
       Draggable.create("#history-dial", {
         type: "rotation",
+        allEventDefault: true,
         liveSnap: {
           rotation: function (value) {
 
@@ -261,37 +267,9 @@ export default {
             return Math.round(value / (-360/numberSections)) * (-360/numberSections);
           },
         },
-
-        onDrag: function() {
-          //$('.history-new--dial-year').removeClass('history-new--dial-year-active');
-          //var furthestLeftElement = findFurthestLeftElement(document.querySelectorAll('.history-new--dial-year:not(.history-grab-container)'));
-          //console.log(furthestLeftElement);
-          //$(furthestLeftElement).css('color', 'red');
-
-        },
        
         onDragStart: function() {
           if (clicked) {
-          //   var element = document.getElementById('history-dial');
-          //   var transformMatrix = window.getComputedStyle(element).getPropertyValue('transform');
-          //   var matrixValues = transformMatrix.match(/matrix\(([^\)]+)\)/)[1].split(',').map(parseFloat);
-        
-          //   var rotateValue = matrixToRotate({
-          //     a: matrixValues[0],
-          //     b: matrixValues[1],
-          //     c: matrixValues[2],
-          //     d: matrixValues[3],
-          //     e: matrixValues[4],
-          //     f: matrixValues[5]
-          //   });
-          //   turnto = parseInt(rotateValue);
-          //   $('#history-dial').css('transition', '');
-          //  this.rotation = turnto;
-          //   //$('#history-dial').css('transition', 'transform ease 0.3s');
-
-          //   //TODO - if previously clicked, set the rotation value to the current rotation, so dragging starts at that rotation value instead of starting at 0
-          //   // this.rotation = turnto;
-          //   // $('#history-dial').css('transition', '').css('transform', 'rotate(' + turnto + 'deg)').css('transition', 'transform ease 0.3s');
             clicked = false;
             dragged = true;
           }
@@ -317,6 +295,7 @@ export default {
              $('.history-new--slide-current').removeClass('history-new--slide-current').fadeTo(150, '0.0', function() {
                $(this).hide(0);
                $('.history-new--slide-' + this_position).css('opacity', '0').show(0).addClass('history-new--slide-current').fadeTo(150, '1.0');
+               doImageAnimations('.history-new--slide-' + this_position);
             });
 
              $('.history-new--dial-year').removeClass('history-new--dial-year-active');
@@ -328,7 +307,29 @@ export default {
           }, 250);
            }
       })
+
+      // Handle manual vertical scrolling during dragging on touch devices
+    let startY;
+    document.getElementById('history-dial').addEventListener("touchstart", function (event) {
+      startY = event.touches[0].clientY;
+    });
+
+    document.getElementById('history-dial').addEventListener("touchmove", function (event) {
+     
+        
+        // Calculate the vertical distance moved during touchmove
+        let deltaY = event.touches[0].clientY - startY;
+
+        // Scroll the page manually
+        window.scrollBy(0, -deltaY * 3);
+
+        // Prevent the default touchmove behavior to avoid double scrolling
+        event.preventDefault();
+
+    });
     }, 100);
+
+    
 
     function findFurthestLeftElement(elements) {
       var furthestLeftElement = null;
@@ -360,6 +361,7 @@ export default {
 
     $('.history-new--slide').hide();
     $('.history-new--slide:eq(0)').show();
+    doImageAnimations('.history-new--slide:eq(0)');
 
     // Get the parent container and child elements
     const parentContainer = document.getElementsByClassName('history-new--slides')[0];
@@ -377,6 +379,7 @@ export default {
       $('.history-new--slide-current').removeClass('history-new--slide-current').fadeTo(150, '0.0', function() {
         $(this).hide(0);
         $(childElements[currentIndex]).css('opacity', '0').show(0).addClass('history-new--slide-current').fadeTo(150, '1.0');
+        doImageAnimations('.history-new--slide-current');
      });
 
      childElements.forEach(element => element.classList.remove('active'));
@@ -384,21 +387,36 @@ export default {
     };
 
     // Event listener for the previous button
-    prevButton.addEventListener('click', function () {
-      let parents = Array.from(parentContainer.getElementsByClassName('history-new--slide'));
-      currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
-      currentIndex = (currentIndex - 1 + childElements.length) % childElements.length;
-      updateActiveElement();
-      updateRotation('prev');
+    prevButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (prev_is_clickable) {
+        prev_is_clickable = false;
+        let parents = Array.from(parentContainer.getElementsByClassName('history-new--slide'));
+        currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
+        currentIndex = (currentIndex - 1 + childElements.length) % childElements.length;
+        updateActiveElement();
+        updateRotation('prev');
+        setTimeout(function() {
+          prev_is_clickable = true;
+        }, 700);
+      }
     });
 
     // Event listener for the next button
-    nextButton.addEventListener('click', function () {
-      let parents = Array.from(parentContainer.getElementsByClassName('history-new--slide'));
-      currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
-      currentIndex = (currentIndex + 1) % childElements.length;
-      updateActiveElement();
-      updateRotation('next');
+    nextButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (next_is_clickable) {
+        next_is_clickable = false;
+        let parents = Array.from(parentContainer.getElementsByClassName('history-new--slide'));
+        currentIndex = parents.findIndex(element => element.classList.contains('history-new--slide-current'));
+        currentIndex = (currentIndex + 1) % childElements.length;
+        updateActiveElement();
+        updateRotation('next');
+
+        setTimeout(function() {
+          next_is_clickable = true;
+        }, 700);
+      }
     });
 
     function updateRotation(val) {
@@ -437,6 +455,27 @@ export default {
         $(top_active).addClass('history-new--dial-year-active');
         $('html, body').scrollTop(0);
       }, 250);
+    }
+
+    function doImageAnimations(el) {
+      if (window.innerWidth >= 768) {
+        if ($(el).hasClass('history-new--slide-layout-One')) {
+          gsap.from($(el + ' .slide-image-1'), { x: "-500%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { x: "-300%", duration: 0.5, delay: 0.4 });
+        } else if ($(el).hasClass('history-new--slide-layout-Two')) {
+          gsap.from($(el + ' .slide-image-1'), { y: "-500%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { y: "-300%", duration: 0.5, delay: 0.4 });
+        } else if ($(el).hasClass('history-new--slide-layout-Three')) {
+          gsap.from($(el + ' .slide-image-1'), { x: "-500%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { x: "-300%", duration: 0.5, delay: 0.4 });
+        } else if ($(el).hasClass('history-new--slide-layout-Four')) {
+          gsap.from($(el + ' .slide-image-1'), { y: "500%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { y: "600%", duration: 0.5, delay: 0.4 });
+        }
+      } else {
+        gsap.from($(el + ' .slide-image-1'), { x: "-300%", duration: 0.4 });
+        gsap.from($(el + ' .slide-image-2'), { x: "600%", duration: 0.5, delay: 0.4 });
+      }
     }
   },
 }

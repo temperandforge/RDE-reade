@@ -31,16 +31,23 @@ add_action( 'wp_footer', function() {
 						$yearPart2 = substr($year, 2, 4);
 
 						if (stripos($year, '-') !== false) {
+							$year = str_replace(' ', '', $year);
 							$year = explode('-', $year);
 							$yearPart1 = "'" . substr($year[0], 2, 4);
 							$yearPart2 = " - '" . substr($year[1], 2, 4);
+							$year = $yearPart1 . $yearPart2;
+						} elseif (stripos($year, '&') !== false) {
+							$year = str_replace(' ', '', $year);
+							$year = explode('&', $year);
+							$yearPart1 = "'" . substr($year[0], 2, 4);
+							$yearPart2 = " & '" . substr($year[1], 2, 4);
 							$year = $yearPart1 . $yearPart2;
 						}
 
 						?>
 						<div id="history-new--slide-<?php echo $count; ?>" data-year="<?php echo $year; ?>" class="history-new--slide history-new--slide-layout-<?php echo $slide['layout']; ?> history-new--slide-<?php echo $count; ?> <?php if ($count === 1) { echo 'history-new--slide-current'; } ?>" <?php if ($count !== 1) { echo 'style="display: none;"'; } ?>">
-							<div class="history-new--slide-bg-year-1"><?php echo $yearPart1; ?></div>
-							<div class="history-new--slide-bg-year-2"><?php echo $yearPart2; ?></div>
+							<div class="history-new--slide-bg-year-1"><?php echo str_replace(array(' ', '-', '&'), '', $yearPart1); ?></div>
+							<div class="history-new--slide-bg-year-2"><?php echo str_replace(array(' ', '-', '&'), '', $yearPart2); ?></div>
 
 							<div class="history-new--slide-left">
 								<?php

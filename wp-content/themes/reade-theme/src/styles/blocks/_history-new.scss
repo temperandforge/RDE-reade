@@ -13,8 +13,9 @@ body.our-history-new #main-content {
 		align-items: flex-start;
 		overflow: hidden;
 		width: 100vw;
+		max-height: calc(100vh - var(--navbar-height));
 		aspect-ratio: 1440/765;
-		max-height: 765px;
+		//max-height: 765px;
 		//height: 500px;
 	}
 
@@ -38,22 +39,25 @@ body.our-history-new #main-content {
 		position: relative;
 		svg {
 			margin-bottom: 8px;
+			width: 1.875vw;
+			height: auto;
+			aspect-ratio: 1/1;
 		}
 		.history-new--slide-title {
 			margin-bottom: 11px;
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 40px;
+			font-size: 2.778vw;
 			font-weight: 700;
-			line-height: 54px; /* 135% */
+			line-height: 1.35; /* 135% */
 			letter-spacing: -0.8px;
 		}
 		.history-new--slide-text {
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 16px;
+			font-size: 1.13vw;
 			font-weight: 400;
-			line-height: 25.4px; /* 158.75% */
+			line-height: 1.58; /* 158.75% */
 			letter-spacing: -0.32px;
 		}
 	}
@@ -76,26 +80,27 @@ body.our-history-new #main-content {
 		.history-new--slide-bg-year-1 {
 			-webkit-text-stroke-width: 2px;
 			top: 0;
-			left: max(-43.2px, -3vw);
+			left: -3vw;
 			-webkit-text-stroke-color: var(--Primary-900, #045);
 			font-family: "Open Sans";
-			font-size: min(504px, 35vw);
+			font-size: 35vw;
 			font-weight: 700;
 			line-height: 1.42; /* 142.635% */
-			letter-spacing: max(-45px, -3.125vw);
+			letter-spacing: -3.125vw;
 			color: transparent;
 			transform: translateY(-31%);
 		}
 		.history-new--slide-bg-year-2 {
-			left: min(432px, 30vw);
+			//left: 432px;
+			left: 30vw;
 			bottom: 0;
 			-webkit-text-stroke-width: 2px;
 			-webkit-text-stroke-color: var(--Primary-900, #045);
 			font-family: "Open Sans";
-			font-size: min(504px, 35vw);
+			font-size: 35vw;
 			font-weight: 700;
 			line-height: 1.25; /* 125.372% */
-			letter-spacing: max(-28.8px, -2vw);
+			letter-spacing: -2vw;
 			color: transparent;
 			transform: translateX(0) translateY(46%);
 		}
@@ -110,18 +115,20 @@ body.our-history-new #main-content {
 			align-items: flex-start;
 
 			.history-new--slide-info {
-				width: 43ch;
+				width: 80%;
 			}
 			.history-new--slide-left {
-				width: min(460px, 45.63%);
+				//width: 460px;
+				width: 45%;
 			}
 			.history-new--slide-right {
-				width: auto;
+				//width: auto;
 				flex-grow: 1;
 				align-self: center;
+				width: 55%;
 			}
 			.slide-image-1 {
-				width: min(460px, 110%);
+				width: 110%;
 				height: auto;
 				aspect-ratio: 1/1;
 				transform: translateX(-23%) translateY(2.6875em);
@@ -130,7 +137,7 @@ body.our-history-new #main-content {
 				z-index: 1;
 			}
 			.slide-image-2 {
-				width: min(208px, 45.11%);
+				width: 45.11%;
 				height: auto;
 				aspect-ratio: 1/1;
 				object-fit: cover;
@@ -143,17 +150,21 @@ body.our-history-new #main-content {
 		&.history-new--slide-layout-Two {
 			display: flex;
 			flex-direction: column;
-
+			.history-new--slide-left {
+				position: relative;
+				top: -5vw;
+				margin-bottom: -5vw;
+			}
 			 .history-new--slide-info {
 				transform: translateY(-16%) translateX(34%);
-				width: 43ch;
+				width: 50%;
 			 }
 			.history-new--slide-images {
 				display: flex;
 				align-items: flex-start;
 			}
 			.slide-image-1 {
-			 	width: min(472.5px, 46.88%);
+			 	width: 46.88%;
 			 	height: auto;
 			 	aspect-ratio: 1/1;
 				transform: translateY(-12%) translatex(50%);
@@ -163,7 +174,7 @@ body.our-history-new #main-content {
 			 }
 
 			 .slide-image-2 {
-			 	width: min(212px, 21.03%);
+			 	width: 21.03%;
 			 	height: auto;
 			 	aspect-ratio: 1/1;
 			 	object-fit: cover;
@@ -182,18 +193,19 @@ body.our-history-new #main-content {
 				flex-direction: column-reverse;
 			}
 			.history-new--slide-info {
-				width: 47ch;
+				width: 79%;
 			}
 			.history-new--slide-left {
-				width: min(460px, 45.63%);
+				width: 45.63%;
 			}
 			.history-new--slide-right {
 				align-self: stretch;
 				width: auto;
-				padding-top: min(403.2px, 40%);
+				padding-top: 16vw;
+				width: 55%;
 			}
 			.slide-image-1 {
-				width: min(460px, 110%);
+				width: 110%;
 				height: auto;
 				aspect-ratio: 1/1;
 				transform: translateX(-23%) translateY(-4%);
@@ -202,14 +214,14 @@ body.our-history-new #main-content {
 				z-index: 1;
 			}
 			.slide-image-2 {
-				width: min(208px, 45.11%);
+				width: 45.11%;
 				height: auto;
 				aspect-ratio: 1/1;
 				object-fit: cover;
 				position: relative;
 				z-index: 2;
 				transform: translateX(98%) translateY(73%);
-				margin-bottom: min(73.5px, 16%);
+				margin-bottom: 16%;
 			}
 		}
 		&.history-new--slide-layout-Four {
@@ -217,25 +229,28 @@ body.our-history-new #main-content {
 			flex-direction: column-reverse;
 
 			 .history-new--slide-info {
-			 	width: min(100%, 73ch);
-				padding-left: min(93px, 9.71%);
-				transform: translateY(min(-36px, -16%));
+			 	width: 75%;
+				padding-left: 7vw;
+				transform: translateY(-16%);
 			 }
 			.history-new--slide-images {
 				display: flex;
 				flex-direction: row-reverse;
 				align-items: flex-start;
 				justify-content: flex-end;
-				transform: translateX(min(293px, 29%));
+				transform: translateX(29%);
 			}
 
+			.history-new--slide-left {
+				height: 60%;
+			}
 			.history-new--slide-right {
-				padding-left: 5%;
-				padding-top: 10%;
-				margin-bottom: max(-42.2px, -3vw);
+				padding-left: 4vw;
+				padding-top: 8vw;
+				margin-bottom: -3vw;
 			}
 			.slide-image-1 {
-			 	width: min(482.6px, 47.88%);
+			 	width: 47.88%;
 			 	height: auto;
 			 	aspect-ratio: 1/1;
 				transform: translateY(18%) translatex(-33%);
@@ -245,7 +260,7 @@ body.our-history-new #main-content {
 			 }
 
 			 .slide-image-2 {
-			 	width: min(212px, 21.03%);
+			 	width: 21.03%;
 			 	height: auto;
 			 	aspect-ratio: 1/1;
 			 	object-fit: cover;
@@ -271,7 +286,7 @@ body.our-history-new #main-content {
 		position: absolute;
 		color: var(--Primary-400, #61C5DD);
 		font-family: "Open Sans";
-		font-size: min(15.86px, 1.1vw);
+		font-size: 1.1vw;
 		font-weight: 700;
 		line-height: 1.61161;
 		letter-spacing: -0.32px;
@@ -279,7 +294,6 @@ body.our-history-new #main-content {
 		padding-right: 26.4375vw;
 		white-space: nowrap;
 		cursor: grab;
-
 		span.history-new--dial-dash-year {
 			display: block;
 			height: 1px;
@@ -289,7 +303,7 @@ body.our-history-new #main-content {
 	}
 	.history-new--dial-year-active {
 		color: var(--Primary-50, #EFFBFF);
-		font-size: min(57.6px, 4vw);
+		font-size: 4vw;
 		font-weight: 800;
 		line-height: 1.425;
 		letter-spacing: -1.211px;
@@ -337,16 +351,18 @@ body.our-history-new #main-content {
 
 		}
 		.history-new--dial-center {
-			top: min(129.6px, 9vw);
-    		right: max(-69%, -308.8px);
+			top: 9vw;
+    		right: -69%;
 			position: relative;
 			transition: transform ease 0.3s;
-			max-height: 432px;
+			//max-height: 432px;
+			max-height: 30vw;
 
 			svg {
 				object-fit: cover;
 				//width: min(432px, 100%);
-				height: 432px;
+				//height: 432px;
+				height: 30vw;
 				width: auto;
 				aspect-ratio: 1/1;
 			}
@@ -370,7 +386,11 @@ body.our-history-new #main-content {
 		.history-new--right .history-new--arrow-right {
 			margin-right: max(1.5rem,7vw);
 		}
+		.history-new--slide-layout-Four .history-new--slide-left {
+			height: unset;
+		}
 	}
+
 
 	@media (max-width: 639px) {
 		.history-new--slide-right {
@@ -397,13 +417,28 @@ body.our-history-new #main-content {
 			height: 50%;
 		}
 		.history-new--dial {
-			transform: translateX(-8%);
+			transform: translateX(-14%) translateY(10%);
 		}
 		.history-new--dial-year {
 			font-size: 1.5vw;
 		}
 		.history-new--dial-year-active {
 			font-size: 4vw;
+		}
+
+		.history-new--right {
+			.history-new--dial {
+				//transform: translateX(-12%) translateY(4%);
+			}
+			.history-new--dial-center {
+				height: 42vw;
+				max-height: unset;
+			}
+			.history-new--dial-center {
+				svg {
+					height: 42vw;
+				}
+			}
 		}
 
 		.history-new--slide {
@@ -418,6 +453,13 @@ body.our-history-new #main-content {
 				.history-new--slide-images {
 					//margin-bottom: -21vw;
 					display: unset;
+				}
+
+				.history-new--slide-title {
+					font-size: 40px;
+				}
+				.history-new--slide-text {
+					font-size: 16px;
 				}
 
 				.history-new--slide-left, .history-new--slide-right {
@@ -450,6 +492,10 @@ body.our-history-new #main-content {
 	}
 
 	@media (max-width: 767px) {
+		.history-new--slide-info svg {
+			width: 18px;
+			height: 18px;
+		}
 		.history-new--content {
 			flex-direction: column;
 			aspect-ratio: unset;
