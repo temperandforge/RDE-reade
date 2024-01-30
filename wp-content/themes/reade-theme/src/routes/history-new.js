@@ -302,7 +302,7 @@ export default {
              $(activeElement).addClass('history-new--dial-year-active');
 
              if (isMobile) {
-              $('html, body').scrollTop(0);
+             // $('html, body').scrollTop(0);
              }
           }, 250);
            }
@@ -453,7 +453,7 @@ export default {
         $('.history-new--dial-year').removeClass('history-new--dial-year-active');
         let top_active = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container'));
         $(top_active).addClass('history-new--dial-year-active');
-        $('html, body').scrollTop(0);
+        //$('html, body').scrollTop(0);
       }, 250);
     }
 
