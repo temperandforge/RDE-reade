@@ -321,7 +321,7 @@ export default {
         let deltaY = event.touches[0].clientY - startY;
 
         // Scroll the page manually
-        window.scrollBy(0, -deltaY * 3);
+        window.scrollBy(0, -deltaY);
 
         // Prevent the default touchmove behavior to avoid double scrolling
         event.preventDefault();
