@@ -460,21 +460,21 @@ export default {
     function doImageAnimations(el) {
       if (window.innerWidth >= 768) {
         if ($(el).hasClass('history-new--slide-layout-One')) {
-          gsap.from($(el + ' .slide-image-1'), { x: "-500%", duration: 0.4 });
-          gsap.from($(el + ' .slide-image-2'), { x: "-300%", duration: 0.5, delay: 0.4 });
+          gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { x: "90%", duration: 0.5 });
         } else if ($(el).hasClass('history-new--slide-layout-Two')) {
-          gsap.from($(el + ' .slide-image-1'), { y: "-500%", duration: 0.4 });
-          gsap.from($(el + ' .slide-image-2'), { y: "-300%", duration: 0.5, delay: 0.4 });
+          gsap.from($(el + ' .slide-image-1'), { y: "-25%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { y: "120%", duration: 0.5 });
         } else if ($(el).hasClass('history-new--slide-layout-Three')) {
-          gsap.from($(el + ' .slide-image-1'), { x: "-500%", duration: 0.4 });
-          gsap.from($(el + ' .slide-image-2'), { x: "-300%", duration: 0.5, delay: 0.4 });
+          gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { x: "90%", duration: 0.5 });
         } else if ($(el).hasClass('history-new--slide-layout-Four')) {
-          gsap.from($(el + ' .slide-image-1'), { y: "500%", duration: 0.4 });
-          gsap.from($(el + ' .slide-image-2'), { y: "600%", duration: 0.5, delay: 0.4 });
+          gsap.from($(el + ' .slide-image-1'), { y: "25%", duration: 0.4, delay: 0.1 });
+          gsap.from($(el + ' .slide-image-2'), { y: "80%", duration: 0.5 });
         }
       } else {
-        gsap.from($(el + ' .slide-image-1'), { x: "-300%", duration: 0.4 });
-        gsap.from($(el + ' .slide-image-2'), { x: "600%", duration: 0.5, delay: 0.4 });
+        gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
+        gsap.from($(el + ' .slide-image-2'), { x: "200%", duration: 0.5 });
       }
     }
   },
