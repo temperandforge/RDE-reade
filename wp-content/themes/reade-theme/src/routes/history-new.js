@@ -134,7 +134,7 @@ export default {
     // clicking on a year rotates the dial and adds active class to clicked year
     gsap.utils.toArray(".history-new--dial-year").map(el => {
 		  el.addEventListener('click', function(e) {
-
+        e.preventDefault();
         if (isMobile) {
           return;
         }
