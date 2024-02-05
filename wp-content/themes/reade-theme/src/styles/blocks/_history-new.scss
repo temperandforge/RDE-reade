@@ -248,6 +248,7 @@ body.our-history-new #main-content {
 				padding-left: 4vw;
 				padding-top: 8vw;
 				margin-bottom: -3vw;
+				height: 61%;
 			}
 			.slide-image-1 {
 			 	width: 47.88%;
@@ -258,6 +259,7 @@ body.our-history-new #main-content {
 			 	position: relative;
 			 	z-index: 1;
 			 }
+
 
 			 .slide-image-2 {
 			 	width: 21.03%;
@@ -309,7 +311,7 @@ body.our-history-new #main-content {
 		letter-spacing: -1.211px;
 		gap: 5vw;
 		//padding-right: 29.84vw;
-		padding-right: 39.34vw
+		padding-right: 39.34vw;
 	}
 	.history-grab-container {
 		cursor: grab;
@@ -375,6 +377,11 @@ body.our-history-new #main-content {
 		right: -2.5vw;
 	}
 
+	@media (max-width: 767px) {
+		.history-new--dial-year-active {
+			transition: font-size ease 0.2s;
+		}
+	}
 
 	@media (min-width: 639px) and (max-width: 1023px) {
 		.history-new--slide-right {
@@ -467,11 +474,18 @@ body.our-history-new #main-content {
 				}
 				.history-new--slide-right {
 					padding-top: unset;
+					height: 61%;
+					padding-left: max(1.5rem,7vw);
+				}
+				.history-new--slide-left {
+					height: 45%;
+					margin-bottom: unset;
 				}
 
 				.history-new--slide-info {
 					transform: unset;
 					width: 43ch;
+					padding-left: unset;
 				}
 
 				 .slide-image-1 {
@@ -522,7 +536,7 @@ body.our-history-new #main-content {
 			padding-right: unset;
 			justify-content: center;
 			text-align: center;
-
+			
 			span.history-new--dial-dash-year {
 				height: 10vw;
 				margin-bottom: 28vw;
@@ -537,7 +551,8 @@ body.our-history-new #main-content {
 
 		.history-new--dial-year-active {
 			gap: unset;
-			font-size: 11vw;
+			font-size: 10vw;
+			transition: font-size ease 0.2s;
 			&::after {
 				content: '•';
 				display: block;

@@ -260,7 +260,7 @@ export default {
                   $('.history-new--dial-year').removeClass('history-new--dial-year-active');
                   var furthestTopElement = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container)'));
                   //console.log(furthestLeftElement);
-                  $(furthestTopElement).addClass('history-new--dial-year-active');
+                 
                 }
               }, 250);
             //snap to the closest increment of number of sections
@@ -303,6 +303,7 @@ export default {
 
              if (isMobile) {
              // $('html, body').scrollTop(0);
+             //$(furthestTopElement).addClass('history-new--dial-year-active');
              }
           }, 250);
            }
@@ -419,8 +420,11 @@ export default {
       }
     });
 
+    let prevclick = false;
     function updateRotation(val) {
     
+       if (dragged) {
+
         var element = document.getElementById('history-dial');
         var transformMatrix = window.getComputedStyle(element).getPropertyValue('transform');
         var matrixValues = transformMatrix.match(/matrix\(([^\)]+)\)/)[1].split(',').map(parseFloat);
@@ -433,32 +437,41 @@ export default {
           e: matrixValues[4],
           f: matrixValues[5]
         });
+        console.log(rotateValue);
         turnto = parseInt(rotateValue);
         dragged = false;
       
 
-      clicked = true;
-      dragged = false;
+        clicked = true;
+        dragged = false;
+       } else {
+        if (!prevclick) {
+          turnto = 90;
+          prevclick = true;
+        }
+       }
 
+      
       if (val == 'prev') {
-        turnto += (360 / numberSections) * 1;
+        turnto = turnto + ((360 / numberSections) * 1);
       }
 
       if (val == 'next') {
-        turnto += (-360 / numberSections) * 1;
+        turnto = turnto + ((-360 / numberSections) * 1);
       }
+
       dial.style.transform = `rotate(${turnto}deg)`
 
+      $('.history-new--dial-year').removeClass('history-new--dial-year-active');
       setTimeout(function() {
-        $('.history-new--dial-year').removeClass('history-new--dial-year-active');
         let top_active = findFurthestTopElement(document.querySelectorAll('.history-new--dial-year:not(.history-new--dial-year-active):not(.history-grab-container'));
         $(top_active).addClass('history-new--dial-year-active');
         //$('html, body').scrollTop(0);
-      }, 250);
+      }, 150);
     }
 
     function doImageAnimations(el) {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         if ($(el).hasClass('history-new--slide-layout-One')) {
           gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
           gsap.from($(el + ' .slide-image-2'), { x: "90%", duration: 0.5 });
@@ -472,6 +485,11 @@ export default {
           gsap.from($(el + ' .slide-image-1'), { y: "25%", duration: 0.4, delay: 0.1 });
           gsap.from($(el + ' .slide-image-2'), { y: "80%", duration: 0.5 });
         }
+      } else if (window.innerWidth >= 768) {
+
+          gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
+          gsap.from($(el + ' .slide-image-2'), { x: "90%", duration: 0.5 });
+        
       } else {
         gsap.from($(el + ' .slide-image-1'), { x: "-25%", duration: 0.4 });
         gsap.from($(el + ' .slide-image-2'), { x: "200%", duration: 0.5 });
