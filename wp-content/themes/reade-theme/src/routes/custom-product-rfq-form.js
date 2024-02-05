@@ -1,4 +1,4 @@
-import loadjs from 'loadjs'
+// import loadjs from 'loadjs'
 
 const { $ } = window
 const $body = $(document.body)

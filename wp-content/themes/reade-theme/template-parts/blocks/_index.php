@@ -699,6 +699,29 @@ function theme_register_blocks()
       ),
    ]);
 
+   /**
+    * History New
+    */
+    acf_register_block([
+      'name'         => 'history-new',
+      'title'         => 'History New',
+      //callback
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/history-new.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      'image'        => $img_root . '/history-new.webp',
+      'mode'         => $mode,
+      'keywords'      => ['history', 'reade', 'theme', TEXTDOMAIN],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
    /** 
     * History
     * */
