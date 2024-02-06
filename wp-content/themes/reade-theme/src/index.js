@@ -5,7 +5,7 @@ import common from './routes/common'
 // import pageTemplateLegal from './routes/legal'
 // import single from './routes/single'
 // import frontPage from './routes/front-page' //SETUP
-import ourHistoryNew from './routes/history-new';
+import history from './routes/history-new';
 // import singleProduct from './routes/single-product';
 // import itemizedRfq from './routes/itemized-rfq';
 // import pageId103 from './routes/particle-measurement';
@@ -21,7 +21,7 @@ const routes = new Router({
   // single,
   // pageTemplateLegal,
   // frontPage,
-  ourHistoryNew,
+  history,
   // singleProduct,
   // itemizedRfq,
   // pageId103,
