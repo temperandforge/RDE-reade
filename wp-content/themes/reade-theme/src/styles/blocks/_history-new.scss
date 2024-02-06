@@ -295,6 +295,7 @@ body.our-history-new #main-content {
 		text-decoration: none;
 		padding-right: 26.4375vw;
 		white-space: nowrap;
+		user-select: none;
 		cursor: grab;
 		span.history-new--dial-dash-year {
 			display: block;
