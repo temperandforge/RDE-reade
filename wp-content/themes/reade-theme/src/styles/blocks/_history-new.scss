@@ -39,7 +39,7 @@ body.our-history-new #main-content {
 		position: relative;
 		svg {
 			margin-bottom: 8px;
-			width: 1.875vw;
+			width: min(34px, 1.875vw);
 			height: auto;
 			aspect-ratio: 1/1;
 		}
@@ -47,7 +47,7 @@ body.our-history-new #main-content {
 			margin-bottom: 11px;
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 2.778vw;
+			font-size: min(54px, 2.778vw);
 			font-weight: 700;
 			line-height: 1.35; /* 135% */
 			letter-spacing: -0.8px;
@@ -55,11 +55,12 @@ body.our-history-new #main-content {
 		.history-new--slide-text {
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 1.13vw;
+			font-size: min(22px, 1.13vw);
 			font-weight: 400;
 			line-height: 1.58; /* 158.75% */
 			letter-spacing: -0.32px;
 		}
+
 	}
 
 	.history-new--slide {
