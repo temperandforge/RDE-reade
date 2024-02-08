@@ -225,3 +225,42 @@ function get_missing_meta() {
 
 //138 locally
 define('ALL_PRODUCTS_CAT_ID', 368);
+
+add_action( 'do_form_submission_monitoring', 'do_form_submission_monitoring_function' );
+
+function do_form_submission_monitoring_function() {
+
+    // set the number of hours threshold for each type of submission
+    $custom_threshold = 12;
+    $rfq_threshold = 12;
+
+    // get the timestamp for the last submission of each
+    $custom_timestamp	= get_option('custom_product_submit');
+    $rfq_timestamp		= get_option('rfq_submit');
+
+    // check custom timestamp and mail if it's been creater than $custom_threshold hours
+    if (!empty($custom_timestamp)) {
+
+        if ($custom_timestamp < (time() - ($custom_threshold * 60 * 60))) {
+            
+            $headers = 'From: wordpress-debug@reade.com' . "\r\n" .
+            'Reply-To: wordpress-debug@reade.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+            mail('nathan@temperandforge.com', 'Reade - No Custom Product Submission In ' . $custom_threshold . ' Hours', 'You may wish to check that the custom product form on reade is still working - https://reade.com/custom-product-rfq-form/', $headers);
+
+        }
+    }
+
+    // check rfq timestamp and mail if it's been creater than $custom_threshold hours
+    if (!empty($rfq_timestamp)) {
+        if ($rfq_timestamp < (time() - ($rfq_threshold * 60 * 60))) {
+            
+            $headers = 'From: wordpress-debug@reade.com' . "\r\n" .
+            'Reply-To: wordpress-debug@reade.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+            mail('nathan@temperandforge.com', 'Reade - No RFQ Submission In ' . $rfq_threshold . ' Hours', 'You may wish to check that the RFQ form on reade is still working - https://reade.com/itemized-rfq/', $headers);
+        }
+    }
+}
