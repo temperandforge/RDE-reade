@@ -5,8 +5,7 @@ import customProductRfqForm from './routes/custom-product-rfq-form.js'
 import pageTemplateLegal from './routes/legal'
 import single from './routes/single'
 import frontPage from './routes/front-page' //SETUP
-import history from './routes/history'
-import ourHistoryNew from './routes/history-new';
+import history from './routes/history-new';
 import singleProduct from './routes/single-product';
 import itemizedRfq from './routes/itemized-rfq';
 import pageId103 from './routes/particle-measurement';
@@ -18,16 +17,15 @@ import search from './routes/search';
  */
 const routes = new Router({
   common,
-  customProductRfqForm,
-  single,
-  pageTemplateLegal,
-  frontPage,
+   customProductRfqForm,
+   single,
+   pageTemplateLegal,
+   frontPage,
   history,
-  ourHistoryNew,
-  singleProduct,
-  itemizedRfq,
-  pageId103,
-  search
+   singleProduct,
+   itemizedRfq,
+   pageId103,
+   search
 })
 
 /** Load Events */

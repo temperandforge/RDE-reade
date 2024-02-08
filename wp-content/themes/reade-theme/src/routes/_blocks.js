@@ -123,7 +123,7 @@ function handleLeadershipSlider() {
 function handleTabbedRotator() {
 	const $tabs = $('.tabbed-rotator--tabs')
 
-	if (!$tabs) {
+	if (!$tabs || !$tabs.length) {
 		return
 	}
 
@@ -137,6 +137,8 @@ function handleTabbedRotator() {
 	$mobileBtn.on('click', function () {
 		toggleNavClass()
 	})
+
+	console.log($tabs)
 
 	$tabs.slick({
 		infinite: false,

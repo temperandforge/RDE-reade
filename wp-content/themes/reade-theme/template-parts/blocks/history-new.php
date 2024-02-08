@@ -4,9 +4,14 @@ $fields = get_fields();
 
 //70%;
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js" integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<?php
+add_action( 'wp_footer', function() {
+?>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js" integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<?php }); ?>
 
 <div class="history-new">
 	<div class="history-new--content">
@@ -26,17 +31,23 @@ $fields = get_fields();
 						$yearPart2 = substr($year, 2, 4);
 
 						if (stripos($year, '-') !== false) {
+							$year = str_replace(' ', '', $year);
 							$year = explode('-', $year);
 							$yearPart1 = "'" . substr($year[0], 2, 4);
-							echo $yearPart1;
 							$yearPart2 = " - '" . substr($year[1], 2, 4);
+							$year = $yearPart1 . $yearPart2;
+						} elseif (stripos($year, '&') !== false) {
+							$year = str_replace(' ', '', $year);
+							$year = explode('&', $year);
+							$yearPart1 = "'" . substr($year[0], 2, 4);
+							$yearPart2 = " & '" . substr($year[1], 2, 4);
 							$year = $yearPart1 . $yearPart2;
 						}
 
 						?>
 						<div id="history-new--slide-<?php echo $count; ?>" data-year="<?php echo $year; ?>" class="history-new--slide history-new--slide-layout-<?php echo $slide['layout']; ?> history-new--slide-<?php echo $count; ?> <?php if ($count === 1) { echo 'history-new--slide-current'; } ?>" <?php if ($count !== 1) { echo 'style="display: none;"'; } ?>">
-							<div class="history-new--slide-bg-year-1"><?php echo $yearPart1; ?></div>
-							<div class="history-new--slide-bg-year-2"><?php echo $yearPart2; ?></div>
+							<div class="history-new--slide-bg-year-1"><?php echo str_replace(array(' ', '-', '&'), '', $yearPart1); ?></div>
+							<div class="history-new--slide-bg-year-2"><?php echo str_replace(array(' ', '-', '&'), '', $yearPart2); ?></div>
 
 							<div class="history-new--slide-left">
 								<?php
@@ -62,6 +73,7 @@ $fields = get_fields();
 								?>
 							</div>
 							<div class="history-new--slide-right">
+								
 								<?php
 
 								if (!empty($slide['title']) || !empty($slide['text'])) {
@@ -92,6 +104,22 @@ $fields = get_fields();
 			?>
 		</div>
 		<div class="history-new--right">
+			<div class="history-new--arrows">
+				<div class="history-new--arrow-left">
+					<a href="#prev" id="history-new--prev">
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.9502 22.6294L4.97327 14.6525M4.97327 14.6525L12.9502 6.67555M4.97327 14.6525L25.4854 14.6525" stroke="#EFFBFF" stroke-width="2.4468" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
+				<div class="history-new--arrow-right">
+					<a href="#next" id="history-new--next">
+						<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.8114 6.67627L25.7883 14.6532M25.7883 14.6532L17.8114 22.6301M25.7883 14.6532L5.27625 14.6532" stroke="#EFFBFF" stroke-width="2.4468" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+				</div>
+			</div>
 			<div class="history-new--dial">
 				<div id="history-dial" class="history-new--dial-center">
 					<div class="history-grab-container"></div>

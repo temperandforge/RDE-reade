@@ -12,7 +12,10 @@ body.our-history-new #main-content {
 		display: flex;
 		align-items: flex-start;
 		overflow: hidden;
-		//height: calc(100vh - var(--navbar-height));
+		width: 100vw;
+		max-height: calc(100vh - var(--navbar-height));
+		aspect-ratio: 1440/765;
+		//max-height: 765px;
 		//height: 500px;
 	}
 
@@ -24,6 +27,10 @@ body.our-history-new #main-content {
 	.history-new--right {
 		flex-basis: 30%;
 		align-self: stretch;
+
+		.history-new--arrows {
+			display: none;
+		}
 	}
 	.history-new--slides {
 		height: 100%;
@@ -32,24 +39,28 @@ body.our-history-new #main-content {
 		position: relative;
 		svg {
 			margin-bottom: 8px;
+			width: min(34px, 1.875vw);
+			height: auto;
+			aspect-ratio: 1/1;
 		}
 		.history-new--slide-title {
 			margin-bottom: 11px;
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 40px;
+			font-size: min(54px, 2.778vw);
 			font-weight: 700;
-			line-height: 54px; /* 135% */
+			line-height: 1.35; /* 135% */
 			letter-spacing: -0.8px;
 		}
 		.history-new--slide-text {
 			color: var(--Primary-50, #EFFBFF);
 			font-family: "Open Sans";
-			font-size: 16px;
+			font-size: min(22px, 1.13vw);
 			font-weight: 400;
-			line-height: 25.4px; /* 158.75% */
+			line-height: 1.58; /* 158.75% */
 			letter-spacing: -0.32px;
 		}
+
 	}
 
 	.history-new--slide {
@@ -70,7 +81,7 @@ body.our-history-new #main-content {
 		.history-new--slide-bg-year-1 {
 			-webkit-text-stroke-width: 2px;
 			top: 0;
-			left: 0;
+			left: -3vw;
 			-webkit-text-stroke-color: var(--Primary-900, #045);
 			font-family: "Open Sans";
 			font-size: 35vw;
@@ -78,10 +89,11 @@ body.our-history-new #main-content {
 			line-height: 1.42; /* 142.635% */
 			letter-spacing: -3.125vw;
 			color: transparent;
-			transform: translateY(-31%) translateX(-3%);
+			transform: translateY(-31%);
 		}
 		.history-new--slide-bg-year-2 {
-			right: -5vw;
+			//left: 432px;
+			left: 30vw;
 			bottom: 0;
 			-webkit-text-stroke-width: 2px;
 			-webkit-text-stroke-color: var(--Primary-900, #045);
@@ -92,7 +104,6 @@ body.our-history-new #main-content {
 			letter-spacing: -2vw;
 			color: transparent;
 			transform: translateX(0) translateY(46%);
-			text-align: right;
 		}
 
 		.history-new--slide-left {
@@ -105,14 +116,17 @@ body.our-history-new #main-content {
 			align-items: flex-start;
 
 			.history-new--slide-info {
-				width: 43ch;
+				width: 80%;
 			}
 			.history-new--slide-left {
-				flex-basis: 45.63%;
+				//width: 460px;
+				width: 45%;
 			}
 			.history-new--slide-right {
-				flex-basis: 54.37%;
+				//width: auto;
+				flex-grow: 1;
 				align-self: center;
+				width: 55%;
 			}
 			.slide-image-1 {
 				width: 110%;
@@ -137,10 +151,14 @@ body.our-history-new #main-content {
 		&.history-new--slide-layout-Two {
 			display: flex;
 			flex-direction: column;
-
+			.history-new--slide-left {
+				position: relative;
+				top: -5vw;
+				margin-bottom: -5vw;
+			}
 			 .history-new--slide-info {
 				transform: translateY(-16%) translateX(34%);
-				width: 43ch;
+				width: 50%;
 			 }
 			.history-new--slide-images {
 				display: flex;
@@ -155,6 +173,7 @@ body.our-history-new #main-content {
 			 	position: relative;
 			 	z-index: 1;
 			 }
+
 			 .slide-image-2 {
 			 	width: 21.03%;
 			 	height: auto;
@@ -175,15 +194,16 @@ body.our-history-new #main-content {
 				flex-direction: column-reverse;
 			}
 			.history-new--slide-info {
-				width: 47ch;
+				width: 79%;
 			}
 			.history-new--slide-left {
-				flex-basis: 45.63%;
+				width: 45.63%;
 			}
 			.history-new--slide-right {
 				align-self: stretch;
-				flex-basis: 54.37%;
-				padding-top: 40%;
+				width: auto;
+				padding-top: 16vw;
+				width: 55%;
 			}
 			.slide-image-1 {
 				width: 110%;
@@ -210,19 +230,26 @@ body.our-history-new #main-content {
 			flex-direction: column-reverse;
 
 			 .history-new--slide-info {
-			 	width: min(100%, 73ch);
-				padding-left: 9.71%;
+			 	width: 75%;
+				padding-left: 7vw;
 				transform: translateY(-16%);
 			 }
 			.history-new--slide-images {
 				display: flex;
 				flex-direction: row-reverse;
 				align-items: flex-start;
+				justify-content: flex-end;
+				transform: translateX(29%);
+			}
+
+			.history-new--slide-left {
+				height: 60%;
 			}
 			.history-new--slide-right {
-				padding-left: 5%;
-				padding-top: 10%;
+				padding-left: 4vw;
+				padding-top: 8vw;
 				margin-bottom: -3vw;
+				height: 61%;
 			}
 			.slide-image-1 {
 			 	width: 47.88%;
@@ -233,6 +260,7 @@ body.our-history-new #main-content {
 			 	position: relative;
 			 	z-index: 1;
 			 }
+
 
 			 .slide-image-2 {
 			 	width: 21.03%;
@@ -268,8 +296,8 @@ body.our-history-new #main-content {
 		text-decoration: none;
 		padding-right: 26.4375vw;
 		white-space: nowrap;
+		user-select: none;
 		cursor: grab;
-
 		span.history-new--dial-dash-year {
 			display: block;
 			height: 1px;
@@ -285,7 +313,7 @@ body.our-history-new #main-content {
 		letter-spacing: -1.211px;
 		gap: 5vw;
 		//padding-right: 29.84vw;
-		padding-right: 39.34vw
+		padding-right: 39.34vw;
 	}
 	.history-grab-container {
 		cursor: grab;
@@ -322,19 +350,25 @@ body.our-history-new #main-content {
 	}
 	.history-new--right {
 		.history-new--dial {
+			display: flex;
+			justify-content: flex-end;
 
 		}
 		.history-new--dial-center {
 			top: 9vw;
-    		left: 68%;
+    		right: -69%;
 			position: relative;
 			transition: transform ease 0.3s;
+			//max-height: 432px;
+			max-height: 30vw;
 
 			svg {
-				width: 100%;
-				height: auto;
-				aspect-ratio: 1/1;
 				object-fit: cover;
+				//width: min(432px, 100%);
+				//height: 432px;
+				height: 30vw;
+				width: auto;
+				aspect-ratio: 1/1;
 			}
 		}
 	}
@@ -345,22 +379,143 @@ body.our-history-new #main-content {
 		right: -2.5vw;
 	}
 
+	@media (max-width: 767px) {
+		.history-new--dial-year-active {
+			transition: font-size ease 0.2s;
+		}
+	}
 
-	@media (min-width: 639px) and (max-width: 991px) {
+	@media (min-width: 639px) and (max-width: 1023px) {
 		.history-new--slide-right {
 			padding: 0 max(1.5rem, 7vw);
 		}
+		.history-new--right .history-new--arrow-left {
+			margin-left: max(1.5rem,7vw);
+		}
+		.history-new--right .history-new--arrow-right {
+			margin-right: max(1.5rem,7vw);
+		}
+		.history-new--slide-layout-Four .history-new--slide-left {
+			height: unset;
+		}
 	}
+
 
 	@media (max-width: 639px) {
 		.history-new--slide-right {
 			padding: 0 1rem;
 		}
+		.history-new--right .history-new--arrow-left {
+			margin-left: 1rem;
+		}
+		.history-new--right .history-new--arrow-right {
+			margin-right: 1rem;
+		}
 	}
 
-	@media (max-width: 991px) {
+	@media (min-width: 768px) and (max-width: 1023px) {
+		.history-new--content {
+			height: auto;
+			aspect-ratio: 1024/840;
+		}
+		.history-new--left, .history-new--right {
+			width: 50%;
+			flex-basis: unset;
+		}
+		.history-new--slide-left, .history-new--slide-right {
+			height: 50%;
+		}
+		.history-new--dial {
+			transform: translateX(-14%) translateY(10%);
+		}
+		.history-new--dial-year {
+			font-size: 1.5vw;
+		}
+		.history-new--dial-year-active {
+			font-size: 4vw;
+		}
+
+		.history-new--right {
+			.history-new--dial {
+				//transform: translateX(-12%) translateY(4%);
+			}
+			.history-new--dial-center {
+				height: 42vw;
+				max-height: unset;
+			}
+			.history-new--dial-center {
+				svg {
+					height: 42vw;
+				}
+			}
+		}
+
+		.history-new--slide {
+			.history-new--slide-bg-year-1, .history-new--slide-bg-year-2 {
+				font-size: 47vw;
+				left: max(-43.2px,-3vw);
+			}
+
+			&.history-new--slide-layout-One, &.history-new--slide-layout-Two, &.history-new--slide-layout-Three, &.history-new--slide-layout-Four {
+				flex-direction: column;
+
+				.history-new--slide-images {
+					//margin-bottom: -21vw;
+					display: unset;
+				}
+
+				.history-new--slide-title {
+					font-size: 40px;
+				}
+				.history-new--slide-text {
+					font-size: 16px;
+				}
+
+				.history-new--slide-left, .history-new--slide-right {
+					width: 100%;
+				}
+				.history-new--slide-right {
+					padding-top: unset;
+					height: 61%;
+					padding-left: max(1.5rem,7vw);
+				}
+				.history-new--slide-left {
+					height: 45%;
+					margin-bottom: unset;
+				}
+
+				.history-new--slide-info {
+					transform: unset;
+					width: 43ch;
+					padding-left: unset;
+				}
+
+				 .slide-image-1 {
+					top: -4.6875em;
+					left: -12%;
+					width: 73%;
+					transform: unset;
+				}
+
+				 .slide-image-2 {
+					left: 43%;
+					top: -21vw;
+					transform: unset;
+					width: 32%
+				 }
+			}
+		}
+	}
+
+	@media (max-width: 767px) {
+		.history-new--slide-info svg {
+			width: 18px;
+			height: 18px;
+		}
 		.history-new--content {
 			flex-direction: column;
+			aspect-ratio: unset;
+			max-height: unset;
 		}
 		.history-new--left, .history-new--right {
 			flex-basis: 100%;
@@ -372,9 +527,52 @@ body.our-history-new #main-content {
 		.history-new--slide-left, .history-new--slide-right {
 			width: 100%;
 		}
-		.history-new--slide-left {
-			margin-bottom: -19vw;
+
+		.history-new--dial-center {
+			transform: rotate(90deg);
 		}
+
+		.history-new--dial-year {
+			font-size: 22px;
+			flex-direction: column;
+			padding-right: unset;
+			justify-content: center;
+			text-align: center;
+			
+			span.history-new--dial-dash-year {
+				height: 10vw;
+				margin-bottom: 28vw;
+				width: 1px;
+			}
+		}
+
+		.history-new--dial-dash {
+			width: 6vw;
+			height: 1px;
+		}
+
+		.history-new--dial-year-active {
+			gap: unset;
+			font-size: 10vw;
+			transition: font-size ease 0.2s;
+			&::after {
+				content: '•';
+				display: block;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 4vw;
+				font-size: 8vw;
+			}
+			.history-new--dial-dash-year {
+				margin-bottom: 33vw !important;
+			}
+			span.history-new--dial-dash-year--inner {
+				right: unset;
+				width: unset;
+			}
+		}
+		
 
 		.history-new--slide {
 
@@ -384,14 +582,22 @@ body.our-history-new #main-content {
 
 			&.history-new--slide-layout-One, &.history-new--slide-layout-Two, &.history-new--slide-layout-Three, &.history-new--slide-layout-Four {
 
+				.history-new--slide-left {
+					width: 100%;
+					margin-bottom: -15vw;
+				}
 				.history-new--slide-images {
 					width: 100%;
 					display: flex;
 					flex-direction: row;
+					justify-content: unset;
+					transform: unset;
 				}
 
 				.history-new--slide-right {
 					padding-top: unset;
+					width: 100%;
+					margin-bottom: unset;
 				}
 
 				.history-new--slide-info {
@@ -418,21 +624,6 @@ body.our-history-new #main-content {
 				display: flex;
 				flex-direction: column;
 
-				//  .history-new--slide-info {
-				//  	width: min(100%, 73ch);
-				// 	padding-left: 9.71%;
-				// 	transform: translateY(-16%);
-				//  }
-				// .history-new--slide-images {
-				// 	display: flex;
-				// 	flex-direction: row-reverse;
-				// 	align-items: flex-start;
-				// }
-				// .history-new--slide-right {
-				// 	padding-left: 5%;
-				// 	padding-top: 10%;
-				// 	margin-bottom: -3vw;
-				// }
 				 .slide-image-1 {
 				  	width: 79%;
 				 	transform: translateY(-27%) translatex(-13%);
@@ -443,20 +634,55 @@ body.our-history-new #main-content {
 				 	transform: translateX(188%) translateY(21%);
 					position: absolute;
 				 	//margin-bottom: 16%;
+					margin-bottom: unset;
 				 }
 			}
-			&.history-new--slide-layout-Two, &.history-new--slide-layout-Four {
-				.history-new--slide-images {
-					flex-direction: row-reverse;
+		}
+		.history-new--right {
+			overflow: hidden;
+    		max-height: 49vw;
+			position: relative;
 
-					.slide-image-1 {
-						transform: translateY(-27%) translatex(16%);
-					}
-					.slide-image-2 {
-						transform: translateX(-183%) translateY(12%);
+			.history-new--arrows {
+				position: absolute;
+				top: 9.5vw;
+				left: 0;
+				width: 100vw;
+				height: auto;
+				display: flex;
+				justify-content: space-between;
+				z-index: 3;
+			}
+			.history-new--dial {
+				justify-content: center;
+				top: 42vw;
+				position: relative;
+			}
+			.history-new--dial-dash-year--inner {
+				width: unset;
+			}
+			.history-new--dial-year-active span.history-new--dial-dash-year--inner {
+				position: relative;
+			    top: -7vw;
+			}
+			.history-new--dial-center {
+				max-height: unset;
+				top: unset;
+				left: unset;
+				right: unset;
+
+				svg {
+					width: 176vw;
+					height: auto;
+					aspect-ratio: 1/1;
+
+					path, circle {
+						fill: #072D36;
 					}
 				}
 			}
 		}
 	}
+
+	
 }
