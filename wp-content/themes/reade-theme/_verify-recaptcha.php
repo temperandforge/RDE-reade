@@ -13,8 +13,8 @@
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         $response = curl_exec($ch);
         curl_close($ch);
@@ -70,8 +70,8 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             // local only
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
             // Execute cURL session and get the response
             $response = curl_exec($ch);
@@ -84,6 +84,9 @@
 
             // Close cURL session
             curl_close($ch);
+
+            // update database with last submission
+            update_option('custom_product_submit', time());
 
             // redirect
             header('Location: ' . $_POST['retURL']);
@@ -111,8 +114,8 @@
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         $response = curl_exec($ch);
         curl_close($ch);
@@ -171,8 +174,8 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             // local only
-            // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
             // Execute cURL session and get the response
             $response = curl_exec($ch);
@@ -185,6 +188,9 @@
 
             // Close cURL session
             curl_close($ch);
+
+            // update database with last submission
+            update_option('rfq_submit', time());
 
             // redirect
             header('Location: ' . $_POST['retURL']);
