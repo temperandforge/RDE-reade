@@ -232,7 +232,7 @@ $fields = get_fields();
 
                          ?>
 
-                         <input id="lead_info_impt" maxlength="255" name="lead_info_impt" size="20" type="text" value="" class="rfq-important-text">
+                         <input id="lead_info_impt" maxlength="255" name="lead_info_impt" size="20" type="text" value="" class="rfq-important-text" autocomplete="Off">
 
                          <input  class="all-fields-2" id="r-zip" maxlength="20" name="zip" size="20" type="text" placeholder="ZIP *" />
                          <?php
@@ -587,7 +587,7 @@ $fields = get_fields();
                     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
                     <input id="country" maxlength="255" name="country" size="20" type="hidden" />
                     <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
-                    <input id="lead_info" maxlength="255" name="lead_info" size="20" type="text" value="" class="rfq-important-text">
+                    <input id="lead_info" maxlength="255" name="lead_info" size="20" type="text" value="" class="rfq-important-text" autocomplete="Off">
                     <input  id="00N6g00000VMFwG" maxlength="255" name="00N6g00000VMFwG" size="20" type="hidden" />
                     <textarea  id="00N6g00000VMFwF" name="00N6g00000VMFwF" type="text" wrap="soft" style="display: none;"></textarea>
                     <textarea id="00N3J000001mdyh" name="00N3J000001mdyh" type="text" wrap="soft" style="display: none;"></textarea>
