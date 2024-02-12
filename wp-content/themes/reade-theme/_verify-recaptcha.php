@@ -5,6 +5,13 @@
     $email_to = get_field('submissions_email', 'options');
 
     if (!empty($_POST['action']) && ($_POST['action'] == 'doCustomRFQSubmit')) {
+
+        // check nonce
+        if (empty($_POST['custom_rfq_nonce']) || !wp_verify_nonce($_POST['custom_rfq_nonce'], 'custom_rfq')) {
+            header('Location: ' . site_url() . '/custom-product-rfq-form/?error=invalid-nonce-please-try-again');
+            exit;
+        }
+
         if (empty($_POST['g-recaptcha-response'])) {
             header('Location: ' . site_url() . '/custom-product-rfq-form/?error=invalid-captcha');
             exit;
@@ -15,15 +22,29 @@
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        // local only
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         $response = curl_exec($ch);
         curl_close($ch);
         $arrResponse = json_decode($response, true);
 
         // verify the response
-        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.2) {
+        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.3) {
+
+            // check for honeypot fields, if the fields have data then a bot has filled them in
+            if (!empty($_POST['lead_info']) || (trim($_POST['lead_info']) != '')) {
+                header('Location: ' . site_url() . '/custom-product-rfq-form/?error=honeypot-1');
+                exit;
+            }
+
+            if (!empty($_POST['lead_info_impt']) || (trim($_POST['lead_info_impt']) != '')) {
+                header('Location: ' . site_url() . '/custom-product-rfq-form/?error=honeypot-2');
+                exit;
+            }
+
             // set up post data
             $postData = array(
                 'lead_source' => 'Website',
@@ -72,8 +93,8 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             // local only
-           // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-           // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
             // Execute cURL session and get the response
             $response = curl_exec($ch);
@@ -139,6 +160,13 @@
 
     if (!empty($_POST['action']) && ($_POST['action'] == 'doProcessRFQ')) {
 
+        // check nonce
+        if (empty($_POST['rfq_nonce']) || !wp_verify_nonce($_POST['rfq_nonce'], 'rfq')) {
+            header('Location: ' . site_url() . '/itemized-rfq/?error=invalid-nonce-please-try-again');
+            exit;
+        }
+
+
         if (empty($_POST['g-recaptcha-response'])) {
             header('Location: ' . site_url() . '/itemized-rfq/?error=invalid-captcha');
             exit;
@@ -149,46 +177,58 @@
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        // local only
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         $response = curl_exec($ch);
         curl_close($ch);
         $arrResponse = json_decode($response, true);
 
         // verify the response
-        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.2) {
+        if($arrResponse["success"] == '1' && $arrResponse["score"] >= 0.3) {
+
+            // check for honeypot fields
+            if (!empty($_POST['leadinfo']) || trim($_POST['leadinfo']) != ''){
+                header('Location: ' . site_url() . '/itemized-rfq/?error=honeypot-1');
+                exit;
+            }
+
+            if (!empty($_POST['rfq-lead-info']) || trim($_POST['rfq-lead-info']) != ''){
+                header('Location: ' . site_url() . '/itemized-rfq/?error=honeypot-2');
+                exit;
+            }
 
             // set up post data
             $postData = array(
-                'oid' => !empty($_POST['oid']) ? $_POST['oid'] : '',
-                'retURL' => !empty($_POST['retURL']) ? $_POST['retURL'] : '',
-                'first_name' => !empty($_POST['first_name']) ? $_POST['first_name'] : '',
-                'last_name' => !empty($_POST['last_name']) ? $_POST['last_name'] : '',
-                'company' => !empty($_POST['company']) ? $_POST['company'] : '',
-                'phone' => !empty($_POST['phone']) ? $_POST['phone'] : '',
-                'email' => !empty($_POST['email']) ? $_POST['email'] : '',
-                'street' => !empty($_POST['street']) ? $_POST['street'] : '',
-                'city' => !empty($_POST['city']) ? $_POST['city'] : '',
-                'state' => !empty($_POST['state']) ? $_POST['state'] : '',
-                'zip' => !empty($_POST['zip']) ? $_POST['zip'] : '',
-                'country' => !empty($_POST['country']) ? $_POST['country'] : '',
-                'lead_source' => !empty($_POST['lead_source']) ? $_POST['lead_source'] : '',
-                '00N6g00000VMFwG' => !empty($_POST['00N6g00000VMFwG']) ? $_POST['00N6g00000VMFwG'] : '',
-                '00N6g00000VMFwF' => !empty($_POST['00N6g00000VMFwF']) ? $_POST['00N6g00000VMFwF'] : '',
-                '00N6g00000VMFwI' => !empty($_POST['00N6g00000VMFwI']) ? $_POST['00N6g00000VMFwI'] : '',
-                '00N6g00000VMFwH' => !empty($_POST['00N6g00000VMFwH']) ? $_POST['00N6g00000VMFwH'] : '',
-                '00N6g00000VMFwK' => !empty($_POST['00N6g00000VMFwK']) ? $_POST['00N6g00000VMFwK'] : '',
-                '00N6g00000VMFwJ' => !empty($_POST['00N6g00000VMFwJ']) ? $_POST['00N6g00000VMFwJ'] : '',
-                '00N6g00000VMFwM' => !empty($_POST['00N6g00000VMFwM']) ? $_POST['00N6g00000VMFwM'] : '',
-                '00N6g00000VMFwL' => !empty($_POST['00N6g00000VMFwL']) ? $_POST['00N6g00000VMFwL'] : '',
-                '00N6g00000VMFwO' => !empty($_POST['00N6g00000VMFwO']) ? $_POST['00N6g00000VMFwO'] : '',
-                '00N6g00000VMFwN' => !empty($_POST['00N6g00000VMFwN']) ? $_POST['00N6g00000VMFwN'] : '',
-                '00N6g00000TtToE' => !empty($_POST['00N6g00000TtToE']) ? $_POST['00N6g00000TtToE'] : '',
-                '00N6g00000TtToG' => !empty($_POST['00N6g00000TtToG']) ? $_POST['00N6g00000TtToG'] : '',
-                '00N6g00000U3avS' => !empty($_POST['00N6g00000U3avS']) ? $_POST['00N6g00000U3avS'] : '',
-                '00N6g00000TtToJ' => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
-                '00N6g00000TUVGD' => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : '',
+                'oid'               => !empty($_POST['oid']) ? $_POST['oid'] : '',
+                'retURL'            => !empty($_POST['retURL']) ? $_POST['retURL'] : '',
+                'first_name'        => !empty($_POST['first_name']) ? $_POST['first_name'] : '',
+                'last_name'         => !empty($_POST['last_name']) ? $_POST['last_name'] : '',
+                'company'           => !empty($_POST['company']) ? $_POST['company'] : '',
+                'phone'             => !empty($_POST['phone']) ? $_POST['phone'] : '',
+                'email'             => !empty($_POST['email']) ? $_POST['email'] : '',
+                'street'            => !empty($_POST['street']) ? $_POST['street'] : '',
+                'city'              => !empty($_POST['city']) ? $_POST['city'] : '',
+                'state'             => !empty($_POST['state']) ? $_POST['state'] : '',
+                'zip'               => !empty($_POST['zip']) ? $_POST['zip'] : '',
+                'country'           => !empty($_POST['country']) ? $_POST['country'] : '',
+                'lead_source'       => !empty($_POST['lead_source']) ? $_POST['lead_source'] : '',
+                '00N6g00000VMFwG'   => !empty($_POST['00N6g00000VMFwG']) ? $_POST['00N6g00000VMFwG'] : '',
+                '00N6g00000VMFwF'   => !empty($_POST['00N6g00000VMFwF']) ? $_POST['00N6g00000VMFwF'] : '',
+                '00N6g00000VMFwI'   => !empty($_POST['00N6g00000VMFwI']) ? $_POST['00N6g00000VMFwI'] : '',
+                '00N6g00000VMFwH'   => !empty($_POST['00N6g00000VMFwH']) ? $_POST['00N6g00000VMFwH'] : '',
+                '00N6g00000VMFwK'   => !empty($_POST['00N6g00000VMFwK']) ? $_POST['00N6g00000VMFwK'] : '',
+                '00N6g00000VMFwJ'   => !empty($_POST['00N6g00000VMFwJ']) ? $_POST['00N6g00000VMFwJ'] : '',
+                '00N6g00000VMFwM'   => !empty($_POST['00N6g00000VMFwM']) ? $_POST['00N6g00000VMFwM'] : '',
+                '00N6g00000VMFwL'   => !empty($_POST['00N6g00000VMFwL']) ? $_POST['00N6g00000VMFwL'] : '',
+                '00N6g00000VMFwO'   => !empty($_POST['00N6g00000VMFwO']) ? $_POST['00N6g00000VMFwO'] : '',
+                '00N6g00000VMFwN'   => !empty($_POST['00N6g00000VMFwN']) ? $_POST['00N6g00000VMFwN'] : '',
+                '00N6g00000TtToE'   => !empty($_POST['00N6g00000TtToE']) ? $_POST['00N6g00000TtToE'] : '',
+                '00N6g00000TtToG'   => !empty($_POST['00N6g00000TtToG']) ? $_POST['00N6g00000TtToG'] : '',
+                '00N6g00000U3avS'   => !empty($_POST['00N6g00000U3avS']) ? $_POST['00N6g00000U3avS'] : '',
+                '00N6g00000TtToJ'   => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
+                '00N6g00000TUVGD'   => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : '',
             );
 
 
@@ -210,8 +250,8 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             // local only
-            //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
             // Execute cURL session and get the response
             $response = curl_exec($ch);
