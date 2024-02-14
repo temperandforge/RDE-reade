@@ -5,6 +5,13 @@ export default {
   init() {
   },
   finalize() {
+
+    if (document.getElementsByClassName('history-new--modal')) {
+      document.getElementsByClassName('history-new--modal')[0].addEventListener('click', function() {
+        document.getElementsByClassName('history-new--modal')[0].remove();
+      })
+    }
+
     let sections = gsap.utils.toArray(".history-new--slide");
     let numberSections = sections.length;
 	  let dial = document.querySelector(".history-new--dial-center");
@@ -54,9 +61,14 @@ export default {
           });
           turnto = parseInt(rotateValue);
           dragged = false;
-          turnto = turnto + 90;
-          dial.style.transform = `rotate(${turnto}deg)`
+          dial.style.transition = 'unset';
+          setTimeout(function() {
+            turnto = turnto + 90;
+            dial.style.transform = `rotate(${turnto}deg)`
+          }, 50)
         }
+
+        readMore();
 
         if (draggable) {
           killDraggable();
@@ -81,8 +93,11 @@ export default {
           });
           turnto = parseInt(rotateValue);
           dragged = false;
-          turnto = turnto - 90;
-          dial.style.transform = `rotate(${turnto}deg)`
+          dial.style.transition = 'unset';
+          setTimeout(function() {
+            turnto = turnto - 90;
+            dial.style.transform = `rotate(${turnto}deg)`
+          }, 50);
         }
 
         if (!draggable) {
@@ -93,6 +108,33 @@ export default {
         isMobile = false;
       }
     })
+
+
+    //read more links
+    function readMore() {
+      if (isMobile) {
+        $('.history-new--slide-text').css('max-height', '66.3px').css('height', '66.3px');
+        $('.history-new--slide-info').css('height', '180px');
+
+        setTimeout(function() {
+          let text = $('.history-new--slide-text:visible');
+          if (text.prop('scrollHeight') > text.prop('clientHeight')) {
+            $('.read-more').hide();
+            if (!$('.read-more:visible').length) {
+              let read_more_link = $('<p class="read-more">Read More</p>');
+              read_more_link.on('click', function() { 
+                $('.history-new--slide-text:visible').height('auto').css('max-height', 'unset');
+                $('.history-new--slide-info:visible').css('height', 'auto');
+                $('.read-more').remove();
+              })
+              $('.history-new--slide-text:visible').after(read_more_link);
+            }
+          } else {
+            $('.read-more').hide();
+          }
+        }, 100);
+      }
+    }
 
     function matrixToRotate(matrix) {
       // Extract rotation angle from the matrix
@@ -144,6 +186,7 @@ export default {
     // clicking on a year rotates the dial and adds active class to clicked year
     gsap.utils.toArray(".history-new--dial-year").map(el => {
 		  el.addEventListener('click', function(e) {
+        document.getElementById('history-dial').style.transition = 'transform ease 0.3s';
         e.preventDefault();
         if (isMobile) {
           return;
@@ -285,6 +328,7 @@ export default {
               clicked = false;
               dragged = true;
             }
+            document.getElementById('history-dial').style.transition = 'transform ease 0.3s';
           },
 
           onDragEnd: function() {
@@ -385,7 +429,9 @@ export default {
     }
 
     $('.history-new--slide').hide();
-    $('.history-new--slide:eq(0)').show();
+    $('.history-new--slide:eq(0)').show(0, function() {
+      readMore();
+    });
     doImageAnimations('.history-new--slide:eq(0)');
 
     // Get the parent container and child elements
@@ -405,6 +451,7 @@ export default {
         $(this).hide(0);
         $(childElements[currentIndex]).css('opacity', '0').show(0).addClass('history-new--slide-current').fadeTo(150, '1.0');
         doImageAnimations('.history-new--slide-current');
+        readMore();
      });
 
      childElements.forEach(element => element.classList.remove('active'));
@@ -413,6 +460,7 @@ export default {
 
     // Event listener for the previous button
     prevButton.addEventListener('click', function (e) {
+      document.getElementById('history-dial').style.transition = 'transform ease 0.3s';
       e.preventDefault();
       if (prev_is_clickable) {
         prev_is_clickable = false;
@@ -429,6 +477,7 @@ export default {
 
     // Event listener for the next button
     nextButton.addEventListener('click', function (e) {
+      document.getElementById('history-dial').style.transition = 'transform ease 0.3s';
       e.preventDefault();
       if (next_is_clickable) {
         next_is_clickable = false;
