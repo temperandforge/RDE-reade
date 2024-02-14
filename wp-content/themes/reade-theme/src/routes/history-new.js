@@ -111,7 +111,7 @@ export default {
 
 
     //read more links
-    function readMore() {
+    function readMore(timeout) {
       if (isMobile) {
         $('.history-new--slide-text').css('max-height', '66.3px').css('height', '66.3px');
         $('.history-new--slide-info').css('height', '180px');
@@ -132,7 +132,7 @@ export default {
           } else {
             $('.read-more').hide();
           }
-        }, 100);
+        }, timeout ? timeout : 100);
       }
     }
 
@@ -430,7 +430,7 @@ export default {
 
     $('.history-new--slide').hide();
     $('.history-new--slide:eq(0)').show(0, function() {
-      readMore();
+      readMore(500);
     });
     doImageAnimations('.history-new--slide:eq(0)');
 
