@@ -706,6 +706,10 @@ body.our-history-new #main-content {
 	object-fit: contain;
 }
 
+#history-new--slide-2 .history-new--slide-images img:last-of-type {
+	object-position: bottom;
+}
+
 .history-new--modal {
 	width: 100vw;
 	height: 100vh;
