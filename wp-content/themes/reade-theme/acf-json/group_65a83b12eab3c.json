@@ -1,10 +1,10 @@
 {
     "key": "group_65a83b12eab3c",
-    "title": "History - New",
+    "title": "History Dial",
     "fields": [
         {
             "key": "field_65a83b130001e",
-            "label": "History - New",
+            "label": "History Dial",
             "name": "",
             "aria-label": "",
             "type": "accordion",

@@ -29,6 +29,7 @@ if (!is_null($cart)) {
 
     <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/wp-content/themes/reade-theme/_verify-recaptcha.php" method="POST">
     <input type="hidden" name="action" value="doProcessRFQ">
+    <?php wp_nonce_field('rfq', 'rfq_nonce'); ?>
     
     <div class="piq-container">
         <div class="piq-container-left">
@@ -336,6 +337,7 @@ if (!is_null($cart)) {
                             <input type="text" id="rfq-address-line-1" name="rfq-address-line-1" placeholder="Address" value="">
                             <input type="text" id="rfq-address-line-2" name="rfq-address-line-2" placeholder="Address Line 2" value="">
                             <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
+                            <input type="text" id="rfq-lead-info" name="rfq-lead-info" value="" placeholder="Lead Info" value="" class="rfq-text" autocomplete="Off">
 
                             <?php
 
@@ -781,6 +783,7 @@ if (!is_null($cart)) {
     <input  id="city" maxlength="40" name="city" size="20" type="hidden" />
     <input  id="state" maxlength="20" name="state" size="20" type="hidden" />
     <input  id="zip" maxlength="20" name="zip" size="20" type="hidden" />
+    <input id="leadinfo" maxlength="20" name="leadinfo" size="20" type="hidden" class="rfq-important-text" autocomplete="Off">
     <input id="country" maxlength="255" name="country" size="20" type="hidden" />
     <input id="lead_source" maxlength="20" name="lead_source" size="20" type="hidden" value="Website">
     <!-- product 1 -->

@@ -218,6 +218,18 @@
 	}
 }
 
+.rfq-text, .rfq-important-text {
+	height: 1px;
+	width: 1px;
+	position: absolute;
+	top: -10000px;
+	left: -10000px;
+	opacity: 0;
+	z-index: -1;
+	overflow: hidden;
+	visibility: none;
+}
+
 
 .rfq-form--form {
 	@apply relative z-10;
