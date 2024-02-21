@@ -15,7 +15,7 @@
     * We will load specific javascript in the footer to check for recaptcha responses */
    global $post;
 
-   if (!has_shortcode($post->post_content, 'contact-form-7')) {
+   if (! empty($post->post_content) && ! has_shortcode($post->post_content, 'contact-form-7')) {
       ?>
       <link rel="preconnect" href="https://www.google.com">
       <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
