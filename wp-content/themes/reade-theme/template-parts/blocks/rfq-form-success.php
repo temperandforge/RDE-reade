@@ -9,6 +9,12 @@ $woocommerce->cart->empty_cart();
 
 ?>
 
+<!-- Event snippet for TF - RFQ Submit conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-1071831283/RsaqCMPXtJsZEPOxi_8D'});
+</script>
+
+
 <div class="rfq-submit--section">
  <div class="rfq-submit--main">
   <div class="rfq-submit--inner">
