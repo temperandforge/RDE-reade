@@ -5,7 +5,20 @@
   <meta charset="UTF-8">
   <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <?php
+  
+  <script>
+  if (window.location.href.includes('lang=es')) {
+    if (!window.location.href.includes('lang-set=1')) {
+      // Set the cookie named "googtrans" with the value "/en/es"
+      document.cookie = "googtrans=/en/es; path=/";
+        
+      // Reload the page
+    document.location.href = window.location.href.replace('?lang=es', '?lang-set=1');
+    }
+  }
+  </script>
+  
+  <?php
    
    wp_head();
 
