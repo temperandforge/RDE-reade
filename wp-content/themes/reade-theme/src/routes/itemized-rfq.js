@@ -96,7 +96,7 @@ export default {
     }
 
     function handleRFQSubmit() {
-
+      console.log('here1');
       let errors = [];
       let errorFields = [];
 
@@ -415,12 +415,16 @@ export default {
 
             $('.rfq-error-message').hide();
 
+            console.log('submit form');
             // submit form
-            setTimeout(function() {
-              $('#piq-itemized-rfq').off('submit').submit();
-            }, 250);
+            // setTimeout(function() {
+            //   $('#piq-itemized-rfq').off('submit').submit();
+            // }, 250);
+          
 
           } else {
+
+            console.log('form error');
 
             let fields = $('.piq-form input:not([type="submit"])');
             fields.each(function(index, element) {
