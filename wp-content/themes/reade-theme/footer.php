@@ -176,12 +176,15 @@ if (!('customElements' in window)) {
 document.addEventListener( 'wpcf7mailsent', function( event ) {
   if (event.target.getAttribute('id') == 'reade-contact-form') {
     window.dataLayer.push({'event' : 'contactformsubmitted'})
+    console.log('Sent GA conversion');
+    gtag('event', 'conversion', {'send_to': 'AW-1071831283/xaqECPXvtKIZEPOxi_8D'});
+
   }
   if (event.target.getAttribute('id') == 'reade-toll-processing-request-form') {
      window.dataLayer.push({'event': 'submittollprocessingrequest'})
+     gtag('event', 'conversion', {'send_to': 'AW-1071831283/xaqECPXvtKIZEPOxi_8D'});
   }
-}); 
-
+});
 
 </script>
 
