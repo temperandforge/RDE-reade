@@ -415,11 +415,11 @@ export default {
 
             $('.rfq-error-message').hide();
 
-            console.log('submit form');
-            // submit form
-            // setTimeout(function() {
-            //   $('#piq-itemized-rfq').off('submit').submit();
-            // }, 250);
+            //console.log('submit form');
+             //submit form
+             setTimeout(function() {
+               $('#piq-itemized-rfq').off('submit').submit();
+             }, 250);
           
 
           } else {
