@@ -4,7 +4,9 @@
 
 # Resources
 [LIVE](https://reade.com) - push from `prd`
+
 [WPE Staging Environment ( FREE )](https://readestg.wpengine.com) - push from `stg`
+
 [WPE Development Environment ( FREE )](https://readedev.wpengine.com)  - push from `main`
 
 
