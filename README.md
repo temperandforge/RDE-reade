@@ -1,5 +1,15 @@
 # READE ( WPEngine )
 
+
+
+# Resources
+[LIVE](https://reade.com) - push from `prd`
+[WPE Staging Environment ( FREE )](https://readestg.wpengine.com) - push from `stg`
+[WPE Development Environment ( FREE )](https://readedev.wpengine.com)  - push from `main`
+
+
+
+
 - back link on /sustainable-rpoducts is static
 - product sort is hard coded as each need internal ajax sortign functionality setup
 
