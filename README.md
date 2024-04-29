@@ -11,8 +11,8 @@
 
 
 
-
-- back link on /sustainable-rpoducts is static
+## Notes
+- back link on /sustainable-products is static
 - product sort is hard coded as each need internal ajax sortign functionality setup
 
 
