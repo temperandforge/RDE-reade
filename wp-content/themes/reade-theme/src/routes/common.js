@@ -33,6 +33,52 @@ export default {
 			$body.removeClass('using-mouse')
 		})
 
+		/* cookie setting function */
+		function my_setCookie(name, value, days) {
+			const date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			const expires = "expires=" + date.toUTCString();
+			document.cookie = name + "=" + value + ";" + expires + ";path=/";
+		}
+
+		// set cookies for utm campaigns, so browsing away from a page doesn't lose the utm_id parameter from google ads
+		function handleUTMParameter() {
+			const urlParams = new URLSearchParams(window.location.search);
+
+			if (urlParams.has('utm_id')) {
+				my_setCookie('utm_id', urlParams.get('utm_id'), 30);
+			}
+		}
+
+		handleUTMParameter();
+
+		// Function to get cookie value by name
+		function my_getCookie(name) {
+			const cookieName = name + "=";
+			const decodedCookie = decodeURIComponent(document.cookie);
+			const cookieArray = decodedCookie.split(';');
+	  
+			for (let i = 0; i < cookieArray.length; i++) {
+				let cookie = cookieArray[i].trim();
+				if (cookie.indexOf(cookieName) == 0) {
+					return cookie.substring(cookieName.length, cookie.length);
+				}
+			}
+			return "";
+		  }
+	  
+		  function handleRFQGetUTMParameter() {
+			let utm_id = my_getCookie('utm_id');
+	  
+			if (utm_id && utm_id.trim() != '') {
+			  if (document.getElementById('utm_id')) {
+				document.getElementById('utm_id').value = utm_id;
+			  }
+			}
+		  }
+	  
+		  handleRFQGetUTMParameter();
+
 		//newsletter footer submit
 		if ($('.newsletter-footer-submit')) {
 			$('.newsletter-footer-submit').on('click', function() {

@@ -96,7 +96,6 @@ export default {
     }
 
     function handleRFQSubmit() {
-      console.log('here1');
       let errors = [];
       let errorFields = [];
 
