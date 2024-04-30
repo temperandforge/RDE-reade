@@ -12,6 +12,8 @@ uuAZhAuHYoG61+z+rELDs04M5DeMlxgi
 
 
 ## CHANGELOG
+[2024.04.30]
+1. Added passthrough tracking for GET parameter utm_id so that utm_id's get passed from google ads to salesforce.
 
 #### 23-12-21:
 - changed legal page to account expect iubenda raw embed HTML
