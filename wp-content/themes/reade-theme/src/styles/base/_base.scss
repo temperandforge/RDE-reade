@@ -53,6 +53,13 @@ a {
    text-decoration: none;
 }
 
+
+.buttons--wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
 @import '_footer';
 @import '_header';
 @import '_menu';
