@@ -29,6 +29,7 @@ if (!is_null($cart)) {
 
     <form id="piq-itemized-rfq" name="piq-itemized-rfq" action="/wp-content/themes/reade-theme/_verify-recaptcha.php" method="POST">
     <input type="hidden" name="action" value="doProcessRFQ">
+    <input type="hidden" id="utm_id" name="utm_id" value="N/A">
     <?php wp_nonce_field('rfq', 'rfq_nonce'); ?>
     
     <div class="piq-container">

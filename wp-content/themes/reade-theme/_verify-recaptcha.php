@@ -72,12 +72,13 @@
                 '00N6g00000VMFwF' => !empty($_POST['00N6g00000VMFwF']) ? $_POST['00N6g00000VMFwF'] : '',
                 '00N6g00000TtToG' => !empty($_POST['00N6g00000TtToG']) ? $_POST['00N6g00000TtToG'] : '',
                 '00N6g00000TtToJ' => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
-                '00N6g00000TUVGD' => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : ''
+                '00N6g00000TUVGD' => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : '',
+                '00NUP000000pL5d' => !empty($_POST['utm_id']) ? $_POST['utm_id'] : 'N/A'
             );
 
             // // send the post data with curl
             // // Initialize cURL session
-             $ch = curl_init('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt');
+            $ch = curl_init('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D6g000003RNAt');
 
             $headers = array(
                 "X-Custom-Header: website-",
@@ -177,6 +178,7 @@
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => '6LfEWw8pAAAAAPojruCyAX8eD1e_OW9qqhd1-4kW', 'response' => $_POST['g-recaptcha-response'])));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
         // local only
         // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -229,6 +231,7 @@
                 '00N6g00000U3avS'   => !empty($_POST['00N6g00000U3avS']) ? $_POST['00N6g00000U3avS'] : '',
                 '00N6g00000TtToJ'   => !empty($_POST['00N6g00000TtToJ']) ? $_POST['00N6g00000TtToJ'] : '',
                 '00N6g00000TUVGD'   => !empty($_POST['00N6g00000TUVGD']) ? $_POST['00N6g00000TUVGD'] : '',
+                '00NUP000000pL5d' => !empty($_POST['utm_id']) ? $_POST['utm_id'] : 'N/A'
             );
 
 
