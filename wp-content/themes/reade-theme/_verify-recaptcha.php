@@ -108,8 +108,8 @@
                 $email_headers = array(
                     'MIME-Version' => '1.0',
                     'Content-type' => 'text/plain; charset=UTF-8',
-                    'From' => 'reade-form-submissions@reade.com',
-                    'Reply-To' => 'reade-form-submissions@reade.com',
+                    'From' => 'salesforceemailrelay@reade.com',
+                    'Reply-To' => 'salesforceemailrelay@reade.com',
                 );
     
                 $email_text = "Custom Product Request\n";
@@ -267,8 +267,8 @@
                 $email_headers = array(
                     'MIME-Version' => '1.0',
                     'Content-type' => 'text/plain; charset=UTF-8',
-                    'From' => 'reade-form-submissions@reade.com',
-                    'Reply-To' => 'reade-form-submissions@reade.com',
+                    'From' => 'salesforceemailrelay@reade.com',
+                    'Reply-To' => 'salesforceemailrelay@reade.com',
                 );
         
                 $email_text = "RFQ Submission\n";
