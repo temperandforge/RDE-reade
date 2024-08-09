@@ -69,7 +69,7 @@
     "cache-control: no-cache",
     "content-type: application/x-www-form-urlencoded"
 );
-  wp_mail('scott@temperandforge.com', 'test', 'testdata', $headers);
+
   ?>
 </head>
 

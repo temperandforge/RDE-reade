@@ -257,12 +257,12 @@ if (!empty($post->post_content) && !has_shortcode($post->post_content, 'contact-
    <script>
       if (document.getElementById('piq-itemized-rfq')) {
          function onSubmit(token) {
-            //document.getElementById('piq-itemized-rfq').dispatchEvent(new Event('submit'));
+            document.getElementById('piq-itemized-rfq').dispatchEvent(new Event('submit'));
          }
       }
       if (document.getElementById('custom-rfq-form')) {
          function onCustomSubmit(token) {
-            //document.getElementById('custom-rfq-form').dispatchEvent(new Event('submit'));
+            document.getElementById('custom-rfq-form').dispatchEvent(new Event('submit'));
          }
       }
    </script>
