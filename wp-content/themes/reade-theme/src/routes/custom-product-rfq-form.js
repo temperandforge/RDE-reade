@@ -57,7 +57,7 @@ export default {
       e.preventDefault();
       if (validateFormPart2()) {
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
+        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, r-00N6g00000TtToG#r-state').removeClass('rfq-error');
         
 
          // update salesforce form with values from this field
@@ -73,19 +73,30 @@ export default {
 
         //state
         $('#sf-form #state').val($('#r-state dt p').text());
-        $('#sf-form #country').val($('#r-country dt p').text());
+        $('#sf-form #country').val($('#r-country dt p').text() == 'Select Country' ? 'Not specified' : $('#r-country dt p').text());
 
         // how they found us
         $('#00N6g00000TtToG').val($('#r-00N6g00000TtToG dt p').text());
 
         // found us details - if "other" is selected
-        $('#00N6g00000U3avS').val($('#r-00N6g00000U3avS').val());
+        $('#00N6g00000U3avS').val($('#r-00N6g00000U3avS').val() ? 'Not Specified' : $('#r-00N6g00000U3avS').val());
 
         // preferred method of contact
-        $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ dt p').text());
+        $('#00N6g00000TtToJ').val($('#r-00N6g00000TtToJ dt p').text() == 'Preferred Method of Contact' ? 'Not Specified' : $('#r-00N6g00000TtToJ dt p').text());
 
         // product 1 name
         $('#00N6g00000VMFwG').val($('#00N6g00000TUVFe').val());
+
+        let currently_using;
+        
+        if (!$('#r-currently-using-yes').is(':checked') && !$('#r-currently-using-no').is(':checked')) {
+          currently_using = 'Not Specified';
+        } else {
+          currently_using = $('#r-currently-using-yes').is(':checked') ? 'Yes' : false;
+          if (!currently_using) {
+            currently_using = $('#r-currently-using-no').is(':checked') ? 'No' : false;
+          }
+        }
 
         // product 1 details
         $('#00N6g00000VMFwF').text(
@@ -95,7 +106,7 @@ export default {
             'Min. Purity: ' + $('#00N6g00000TUVFy').val() + "\r\n" + 
             'Quantity: ' + $('#00N6g00000TUVG3').val() + "\r\n" + 
             'Quantity Unit: ' + $('#00N6g00000TUVFo dt p').text() + "\r\n" + 
-            'Currently Using: ' + ($('#r-currently-using-yes').is(':checked') ? 'Yes' : 'No') + "\r\n" + 
+            'Currently Using: ' + currently_using + "\r\n" + 
             'General Application: ' + $('#00N6g00000TUVG8').val()
         );
  
@@ -109,7 +120,7 @@ export default {
       } else {
         enableForm();
         $('.all-fields-2').removeClass('rfq-error');
-        $('#r-00N6g00000TtToJ, #r-00N6g00000TtToG, #r-state, #r-country').removeClass('rfq-error');
+        $('#r-00N6g00000TtToG, #r-00N6g00000U3avS, #r-state').removeClass('rfq-error');
         
         for (let i = 0; i < errorfields2.length; i++) {
           document.getElementById(errorfields2[i]).classList.add('rfq-error');
@@ -154,11 +165,12 @@ export default {
         }
       }
 
-      if ($('#r-00N6g00000TtToJ dt p').text() == 'Preferred Method of Contact *') {
-        if (!errorfields2.includes('r-00N6g00000TtToJ')) {
-          errorfields2.push('r-00N6g00000TtToJ');
-        }
-      }
+      // this field is now optional, no longer required
+      //if ($('#r-00N6g00000TtToJ dt p').text() == 'Preferred Method of Contact') {
+      //  if (!errorfields2.includes('r-00N6g00000TtToJ')) {
+      //    errorfields2.push('r-00N6g00000TtToJ');
+      //  }
+      //}
 
       if ($('#r-state dt p').text() == 'State/Providence') {
          if (!errorfields2.includes('r-state')) {
@@ -166,11 +178,12 @@ export default {
          }
        }
 
-      if ($('#r-country dt p').text() == 'Select Country *') {
-        if (!errorfields2.includes('r-country')) {
-          errorfields2.push('r-country');
-        }
-      }
+      // field is optional and no longer required
+      // if ($('#r-country dt p').text() == 'Select Country') {
+      //   if (!errorfields2.includes('r-country')) {
+      //     errorfields2.push('r-country');
+      //   }
+      // }
 
       if ($('#r-00N6g00000TtToG dt p').text() == 'How did you find us? *') {
         if (!errorfields2.includes('r-00N6g00000TtToG')) {
@@ -186,13 +199,13 @@ export default {
          }
       }
 
-      // if ($('#r-00N6g00000TtToG').val() == 'Other') {
-      //   if ($('#r-00N6g00000U3avS').val() == '') {
-      //     if (!errorfields2.includes('r-00N6g00000U3avS')) {
-      //       errorfields2.push('r-00N6g00000U3avS');
-      //     }
-      //   }
-      // }
+      if ($('#r-00N6g00000TtToG').val() == 'Other') {
+        if ($('#r-00N6g00000U3avS').val() == '') {
+          if (!errorfields2.includes('r-00N6g00000U3avS')) {
+            errorfields2.push('r-00N6g00000U3avS');
+          }
+        }
+      }
 
       if ($('#p-accept-terms input:checked').length != 1) {
         if (!errorfields2.push('p-accept-terms')) {
@@ -243,11 +256,13 @@ export default {
       //     errorfields.push('rfq-input-quantity');
       //   }
       // }
-      if ($('.rfq-currently-using input:checked').length != 1) {
-        if (!errorfields.includes('rfq-currently-using')) {
-          errorfields.push('rfq-currently-using');
-        }
-      }
+
+      // this field is no longer required
+      //if ($('.rfq-currently-using input:checked').length != 1) {
+      //  if (!errorfields.includes('rfq-currently-using')) {
+      //    errorfields.push('rfq-currently-using');
+      //  }
+      //}
 
 
 

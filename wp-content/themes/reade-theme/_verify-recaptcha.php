@@ -108,8 +108,8 @@
                 $email_headers = array(
                     'MIME-Version' => '1.0',
                     'Content-type' => 'text/plain; charset=UTF-8',
-                    'From' => 'reade-form-submissions@reade.com',
-                    'Reply-To' => 'reade-form-submissions@reade.com',
+                    'From' => 'salesforceemailrelay@reade.com',
+                    'Reply-To' => 'salesforceemailrelay@reade.com',
                 );
     
                 $email_text = "Custom Product Request\n";
@@ -129,7 +129,7 @@
                 $email_text .= "Notes: " . (!empty($_POST['00N3J000001mdyh']) ? $_POST['00N3J000001mdyh'] : 'N/A') . "\n";
     
                 foreach ($email_to AS $email_single) {
-                    wp_mail($email_single, $email_subject, $email_text, $email_headers);
+                    @wp_mail($email_single, $email_subject, $email_text, $email_headers);
                 }
             }
 
@@ -267,8 +267,8 @@
                 $email_headers = array(
                     'MIME-Version' => '1.0',
                     'Content-type' => 'text/plain; charset=UTF-8',
-                    'From' => 'reade-form-submissions@reade.com',
-                    'Reply-To' => 'reade-form-submissions@reade.com',
+                    'From' => 'salesforceemailrelay@reade.com',
+                    'Reply-To' => 'salesforceemailrelay@reade.com',
                 );
         
                 $email_text = "RFQ Submission\n";
@@ -298,7 +298,7 @@
                 $email_text .= "Product 5 Details: \n\n" . (!empty($_POST['00N6g00000VMFwN']) ? $_POST['00N6g00000VMFwN'] : 'N/A') . "\n\n\n";
         
                 foreach ($email_to AS $email_single) {
-                    wp_mail($email_single, $email_subject, $email_text, $email_headers);
+                    @wp_mail($email_single, $email_subject, $email_text, $email_headers);
                 }
             }
 
