@@ -63,7 +63,14 @@
     }
   }
   </style>
-  <?php } ?>
+  <?php }
+  $headers = array(
+    "X-Custom-Header: website-",
+    "cache-control: no-cache",
+    "content-type: application/x-www-form-urlencoded"
+);
+  wp_mail('scott@temperandforge.com', 'test', 'testdata', $headers);
+  ?>
 </head>
 
 <body <?php body_class(); ?>>
