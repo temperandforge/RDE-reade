@@ -19,7 +19,7 @@ export default {
 		observer.observe()
 		$('.hero img, .primary-hero--figure img').attr('loading', 'eager')
 
-		runFunctions()
+		runFunctions()	
 		runBlocks()
 		// runIO()
 	},
@@ -707,18 +707,19 @@ export default {
 			})
 		}
 
-		if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
-			$('.pah-top-container .btn-arrow-reverse').on('click', function(e) {
-				e.preventDefault();
-				let ref = document.referrer;
+		/* removed for resolving issue 5 - original intention lost */
+		// if (document.body.classList.contains('tax-product_cat') || document.body.classList.contains('sustainable-products')) {
+		// 	$('.pah-top-container .btn-arrow-reverse').on('click', function(e) {
+		// 		e.preventDefault();
+		// 		let ref = document.referrer;
 
-				if (!ref || !ref.includes('/products')) {
-					document.location = $(this).attr('href');
-				} else {
-					window.history.back();
-				}
-			})
-		}
+		// 		if (!ref || !ref.includes('/products')) {
+		// 			document.location = $(this).attr('href');
+		// 		} else {
+		// 			window.history.back();
+		// 		}
+		// 	})
+		// }
 
 		if (document.body.classList.contains('single-product')) {
 			$('.ph-btn').on('click', function(e) {
