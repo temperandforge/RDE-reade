@@ -488,7 +488,7 @@ $fields = get_fields();
                          );
 
                          tf_dropdown(array('id' => 'r-country',
-                              'select_text' => 'Select Country *',
+                              'select_text' => 'Select Country',
                               'width' => '100%',
                               'values' => $countries,
                               'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -508,7 +508,7 @@ $fields = get_fields();
                          $pmoc = [
                               'id' => 'r-00N6g00000TtToJ',
                               'class' => ['all-fields-2'],
-                              'select_text' => 'Preferred Method of Contact *',
+                              'select_text' => 'Preferred Method of Contact',
                               'width' => '100%',
                               'values' => [
                                    'Email' => 'Email',
@@ -554,7 +554,7 @@ $fields = get_fields();
                          ?>
 
 
-                         <input  class="all-fields-2" id="r-00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="text" placeholder="Enter how you found us *" style="display: none;" value="" />
+                         <input  class="all-fields-2" id="r-00N6g00000U3avS" maxlength="255" name="00N6g00000U3avS" size="20" type="text" placeholder="Enter how you found us" style="display: none;" value="" />
 
                          <p class="all-fields-2" id="p-accept-terms"><input id="r-accept-terms" type="checkbox" name="r-accept-terms"> I have read and accept the <a href="/about-us/terms-conditions-of-sale/" target="_blank">terms and conditions of sale</a></p>
 

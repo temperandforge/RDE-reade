@@ -330,11 +330,11 @@ if (!is_null($cart)) {
                     <div class="piq-form">
                         <div class="piq-form-container">
                             
-                            <input type="text" id="rfq-first-name" name="rfq-first-name" placeholder="First Name" value="">
-                            <input type="text" id="rfq-last-name" name="rfq-last-name" placeholder="Last Name" value="">
-                            <input type="text" id="rfq-company" name="rfq-company" placeholder="Company" value="">
-                            <input type="phone" id="rfq-phone" name="rfq-phone" placeholder="Phone Number" value="">
-                            <input type="email" id="rfq-email" name="rfq-email" placeholder="Email" value="">
+                            <input type="text" id="rfq-first-name" name="rfq-first-name" placeholder="First Name *" value="">
+                            <input type="text" id="rfq-last-name" name="rfq-last-name" placeholder="Last Name *" value="">
+                            <input type="text" id="rfq-company" name="rfq-company" placeholder="Company *" value="">
+                            <input type="phone" id="rfq-phone" name="rfq-phone" placeholder="Phone Number *" value="">
+                            <input type="email" id="rfq-email" name="rfq-email" placeholder="Email *" value="">
                             <input type="text" id="rfq-address-line-1" name="rfq-address-line-1" placeholder="Address" value="">
                             <input type="text" id="rfq-address-line-2" name="rfq-address-line-2" placeholder="Address Line 2" value="">
                             <input type="text" id="rfq-city" name="rfq-city" placeholder="City" value="">
@@ -679,7 +679,7 @@ if (!is_null($cart)) {
                            );
 
                            tf_dropdown(array('id' => 'rfq-country',
-                                'select_text' => 'Select Country *',
+                                'select_text' => 'Select Country',
                                 'width' => '100%',
                                 'values' => $countries,
                                 'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -694,7 +694,7 @@ if (!is_null($cart)) {
                             $piqOptions = array(
                                 'id' => 'find_us',
                                 'width' => '100%',
-                                'select_text' => 'How did you find us?',
+                                'select_text' => 'How did you find us? *',
                                 'svg' => '<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.01928 0.921548C0.78888 1.13142 0.772237 1.48834 0.982109 1.71874L5.75031 6.95339C5.85724 7.07079 6.00869 7.1377 6.16749 7.1377C6.32629 7.1377 6.47774 7.07079 6.58467 6.95339L11.3529 1.71874C11.5627 1.48833 11.5461 1.13142 11.3157 0.921547C11.0853 0.711674 10.7284 0.728318 10.5185 0.958722L6.16749 5.73538L1.81648 0.958723C1.6066 0.728319 1.24969 0.711675 1.01928 0.921548Z" fill="#004455"/>
                                     </svg>',
