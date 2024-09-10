@@ -243,6 +243,13 @@
             max-height: unset;
             overflow-y: hidden;
         }
+
+        dt p {
+            opacity: 0.3;
+            &.unit-selected {
+                opacity: 1;
+            }
+        }
     }
 
     .tf-dropdown-hidden-with-value {

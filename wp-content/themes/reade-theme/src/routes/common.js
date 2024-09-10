@@ -368,13 +368,20 @@ export default {
 		function handleSingleQTYUnits() {
 			if ($('#product-units').length) {
 				$('#product-units ul li').on('click', function () {
-					$('#product-qty-units').val($(this).data('key'))
+					$('#product-qty-units').val($(this).data('key'));
+					$('#product-units dt p').addClass('unit-selected');
 				})
 			}
 		}
 
 		function validateRFQForm(product_data) {
 			let error_msg = ''
+
+			if (product_data.product_unit.length) {
+				if (product_data.product_unit == 'Units') {
+					error_msg = 'Please select a Unit';
+				}
+			}
 
 			/* Simple product */
 			if (product_data.product_type == 'skip_crosssell') {

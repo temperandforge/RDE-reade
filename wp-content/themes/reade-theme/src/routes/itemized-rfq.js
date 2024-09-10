@@ -471,9 +471,6 @@ export default {
 
           } else {
 
-            console.log('form error');
-            console.log('here123');
-
             let fields = $('.piq-form input:not([type="submit"])');
             fields.each(function(index, element) {
               $(element).removeClass('rfq-error');
