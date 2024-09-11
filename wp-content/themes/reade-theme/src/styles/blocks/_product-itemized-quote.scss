@@ -225,12 +225,19 @@
 
         .btn-green-black-text {
             margin-top: 20px;
-            padding: 12px 20px;
+            padding: 12px;
             font-weight: 500;
             display: flex;
             align-self: center;
-            min-width: min(100%, 274px);
+            min-width: min(100%, 306px);
             font-weight: 700;
+            border-radius: 6px;
+            background: var(--Secondary-Green, #8BC53F);
+            color: #fff;
+
+            svg path {
+                fill: #fff;
+            }
         }
     }
 
