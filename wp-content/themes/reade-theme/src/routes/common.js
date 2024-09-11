@@ -1273,6 +1273,81 @@ export default {
 			handleHashChange();
 		}
 
+		/**
+		 * Function handleSearchFocus()
+		 * @params null
+		 *
+		 * When the search icon is clicked, this function auto gives the search input focus.
+		 */
+		function handleSearchFocus() {
+			$('.site-header__search').on('click', function () {
+			let this_width = window.innerWidth
+			if (this_width > 991) {
+				$('.site-header__search').attr('tabindex', '-1')
+				$(this).addClass('search-is-open')
+				$('.site-header__search-container').addClass('search-is-open')
+				$('.site-header__search-input').focus()
+		
+				let this_val = $('.site-header__search-input').val()
+				if (this_val.trim() != '') {
+					$('.site-header__search-clear').show()
+				}
+			}
+			})
+		}
+
+		/**
+		 * Function handleSearchClose()
+		 * @params null
+		 *
+		 * When the search is being closed
+		 */
+		function handleSearchClose() {
+			$('.site-header__search-container').click(function (event) {
+				console.log('here');
+			   // Check if the click was outside the form
+			   let do_close = false
+			   if (!$(event.target).closest('form').length) {
+				  do_close = true
+			   } else {
+				  if ($(event.target).closest('.site-header__search-close').length) {
+					 do_close = true
+				  }
+			   }
+		 
+			   if (do_close) {
+				  $('.site-header__search').attr('tabindex', '0')
+				  $('.site-header__search').removeClass('search-is-open')
+				  $('.site-header__search-container').removeClass('search-is-open')
+			   }
+			})
+		}
+
+		function handleSearchClear() {
+			$('.site-header__search-clear').on('click', function () {
+			   let this_val = $('.site-header__search-input').val()
+			   if (this_val.trim() != '') {
+				  $('.site-header__search-input').val('')
+				  $('.site-header__search-clear').hide()
+				  $('.site-header__search-input').focus()
+			   }
+			})
+		}
+		function handleSearchShowClear() {
+			$('.site-header__search-input').on('keyup', function () {
+			   let this_val = $('.site-header__search-input').val()
+			   if (this_val.trim() != '') {
+				  $('.site-header__search-clear').show()
+			   } else {
+				  $('.site-header__search-clear').hide()
+			   }
+			})
+		 
+			if ($('.site-header__search-input').val() != '') {
+			   $('.site-header__search-clear').show()
+			}
+		}
+
 		// run functions
 		handleTFDropdown()
 		handleNewsCardPagination()
@@ -1287,6 +1362,12 @@ export default {
 		handleChangeUnits()
 		handleChangeQty()
 		handleProductCustomField()
+
+		// search functions
+		handleSearchFocus();
+		handleSearchClose();
+		handleSearchClear();
+		handleSearchShowClear();
 
 		if ($('.pab-categories').length) {
 			window.addEventListener('resize', function handleResize() {

@@ -1,12 +1,12 @@
 @include respond-below(xl) {
 	.navbar,
 	.mobile-menu--header {
-		height: 5rem;
+		height: 4.75rem;
 		padding-block: 1rem;
 	}
 	.logo-link,
 	.mobile-menu--logo-link {
-		width: 5.3125rem;
+		width: 5.9375rem;
 		svg,
 		img {
 			width: 100%;
@@ -16,9 +16,13 @@
 }
 
 .mobile-search {
-	border: 1.5px solid var(--primary-500-main, #009fc6);
-	border-radius: .3125rem;
-   overflow: hidden;
+   	overflow: hidden;
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+	border-radius: 0.375rem;
+	border: 1px solid var(--primary-200-light-blue, #BAE3E9);
+	background: var(--Shades-White, #FFF);
+	height: 2.875rem;
 
 	form {
 		border-radius: 0.3125rem;
@@ -31,18 +35,34 @@
 		outline-color: none;
 		flex: 1;
 		padding: 0.5rem 1rem;
-
-      background-color: #fff;
+      	background-color: #fff;
+		font-size: 1rem;
 		color: var(--primary-500-main, #009fc6);
-		&::placeholder {
-			color: var(--primary-500-main, #009fc6);
-			opacity: 0.75;
-		}
+		
 		// font-family: Open Sans;
 		font-size: 0.875rem;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.25rem; /* 142.857% */
+		height: 2.875rem;
+
+		&::placeholder {
+			/* Paragraph/Medium/Semibold */
+			font-family: "Open Sans";
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 1.5rem; /* 150% */
+			opacity: 0.5;
+		}
+		-moz-appearance: textfield; /* For Firefox */
+		-webkit-appearance: textfield; /* For WebKit browsers */
+		appearance: textfield;
+
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+			appearance: none;
+		}
 	}
 	button {
 		padding-inline: 1rem;
@@ -67,7 +87,8 @@
 		@apply flex items-center justify-between;
 	}
 	&--logo-link {
-		width: 5.3125rem;
+		width: 5.9375rem;
+		margin-right: 0.5rem;
 		svg,
 		img {
 			width: 100%;
@@ -82,7 +103,8 @@
 		width: 100dvw;
 		// width: 100dvw; //non-functional
 		@include padding-main;
-		background: var(--primary-100, #cfeef6);
+		background: var(--Primary-50, #EFFBFF);
+		box-shadow: 0px 4px 30px 0px rgba(0, 159, 198, 0.14);
 
 		// .gtranslate_wrapper,
 		//.language-switcher-mobile,
@@ -96,6 +118,7 @@
 		}
 		// .gtranslate_wrapper {
 		.gt_selected {
+			background-color: transparent;
 			@apply btn;
 			padding: 0.75rem 1rem;
 			display: inline-flex;
@@ -105,7 +128,7 @@
 		}
 	}
 	&--menu-list {
-		@apply pt-2;
+		//@apply pt-2;
 
 		li a {
 			display: block;
@@ -127,7 +150,7 @@
 			}
 		}
 		.sub-menu {
-			@apply flex flex-col gap-y-3 mt-5 pl-10;
+			@apply flex flex-col gap-y-2 mt-5 mb-2 pl-10;
 
 			a {
 				@apply font-semibold text-primary;
@@ -146,12 +169,23 @@
 	}
 	.menu-item-has-children {
 		> a {
+			display: flex;
+			column-gap: 0.5rem;
+			align-items: center;
 			@apply relative z-10;
 			&:after {
-				@apply absolute ml-3 -top-0.5;
 				pointer-events: none;
-				content: url("data:image/svg+xml,%3Csvg width='18' height='10' viewBox='0 0 18 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.856266 0.498111C1.33129 0.0230905 2.10145 0.0230905 2.57647 0.498111L9 6.92164L15.4235 0.498111C15.8986 0.0230905 16.6687 0.0230905 17.1437 0.498111C17.6188 0.973132 17.6188 1.74329 17.1437 2.21831L9.8601 9.50195C9.38508 9.97697 8.61492 9.97697 8.1399 9.50195L0.856266 2.21831C0.381245 1.74329 0.381245 0.973132 0.856266 0.498111Z' fill='%23004455'/%3E%3C/svg%3E%0A");
-				transition: 0.2s;
+				content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNSAzNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPG1hc2sgaWQ9Im1hc2swXzY5ODJfMTU4IiBzdHlsZT0ibWFzay10eXBlOmFscGhhIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iMzUiIGhlaWdodD0iMzQiPgo8cmVjdCB4PSIwLjUiIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgZmlsbD0iI0Q5RDlEOSIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazBfNjk4Ml8xNTgpIj4KPHBhdGggZD0iTTE3LjUgMjEuODE2N0w5IDEzLjMxNjdMMTAuOTgzMyAxMS4zMzM0TDE3LjUgMTcuODVMMjQuMDE2NyAxMS4zMzM0TDI2IDEzLjMxNjdMMTcuNSAyMS44MTY3WiIgZmlsbD0iIzAwNDQ1NSIvPgo8L2c+Cjwvc3ZnPgo=");
+				transition: transform .2s ease, top 0s ease;
+				position: relative;
+				top: 6px;
+			}
+
+			&.item-open {
+				&:after {
+					transform: scaleY(-1);
+					top: -2px;
+				}
 			}
 		}
 		&.item-open > a:after {
@@ -163,7 +197,8 @@
 .mobile-menu--close-btn {
 	@apply inline-flex items-center justify-center p-2;
 	border-radius: 6px;
-	width: 7.5rem;
+	width: 2.875rem;
+	height: 2.875rem;
 	background: var(--primary-500-main, #009fc6);
 
 	/* Drop shadow/XSmall */

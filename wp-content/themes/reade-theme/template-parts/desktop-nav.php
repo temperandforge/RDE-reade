@@ -27,31 +27,53 @@ if(!defined('option_fields')) {
             ) );
           ?>
         </nav>
-         <div class="flex items-center ml-auto lg:ml-0">
-            <a href="/itemized-rfq/">
-              <span class="sr-only">RFQ</span>
-              <div class="doc-notifications" title="View Quote">
-               <?php
+         <div class="flex gap-x-6 items-center ml-auto lg:ml-0">
+            <div class="flex flex-row-reverse gap-x-2">
+              <a href="/itemized-rfq/" class="relative whitespace-nowrap btn-rfq flex flex-row gap-x-2 px-6 items-center bg-[#CFEEF6] rounded-[0.375rem] h-[46px] transition-colors duration-300 hover:bg-[#BAE3E9] text-[#009FC6] font-semibold" title="Build RFQ">
+                Build RFQ
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_6978_20" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="23" height="23">
+                  <rect x="0.771484" y="0.5" width="22" height="22" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask="url(#mask0_6978_20)">
+                  <path d="M20.0447 10.6292V17.9167C20.0447 18.4208 19.8651 18.8524 19.5061 19.2115C19.1471 19.5705 18.7155 19.75 18.2113 19.75H5.37799C4.87382 19.75 4.44222 19.5705 4.0832 19.2115C3.72417 18.8524 3.54465 18.4208 3.54465 17.9167V10.6292C3.19327 10.3083 2.92209 9.89583 2.73111 9.39167C2.54014 8.8875 2.53632 8.3375 2.71965 7.74167L3.68215 4.625C3.80438 4.22778 4.02209 3.89931 4.33528 3.63958C4.64847 3.37986 5.01132 3.25 5.42382 3.25H18.1655C18.578 3.25 18.937 3.37604 19.2426 3.62813C19.5481 3.88021 19.7697 4.2125 19.9072 4.625L20.8697 7.74167C21.053 8.3375 21.0492 8.87986 20.8582 9.36875C20.6672 9.85764 20.396 10.2778 20.0447 10.6292ZM13.8113 9.66667C14.2238 9.66667 14.537 9.52535 14.7509 9.24271C14.9648 8.96007 15.0488 8.64306 15.003 8.29167L14.4988 5.08333H12.7113V8.475C12.7113 8.79583 12.8183 9.07465 13.0322 9.31146C13.246 9.54826 13.5058 9.66667 13.8113 9.66667ZM9.68632 9.66667C10.0377 9.66667 10.3242 9.54826 10.5457 9.31146C10.7672 9.07465 10.878 8.79583 10.878 8.475V5.08333H9.09049L8.58632 8.29167C8.52521 8.65833 8.60542 8.97917 8.82695 9.25417C9.04847 9.52917 9.33493 9.66667 9.68632 9.66667ZM5.60715 9.66667C5.88215 9.66667 6.12278 9.56736 6.32903 9.36875C6.53528 9.17014 6.66132 8.91806 6.70715 8.6125L7.21132 5.08333H5.42382L4.50715 8.15417C4.41549 8.45972 4.46514 8.78819 4.65611 9.13958C4.84709 9.49097 5.1641 9.66667 5.60715 9.66667ZM17.9822 9.66667C18.4252 9.66667 18.746 9.49097 18.9447 9.13958C19.1433 8.78819 19.1891 8.45972 19.0822 8.15417L18.1197 5.08333H16.378L16.8822 8.6125C16.928 8.91806 17.054 9.17014 17.2603 9.36875C17.4665 9.56736 17.7072 9.66667 17.9822 9.66667ZM5.37799 17.9167H18.2113V11.4542C18.1349 11.4847 18.0853 11.5 18.0624 11.5H17.9822C17.5697 11.5 17.2068 11.4313 16.8936 11.2938C16.5804 11.1563 16.271 10.9347 15.9655 10.6292C15.6905 10.9042 15.3773 11.1181 15.0259 11.2708C14.6745 11.4236 14.3002 11.5 13.903 11.5C13.4905 11.5 13.1047 11.4236 12.7457 11.2708C12.3867 11.1181 12.0697 10.9042 11.7947 10.6292C11.5349 10.9042 11.2332 11.1181 10.8894 11.2708C10.5457 11.4236 10.1752 11.5 9.77799 11.5C9.33493 11.5 8.93389 11.4236 8.57486 11.2708C8.21584 11.1181 7.89882 10.9042 7.62382 10.6292C7.30299 10.95 6.98597 11.1753 6.67278 11.3052C6.35959 11.4351 6.00438 11.5 5.60715 11.5H5.50403C5.46584 11.5 5.42382 11.4847 5.37799 11.4542V17.9167Z" fill="#009FC6"/>
+                  </g>
+                </svg>
 
-               global $woocommerce;
-               if ($woocommerce->cart->get_cart_contents_count() > 0) {
-                ?><span id="doc-count" class="doc-count"></span><?php
-                }
+
+
+                
+                  <?php
+
+                  global $woocommerce;
+                  if ($woocommerce->cart->get_cart_contents_count() > 0) {
+                    ?><span id="doc-count" class="doc-count"></span><?php
+                  }
               
-              ?>
-               <svg aria-hidden="true" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <mask id="mask0_3744_12010" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25"> <rect y="0.684326" width="24" height="24" fill="#D9D9D9"/> </mask> <g mask="url(#mask0_3744_12010)"> <path d="M8 18.6843H16V16.6843H8V18.6843ZM8 14.6843H16V12.6843H8V14.6843ZM6 22.6843C5.45 22.6843 4.97917 22.4885 4.5875 22.0968C4.19583 21.7052 4 21.2343 4 20.6843V4.68433C4 4.13433 4.19583 3.66349 4.5875 3.27183C4.97917 2.88016 5.45 2.68433 6 2.68433H14L20 8.68433V20.6843C20 21.2343 19.8042 21.7052 19.4125 22.0968C19.0208 22.4885 18.55 22.6843 18 22.6843H6ZM13 9.68433V4.68433H6V20.6843H18V9.68433H13Z" fill="#009FC6"/> </g> </svg>
-              </div>
-            </a>
-            <div class="search-wrap mr-6">
-               <form role="search" id="header-site-search" method="get" action="<?php echo get_site_url() ?>">
-               <!-- <form role="search" method="get" action="<?php echo get_site_url() ?>"> -->
-                  <!-- //TODO <span aria-hidden="true" class="focus-detection fillall"></span> -->
+                  ?>
+                
+              </a>
+              <div class="search-wrap site-header__search">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.771484" y="0.5" width="46" height="46" rx="6" fill="#CFEEF7"/>
+                  <mask id="mask0_6901_583" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="11" y="11" width="25" height="25">
+                  <rect x="11.7715" y="11.5" width="24" height="24" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask="url(#mask0_6901_583)">
+                  <path d="M31.3715 32.5L25.0715 26.2C24.5715 26.6 23.9965 26.9167 23.3465 27.15C22.6965 27.3833 22.0048 27.5 21.2715 27.5C19.4548 27.5 17.9173 26.8708 16.659 25.6125C15.4007 24.3542 14.7715 22.8167 14.7715 21C14.7715 19.1833 15.4007 17.6458 16.659 16.3875C17.9173 15.1292 19.4548 14.5 21.2715 14.5C23.0882 14.5 24.6257 15.1292 25.884 16.3875C27.1423 17.6458 27.7715 19.1833 27.7715 21C27.7715 21.7333 27.6548 22.425 27.4215 23.075C27.1882 23.725 26.8715 24.3 26.4715 24.8L32.7715 31.1L31.3715 32.5ZM21.2715 25.5C22.5215 25.5 23.584 25.0625 24.459 24.1875C25.334 23.3125 25.7715 22.25 25.7715 21C25.7715 19.75 25.334 18.6875 24.459 17.8125C23.584 16.9375 22.5215 16.5 21.2715 16.5C20.0215 16.5 18.959 16.9375 18.084 17.8125C17.209 18.6875 16.7715 19.75 16.7715 21C16.7715 22.25 17.209 23.3125 18.084 24.1875C18.959 25.0625 20.0215 25.5 21.2715 25.5Z" fill="#009FC6"/>
+                  </g>
+                </svg>
+
+                <!--<form role="search" id="header-site-search" method="get" action="<?php echo get_site_url() ?>">
+                  //TODO <span aria-hidden="true" class="focus-detection fillall"></span>
                   <label for="desktop_search" class="sr-only">Search</label>
                   <input type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" id="desktop_search" spellcheck="false" name="s" />
-                  <button type="submit" aria-label="search"> <!-- TODO -->
+                  <button type="submit" aria-label="search">
                   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.627 16.3103L11.543 11.2263M13.2376 6.98967C13.2376 10.2654 10.5821 12.921 7.30632 12.921C4.03054 12.921 1.375 10.2654 1.375 6.98967C1.375 3.71389 4.03054 1.05835 7.30632 1.05835C10.5821 1.05835 13.2376 3.71389 13.2376 6.98967Z" stroke="#009FC6" stroke-width="1.81934" stroke-linecap="round" stroke-linejoin="round"/> </svg>
                   </button>
-               </form>
+                </form>
+                -->
+              </div>
             </div>
             <div class="language-switcher">
                <?php echo do_shortcode('[gtranslate]'); ?>
@@ -70,3 +92,33 @@ if(!defined('option_fields')) {
     </div>
   </div>
 </div>
+<!-- search-is-open : class when container is open -->
+<div class="site-header__search-container">
+      <form action="/" method="get">
+         <div class="site-header__search-icon-input" tabindex="0" aria-label="Search Reade">
+            <svg class="site-header__search-icon width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_6982_209" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+              <rect y="0.300415" width="24" height="24" fill="#D9D9D9"/>
+              </mask>
+              <g mask="url(#mask0_6982_209)">
+              <path d="M17.2503 10.7241C17.2503 12.2303 16.7613 13.6216 15.9377 14.7504L20.092 18.908C20.5022 19.3181 20.5022 19.9843 20.092 20.3945C19.6818 20.8046 19.0157 20.8046 18.6055 20.3945L14.4512 16.2369C13.3224 17.0638 11.9311 17.5495 10.4249 17.5495C6.6546 17.5495 3.59961 14.4945 3.59961 10.7241C3.59961 6.9538 6.6546 3.8988 10.4249 3.8988C14.1953 3.8988 17.2503 6.9538 17.2503 10.7241ZM10.4249 15.4494C11.0455 15.4494 11.6599 15.3271 12.2332 15.0897C12.8065 14.8522 13.3274 14.5042 13.7662 14.0654C14.205 13.6266 14.553 13.1057 14.7905 12.5324C15.028 11.9591 15.1502 11.3447 15.1502 10.7241C15.1502 10.1036 15.028 9.48916 14.7905 8.91587C14.553 8.34258 14.205 7.82167 13.7662 7.38289C13.3274 6.94412 12.8065 6.59606 12.2332 6.35859C11.6599 6.12113 11.0455 5.99891 10.4249 5.99891C9.80442 5.99891 9.18997 6.12113 8.61667 6.35859C8.04338 6.59606 7.52248 6.94412 7.0837 7.38289C6.64492 7.82167 6.29686 8.34258 6.0594 8.91587C5.82193 9.48916 5.69971 10.1036 5.69971 10.7241C5.69971 11.3447 5.82193 11.9591 6.0594 12.5324C6.29686 13.1057 6.64492 13.6266 7.0837 14.0654C7.52248 14.5042 8.04338 14.8522 8.61667 15.0897C9.18997 15.3271 9.80442 15.4494 10.4249 15.4494Z" fill="#004455"/>
+              </g>
+            </svg>
+
+            <input aria-label="Reade Search Input" class="site-header__search-input" type="search" name="s" autocomplete="off" placeholder="Search" value="<?php echo is_search() ? get_search_query() : ''; ?>">
+            <span class="site-header__search-clear" tabindex="0" aria-label="Clear Search">clear</span>
+         </div>
+         <div class="site-header__search-close" tabindex="0" aria-label="Close Search, Press Escape" role="button">
+         <svg width="68" height="44" viewBox="0 0 68 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.800415" width="68" height="43" rx="6" fill="#CFEEF7"/>
+<mask id="mask0_6982_218" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="22" y="10" width="24" height="25">
+<rect x="22" y="10.3004" width="24" height="24" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_6982_218)">
+<path d="M40.7736 17.5597C41.3359 16.9974 41.3359 16.0844 40.7736 15.5221C40.2114 14.9599 39.2983 14.9599 38.7361 15.5221L33.9998 20.2629L29.259 15.5266C28.6968 14.9644 27.7837 14.9644 27.2215 15.5266C26.6592 16.0889 26.6592 17.0019 27.2215 17.5642L31.9623 22.3005L27.226 27.0412C26.6637 27.6035 26.6637 28.5166 27.226 29.0788C27.7882 29.641 28.7013 29.641 29.2635 29.0788L33.9998 24.338L38.7406 29.0743C39.3028 29.6365 40.2159 29.6365 40.7781 29.0743C41.3404 28.5121 41.3404 27.599 40.7781 27.0367L36.0373 22.3005L40.7736 17.5597Z" fill="#009FC6"/>
+</g>
+</svg>
+
+         </div>
+      </form>
+   </div>
