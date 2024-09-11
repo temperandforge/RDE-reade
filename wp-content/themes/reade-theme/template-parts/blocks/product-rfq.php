@@ -267,7 +267,7 @@ $productAttrName = '';
                     </svg>',
                 );
 
-                $unitoptions['values']['units'] = 'Units';
+                //$unitoptions['values']['units'] = 'Units';
                 $unitoptions['values']['pieces'] = 'Pieces';
                 $unitoptions['values']['grams'] = 'Grams';
                 $unitoptions['values']['troy ounces'] = 'Troy Ounces';
