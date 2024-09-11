@@ -1,12 +1,15 @@
 @include respond-below(xl) {
+
 	.navbar,
 	.mobile-menu--header {
 		height: 4.75rem;
 		padding-block: 1rem;
 	}
+
 	.logo-link,
 	.mobile-menu--logo-link {
 		width: 5.9375rem;
+
 		svg,
 		img {
 			width: 100%;
@@ -16,7 +19,7 @@
 }
 
 .mobile-search {
-   	overflow: hidden;
+	overflow: hidden;
 	margin-top: 1.5rem;
 	margin-bottom: 0.75rem;
 	border-radius: 0.375rem;
@@ -30,20 +33,18 @@
 		display: flex;
 		align-items: center;
 	}
+
 	input {
 		outline: none;
-		outline-color: none;
 		flex: 1;
 		padding: 0.5rem 1rem;
-      	background-color: #fff;
-		font-size: 1rem;
+		background-color: #fff;
 		color: var(--primary-500-main, #009fc6);
-		
-		// font-family: Open Sans;
-		font-size: 0.875rem;
+
+		font-size: 1rem;
 		font-style: normal;
-		font-weight: 400;
-		line-height: 1.25rem; /* 142.857% */
+		font-weight: 500;
+		line-height: 1.25rem;
 		height: 2.875rem;
 
 		&::placeholder {
@@ -51,12 +52,16 @@
 			font-family: "Open Sans";
 			font-size: 1rem;
 			font-style: normal;
-			font-weight: 600;
-			line-height: 1.5rem; /* 150% */
+			font-weight: 500;
+			line-height: 1.5rem;
+			/* 150% */
 			opacity: 0.5;
 		}
-		-moz-appearance: textfield; /* For Firefox */
-		-webkit-appearance: textfield; /* For WebKit browsers */
+
+		-moz-appearance: textfield;
+		/* For Firefox */
+		-webkit-appearance: textfield;
+		/* For WebKit browsers */
 		appearance: textfield;
 
 		&::-webkit-search-cancel-button {
@@ -64,6 +69,7 @@
 			appearance: none;
 		}
 	}
+
 	button {
 		padding-inline: 1rem;
 	}
@@ -75,7 +81,7 @@
 	//non-functional on physical mobile
 	// width: calc(100vw - var(--scrollbar-width)); // set width of scrollbar - variable
 	width: 100vw;
-	width: 100dvw;
+	width: 100%;
 	@include padding-main;
 	z-index: 9999;
 	background: var(--primary-50, #effbff);
@@ -86,15 +92,18 @@
 	&--header {
 		@apply flex items-center justify-between;
 	}
+
 	&--logo-link {
 		width: 5.9375rem;
 		margin-right: 0.5rem;
+
 		svg,
 		img {
 			width: 100%;
 			height: auto;
 		}
 	}
+
 	&--footer {
 		@apply fixed bottom-0 flex flex-col 3xs:flex-row justify-between gap-3 left-0 py-6 z-50;
 		//non-functional on physical mobile
@@ -112,21 +121,25 @@
 		[class*='btn'] {
 			@apply grow inline-flex items-center justify-center px-3 text-center;
 		}
+
 		.language-switcher-mobile,
 		[class*='btn'] {
 			flex-basis: calc(50% - 0.75rem / 2);
 		}
+
 		// .gtranslate_wrapper {
 		.gt_selected {
 			background-color: transparent;
 			@apply btn;
 			padding: 0.75rem 1rem;
 			display: inline-flex;
+
 			&:hover {
 				@apply bg-white text-primary;
 			}
 		}
 	}
+
 	&--menu-list {
 		//@apply pt-2;
 
@@ -134,7 +147,7 @@
 			display: block;
 		}
 
-		> li {
+		>li {
 			@apply font-bold py-4;
 			border-bottom: 1px solid var(--primary-200-light-blue, #bae3e9);
 
@@ -143,12 +156,14 @@
 			font-size: 2rem;
 			line-height: 1.25;
 			letter-spacing: -0.02em;
+
 			&.menu-item-has-children {
 				.sub-menu li:last-of-type {
 					@apply mb-[10px];
 				}
 			}
 		}
+
 		.sub-menu {
 			@apply flex flex-col gap-y-2 mt-5 mb-2 pl-10;
 
@@ -159,6 +174,7 @@
 			}
 		}
 	}
+
 	.sub-menu {
 		li {
 			@apply font-semibold;
@@ -167,12 +183,14 @@
 			line-height: 1.5;
 		}
 	}
+
 	.menu-item-has-children {
-		> a {
+		>a {
 			display: flex;
 			column-gap: 0.5rem;
 			align-items: center;
 			@apply relative z-10;
+
 			&:after {
 				pointer-events: none;
 				content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNSAzNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPG1hc2sgaWQ9Im1hc2swXzY5ODJfMTU4IiBzdHlsZT0ibWFzay10eXBlOmFscGhhIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iMzUiIGhlaWdodD0iMzQiPgo8cmVjdCB4PSIwLjUiIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgZmlsbD0iI0Q5RDlEOSIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazBfNjk4Ml8xNTgpIj4KPHBhdGggZD0iTTE3LjUgMjEuODE2N0w5IDEzLjMxNjdMMTAuOTgzMyAxMS4zMzM0TDE3LjUgMTcuODVMMjQuMDE2NyAxMS4zMzM0TDI2IDEzLjMxNjdMMTcuNSAyMS44MTY3WiIgZmlsbD0iIzAwNDQ1NSIvPgo8L2c+Cjwvc3ZnPgo=");
@@ -188,7 +206,8 @@
 				}
 			}
 		}
-		&.item-open > a:after {
+
+		&.item-open>a:after {
 			transform: translateY(25%) scaleY(-1); //rotate(180deg);
 		}
 	}
