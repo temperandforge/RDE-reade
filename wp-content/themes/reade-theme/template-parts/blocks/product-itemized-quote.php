@@ -298,10 +298,10 @@ if (!is_null($cart)) {
                 }
 
                 if (!empty($fields['bottom_block_text'])) {
-                    ?>
-                    <p class="piq-bottom-block-text"><?php echo $fields['bottom_block_text']; ?></p>
-                    <?php
-                }
+                  ?>
+                  <p class="piq-bottom-block-text"><?php echo $fields['bottom_block_text']; ?></p>
+                  <?php
+              }
 
                 if (!empty($fields['bottom_block_button'])) {
                     ?>
