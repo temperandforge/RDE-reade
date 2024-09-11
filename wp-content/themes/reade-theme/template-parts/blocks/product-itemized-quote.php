@@ -240,8 +240,8 @@ if (!is_null($cart)) {
 
                                 ?></p>
 
-                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-yes rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-yes" value="1" <?php if ($contents['currently_using'] == 'Yes') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-yes">Yes</label><br />
-                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-no rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-no" value="0" <?php if ($contents['currently_using'] == 'No') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-no">No</label>
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-yes rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-yes" value="1" <?php if (isset($contents['currently_using']) && $contents['currently_using'] == 'Yes') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-yes">Yes</label><br />
+                                <input type="radio" name="rfq-using-<?php echo $key; ?>" class="rfq-using-no rfq-using-<?php echo $key; ?>" id="rfq-<?php echo $key; ?>-using-no" value="0" <?php if (isset($contents['currently_using']) && $contents['currently_using'] == 'No') { echo 'checked="checked"'; } ?>> <label for="rfq-<?php echo $key; ?>-using-no">No</label>
                                 </div>
                             </div>
                             <div class="piq-product-details-info-right">
