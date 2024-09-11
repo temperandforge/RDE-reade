@@ -158,6 +158,26 @@
             "append": ""
         },
         {
+            "key": "field_64baa21da875f",
+            "label": "Bottom Block Text",
+            "name": "bottom_block_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_64baa223a8760",
             "label": "Bottom Block Button",
             "name": "bottom_block_button",
@@ -365,5 +385,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692372429
+    "modified": 1726094239
 }

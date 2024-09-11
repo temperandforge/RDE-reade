@@ -297,6 +297,12 @@ if (!is_null($cart)) {
                     <?php
                 }
 
+                if (!empty($fields['bottom_block_text'])) {
+                  ?>
+                  <p class="piq-bottom-block-text"><?php echo $fields['bottom_block_text']; ?></p>
+                  <?php
+              }
+
                 if (!empty($fields['bottom_block_button'])) {
                     ?>
                     <a class="btn-green-black-text btn-arrow" href="<?php echo $fields['bottom_block_button']['url']; ?>">
