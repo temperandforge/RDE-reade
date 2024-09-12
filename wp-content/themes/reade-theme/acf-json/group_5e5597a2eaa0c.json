@@ -194,6 +194,26 @@
             "mime_types": ""
         },
         {
+            "key": "field_694738ddb2f42",
+            "label": "RFQ Button Text",
+            "name": "rfq_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Build RFQ",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e5597e4d93c2",
             "label": "Contact \/ Social Information",
             "name": "",
