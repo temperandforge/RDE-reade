@@ -29,8 +29,12 @@ if(!defined('option_fields')) {
         </nav>
          <div class="flex gap-x-6 items-center ml-auto lg:ml-0">
             <div class="flex flex-row-reverse gap-x-2">
-              <a href="/itemized-rfq/" class="relative whitespace-nowrap btn-rfq flex flex-row gap-x-2 px-6 items-center bg-[#CFEEF6] rounded-[0.375rem] h-[46px] transition-colors duration-300 hover:bg-[#BAE3E9] text-[#009FC6] font-semibold" title="Build RFQ">
-                <?php echo !empty($option_fields['rfq_button_text']) ? $option_fields['rfq_button_text'] : 'Build RFQ'; ?>
+              <?php
+
+              if (!empty($option_fields['rfq_button_link']) && !empty($option_fields['rfq_button_link']['title']) && !empty($option_fields['rfq_button_link']['url'])) {
+                ?>
+                <a href="<?php echo $option_fields['rfq_button_link']['url']; ?>" <?php if (!empty($option_fields['rfq_button_link']['target'])) { ?>target="_blank"<?php } ?> class="relative whitespace-nowrap btn-rfq flex flex-row gap-x-2 px-6 items-center bg-[#CFEEF6] rounded-[0.375rem] h-[46px] transition-colors duration-300 hover:bg-[#BAE3E9] text-[#009FC6] font-semibold" title="Build RFQ">
+                <?php echo $option_fields['rfq_button_link']['title']; ?>
                 <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <mask id="mask0_6978_20" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="23" height="23">
                   <rect x="0.771484" y="0.5" width="22" height="22" fill="#D9D9D9"/>
@@ -53,6 +57,10 @@ if(!defined('option_fields')) {
                   ?>
                 
               </a>
+                <?php 
+              }
+
+              ?>
               <div class="search-wrap site-header__search">
                 <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="0.771484" y="0.5" width="46" height="46" rx="6" fill="#CFEEF7"/>
