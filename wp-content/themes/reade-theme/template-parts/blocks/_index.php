@@ -379,6 +379,27 @@ function theme_register_blocks()
    ]);
 
    /** 
+    * Information List
+    * */
+    acf_register_block([
+      'name'         => 'information-list',
+      'title'         => 'Information List',
+      'render_template'   => get_stylesheet_directory() . "/template-parts/blocks/information-list.php",
+      'category'      => 'theme-blocks',
+      'icon'         => 'button',
+      'mode'         => $mode,
+      'keywords'      => ['faqs', 'reade', 'theme', TEXTDOMAIN],
+      'example'  => array(
+         'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+               '_is_preview'   => 'true'
+            )
+         )
+      ),
+   ]);
+
+   /** 
     * FAQS Hero
     * */
    acf_register_block([
