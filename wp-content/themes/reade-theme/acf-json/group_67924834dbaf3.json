@@ -61,11 +61,11 @@
             "delay": 0
         },
         {
-            "key": "field_67924883215c0",
-            "label": "Bulleted List Display?",
-            "name": "bulleted_list_display",
+            "key": "field_679248bc215c1",
+            "label": "List Items",
+            "name": "bullet_point_list_items",
             "aria-label": "",
-            "type": "true_false",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -74,36 +74,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_679248bc215c1",
-            "label": "Bullet Point List Items",
-            "name": "bullet_point_list_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_67924883215c0",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -112,8 +83,27 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_67929dc02c0af",
+                    "label": "List Item",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
+                    "parent_repeater": "field_679248bc215c1"
+                },
+                {
                     "key": "field_67927accb8961",
-                    "label": "Bullet Point Title",
+                    "label": "Title",
                     "name": "bullet_point_title",
                     "aria-label": "",
                     "type": "text",
@@ -127,7 +117,6 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -135,7 +124,7 @@
                 },
                 {
                     "key": "field_679248cd215c2",
-                    "label": "Bullet Point",
+                    "label": "Description",
                     "name": "bullet_point",
                     "aria-label": "",
                     "type": "textarea",
@@ -149,7 +138,6 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
@@ -277,5 +265,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737660136
+    "modified": 1737661956
 }
