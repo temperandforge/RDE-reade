@@ -75,6 +75,8 @@
                 "id": ""
             },
             "layout": "table",
+
+>>>>>>> stg
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -83,8 +85,27 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_67929dc02c0af",
+                    "label": "List Item",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
+                    "parent_repeater": "field_679248bc215c1"
+                },
+                {
                     "key": "field_67927accb8961",
-                    "label": "Bullet Point Title",
+                    "label": "Title",
                     "name": "bullet_point_title",
                     "aria-label": "",
                     "type": "text",
@@ -98,7 +119,6 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -264,7 +284,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/information-list"
             }
         ]
     ],

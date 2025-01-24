@@ -203,6 +203,40 @@ function handleIndustrySlider() {
 	})
 }
 
+function handleInformationSlider() {
+	const $slides = $('.information-list--section')
+
+	if (!$slides.length) {
+		return
+	}
+
+	$slides.each(function () {
+		$(this)
+			.find('.information-list--slider')
+			.slick({
+				slidesToScroll: 1,
+				rows: 3,
+				fade: true,
+				slidesPerRow: 2,
+				adaptiveHeight: true,
+				dots: true,
+				infinite: false,
+				appendDots: $(this).find('.information-list--dots'),
+				prevArrow: $(this).find('.information-list--arrows .slick-prev-arrow'),
+				nextArrow: $(this).find('.information-list--arrows .slick-next-arrow'),
+				responsive: [
+					{
+						breakpoint: 768,
+						settings: {
+							rows: 6,
+							slidesPerRow: 1,
+						},
+					},
+				],
+			})
+	})
+}
+
 function handleTestimonialSlider() {
 	const $slider = $('.testimonial-slider--section')
 
@@ -909,6 +943,7 @@ function runBlocks() {
 	handleLeadershipSlider()
 	handleTabbedRotator()
 	handleIndustrySlider()
+	handleInformationSlider()
 	handleTestimonialSlider()
 	handleTileSlider()
 	handleVerticalAccordions()
