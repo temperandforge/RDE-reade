@@ -24,6 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // get fields
 $productfields = get_fields();
 
+print_r ($productfields);
+
 // get product info
 $qo = get_queried_object();
 $product = new WC_Product($qo->ID);
@@ -56,6 +58,9 @@ get_header();
             <?php
             
          	the_content($product->get_description());
+
+             get_template_part( 'template-parts/blocks/product-call-to-action', false, $productfields );
+
 
          	/* temp */
 
