@@ -74,7 +74,11 @@
                 "class": "",
                 "id": ""
             },
+<<<<<<< HEAD
             "layout": "table",
+=======
+            "layout": "block",
+>>>>>>> 1eb0f6496ef6b5f9b2231bb71cf5d693437de4bf
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -83,8 +87,27 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_67929dc02c0af",
+                    "label": "List Item",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
+                    "parent_repeater": "field_679248bc215c1"
+                },
+                {
                     "key": "field_67927accb8961",
-                    "label": "Bullet Point Title",
+                    "label": "Title",
                     "name": "bullet_point_title",
                     "aria-label": "",
                     "type": "text",
@@ -98,7 +121,6 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -106,7 +128,7 @@
                 },
                 {
                     "key": "field_679248cd215c2",
-                    "label": "Bullet Point",
+                    "label": "Description",
                     "name": "bullet_point",
                     "aria-label": "",
                     "type": "textarea",
@@ -120,7 +142,6 @@
                     },
                     "default_value": "",
                     "maxlength": "",
-                    "allow_in_bindings": 0,
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
@@ -277,5 +298,10 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+<<<<<<< HEAD
     "modified": 1737724805
 }
+=======
+    "modified": 1737661956
+}
+>>>>>>> 1eb0f6496ef6b5f9b2231bb71cf5d693437de4bf
