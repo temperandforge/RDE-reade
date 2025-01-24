@@ -12,6 +12,9 @@
 				fill:rgb(0 159 198 / var(--tw-bg-opacity));
 			}
 		}
+		@include respond-below(sm) {
+			padding: 12px 20px;
+		}
 	}
 }
 
