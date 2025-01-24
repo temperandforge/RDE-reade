@@ -74,11 +74,9 @@
                 "class": "",
                 "id": ""
             },
-<<<<<<< HEAD
             "layout": "table",
-=======
-            "layout": "block",
->>>>>>> 1eb0f6496ef6b5f9b2231bb71cf5d693437de4bf
+
+>>>>>>> stg
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -128,7 +126,7 @@
                 },
                 {
                     "key": "field_679248cd215c2",
-                    "label": "Description",
+                    "label": "Bullet Point",
                     "name": "bullet_point",
                     "aria-label": "",
                     "type": "textarea",
@@ -142,6 +140,7 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
@@ -298,10 +297,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-<<<<<<< HEAD
-    "modified": 1737724805
+    "modified": 1737726054
 }
-=======
-    "modified": 1737661956
-}
->>>>>>> 1eb0f6496ef6b5f9b2231bb71cf5d693437de4bf

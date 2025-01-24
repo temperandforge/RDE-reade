@@ -38,6 +38,8 @@ get_header( 'shop' ); ?>
 
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
+			
+
 		<?php endwhile; // end of the loop. ?>
 
 	<?php
