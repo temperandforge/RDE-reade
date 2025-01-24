@@ -24,8 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // get fields
 $productfields = get_fields();
 
-print_r ($productfields);
-
 // get product info
 $qo = get_queried_object();
 $product = new WC_Product($qo->ID);
