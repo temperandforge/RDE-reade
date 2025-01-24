@@ -30,8 +30,11 @@ $fields = get_fields();
       <?php if( $pb = $fields['padding-row']['padding-bottom'] ): ?>
          padding-bottom: <?php echo $fields['padding-row']['padding-bottom'].'em;'; ?>
       <?php endif; ?>
-      <?php if( $fields['background_color'] ): ?>
-         background-color: <?php echo $fields['background_color']; ?>
+      <?php if( get_field('background_color') == 'white' ) : ?>
+         background-color: #ffffff;
+      <?php endif; ?>
+      <?php if( get_field('background_color') == 'blue' ) : ?>
+         background-color: #EFFBFF;
       <?php endif; ?>
    ">
  <div class="information-list--main theme-main">
@@ -53,7 +56,15 @@ $fields = get_fields();
         if (!empty($item['bullet_point_title']) && !empty($item['bullet_point'])) {
             ?>
             <div class="information-list--item">
-               <div class="bullet"></div>
+               <?php if ( get_field('bulleted_list_display') == true ): ?>
+
+                  <?php if( get_field('background_color') == 'blue' ) : ?>
+                     <div class="white-bullet"></div>
+                  <?php elseif( get_field('background_color') == 'white' ) : ?>
+                     <div class="blue-bullet"></div>
+                  <?php endif; ?>
+               <?php endif; ?>
+               
                 <div class="information-list--content">
                     <?php if(!empty($item['bullet_point_title'])) :?>
                         <p class="information-list--tile-heading"><?php echo $item['bullet_point_title'] ;?></p>
