@@ -1,7 +1,6 @@
 
 .information-list--section {
-	padding-left: 100px;
-    padding-right: 100px;
+	padding: 100px;
     h1 {
         font-size: 40px;
         font-style: normal;
@@ -42,10 +41,11 @@
 		padding: 130px 0;
 	}
 	@media screen and (max-width: 768px) {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding: 50px 20px;
 	}
 }
+
+
 
 .information-list--main {
 	@apply relative z-10;
@@ -198,4 +198,12 @@
 	    background-color: var(--neutral-300,#d4d4d4);
     	border: 1px solid transparent;
 	}
+}
+
+@media screen and (max-width: 768px) {
+
+	.information-list--item {
+		column-gap: 20px !important;
+	}
+
 }
