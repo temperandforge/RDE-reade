@@ -24,12 +24,6 @@ $fields = get_fields();
 
 <div class="information-list--section section-full"
    style="
-      <?php if( $pt = $fields['padding-row']['padding-top'] ): ?>
-         padding-top: <?php echo $fields['padding-row']['padding-top'].'em;'; ?>
-      <?php endif; ?>
-      <?php if( $pb = $fields['padding-row']['padding-bottom'] ): ?>
-         padding-bottom: <?php echo $fields['padding-row']['padding-bottom'].'em;'; ?>
-      <?php endif; ?>
       <?php if( get_field('background_color') == 'blue' ) : ?>
          background-color: #EFFBFF;
       <?php endif; ?>
