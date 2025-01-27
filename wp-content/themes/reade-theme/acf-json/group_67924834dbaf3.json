@@ -264,7 +264,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/information-list"
             }
         ]
     ],
@@ -277,5 +277,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737733820
+    "modified": 1737734377
 }
