@@ -41,6 +41,10 @@
 	@include respond-above(xl) {
 		padding: 130px 0;
 	}
+	@media screen and (max-width: 768px) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 .information-list--main {
@@ -49,7 +53,8 @@
 
 .information-list--heading {
 	@apply text-center;
-	@include inner-wrap(1024px);
+	max-width: 711px;
+	margin: 0 auto;
 
 	h2 {
 		text-align: center;
