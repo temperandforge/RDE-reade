@@ -39,7 +39,6 @@ $fields = get_fields();
       
    ">
 
-   <?php var_dump ( $fields['background_color']); ?>
  <div class="information-list--main theme-main">
   <div class="information-list--inner">
    <div class="information-list--wrap">
