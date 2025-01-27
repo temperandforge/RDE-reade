@@ -11,7 +11,7 @@ if( !empty( $block['data']['_is_preview'] ) ) {
 } else if( $fields = $args) {
 ?>
 
-<?php if( $fields['cta_copy-row'] ): ?>
+<?php if( $fields['cta_copy'] ): ?>
 
    <section class="product-cta"
    style="
