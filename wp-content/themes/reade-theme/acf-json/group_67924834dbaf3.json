@@ -1,28 +1,10 @@
 {
-    "key": "group_64b17e4f5e24c",
-    "title": "Benefits",
+    "key": "group_67924834dbaf3",
+    "title": "Information List",
     "fields": [
         {
-            "key": "field_64b17e4f756d2",
-            "label": "Benefits",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_64b17fa5c9960",
-            "label": "General",
+            "key": "field_67924834ddd7f",
+            "label": "Information List",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -35,12 +17,13 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
-            "key": "field_64b17e5b756d3",
-            "label": "Headline",
-            "name": "headline",
+            "key": "field_67924834ddd82",
+            "label": "Heading",
+            "name": "heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -58,11 +41,11 @@
             "append": ""
         },
         {
-            "key": "field_64b17e83756d4",
-            "label": "Text",
-            "name": "text",
+            "key": "field_67924834ddd85",
+            "label": "Content",
+            "name": "content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -72,15 +55,15 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
-            "key": "field_64b17e96756d5",
-            "label": "Benefits",
-            "name": "benefits",
+            "key": "field_679248bc215c1",
+            "label": "List Items",
+            "name": "bullet_point_list_items",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -100,39 +83,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_64b17eb0756d6",
-                    "label": "Icon",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "textplus": "Text Plus Sign",
-                        "marketplus": "Market Plus Sign",
-                        "sound": "Sound",
-                        "people": "People",
-                        "checkmark": "Check Mark"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "parent_repeater": "field_64b17e96756d5"
-                },
-                {
-                    "key": "field_64b17ec0756d7",
-                    "label": "Headline",
-                    "name": "headline",
+                    "key": "field_67927accb8961",
+                    "label": "Bullet Point Title",
+                    "name": "bullet_point_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -145,15 +98,16 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_64b17e96756d5"
+                    "parent_repeater": "field_679248bc215c1"
                 },
                 {
-                    "key": "field_64b17ec7756d8",
-                    "label": "Text",
-                    "name": "text",
+                    "key": "field_679248cd215c2",
+                    "label": "Bullet Point",
+                    "name": "bullet_point",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -166,51 +120,16 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "rows": "",
                     "placeholder": "",
-                    "new_lines": "br",
-                    "parent_repeater": "field_64b17e96756d5"
+                    "new_lines": "",
+                    "parent_repeater": "field_679248bc215c1"
                 }
             ]
         },
         {
-            "key": "field_64b17f05756d9",
-            "label": "Subtext",
-            "name": "subtext",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_64b17f0f756da",
-            "label": "Button",
-            "name": "button",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_64b17f43e51f9",
+            "key": "field_67924834ddd88",
             "label": "Settings",
             "name": "",
             "aria-label": "",
@@ -224,12 +143,104 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
-            "key": "field_64b17fcbbc0b4",
-            "label": "Blue Background",
-            "name": "blue_background",
+            "key": "field_679261ff2fe34",
+            "label": "Padding Row",
+            "name": "padding-row",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_679262122fe35",
+                    "label": "Padding Top",
+                    "name": "padding-top",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6792621c2fe36",
+                    "label": "Padding Bottom",
+                    "name": "padding-bottom",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_679392c9ad9c8",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "blue": "Blue"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_67924883215c0",
+            "label": "Display Bullets?",
+            "name": "bulleted_list_display",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -242,29 +253,10 @@
             },
             "message": "",
             "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
             "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
-        },
-        {
-            "key": "field_64b17ff59893f",
-            "label": "Wider Heading & Text",
-            "name": "wider_heading_&_text",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -272,7 +264,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/benefits"
+                "value": "acf\/information-list"
             }
         ]
     ],
@@ -285,5 +277,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689358352
+    "modified": 1737988879
 }
