@@ -57,9 +57,6 @@ get_header();
             
          	the_content($product->get_description());
 
-             get_template_part( 'template-parts/blocks/product-call-to-action', false, $productfields );
-
-
          	/* temp */
 
          	 if (isset($_GET['empty_cart'])) {
