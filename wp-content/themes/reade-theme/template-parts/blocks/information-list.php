@@ -30,13 +30,16 @@ $fields = get_fields();
       <?php if( $pb = $fields['padding-row']['padding-bottom'] ): ?>
          padding-bottom: <?php echo $fields['padding-row']['padding-bottom'].'em;'; ?>
       <?php endif; ?>
-      <?php if( get_field('background_color') == 'white' ) : ?>
-         background-color: #ffffff;
-      <?php endif; ?>
       <?php if( get_field('background_color') == 'blue' ) : ?>
          background-color: #EFFBFF;
       <?php endif; ?>
+      <?php if( get_field('background_color') == 'white' ) : ?>
+         background-color: #ffffff;
+      <?php endif; ?>
+      
    ">
+
+   <?php var_dump ( $fields['background_color']); ?>
  <div class="information-list--main theme-main">
   <div class="information-list--inner">
    <div class="information-list--wrap">
@@ -60,7 +63,8 @@ $fields = get_fields();
 
                   <?php if( get_field('background_color') == 'blue' ) : ?>
                      <div class="white-bullet"></div>
-                  <?php elseif( get_field('background_color') == 'white' ) : ?>
+                  <?php endif; ?>
+                  <?php if( get_field('background_color') == 'white' ) : ?>
                      <div class="blue-bullet"></div>
                   <?php endif; ?>
                <?php endif; ?>
